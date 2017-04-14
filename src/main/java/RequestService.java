@@ -24,7 +24,7 @@ public class RequestService {
         return alu;
     }
 
-    public ListaDeTareas obtenerNotasDeAlumno(String token){
+    public static ListaDeTareas obtenerNotasDeAlumno(String token){
     ListaDeTareas lista = new Gson().fromJson(callService(RESOURCE2, token), ListaDeTareas.class);
         return lista;
     }

@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.uqbar.commons.utils.Observable;
 
 @Observable
@@ -6,26 +10,26 @@ public class Alumno { // De todos estos atributos hay que eliminar los que sean 
 	private AlumnoJson alu;
 	private String token;
 	private String asignacion;
-	private int notasDeAsignacion;
+	private List<String> asignaciones;
+	private List<String> notasDeAsignacion;
 	public int legajo;
 	public String nombre;
 	public String apellido;
 	public String ghu;
+	private List<Tarea> tareas = new ArrayList<Tarea>();
+	
 
 	public void llenarDatos() {
 		alu = RequestService.obtenerDatosDeAlumno(token);
-		legajo = alu.getCode();
-		nombre = alu.getFirst_name();
-		apellido = alu.getLast_name();
-		ghu = alu.getGithub_user();
+		setLegajo(alu.getCode());;
+		setNombre(alu.getFirst_name());
+		setApellido(alu.getLast_name());
+		setGhu(alu.getGithub_user());
+		this.setTareas();
+		this.setAsignaciones();
+		
 	}
 
-	public void nothing() { // Método parásito para poder bindear el onClick del
-							// botón de mi modelo, hay que modificarlo y
-							// hacer que onClick tenga una acción que nos de las
-							// notas
-		this.setNotasDeAsignacion(2);
-	}
 
 	public int getLegajo() {
 		return legajo;
@@ -69,12 +73,12 @@ public class Alumno { // De todos estos atributos hay que eliminar los que sean 
 		this.token = token;
 	}
 
-	public int getNotasDeAsignacion() {
+	public List<String> getNotasDeAsignacion() {
 		return notasDeAsignacion;
 	}
 
-	public void setNotasDeAsignacion(int notasDeAsignacion) {
-		this.notasDeAsignacion = notasDeAsignacion;
+	public void setNotasDeAsignacion(List<String> notas) {
+		this.notasDeAsignacion = notas;
 	}
 
 	public String getAsignacion() {
@@ -85,5 +89,31 @@ public class Alumno { // De todos estos atributos hay que eliminar los que sean 
 		this.asignacion = asignacion;
 	}
 
+	public List<Tarea> getTareas() {
+		return tareas;
+	}
+	
+	public void setAsignaciones() {
+		asignaciones = this.obtenerNombreDeAsignaciones();
+	}
 
+	public List<String> getAsignaciones() {
+		return asignaciones;
+		
+	}
+	
+	public void setTareas() {
+		this.tareas = RequestService.obtenerNotasDeAlumno(token).getAssignments();
+	}
+
+	public List<String> obtenerNombreDeAsignaciones() {
+		return tareas.stream().map(tarea -> tarea.getTitle()).collect(Collectors.toList());
+	}
+
+	public void obtenerNotasDeAsignacion(String nombre) {
+		int index = this.obtenerNombreDeAsignaciones().indexOf(nombre);
+		setNotasDeAsignacion(tareas.get(index).getGrades().stream().map(nota -> nota.getValue()).collect(Collectors.toList()));
+	}
+	
+	 
 }
