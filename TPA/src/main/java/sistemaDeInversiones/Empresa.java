@@ -24,7 +24,7 @@ public class Empresa {
 		this.cuentas = cuentas;
 	}
 
-	public void cargarCuentas(List<Cuenta> unasCuentas, int unPeriodo) {
+	public void cargarCuentas() {
 		// Consultar archivo de cuentas y cargarlas.
 	}
 
