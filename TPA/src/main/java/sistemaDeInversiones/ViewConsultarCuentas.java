@@ -16,7 +16,7 @@ public class ViewConsultarCuentas extends Window<Empresa> {
 
 		this.setTitle("Consultar cuentas de una empresa");
 		
-		new Label(panelConsultar).setText("Estado de las cuentas:");
+		new Label(panelConsultar).setText("Estado de las cuentas");
 
 		//Muestra una tabla con las cuentas de las empresas.
 		
