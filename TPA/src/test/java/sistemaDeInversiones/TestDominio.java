@@ -9,25 +9,25 @@ import org.junit.Test;
 
 public class TestDominio {
 
-	private BolsaComercial listaEmpresas = new BolsaComercial();
+	private BolsaComercial bolsaComercial = new BolsaComercial();
 	private Empresa empresa1 = new Empresa("Jorgito");
 	private Empresa empresa2 = new Empresa("Guaymallén");
-	
+	private List<Empresa> listaEmpresas = Arrays.asList(empresa1, empresa2);
+
 	@Before
-	public void crearBolsaComercialDePrueba(){
-		listaEmpresas.agregarEmpresa(empresa1);
-		listaEmpresas.agregarEmpresa(empresa2);
+	public void crearBolsaComercialDePrueba() {
+		bolsaComercial.setEmpresas(listaEmpresas);
 	}
-	
+
 	@Test
 	public void SePuedenObtenerNombresDeEmpresas() {
 		List<String> nombres = Arrays.asList("Jorgito", "Guaymallén");
-		Assert.assertTrue(listaEmpresas.buscarNombresDeEmpresas() == nombres);
-	}
-	
-	@Test
-	public void SePuedenObtenerEmpresas(){
-		Assert.assertTrue(listaEmpresas.buscarEmpresa("Jorgito") == empresa1);
+		Assert.assertEquals(bolsaComercial.buscarNombresDeEmpresas(), nombres);
 	}
 
+	@Test
+	public void SePuedenObtenerEmpresas() {
+		Assert.assertEquals(bolsaComercial.buscarEmpresa("Jorgito"), empresa1);
+	}
+	
 }

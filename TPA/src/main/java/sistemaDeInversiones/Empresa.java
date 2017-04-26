@@ -1,5 +1,6 @@
 package sistemaDeInversiones;
 
+import java.util.Arrays;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
@@ -30,7 +31,15 @@ public class Empresa {
 	}
 
 	public void cargarCuentas() {
-		this.cuentas.addAll(BolsaValores.cargarCuentasDe(this.nombre));
+		// Acá se accede al archivo para cargar las cuentas de la empresa.
+		// Originalmente pensamos en hacer una clase estática "Bolsa de Valores" para que cargue todo.
+		// Pero tratamos de hacer la clase estática y tuvimos problemas...
+		// Así que...
+		// De momento, esto va a estar hardcodeado con unas cuentas de prueba para visualizar en la vista.
+		Cuenta cuenta1 = new Cuenta("EDITBA", 1000, 2010);
+		Cuenta cuenta2 = new Cuenta("Free Cash Flow", 2000, 1999);
+		List<Cuenta> lista = Arrays.asList(cuenta1, cuenta2);
+		this.setCuentas(lista);
 	}
 
 	public void consultarCuentas() {

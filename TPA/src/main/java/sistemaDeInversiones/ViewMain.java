@@ -5,7 +5,8 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 
 public class ViewMain extends MainWindow<Empresa> {
-	//Esto no debería tener un ViewModel, al menos por ahora. Es sólo una vista que lleva a otras vistas.
+	// Esto no debería tener un ViewModel, al menos por ahora. Es sólo una vista que lleva a otras vistas.
+	// Se hardcodea así para Eclipse no rompa.
 	public ViewMain() {
 		super(new Empresa("Bolsa de empresas"));
 	}
@@ -16,8 +17,7 @@ public class ViewMain extends MainWindow<Empresa> {
 
 		new Button(panelPrincipal).setCaption("Ingresar una nueva empresa");
 
-		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas")
-			.onClick(() -> new ViewCuentas(this, new BolsaComercial()).open());
+		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas").onClick(() -> new ViewCuentas(this, new BolsaComercial()).open());
 
 		new Button(panelPrincipal).setCaption("Comparar gráficamente empresas");
 

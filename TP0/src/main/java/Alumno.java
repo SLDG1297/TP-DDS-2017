@@ -5,8 +5,9 @@ import java.util.stream.Collectors;
 import org.uqbar.commons.utils.Observable;
 
 @Observable
-public class Alumno { // De todos estos atributos hay que eliminar los que sean calculables, no olvidar que son provisorios
-	
+public class Alumno { // De todos estos atributos hay que eliminar los que sean
+						// calculables, no olvidar que son provisorios
+
 	private AlumnoJson alu;
 	private String token;
 	private String asignacion;
@@ -17,19 +18,18 @@ public class Alumno { // De todos estos atributos hay que eliminar los que sean 
 	public String apellido;
 	public String ghu;
 	private List<Tarea> tareas = new ArrayList<Tarea>();
-	
 
 	public void llenarDatos() {
 		alu = RequestService.obtenerDatosDeAlumno(token);
-		setLegajo(alu.getCode());;
+		setLegajo(alu.getCode());
+		;
 		setNombre(alu.getFirst_name());
 		setApellido(alu.getLast_name());
 		setGhu(alu.getGithub_user());
 		this.setTareas();
 		this.setAsignaciones();
-		
-	}
 
+	}
 
 	public int getLegajo() {
 		return legajo;
@@ -63,8 +63,6 @@ public class Alumno { // De todos estos atributos hay que eliminar los que sean 
 		this.ghu = ghu;
 	}
 
-	
-	
 	public String getToken() {
 		return token;
 	}
@@ -92,16 +90,16 @@ public class Alumno { // De todos estos atributos hay que eliminar los que sean 
 	public List<Tarea> getTareas() {
 		return tareas;
 	}
-	
+
 	public void setAsignaciones() {
 		asignaciones = this.obtenerNombreDeAsignaciones();
 	}
 
 	public List<String> getAsignaciones() {
 		return asignaciones;
-		
+
 	}
-	
+
 	public void setTareas() {
 		this.tareas = RequestService.obtenerNotasDeAlumno(token).getAssignments();
 	}
@@ -112,8 +110,8 @@ public class Alumno { // De todos estos atributos hay que eliminar los que sean 
 
 	public void obtenerNotasDeAsignacion(String nombre) {
 		int index = this.obtenerNombreDeAsignaciones().indexOf(nombre);
-		setNotasDeAsignacion(tareas.get(index).getGrades().stream().map(nota -> nota.getValue()).collect(Collectors.toList()));
+		setNotasDeAsignacion(
+				tareas.get(index).getGrades().stream().map(nota -> nota.getValue()).collect(Collectors.toList()));
 	}
-	
-	 
+
 }
