@@ -8,6 +8,11 @@ public class Empresa {
 	private String nombre;
 	private List<Cuenta> cuentas;
 
+	public Empresa(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -25,7 +30,7 @@ public class Empresa {
 	}
 
 	public void cargarCuentas() {
-		// Consultar archivo de cuentas y cargarlas.
+		this.cuentas.addAll(BolsaValores.cargarCuentasDe(this.nombre));
 	}
 
 	public void consultarCuentas() {

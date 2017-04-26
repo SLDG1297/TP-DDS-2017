@@ -7,24 +7,23 @@ import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
-public class ViewGestionar extends Window<BolsaComercial> {
-	public ViewGestionar(WindowOwner panelPrincipal, BolsaComercial unaBolsa) {
+public class ViewCuentas extends Window<BolsaComercial> {
+	public ViewCuentas(WindowOwner panelPrincipal, BolsaComercial unaBolsa) {
 		super(panelPrincipal, unaBolsa);
 	}
 
 	@Override
 	public void createContents(Panel panelGestionar) {
-		this.setTitle("Gestionar estado de las empresas");
+		this.setTitle("Consultar estado de las cuentas");
 
 		new Label(panelGestionar).setText("Listado de empresas");
-		
-		//Crear lista de empresa
+
 		Selector<Empresa> selector = new Selector<Empresa>(panelGestionar);
-		selector.bindValueToProperty("nombre");
+		selector.bindValueToProperty("nombresDeEmpresas");
 		selector.bindItemsToProperty("empresas");
 
 		new Button(panelGestionar)
 			.setCaption("Consultar cuentas")
-			.onClick(() -> this.getModelObject().buscarEmpresa("nombre").cargarCuentas());
+			.onClick(() -> this.getModelObject().buscarEmpresa("nombresDeEmpresas").cargarCuentas());
 	}
 }
