@@ -15,11 +15,6 @@ public class Empresa {
 	private String nombre;
 	private List<Cuenta> cuentas;
 
-	public Empresa(String nombre) {
-		super();
-		this.nombre = nombre;
-	}
-
 	public String getNombre() {
 		return nombre;
 	}

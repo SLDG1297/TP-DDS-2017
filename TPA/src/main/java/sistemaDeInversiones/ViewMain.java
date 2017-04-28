@@ -8,7 +8,7 @@ public class ViewMain extends MainWindow<Empresa> {
 	// Esto no debería tener un ViewModel, al menos por ahora. Es sólo una vista que lleva a otras vistas.
 	// Se hardcodea así para Eclipse no rompa.
 	public ViewMain() {
-		super(new Empresa("Bolsa de empresas"));
+		super(new Empresa());
 	}
 
 	@Override

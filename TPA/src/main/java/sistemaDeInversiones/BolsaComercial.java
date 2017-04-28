@@ -9,7 +9,7 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 public class BolsaComercial {
 	// Con unas empresas para probar las vistas.
-	private List<Empresa> empresas = Arrays.asList(new Empresa("Jorgito"), new Empresa("Guaymallén"));
+	private List<Empresa> empresas = Arrays.asList(new Empresa(), new Empresa());
 	// Para bindear items del selector. También con un valor asignado para probar la vista.
 	private List<String> nombresEmpresas = this.buscarNombresDeEmpresas();
 	// Para bindear valores en el selector. Idem "nombresEmpresas".

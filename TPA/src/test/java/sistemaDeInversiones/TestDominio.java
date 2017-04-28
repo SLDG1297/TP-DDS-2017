@@ -10,12 +10,14 @@ import org.junit.Test;
 public class TestDominio {
 
 	private BolsaComercial bolsaComercial = new BolsaComercial();
-	private Empresa empresa1 = new Empresa("Jorgito");
-	private Empresa empresa2 = new Empresa("Guaymallén");
-	private List<Empresa> listaEmpresas = Arrays.asList(empresa1, empresa2);
+	private Empresa empresa1 = new Empresa();
+	private Empresa empresa2 = new Empresa();
 
 	@Before
 	public void crearBolsaComercialDePrueba() {
+		empresa1.setNombre("Jorgito");
+		empresa2.setNombre("Guaymallén");
+		private List<Empresa> listaEmpresas = Arrays.asList(empresa1, empresa2);
 		bolsaComercial.setEmpresas(listaEmpresas);
 	}
 
