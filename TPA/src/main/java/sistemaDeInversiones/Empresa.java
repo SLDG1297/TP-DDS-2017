@@ -2,6 +2,7 @@ package sistemaDeInversiones;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -13,7 +14,7 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 public class Empresa {
 	private String nombre;
-	private List<Cuenta> cuentas;
+	private List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
 	public Empresa(String nuevoNombre) {
 		nombre = nuevoNombre;
@@ -28,7 +29,6 @@ public class Empresa {
 	}
 
 	public List<Cuenta> getCuentas() {
-		cuentas = this.cargarCuentasHardcodeado();
 		return cuentas;
 	}
 
@@ -55,7 +55,7 @@ public class Empresa {
 	}
 */
 	
-	public List<Cuenta> cargarCuentasHardcodeado() {
+	public void cargarCuentasHardcodeado() {
 		// Acá se accede al archivo para cargar las cuentas de la empresa.
 		// Originalmente pensamos en hacer una clase estática "Bolsa de Valores" para que cargue todo.
 		// Pero tratamos de hacer la clase estática y tuvimos problemas...
@@ -63,8 +63,7 @@ public class Empresa {
 		// De momento, esto va a estar hardcodeado con unas cuentas de prueba para visualizar en la vista.
 		Cuenta cuenta1 = new Cuenta("EDITBA", 1000, 2010);
 		Cuenta cuenta2 = new Cuenta("Free Cash Flow", 2000, 1999);
-		List<Cuenta> lista = Arrays.asList(cuenta1, cuenta2);
-		return lista;
+		cuentas = Arrays.asList(cuenta1, cuenta2);
 	}
 
 	public void consultarCuentas() {

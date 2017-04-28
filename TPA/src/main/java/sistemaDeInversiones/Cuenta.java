@@ -1,8 +1,5 @@
 package sistemaDeInversiones;
 
-import org.uqbar.commons.utils.Observable;
-
-@Observable
 public class Cuenta {
 	String nombre;
 	int valor;

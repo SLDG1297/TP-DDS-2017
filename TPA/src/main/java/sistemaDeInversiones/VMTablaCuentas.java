@@ -9,14 +9,48 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 public class VMTablaCuentas {
 	
-	VMBolsaComercial miBolsa;
+	VMBolsaComercial miBolsaComercial;
 	
-	VMTablaCuentas(VMBolsaComercial miNuevaBolsa) {
-		miBolsa = miNuevaBolsa;
+	VMTablaCuentas(VMBolsaComercial mi_Bolsa_Comercial) {
+		miBolsaComercial = mi_Bolsa_Comercial;
+		miBolsaComercial.buscarEmpresa();
+		listaDeCuentas = this.buscarCuentas();
 	}
 
-	private List<Cuenta> listaDeCuentas = this.buscarCuentas(); //Representaria la lista de obejtos cuenta de una empresa
+	private List<Cuenta> listaDeCuentas; //Representaria la lista de objetos cuenta de una empresa
 	
+	public VMBolsaComercial getMiBolsaComercial() {
+		return miBolsaComercial;
+	}
+
+	public void setMiBolsaComercial(VMBolsaComercial miBolsaComercial) {
+		this.miBolsaComercial = miBolsaComercial;
+	}
+
+	public List<Cuenta> getListaDeCuentas() {
+		return listaDeCuentas;
+	}
+
+	public void setListaDeCuentas(List<Cuenta> listaDeCuentas) {
+		this.listaDeCuentas = listaDeCuentas;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Integer getValor() {
+		return valor;
+	}
+
+	public void setValor(Integer valor) {
+		this.valor = valor;
+	}
+
 	private String nombre = this.nombresDeCuentas().get(0); //Representaria el nombre de SOLO UNA cuenta
 	
 	private Integer valor = this.valoresDeCuentas().get(0); //Representaria el valor de SOLO UNA cuenta
@@ -24,7 +58,8 @@ public class VMTablaCuentas {
 	//Retorna la lista de objetos cuentas de la empresa de la vista anterior
 	public List<Cuenta> buscarCuentas() {
 		List<Cuenta> cuentas = new ArrayList<Cuenta>();
-		cuentas = miBolsa.buscarEmpresa(miBolsa.getNombreEmpresa()).getCuentas();
+		Empresa e = miBolsaComercial.getEmpresa();
+		cuentas = e.getCuentas();
 		return cuentas;
 	}
 

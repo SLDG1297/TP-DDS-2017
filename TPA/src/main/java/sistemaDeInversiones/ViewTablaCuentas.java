@@ -1,6 +1,7 @@
 package sistemaDeInversiones;
 
 import org.uqbar.arena.widgets.Button;
+import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
@@ -15,15 +16,16 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 
 	@Override
 	public void createContents(Panel panelTabla) {
-		this.setTitle("tabla de Estado de Cuentas");
-
+		this.setTitle("Tabla de estado de cuentas");
+		
+		
 		Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
 		// bindeo lista de cuentas
 		table.bindItemsToProperty("listaDeCuentas"); //Representaria la lista de obejtos cuenta de una empresa
+	
+	   //Las columnas se relacionan con una propiedad 
 		
-	/*Las columnas se relacionan con una propiedad */
-		
-		new Column<Cuenta>(table) //La propiedad nombre está asociada a una cuenta
+		 new Column<Cuenta>(table) //La propiedad nombre está asociada a una cuenta
 	    .setTitle("Nombre")
 	    .setFixedSize(150)
 	    .bindContentsToProperty("nombre"); 
@@ -39,6 +41,7 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 	    .bindContentsToProperty("periodo");
 
 	}
+	
 
 	/*public void createFormPanel(Panel panelTabla){
 		
@@ -56,4 +59,5 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 		table.setFixedSize(150); // el tamaño que va a tener
 		table.bindContentsToProperty("periodoCuenta");
 	}*/
-}
+	}
+

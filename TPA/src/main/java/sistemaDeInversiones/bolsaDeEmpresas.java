@@ -6,9 +6,7 @@ import java.util.stream.Collectors;
 
 public class bolsaDeEmpresas {
 	// Con unas empresas para probar las vistas.
-	private static List<Empresa> empresas = Arrays.asList(new Empresa("Rolito"), new Empresa("Esquivel"));
-	
-	
+	private static List<Empresa> empresas = Arrays.asList(new Empresa("Guaymallén"), new Empresa("Jorgito"), new Empresa("Aguila"));
 	
 	public List<Empresa> getEmpresas() {
 		return empresas;
@@ -19,7 +17,7 @@ public class bolsaDeEmpresas {
 	}
 
 	public static Empresa buscarEmpresa(String unNombre) {
-		Empresa empresaBuscada = empresas.stream().filter((Empresa e) -> e.getNombre() == unNombre).findFirst().get();
+		Empresa empresaBuscada = empresas.stream().filter( e -> e.getNombre() == unNombre).findFirst().get();
 		return empresaBuscada;	
 	}
 	
