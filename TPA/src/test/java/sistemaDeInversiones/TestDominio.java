@@ -35,22 +35,16 @@ public class TestDominio {
 	public void susClientesTienenNombre() {
 		Assert.assertEquals(bolsaComercial.getEmpresas().get(0).getNombre(), "EDITBA");	
 		Assert.assertEquals(bolsaComercial.getEmpresas().get(1).getNombre(), "Free Cash Flow");
-		Assert.assertEquals(bolsaComercial.getEmpresas().get(0).getNombre(), "EDITBA");
-		Assert.assertEquals(bolsaComercial.getEmpresas().get(1).getNombre(), "Free Cash Flow");
 	}
 	
 	@Test
 	public void susClientesTienenValores() {
 		Assert.assertEquals(bolsaComercial.getEmpresas().get(0).getValor(), 1000);
 		Assert.assertEquals(bolsaComercial.getEmpresas().get(1).getValor(), 2000);
-		Assert.assertEquals(bolsaComercial.getEmpresas().get(0).getValor(), 1000);
-		Assert.assertEquals(bolsaComercial.getEmpresas().get(1).getValor(), 2000);
 	}
 	
 	@Test
 	public void susClientesTienenPeriodos() {
-		Assert.assertEquals(bolsaComercial.getEmpresas().get(0).getPeriodo(), 2010);
-		Assert.assertEquals(bolsaComercial.getEmpresas().get(1).getPeriodo(), 1999);
 		Assert.assertEquals(bolsaComercial.getEmpresas().get(0).getPeriodo(), 2010);
 		Assert.assertEquals(bolsaComercial.getEmpresas().get(1).getPeriodo(), 1999);
 	}
