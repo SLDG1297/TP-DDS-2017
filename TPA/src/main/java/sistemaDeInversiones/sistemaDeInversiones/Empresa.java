@@ -14,6 +14,10 @@ import org.uqbar.commons.utils.Observable;
 public class Empresa {
 	private String nombre;
 	private List<Cuenta> cuentas;
+	
+	public Empresa(String nuevoNombre) {
+		nombre = nuevoNombre;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -24,13 +28,15 @@ public class Empresa {
 	}
 
 	public List<Cuenta> getCuentas() {
+		cuentas = this.cargarCuentasHardcodeado();
 		return cuentas;
 	}
 
 	public void setCuentas(List<Cuenta> cuentas) {
 		this.cuentas = cuentas;
 	}
-	
+
+/*
 	private void agregarCuenta(String cuentaJson) {
 		cuentas.add(new Gson().fromJson(cuentaJson, Cuenta.class)); // Guardo una Cuenta
 	}
@@ -47,8 +53,9 @@ public class Empresa {
 			e.printStackTrace();
 		}
 	}
+*/
 	
-	public void cargarCuentasHardcodeado() {
+	public List<Cuenta> cargarCuentasHardcodeado() {
 		// Acá se accede al archivo para cargar las cuentas de la empresa.
 		// Originalmente pensamos en hacer una clase estática "Bolsa de Valores" para que cargue todo.
 		// Pero tratamos de hacer la clase estática y tuvimos problemas...
@@ -57,7 +64,7 @@ public class Empresa {
 		Cuenta cuenta1 = new Cuenta("EDITBA", 1000, 2010);
 		Cuenta cuenta2 = new Cuenta("Free Cash Flow", 2000, 1999);
 		List<Cuenta> lista = Arrays.asList(cuenta1, cuenta2);
-		this.setCuentas(lista);
+		return lista;
 	}
 
 	public void consultarCuentas() {
