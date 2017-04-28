@@ -25,7 +25,7 @@ public class ViewCuentas extends Window<BolsaComercial> {
 		
 		Button cargarCuentas = new Button(panelGestionar);
 		cargarCuentas.setCaption("Cargar cuentas");
-		cargarCuentas.onClick(() -> this.getModelObject().buscarEmpresa(this.getModelObject().getNombreEmpresa()).cargarCuentas());
+		cargarCuentas.onClick(() -> this.getModelObject().buscarEmpresa(this.getModelObject().getNombreEmpresa()).cargarCuentasHardcodeado());
 		
 		// Acá habría que mostrar una tabla con las cuentas de las empresas.
 	}

@@ -1,7 +1,13 @@
 package sistemaDeInversiones;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
+import java.io.IOException;
+import com.google.gson.Gson;
+
 import org.uqbar.commons.utils.Observable;
 
 @Observable
@@ -29,8 +35,25 @@ public class Empresa {
 	public void setCuentas(List<Cuenta> cuentas) {
 		this.cuentas = cuentas;
 	}
+	
+	private void agregarCuenta(String cuentaJson) {
+		cuentas.add(new Gson().fromJson(cuentaJson, Cuenta.class)); // Guardo una Cuenta
+	}
 
-	public void cargarCuentas() {
+	public void cargarCuentasArchivo() {
+		try (Stream<String> stream = Files.lines(Paths.get("cuentas.txt"))) {
+	        stream.filter(e -> e != null).forEach(cuentaJson -> this.agregarCuenta(cuentaJson));
+//			stream.filter(e -> e != null).forEach(System.out::println); // Es para probar si funciona
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NullPointerException e) {
+			//System.out.println(cuentas.get(0).getNombre());
+			e.printStackTrace();
+		}
+	}
+	
+	public void cargarCuentasHardcodeado() {
 		// Acá se accede al archivo para cargar las cuentas de la empresa.
 		// Originalmente pensamos en hacer una clase estática "Bolsa de Valores" para que cargue todo.
 		// Pero tratamos de hacer la clase estática y tuvimos problemas...

@@ -24,7 +24,8 @@ public class ViewMain extends MainWindow<Empresa> {
 	}
 
 	public static void main(String[] args) {
-		new ViewMain().startApplication();
+		//new ViewMain().startApplication();
+		new Empresa().cargarCuentasHardcodeado();
 	}
 
 }
