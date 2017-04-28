@@ -11,7 +11,7 @@ public class ViewMain extends MainWindow<Empresa> {
 	VMBolsaComercial miBolsa = new VMBolsaComercial();
 	
 	public ViewMain() {
-		super(new Empresa("Parasito"));
+		super(new Empresa("ViewModel"));
 	}
 
 	@Override

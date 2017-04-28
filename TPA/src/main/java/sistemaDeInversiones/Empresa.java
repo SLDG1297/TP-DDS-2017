@@ -18,6 +18,7 @@ public class Empresa {
 	
 	public Empresa(String nuevoNombre) {
 		nombre = nuevoNombre;
+		this.cargarCuentasHardcodeado();
 	}
 
 	public String getNombre() {

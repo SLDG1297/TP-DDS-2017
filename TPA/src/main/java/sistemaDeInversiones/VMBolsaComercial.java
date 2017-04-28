@@ -34,12 +34,11 @@ public class VMBolsaComercial {
 	}
 
 	public void setNombreEmpresa(String nombre_Empresa) {
-		this.nombreEmpresa = nombre_Empresa/*this.buscarEmpresa().getNombre(*/;
+		this.nombreEmpresa = nombre_Empresa;
 	}
 
 	public void buscarEmpresa() {
 		empresa = bolsaDeEmpresas.buscarEmpresa(nombreEmpresa);
-		empresa.cargarCuentasHardcodeado();
 	}
 
 	public List<String> buscarNombresDeEmpresas() {

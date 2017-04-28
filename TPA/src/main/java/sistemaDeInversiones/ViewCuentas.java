@@ -8,12 +8,12 @@ import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 public class ViewCuentas extends Window<VMBolsaComercial> {
-	VMBolsaComercial miBolsa;
+	//VMBolsaComercial miBolsa;
 	
 	// No nos cierra del todo qué es WindowOwner. Así que se pone así para que no rompa Eclipse.
 	public ViewCuentas(WindowOwner panelPrincipal, VMBolsaComercial miNuevaBolsa) {
 		super(panelPrincipal, miNuevaBolsa);
-		miBolsa = miNuevaBolsa;
+		//miBolsa = miNuevaBolsa;
 	}
 	
 	@Override
@@ -29,7 +29,7 @@ public class ViewCuentas extends Window<VMBolsaComercial> {
 		
 		Button cargarCuentas = new Button(panelGestionar);
 		cargarCuentas.setCaption("Cargar cuentas");	
-		cargarCuentas.onClick(() -> this.getModelObject().buscarEmpresa());
+		//cargarCuentas.onClick(() -> this.getModelObject().buscarEmpresa());
 		cargarCuentas.onClick(() -> new ViewTablaCuentas(this, new VMTablaCuentas(this.getModelObject())).open());
 		
 		// Acá habría que mostrar una tabla con las cuentas de las empresas.
