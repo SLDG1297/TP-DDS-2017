@@ -16,9 +16,9 @@ public class Empresa {
 	private String nombre;
 	private List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
-	public Empresa(String nuevoNombre) {
+	public Empresa(String nuevoNombre, List<Cuenta> nuevasCuentas) {
 		nombre = nuevoNombre;
-		this.cargarCuentasHardcodeado();
+		cuentas = nuevasCuentas;
 	}
 
 	public String getNombre() {

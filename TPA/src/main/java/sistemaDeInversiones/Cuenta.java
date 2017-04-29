@@ -7,7 +7,6 @@ public class Cuenta {
 	List<Periodo> periodos;
 	
 	public Cuenta(String nombre, List<Periodo> periodos) {
-		super();
 		this.nombre = nombre;
 		this.periodos = periodos;
 	}
