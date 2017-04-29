@@ -1,15 +1,15 @@
 package sistemaDeInversiones;
 
+import java.util.List;
+
 public class Cuenta {
 	String nombre;
-	int valor;
-	int periodo;
+	List<Periodo> periodos;
 	
-	public Cuenta(String nombre, int valor, int periodo) {
+	public Cuenta(String nombre, List<Periodo> periodos) {
 		super();
 		this.nombre = nombre;
-		this.valor = valor;
-		this.periodo = periodo;
+		this.periodos = periodos;
 	}
 
 	public String getNombre() {
@@ -20,23 +20,11 @@ public class Cuenta {
 		this.nombre = nombre;
 	}
 
-	public int getValor() {
-		return valor;
+	public List<Periodo> getPeriodos() {
+		return periodos;
 	}
 
-	public void setValor(int valor) {
-		this.valor = valor;
-	}
-
-	public int getPeriodo() {
-		return periodo;
-	}
-
-	public void setPeriodo(int periodo) {
-		this.periodo = periodo;
-	}
-
-	public void mostrarValor() {
-		this.getValor();
+	public void setPeriodos(List<Periodo> periodos) {
+		this.periodos = periodos;
 	}
 }
