@@ -3,6 +3,7 @@ package sistemaDeInversiones;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
+import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Window;
@@ -18,8 +19,13 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 	public void createContents(Panel panelTabla) {
 		this.setTitle("Tabla de estado de cuentas");
 		
+		//Puse un selector para probar si se pueden ver los nombres de las cuentas cargadas
+		Selector<Cuenta> selector = new Selector<Cuenta>(panelTabla);
+		selector.bindValueToProperty("nombreCuentaSeleccionada");
+		selector.bindItemsToProperty("listaDeNombresDeCuentas");
 		
-		Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
+		
+		/*Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
 		// bindeo lista de cuentas
 		table.bindItemsToProperty("listaDeCuentas"); //Representaria la lista de obejtos cuenta de una empresa
 	
@@ -60,4 +66,5 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 		table.bindContentsToProperty("periodoCuenta");
 	}*/
 	}
+}
 

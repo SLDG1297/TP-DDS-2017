@@ -1,12 +1,13 @@
 package sistemaDeInversiones;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class bolsaDeEmpresas {
 	// Con unas empresas para probar las vistas.
-	private static List<Empresa> empresas = Arrays.asList(new Empresa("Guaymallén"), new Empresa("Jorgito"), new Empresa("Aguila"));
+	private static List<Empresa> empresas = new ArrayList<Empresa>();
 	
 	public List<Empresa> getEmpresas() {
 		return empresas;

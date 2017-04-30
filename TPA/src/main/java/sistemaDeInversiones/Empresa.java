@@ -16,9 +16,10 @@ public class Empresa {
 	private String nombre;
 	private List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
-	public Empresa(String nuevoNombre) {
+	public Empresa(String nuevoNombre, List<Cuenta> listaDeCuentas) {
 		nombre = nuevoNombre;
-		this.cargarCuentasHardcodeado();
+		cuentas = listaDeCuentas;
+		//this.cargarCuentasHardcodeado();
 	}
 
 	public String getNombre() {
@@ -56,7 +57,7 @@ public class Empresa {
 	}
 */
 	
-	public void cargarCuentasHardcodeado() {
+	/*public void cargarCuentasHardcodeado() {
 		// Acá se accede al archivo para cargar las cuentas de la empresa.
 		// Originalmente pensamos en hacer una clase estática "Bolsa de Valores" para que cargue todo.
 		// Pero tratamos de hacer la clase estática y tuvimos problemas...
@@ -69,5 +70,5 @@ public class Empresa {
 
 	public void consultarCuentas() {
 		this.getCuentas();
-	}
+	}*/
 }

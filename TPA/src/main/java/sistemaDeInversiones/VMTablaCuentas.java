@@ -9,22 +9,31 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 public class VMTablaCuentas {
 	
-	VMBolsaComercial miBolsaComercial;
-	
-	VMTablaCuentas(VMBolsaComercial mi_Bolsa_Comercial) {
-		miBolsaComercial = mi_Bolsa_Comercial;
-		miBolsaComercial.buscarEmpresa();
-		listaDeCuentas = this.buscarCuentas();
-	}
-
+	private Empresa empresaSeleccionada;
 	private List<Cuenta> listaDeCuentas; //Representaria la lista de objetos cuenta de una empresa
+	private List<String> listaDeNombresDeCuentas;//Solo para probar el selector por ahora
 	
-	public VMBolsaComercial getMiBolsaComercial() {
-		return miBolsaComercial;
+	VMTablaCuentas(Empresa empresa_Seleccionada) {
+		empresaSeleccionada = empresa_Seleccionada;
+		listaDeCuentas = this.buscarCuentas();
+		listaDeNombresDeCuentas = this.nombresDeCuentas();
+	}
+	
+	//Luego se saca esto si no es necesario***********************
+	public List<String> getListaDeNombresDeCuentas() {
+		return listaDeNombresDeCuentas;
 	}
 
-	public void setMiBolsaComercial(VMBolsaComercial miBolsaComercial) {
-		this.miBolsaComercial = miBolsaComercial;
+	public void setListaDeNombresDeCuentas(List<String> listaDeNombresDeCuentas) {
+		this.listaDeNombresDeCuentas = listaDeNombresDeCuentas;
+	}
+    //**********************************************************
+	public Empresa getEmpresaSeleccionada() {
+		return empresaSeleccionada;
+	}
+
+	public void setEmpresaSeleccionada(Empresa empresaSeleccionada) {
+		this.empresaSeleccionada = empresaSeleccionada;
 	}
 
 	public List<Cuenta> getListaDeCuentas() {
@@ -43,36 +52,17 @@ public class VMTablaCuentas {
 		this.nombre = nombre;
 	}
 
-	public Integer getValor() {
-		return valor;
-	}
-
-	public void setValor(Integer valor) {
-		this.valor = valor;
-	}
-
 	private String nombre = this.nombresDeCuentas().get(0); //Representaria el nombre de SOLO UNA cuenta
-	
-	private Integer valor = this.valoresDeCuentas().get(0); //Representaria el valor de SOLO UNA cuenta
 	
 	//Retorna la lista de objetos cuentas de la empresa de la vista anterior
 	public List<Cuenta> buscarCuentas() {
-		List<Cuenta> cuentas = new ArrayList<Cuenta>();
-		Empresa e = miBolsaComercial.getEmpresa();
-		cuentas = e.getCuentas();
-		return cuentas;
+		return empresaSeleccionada.getCuentas();
 	}
 
 	//Retorna una lista de nombres, de la lista de objetos cuentas
 	public List<String> nombresDeCuentas() {
-		List<String> nombres = this.buscarCuentas().stream().map((Cuenta e) -> e.getNombre()).collect(Collectors.toList());
+		List<String> nombres = listaDeCuentas.stream().map((Cuenta e) -> e.getNombre()).collect(Collectors.toList());
 		return nombres;
-	}
-
-	//Retorna una lista de valores, de la lista de objetos cuentas	
-	public List<Integer> valoresDeCuentas() {
-		List<Integer> valores = this.buscarCuentas().stream().map((Cuenta e) -> e.getValor()).collect(Collectors.toList());
-		return valores;
 	}
 	
 }

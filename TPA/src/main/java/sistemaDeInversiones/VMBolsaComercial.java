@@ -38,10 +38,12 @@ public class VMBolsaComercial {
 	}
 
 	public void buscarEmpresa() {
-		empresa = bolsaDeEmpresas.buscarEmpresa(nombreEmpresa);
+		//recordar cambiar a la bolsa de empresas NO parasito
+		empresa = bolsaDeEmpresasParasito.buscarEmpresa(nombreEmpresa);
 	}
 
 	public List<String> buscarNombresDeEmpresas() {
-		return bolsaDeEmpresas.buscarNombresDeEmpresas();
+		//recordar cambiar a la bolsa de empresas NO parasito
+		return bolsaDeEmpresasParasito.buscarNombresDeEmpresas();
 	}
 }
