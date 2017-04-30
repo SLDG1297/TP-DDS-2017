@@ -8,11 +8,12 @@ public class ViewMain extends MainWindow<VMPrincipal> {
 	// Esto no debería tener un ViewModel, al menos por ahora. Es sólo una vista que lleva a otras vistas.
 	// Se hardcodea así para Eclipse no rompa.
 	
-	VMBolsaComercial miBolsa = new VMBolsaComercial();
+	VMBolsaComercial miBolsa;
 	
-	public ViewMain(bolsaDeEmpresas bolsaEmpresas) {
+	public ViewMain(bolsaDeEmpresasParasito bolsaEmpresas) {
 		super(new VMPrincipal());
-		
+		//Se carga el viewModel para la próxima ventana con la bolsa de empresas ya cargadas
+		miBolsa = new VMBolsaComercial(bolsaEmpresas);
 	}
 
 	@Override
@@ -21,7 +22,7 @@ public class ViewMain extends MainWindow<VMPrincipal> {
 
 		new Button(panelPrincipal).setCaption("Ingresar una nueva empresa");
 
-		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas").onClick(() -> new ViewCargarCuentas(this, miBolsa).open());
+		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas").onClick(() -> new ViewCargarCuentas(this,miBolsa).open());
 
 		new Button(panelPrincipal).setCaption("Comparar gráficamente empresas");
 
@@ -29,7 +30,7 @@ public class ViewMain extends MainWindow<VMPrincipal> {
 
 	public static void main(String[] args) {
 		//Aca se deberían cargar las cuentas
-		bolsaDeEmpresas bolsaEmpresas = new bolsaDeEmpresas();
+		bolsaDeEmpresasParasito bolsaEmpresas = new bolsaDeEmpresasParasito();
 		//bolsaEmpresas.cargarEmpresas();
 		new ViewMain(bolsaEmpresas).startApplication();
 	}

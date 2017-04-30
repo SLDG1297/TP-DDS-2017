@@ -10,8 +10,8 @@ import org.uqbar.commons.utils.Observable;
 public class VMTablaCuentas {
 	
 	private Empresa empresaSeleccionada;
-	private List<Cuenta> listaDeCuentas; //Representaria la lista de objetos cuenta de una empresa
-	private List<String> listaDeNombresDeCuentas;//Solo para probar el selector por ahora
+	private List<Cuenta> listaDeCuentas = new ArrayList<Cuenta>(); //Representaria la lista de objetos cuenta de una empresa
+	private List<String> listaDeNombresDeCuentas = new ArrayList<String>();//Solo para probar el selector por ahora
 	
 	VMTablaCuentas(Empresa empresa_Seleccionada) {
 		empresaSeleccionada = empresa_Seleccionada;
@@ -44,15 +44,15 @@ public class VMTablaCuentas {
 		this.listaDeCuentas = listaDeCuentas;
 	}
 
-	public String getNombre() {
+	/*public String getNombre() {
 		return nombre;
 	}
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
+	}*/
 
-	private String nombre = this.nombresDeCuentas().get(0); //Representaria el nombre de SOLO UNA cuenta
+	//private String nombre = this.nombresDeCuentas().get(0); //Representaria el nombre de SOLO UNA cuenta
 	
 	//Retorna la lista de objetos cuentas de la empresa de la vista anterior
 	public List<Cuenta> buscarCuentas() {

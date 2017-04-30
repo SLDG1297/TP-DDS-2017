@@ -30,7 +30,5 @@ public class ViewCargarCuentas extends Window<VMBolsaComercial> {
 		cargarCuentas.onClick(() -> this.getModelObject().buscarEmpresa());
 		//Se le pasa a la otra vista la empresa seleccionada en el selector
 		cargarCuentas.onClick(() -> new ViewTablaCuentas(this, new VMTablaCuentas(this.getModelObject().getEmpresa())).open());
-		
-		// Acá habría que mostrar una tabla con las cuentas de las empresas.
 	}
 }

@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class bolsaDeEmpresasParasito {
-	// Con unas empresas para probar las vistas.
+	    // Con unas empresas para probar las vistas.
 	    
 	    private static List<Periodo> periodo1 = Arrays.asList(new Periodo(1990, 2000));
 	    private static List<Periodo> periodo2 = Arrays.asList(new Periodo(2001, 1000),new Periodo(2017, 4000));
-	    private static List<Cuenta> lista1 = Arrays.asList(new Cuenta("EDITBA",periodo1),new Cuenta("Free Cash Flow",periodo2));
-		private static List<Cuenta> lista2 = Arrays.asList(new Cuenta("EDITBA2",periodo2),new Cuenta("Free Cash Flow2",periodo1));
-		private static List<Cuenta> lista3 = Arrays.asList(new Cuenta("EDITBA3",periodo1));
-		private static List<Empresa> empresas = Arrays.asList(new Empresa("Guaymallén",lista1), new Empresa("Jorgito",lista2), new Empresa("Aguila",lista3));
+	    private static List<Cuenta> listaC1 = Arrays.asList(new Cuenta("EBITDA",periodo1),new Cuenta("Free Cash Flow",periodo2));
+		private static List<Cuenta> listaC2 = Arrays.asList(new Cuenta("FDS",periodo2),new Cuenta("EBITDA",periodo1));
+		private static List<Cuenta> listaC3 = Arrays.asList(new Cuenta("Free Cash Flow",periodo1));
+		private static List<Empresa> empresas = Arrays.asList(new Empresa("Guaymallén",listaC1), new Empresa("Jorgito",listaC2), new Empresa("Aguila",listaC3));
 		
 		public List<Empresa> getEmpresas() {
 			return empresas;
@@ -22,12 +22,12 @@ public class bolsaDeEmpresasParasito {
 			empresas = empresasNuevas;
 		}
 
-		public static Empresa buscarEmpresa(String unNombre) {
+		public Empresa buscarEmpresa(String unNombre) {
 			Empresa empresaBuscada = empresas.stream().filter( e -> e.getNombre() == unNombre).findFirst().get();
 			return empresaBuscada;	
 		}
 		
-		public static List<String> buscarNombresDeEmpresas() {
+		public List<String> buscarNombresDeEmpresas() {
 			List<String> nombres = empresas.stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());
 			return nombres;		
 		}

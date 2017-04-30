@@ -3,9 +3,10 @@ package sistemaDeInversiones;
 import java.util.List;
 
 public class LeerArchivo {
+	/*
 	public List<Empresas> excel() {
 //		return Parser.aEmpresas(List<String> nombresDeEmpresa, List<List<List<List<Integer>>>> cuentasAParsear)
-	}
+	}*/
 	
 	/*
 	 * 
