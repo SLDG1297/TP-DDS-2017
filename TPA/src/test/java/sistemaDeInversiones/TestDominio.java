@@ -19,7 +19,7 @@ public class TestDominio {
 
 	@Test
 	public void SePuedenObtenerNombresDeEmpresas() {
-		List<String> nombres = Arrays.asList("Jorgito", "Guaymallén", "Aguila");
+		List<String> nombres = Arrays.asList("Guaymallén","Jorgito","Aguila");
 		Assert.assertEquals(bolsaEmpresas.buscarNombresDeEmpresas(), nombres);
 	}
 
@@ -39,9 +39,10 @@ public class TestDominio {
 	}
 	*/
 	
-	/*@Test
-	public void puedoVerListaDeCuentasDeLaEmpresaSeleccionada(){
-		
-	}*/
+	@Test
+	public void puedoTomarElNombreDeLaCuentaDeUnaEmpresa(){
+		String nombre = bolsaEmpresas.buscarEmpresa("Jorgito").getCuentas().get(0).getNombre();
+		Assert.assertEquals(nombre, "FDS");
+	}
 	
 }

@@ -12,13 +12,23 @@ public class VMTablaCuentas {
 	private Empresa empresaSeleccionada;
 	private List<Cuenta> listaDeCuentas = new ArrayList<Cuenta>(); //Representaria la lista de objetos cuenta de una empresa
 	private List<String> listaDeNombresDeCuentas = new ArrayList<String>();//Solo para probar el selector por ahora
-	
-	VMTablaCuentas(Empresa empresa_Seleccionada) {
-		empresaSeleccionada = empresa_Seleccionada;
+	private String nombre;
+	VMTablaCuentas(VMBolsaComercial bolsaComercial) {
+		bolsaComercial.buscarEmpresa();
+		empresaSeleccionada = bolsaComercial.getEmpresa();
+		nombre = empresaSeleccionada.getNombre();
 		listaDeCuentas = this.buscarCuentas();
-		listaDeNombresDeCuentas = this.nombresDeCuentas();
+	    listaDeNombresDeCuentas = this.nombresDeCuentas();
 	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	//Luego se saca esto si no es necesario***********************
 	public List<String> getListaDeNombresDeCuentas() {
 		return listaDeNombresDeCuentas;

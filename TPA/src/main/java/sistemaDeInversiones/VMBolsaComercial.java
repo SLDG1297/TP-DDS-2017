@@ -6,13 +6,33 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 public class VMBolsaComercial {
 
-	// Para bindear items del selector. También con un valor asignado para probar la vista.
+	// Para bindear items del selector de empresas
 	public List<String> listaDeNombresDeEmpresas;
-	// Para bindear valores en el selector.
 	public String nombreEmpresa;
+	//Empresa seleccionada en el selector
 	public Empresa empresa;
-	public bolsaDeEmpresasParasito bolsaEmpresas = new bolsaDeEmpresasParasito();
+	public bolsaDeEmpresasParasito bolsaEmpresas;
+	//Para bindear items del selector de periodos de la empresa elegida
+	public int periodoElegido;
+	public List<Integer> listaDePeriodosDeEmpresa;
 	
+
+	
+	public int getPeriodoElegido() {
+		return periodoElegido;
+	}
+
+	public void setPeriodoElegido(int periodoElegido) {
+		this.periodoElegido = periodoElegido;
+	}
+
+	public List<Integer> getListaDePeriodosDeEmpresa() {
+		return listaDePeriodosDeEmpresa;
+	}
+
+	public void setListaDePeriodosDeEmpresa(List<Integer> listaDePeriodosDeEmpresa) {
+		this.listaDePeriodosDeEmpresa = listaDePeriodosDeEmpresa;
+	}
 
 	public VMBolsaComercial(bolsaDeEmpresasParasito bolsaEmpresas) {
 		super();
@@ -60,5 +80,9 @@ public class VMBolsaComercial {
 	public List<String> buscarNombresDeEmpresas() {
 		//recordar cambiar a la bolsa de empresas NO parasito
 		return this.bolsaEmpresas.buscarNombresDeEmpresas();
+	}
+	public List<Integer> buscarPeriodosDeEmpresa(){
+		//recordar cambiar a la bolsa de empresas NO parasito
+		return this.empresa.
 	}
 }

@@ -19,10 +19,13 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 	public void createContents(Panel panelTabla) {
 		this.setTitle("Tabla de estado de cuentas");
 		
+		new Label(panelTabla).bindValueToProperty("nombre");
+
 		//Puse un selector para probar si se pueden ver los nombres de las cuentas cargadas
 		Selector<Cuenta> selector = new Selector<Cuenta>(panelTabla);
-		selector.bindValueToProperty("nombreCuentaSeleccionada");
+		//selector.bindValueToProperty("nombreCuentaSeleccionada");
 		selector.bindItemsToProperty("listaDeNombresDeCuentas");
+	    
 		
 		
 		/*Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
