@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Cuenta {
 	String nombre;
-	List<Periodo> periodos;
+	int valor;
 	
-	public Cuenta(String nombre, List<Periodo> periodos) {
-		this.nombre = nombre;
-		this.periodos = periodos;
+	public Cuenta(String nuevoNombre, int nuevoValor) {
+		this.nombre = nuevoNombre;
+		this.valor = nuevoValor;
 	}
 
 	public String getNombre() {
@@ -19,11 +19,12 @@ public class Cuenta {
 		this.nombre = nombre;
 	}
 
-	public List<Periodo> getPeriodos() {
-		return periodos;
+	public int getValor() {
+		return valor;
 	}
 
-	public void setPeriodos(List<Periodo> periodos) {
-		this.periodos = periodos;
+	public void setValor(int valor) {
+		this.valor = valor;
 	}
+
 }

@@ -1,12 +1,15 @@
 package sistemaDeInversiones;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Periodo {
 	int anio;
-	int valor;
+	List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
-	public Periodo(int nuevoAnio, int nuevoValor) {
+	public Periodo(int nuevoAnio, List<Cuenta> nuevasCuentas) {
 		anio = nuevoAnio;
-		valor = nuevoValor;
+		cuentas = nuevasCuentas;
 	}
 
 	public int getAnio() {
@@ -17,11 +20,12 @@ public class Periodo {
 		this.anio = anio;
 	}
 
-	public int getValor() {
-		return valor;
+	public List<Cuenta> getCuentas() {
+		return cuentas;
 	}
 
-	public void setValor(int valor) {
-		this.valor = valor;
+	public void setCuentas(List<Cuenta> cuentas) {
+		this.cuentas = cuentas;
 	}
+
 }

@@ -14,13 +14,18 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 public class Empresa {
 	private String nombre;
-	private List<Cuenta> cuentas = new ArrayList<Cuenta>();
+	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
-	public Empresa(String nuevoNombre, List<Cuenta> nuevasCuentas) {
+	public Empresa(String nuevoNombre, List<Periodo> nuevosPeriodos) {
 		nombre = nuevoNombre;
-		cuentas = nuevasCuentas;
+		periodos = nuevosPeriodos;
 	}
 
+	public Empresa(String nuevoNombre, Periodo nuevoPeriodo) { // Agregar un periodo
+		nombre = nuevoNombre;
+		periodos.add(nuevoPeriodo);
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -29,12 +34,12 @@ public class Empresa {
 		this.nombre = nombre;
 	}
 
-	public List<Cuenta> getCuentas() {
-		return cuentas;
+	public List<Periodo> getPeriodos() {
+		return periodos;
 	}
 
-	public void setCuentas(List<Cuenta> cuentas) {
-		this.cuentas = cuentas;
+	public void setPeriodos(List<Periodo> periodos) {
+		this.periodos = periodos;
 	}
 
 /*

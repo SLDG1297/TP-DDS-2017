@@ -4,7 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
+
+	public Empresa aEmpresa(List<String> empresaAParsear) {
+		Empresa miEmpresa;
+		
+		miEmpresa = new Empresa(this.nombreDeEmpresa(empresaAParsear), this.periodoDe(empresaAParsear));
+		
+		return miEmpresa;
+	}
+		
+	private List<Periodo> periodoDe(List<String> empresaAParsear) {
+		List<Periodo> misPeriodos = new ArrayList<Periodo>();
+		
+		Periodo miPeriodo = new Periodo(this.anioDePeriodo(empresaAParsear), this.cuentaDe(empresaAParsear));
+		
+		misPeriodos.add(miPeriodo);
+		
+		return misPeriodos;
+	}
 	
+	private List<Cuenta> cuentaDe(List<String> empresaAParsear) {
+		List<Cuenta> misCuentas = new ArrayList<Cuenta>();
+		
+		Cuenta miCuenta = new Cuenta(this.nombreDeCuenta(empresaAParsear), this.valorDeCuenta(empresaAParsear));
+		
+		misCuentas.add(miCuenta);
+		
+		return misCuentas;
+	}
+	
+	// Metodos auxiliares
+	
+	private String nombreDeEmpresa(List<String> empresaAParsear) {
+		return empresaAParsear.get(0);
+	}
+	
+	private String nombreDeCuenta(List<String> empresaAParsear) {
+		return empresaAParsear.get(1);
+	}
+	
+	private Integer anioDePeriodo(List<String> empresaAParsear) {
+		return Integer.parseInt(empresaAParsear.get(2));
+	}
+
+	private Integer valorDeCuenta(List<String> empresaAParsear) {
+		return Integer.parseInt(empresaAParsear.get(3));
+	}
+	
+	/*
 	public List<Empresa> aEmpresas(List<String> nombresDeEmpresa, List<List<List<List<Integer>>>> cuentasAParsear) {
 		
 		this.elInputEstaCorrectamenteEscrito(nombresDeEmpresa, cuentasAParsear);
@@ -106,4 +153,5 @@ public class Parser {
 			throw new LaEmpresaNoTieneCuentasException();
 		}
 	}
+	*/
 }
