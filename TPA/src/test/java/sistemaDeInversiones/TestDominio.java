@@ -45,4 +45,11 @@ public class TestDominio {
 		Assert.assertEquals(nombre, "FDS");
 	}
 	
+	@Test
+	public void parseaUnaEmpresa() {
+		List<String> empresa = Arrays.asList("Rolito", "EDITBA", "2000", "4000");
+		
+		Assert.assertEquals(Parser.aEmpresa(empresa).getNombre(), "Rolito");
+	}
+	
 }
