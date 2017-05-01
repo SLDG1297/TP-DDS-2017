@@ -6,45 +6,45 @@ import java.util.stream.Collectors;
 
 public class Parser {
 	
-	public List<Empresa> aEmpresas(List<List<String>> empresasAParsear) {
+	public static List<Empresa> aEmpresas(List<List<String>> empresasAParsear) {
 		List<Empresa> misEmpresas = new ArrayList<Empresa>();
 		
 		// PRIMERA PARTE
 		
 		for(int i = 0; i < empresasAParsear.size(); i++) {
 			List<String> empresaAParsear = empresasAParsear.get(i);
-			misEmpresas.add(this.aEmpresa(empresaAParsear));
+			misEmpresas.add(aEmpresa(empresaAParsear));
 		}
 		
 		// SEGUNDA PARTE
 		
-		misEmpresas = this.combinarEmpresas(misEmpresas);
+		misEmpresas = combinarEmpresas(misEmpresas);
 		
 		return misEmpresas;
 	}
 	
-	private Empresa aEmpresa(List<String> empresaAParsear) {
+	public static Empresa aEmpresa(List<String> empresaAParsear) {
 		Empresa miEmpresa;
 		
-		miEmpresa = new Empresa(this.nombreDeEmpresa(empresaAParsear), this.periodoDe(empresaAParsear));
+		miEmpresa = new Empresa(nombreDeEmpresa(empresaAParsear), periodoDe(empresaAParsear));
 		
 		return miEmpresa;
 	}
 		
-	private List<Periodo> periodoDe(List<String> empresaAParsear) {
+	private static List<Periodo> periodoDe(List<String> empresaAParsear) {
 		List<Periodo> misPeriodos = new ArrayList<Periodo>();
 		
-		Periodo miPeriodo = new Periodo(this.anioDePeriodo(empresaAParsear), this.cuentaDe(empresaAParsear));
+		Periodo miPeriodo = new Periodo(anioDePeriodo(empresaAParsear), cuentaDe(empresaAParsear));
 		
 		misPeriodos.add(miPeriodo);
 		
 		return misPeriodos;
 	}
 	
-	private List<Cuenta> cuentaDe(List<String> empresaAParsear) {
+	private static List<Cuenta> cuentaDe(List<String> empresaAParsear) {
 		List<Cuenta> misCuentas = new ArrayList<Cuenta>();
 		
-		Cuenta miCuenta = new Cuenta(this.nombreDeCuenta(empresaAParsear), this.valorDeCuenta(empresaAParsear));
+		Cuenta miCuenta = new Cuenta(nombreDeCuenta(empresaAParsear), valorDeCuenta(empresaAParsear));
 		
 		misCuentas.add(miCuenta);
 		
@@ -53,37 +53,37 @@ public class Parser {
 		
 	// Metodos auxiliares PRIMERA PARTE
 	
-	private String nombreDeEmpresa(List<String> empresaAParsear) {
+	private static String nombreDeEmpresa(List<String> empresaAParsear) {
 		return empresaAParsear.get(0);
 	}
 	
-	private String nombreDeCuenta(List<String> empresaAParsear) {
+	private static String nombreDeCuenta(List<String> empresaAParsear) {
 		return empresaAParsear.get(1);
 	}
 	
-	private Integer anioDePeriodo(List<String> empresaAParsear) {
+	private static Integer anioDePeriodo(List<String> empresaAParsear) {
 		return Integer.parseInt(empresaAParsear.get(2));
 	}
 
-	private Integer valorDeCuenta(List<String> empresaAParsear) {
+	private static Integer valorDeCuenta(List<String> empresaAParsear) {
 		return Integer.parseInt(empresaAParsear.get(3));
 	}
 	
 	// Metodos auxiliares SEGUNDA PARTE
 	
-	private List<Empresa> combinarEmpresas(List<Empresa> empresasAParsear) {
+	private static List<Empresa> combinarEmpresas(List<Empresa> empresasAParsear) {
 		List<Empresa> misEmpresas = new ArrayList<Empresa>();
 		
 		List<String> nombresDeEmpresa = new ArrayList<String>();
 		
-		nombresDeEmpresa = this.obtenerNombresDeEmpresa(misEmpresas);
+		nombresDeEmpresa = obtenerNombresDeEmpresa(misEmpresas);
 		
-		misEmpresas = this.formarEmpresasDefinitivas(nombresDeEmpresa, misEmpresas);
+		misEmpresas = formarEmpresasDefinitivas(nombresDeEmpresa, misEmpresas);
 		
 		return misEmpresas;
 	}
 	
-	private List<String> obtenerNombresDeEmpresa(List<Empresa> empresasAParsear) {
+	private static List<String> obtenerNombresDeEmpresa(List<Empresa> empresasAParsear) {
 		List<String> nombresDeEmpresa = new ArrayList<String>();
 		
 		for(int i = 0; i < empresasAParsear.size(); i++) {
@@ -97,7 +97,7 @@ public class Parser {
 		return nombresDeEmpresa;
 	}
 	
-	private List<Empresa> formarEmpresasDefinitivas(List<String> nombresDeEmpresa, List<Empresa> empresasAParsear) {
+	private static List<Empresa> formarEmpresasDefinitivas(List<String> nombresDeEmpresa, List<Empresa> empresasAParsear) {
 		List<Empresa> misEmpresas = new ArrayList<Empresa>();
 		
 		for(int i = 0; i < nombresDeEmpresa.size(); i++) {
@@ -106,7 +106,7 @@ public class Parser {
 			
 			empresasConMismoNombre = empresasAParsear.stream().filter(e -> e.getNombre() == nombreDeEmpresa).collect(Collectors.toList());
 			
-			Empresa empresaDefinitiva = this.formarEmpresaDefinitiva(empresasConMismoNombre);
+			Empresa empresaDefinitiva = formarEmpresaDefinitiva(empresasConMismoNombre);
 			
 			misEmpresas.add(empresaDefinitiva);
 		}
@@ -114,13 +114,13 @@ public class Parser {
 		return misEmpresas;
 	}
 	
-	private Empresa formarEmpresaDefinitiva(List<Empresa> empresasConMismoNombre) {
-		Empresa empresaDefinitiva = new Empresa(empresasConMismoNombre.get(0).getNombre(), this.formarPeriodos(empresasConMismoNombre));
+	private static Empresa formarEmpresaDefinitiva(List<Empresa> empresasConMismoNombre) {
+		Empresa empresaDefinitiva = new Empresa(empresasConMismoNombre.get(0).getNombre(), formarPeriodos(empresasConMismoNombre));
 		
 		return empresaDefinitiva;
 	}
 	
-	private List<Periodo> formarPeriodos(List<Empresa> empresasConMismoNombre) {
+	private static List<Periodo> formarPeriodos(List<Empresa> empresasConMismoNombre) {
 		List<Periodo> misPeriodos = new ArrayList<Periodo>();
 
 		for(int i = 0; i < empresasConMismoNombre.size(); i++) {
