@@ -7,6 +7,10 @@ public class Periodo {
 	int anio;
 	List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
+	public Periodo() {
+		
+	}
+	
 	public Periodo(int nuevoAnio, List<Cuenta> nuevasCuentas) {
 		anio = nuevoAnio;
 		cuentas = nuevasCuentas;
