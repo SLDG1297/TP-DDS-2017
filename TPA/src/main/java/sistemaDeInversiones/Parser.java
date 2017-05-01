@@ -9,15 +9,20 @@ public class Parser {
 	public List<Empresa> aEmpresas(List<List<String>> empresasAParsear) {
 		List<Empresa> misEmpresas = new ArrayList<Empresa>();
 		
+		// PRIMERA PARTE
+		
 		for(int i = 0; i < empresasAParsear.size(); i++) {
-			misEmpresas.add(this.aEmpresa(empresasAParsear.get(i)));
+			List<String> empresaAParsear = empresasAParsear.get(i);
+			misEmpresas.add(this.aEmpresa(empresaAParsear));
 		}
+		
+		// SEGUNDA PARTE
 		
 		misEmpresas = this.combinarEmpresas(misEmpresas);
 		
 		return misEmpresas;
 	}
-
+	
 	private Empresa aEmpresa(List<String> empresaAParsear) {
 		Empresa miEmpresa;
 		
