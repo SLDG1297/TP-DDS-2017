@@ -17,6 +17,10 @@ public class Empresa {
 	private String nombre;
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
+	public Empresa() {
+		
+	}
+	
 	public Empresa(String nuevoNombre, List<Periodo> nuevosPeriodos) {
 		nombre = nuevoNombre;
 		periodos = nuevosPeriodos;
