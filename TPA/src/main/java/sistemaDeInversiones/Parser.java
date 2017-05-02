@@ -76,9 +76,9 @@ public class Parser {
 		
 		List<String> nombresDeEmpresa = new ArrayList<String>();
 		
-		nombresDeEmpresa = obtenerNombresDeEmpresa(misEmpresas);
+		nombresDeEmpresa = obtenerNombresDeEmpresa(empresasAParsear);
 		
-		misEmpresas = formarEmpresasDefinitivas(nombresDeEmpresa, misEmpresas);
+		misEmpresas = formarEmpresasDefinitivas(nombresDeEmpresa, empresasAParsear);
 		
 		return misEmpresas;
 	}

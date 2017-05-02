@@ -51,7 +51,7 @@ public class TestDominio {
 	}*/
 	
 	@Test
-	public void parseaUnaEmpresa() {
+	public void parseaUnaEmpresaNombre() {
 		List<String> empresa = new ArrayList<String>();
 		
 		empresa.add("Rolito");
@@ -60,6 +60,44 @@ public class TestDominio {
 		empresa.add("6969");
 		
 		Assert.assertEquals(Parser.aEmpresa(empresa).getNombre(), "Rolito");
+	}
+	
+	@Test
+	public void parseaUnaEmpresaTipoDeCuenta() {
+		List<String> empresa = new ArrayList<String>();
+		
+		empresa.add("Rolito");
+		empresa.add("EDITBA");
+		empresa.add("2000");
+		empresa.add("6969");
+		
+		Assert.assertEquals(Parser.aEmpresa(empresa).getPeriodos().get(0).getCuentas().get(0).getNombre(), "EDITBA");
+	}
+	
+	@Test
+	public void parseaUnaEmpresaPeriodo() {
+		List<String> empresa = new ArrayList<String>();
+		
+		empresa.add("Rolito");
+		empresa.add("EDITBA");
+		empresa.add("2000");
+		empresa.add("6969");
+		
+		Integer anio = 2000;
+		
+		Assert.assertEquals(Parser.aEmpresa(empresa).getPeriodos().get(0).getAnio(), anio);
+	}
+	
+	@Test
+	public void parseaUnaEmpresaValor() {
+		List<String> empresa = new ArrayList<String>();
+		
+		empresa.add("Rolito");
+		empresa.add("EDITBA");
+		empresa.add("2000");
+		empresa.add("6969");
+		
+		Assert.assertEquals(Parser.aEmpresa(empresa).getPeriodos().get(0).getCuentas().get(0).getValor(), 6969);
 	}
 	
 }
