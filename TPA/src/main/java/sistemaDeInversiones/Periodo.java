@@ -27,5 +27,9 @@ public class Periodo {
 	public void setCuentas(List<Cuenta> cuentas) {
 		this.cuentas = cuentas;
 	}
+	
+	public void agregarCuenta(Cuenta miCuenta) {
+		this.cuentas.add(miCuenta);
+	}
 
 }

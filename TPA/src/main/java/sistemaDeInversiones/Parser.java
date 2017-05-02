@@ -125,16 +125,14 @@ public class Parser {
 
 		for(int i = 0; i < empresasConMismoNombre.size(); i++) {
 			
-			Periodo periodoActual = empresasConMismoNombre.get(i).getPeriodos().get(0);
+			Periodo periodoActual = empresasConMismoNombre.get(i).getPeriodos().get(0); // .get(0) porque en este momento todas las empresas tienen un solo periodo
+			
+			Cuenta cuentaActual = periodoActual.getCuentas().get(0); // .get(0) porque en este momento todas las empresas tienen una sola cuenta
 			
 			boolean contieneElAnio = misPeriodos.stream().anyMatch(p -> p.getAnio() == periodoActual.getAnio());
 			
 			if(contieneElAnio) {
-				Periodo periodoDeMisPeriodos = misPeriodos.stream().
-						filter(p -> periodoActual.getAnio() == p.getAnio()).
-						collect(Collectors.toList()).get(0);
-				
-				periodoDeMisPeriodos.cuentas.add(periodoActual.getCuentas().get(0));
+				misPeriodos.get(posicionDeCuentaRespectoAlAnio(misPeriodos, periodoActual.getAnio())).agregarCuenta(cuentaActual);;
 			} else {
 				misPeriodos.add(new Periodo(periodoActual.getAnio(), periodoActual.getCuentas()));
 			}
@@ -142,6 +140,18 @@ public class Parser {
 		}
 		
 		return misPeriodos;
+	}
+	
+	private static Integer posicionDeCuentaRespectoAlAnio(List<Periodo> misPeriodos, Integer anio) {
+		Integer posicion;
+		
+		List<Integer> periodosMapeados = new ArrayList<>();
+		
+		periodosMapeados = misPeriodos.stream().map(p -> p.getAnio()).collect(Collectors.toList());
+		
+		posicion = periodosMapeados.indexOf(anio);
+		
+		return posicion;
 	}
 	
 	/*
