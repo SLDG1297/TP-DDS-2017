@@ -1,5 +1,7 @@
 package sistemaDeInversiones;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
@@ -9,36 +11,41 @@ public class VMBolsaComercial {
 	// Para bindear items del selector de empresas
 	public List<String> listaDeNombresDeEmpresas;
 	public String nombreEmpresa;
-	//Empresa seleccionada en el selector
+	//Empresa seleccionada en el selector -----------------Recordar cambiar a bolsa de empresa NO parasito luego
 	public Empresa empresa;
 	public bolsaDeEmpresasParasito bolsaEmpresas;
 	//Para bindear items del selector de periodos de la empresa elegida
-	public int periodoElegido;
+	public Integer periodoElegido;
 	public List<Integer> listaDePeriodosDeEmpresa;
 	
-
 	
-	public int getPeriodoElegido() {
-		return periodoElegido;
-	}
-
-	public void setPeriodoElegido(int periodoElegido) {
-		this.periodoElegido = periodoElegido;
-	}
-
-	public List<Integer> getListaDePeriodosDeEmpresa() {
-		return listaDePeriodosDeEmpresa;
-	}
-
-	public void setListaDePeriodosDeEmpresa(List<Integer> listaDePeriodosDeEmpresa) {
-		this.listaDePeriodosDeEmpresa = listaDePeriodosDeEmpresa;
-	}
-
+	
+	//Constructor ----RECORDAR cambiar a bolsaDeEmpresas NO parasito
 	public VMBolsaComercial(bolsaDeEmpresasParasito bolsaEmpresas) {
 		super();
 		this.bolsaEmpresas = bolsaEmpresas;
 		listaDeNombresDeEmpresas = this.buscarNombresDeEmpresas();
 	}
+
+	public Integer getPeriodoElegido() {
+		return periodoElegido;
+	}
+
+
+	public void setPeriodoElegido(Integer periodoElegido) {
+		this.periodoElegido = periodoElegido;
+	}
+
+
+	public List<Integer> getListaDePeriodosDeEmpresa() {
+		return listaDePeriodosDeEmpresa;
+	}
+
+
+	public void setListaDePeriodosDeEmpresa(List<Integer> listaDePeriodosDeEmpresa) {
+		this.listaDePeriodosDeEmpresa = listaDePeriodosDeEmpresa;
+	}
+
 
 	public bolsaDeEmpresasParasito getBolsaEmpresas() {
 		return bolsaEmpresas;
@@ -72,17 +79,18 @@ public class VMBolsaComercial {
 		this.nombreEmpresa = nombre_Empresa;
 	}
 
-	public void buscarEmpresa() {
-		//recordar cambiar a la bolsa de empresas NO parasito
+	//Sirve para actualizar el VM con la empresa seleccionada a partir de su nombre y además 
+	//obtener la lista de periodos correspondientes a esa empresa
+	public void buscarEmpresaYSusPeriodos() {
 		empresa = this.bolsaEmpresas.buscarEmpresa(nombreEmpresa);
+		listaDePeriodosDeEmpresa = this.buscarPeriodosDeEmpresa();
 	}
-
+    
 	public List<String> buscarNombresDeEmpresas() {
-		//recordar cambiar a la bolsa de empresas NO parasito
 		return this.bolsaEmpresas.buscarNombresDeEmpresas();
 	}
+	
 	public List<Integer> buscarPeriodosDeEmpresa(){
-		//recordar cambiar a la bolsa de empresas NO parasito
-		return this.empresa.
+		return this.empresa.obtenerPeriodos();
 	}
 }

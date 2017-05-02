@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Periodo {
-	int anio;
+	Integer anio;
 	List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
-	public Periodo(int nuevoAnio, List<Cuenta> nuevasCuentas) {
+	public Periodo(Integer nuevoAnio, List<Cuenta> nuevasCuentas) {
 		anio = nuevoAnio;
 		cuentas = nuevasCuentas;
 	}
 
-	public int getAnio() {
+	public Integer getAnio() {
 		return anio;
 	}
 
-	public void setAnio(int anio) {
+	public void setAnio(Integer anio) {
 		this.anio = anio;
 	}
 

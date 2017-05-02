@@ -17,18 +17,12 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 
 	@Override
 	public void createContents(Panel panelTabla) {
-		this.setTitle("Tabla de estado de cuentas");
+		this.setTitle("Tabla de estado de cuentas de la empresa:");
 		
+		new Label(panelTabla).setText("Cuentas de la empresa:");
 		new Label(panelTabla).bindValueToProperty("nombre");
-
-		//Puse un selector para probar si se pueden ver los nombres de las cuentas cargadas
-		Selector<Cuenta> selector = new Selector<Cuenta>(panelTabla);
-		//selector.bindValueToProperty("nombreCuentaSeleccionada");
-		selector.bindItemsToProperty("listaDeNombresDeCuentas");
-	    
-		
-		
-		/*Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
+   
+		Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
 		// bindeo lista de cuentas
 		table.bindItemsToProperty("listaDeCuentas"); //Representaria la lista de obejtos cuenta de una empresa
 	
@@ -43,15 +37,8 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 	    .setTitle("Valor")
 	    .setFixedSize(150)
 	    .bindContentsToProperty("valor");
-		
-		new Column<Cuenta>(table) //La propiedad periodo está asociada a una cuenta
-	    .setTitle("Periodo")
-	    .setFixedSize(150)
-	    .bindContentsToProperty("periodo");
-
 	}
-	
-
+}
 	/*public void createFormPanel(Panel panelTabla){
 		
 		Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
@@ -68,6 +55,3 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 		table.setFixedSize(150); // el tamaño que va a tener
 		table.bindContentsToProperty("periodoCuenta");
 	}*/
-	}
-}
-

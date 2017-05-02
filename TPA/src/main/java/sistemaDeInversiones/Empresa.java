@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.io.IOException;
 import com.google.gson.Gson;
@@ -40,6 +41,17 @@ public class Empresa {
 
 	public void setPeriodos(List<Periodo> periodos) {
 		this.periodos = periodos;
+	}
+	
+	public List<Integer> obtenerPeriodos(){
+		List<Integer> periodosEmpresa = this.periodos.stream().map(p -> p.getAnio()).collect(Collectors.toList());
+		return periodosEmpresa;
+	}
+	
+	public List<Cuenta> obtenerCuentasEnPeriodo(int periodo){
+		Periodo periodoSeleccionado = this.getPeriodos().stream().filter(p -> p.getAnio() == periodo).findFirst().get();
+		List<Cuenta> cuentas = periodoSeleccionado.getCuentas();
+	    return cuentas;
 	}
 
 /*

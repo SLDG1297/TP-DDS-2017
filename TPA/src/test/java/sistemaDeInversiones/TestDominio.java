@@ -39,11 +39,11 @@ public class TestDominio {
 	}
 	*/
 	
-	@Test
+	/*@Test
 	public void puedoTomarElNombreDeLaCuentaDeUnaEmpresa(){
 		String nombre = bolsaEmpresas.buscarEmpresa("Jorgito").getCuentas().get(0).getNombre();
 		Assert.assertEquals(nombre, "FDS");
-	}
+	}*/
 	
 	@Test
 	public void parseaUnaEmpresa() {

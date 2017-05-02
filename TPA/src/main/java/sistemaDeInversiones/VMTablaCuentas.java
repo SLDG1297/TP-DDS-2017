@@ -9,27 +9,33 @@ import org.uqbar.commons.utils.Observable;
 @Observable
 public class VMTablaCuentas {
 	
+	//Empresa seleccionada en la vista anterior
 	private Empresa empresaSeleccionada;
+	private String nombreEmpresa;
+	//Periodo seleccionado en la vista anterior
+	private Integer periodoSeleccionado;
+	//Cuentas asociadas al periodo elegido
 	private List<Cuenta> listaDeCuentas = new ArrayList<Cuenta>(); //Representaria la lista de objetos cuenta de una empresa
 	private List<String> listaDeNombresDeCuentas = new ArrayList<String>();//Solo para probar el selector por ahora
-	private String nombre;
+	
+	//Constructor
 	VMTablaCuentas(VMBolsaComercial bolsaComercial) {
-		bolsaComercial.buscarEmpresa();
 		empresaSeleccionada = bolsaComercial.getEmpresa();
-		nombre = empresaSeleccionada.getNombre();
+		nombreEmpresa = empresaSeleccionada.getNombre();
+		periodoSeleccionado = bolsaComercial.getPeriodoElegido();
 		listaDeCuentas = this.buscarCuentas();
 	    listaDeNombresDeCuentas = this.nombresDeCuentas();
 	}
 	
+	
 	public String getNombre() {
-		return nombre;
+		return nombreEmpresa;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.nombreEmpresa = nombre;
 	}
 
-	//Luego se saca esto si no es necesario***********************
 	public List<String> getListaDeNombresDeCuentas() {
 		return listaDeNombresDeCuentas;
 	}
@@ -37,7 +43,7 @@ public class VMTablaCuentas {
 	public void setListaDeNombresDeCuentas(List<String> listaDeNombresDeCuentas) {
 		this.listaDeNombresDeCuentas = listaDeNombresDeCuentas;
 	}
-    //**********************************************************
+	
 	public Empresa getEmpresaSeleccionada() {
 		return empresaSeleccionada;
 	}
@@ -53,20 +59,10 @@ public class VMTablaCuentas {
 	public void setListaDeCuentas(List<Cuenta> listaDeCuentas) {
 		this.listaDeCuentas = listaDeCuentas;
 	}
-
-	/*public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}*/
-
-	//private String nombre = this.nombresDeCuentas().get(0); //Representaria el nombre de SOLO UNA cuenta
 	
-	//Retorna la lista de objetos cuentas de la empresa de la vista anterior
+	//Retorna la lista de cuentas de la empresa de la vista anterior correspondiente al periodo seleccionado
 	public List<Cuenta> buscarCuentas() {
-		return empresaSeleccionada.getCuentas();
+		return empresaSeleccionada.obtenerCuentasEnPeriodo(periodoSeleccionado);
 	}
 
 	//Retorna una lista de nombres, de la lista de objetos cuentas
