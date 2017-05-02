@@ -109,6 +109,7 @@ public class TestDominio {
 		List<String> empresa1 = new ArrayList<String>();
 		List<String> empresa2 = new ArrayList<String>();
 		List<String> empresa3 = new ArrayList<String>();
+		List<String> empresa4 = new ArrayList<String>();
 		
 		empresa1.add("Rolito");
 		empresa1.add("EDITBA");
@@ -125,16 +126,17 @@ public class TestDominio {
 		empresa3.add("2017");
 		empresa3.add("9999");
 		
-		empresa3.add("Axel's Consortium Bags");
-		empresa3.add("Free Cash Flow");
-		empresa3.add("2017");
-		empresa3.add("1000");
+		empresa4.add("Axel's Consortium Bags");
+		empresa4.add("Free Cash Flow");
+		empresa4.add("2017");
+		empresa4.add("1000");
 		
 		List<List<String>> empresasAParsear = new ArrayList<List<String>>();
 		
 		empresasAParsear.add(empresa1);
 		empresasAParsear.add(empresa2);
 		empresasAParsear.add(empresa3);
+		empresasAParsear.add(empresa4);
 		
 		Assert.assertEquals(Parser.aEmpresas(empresasAParsear).get(0).getNombre(), "Rolito");
 		Assert.assertEquals(Parser.aEmpresas(empresasAParsear).get(1).getNombre(), "Axel's Consortium Bags");
@@ -145,6 +147,7 @@ public class TestDominio {
 		List<String> empresa1 = new ArrayList<String>();
 		List<String> empresa2 = new ArrayList<String>();
 		List<String> empresa3 = new ArrayList<String>();
+		List<String> empresa4 = new ArrayList<String>();
 		
 		empresa1.add("Rolito");
 		empresa1.add("EDITBA");
@@ -161,17 +164,17 @@ public class TestDominio {
 		empresa3.add("2017");
 		empresa3.add("9999");
 		
-		empresa3.add("Axel's Consortium Bags");
-		empresa3.add("Free Cash Flow");
-		empresa3.add("2017");
-		empresa3.add("1000");
+		empresa4.add("Axel's Consortium Bags");
+		empresa4.add("Free Cash Flow");
+		empresa4.add("2017");
+		empresa4.add("1000");
 		
 		List<List<String>> empresasAParsear = new ArrayList<List<String>>();
 		
 		empresasAParsear.add(empresa1);
 		empresasAParsear.add(empresa2);
 		empresasAParsear.add(empresa3);
-		
+		empresasAParsear.add(empresa4);
 		
 		Assert.assertEquals(Parser.aEmpresas(empresasAParsear).get(0).getPeriodos().get(0).getCuentas().get(0).getNombre(), "EDITBA");
 		
@@ -190,6 +193,7 @@ public class TestDominio {
 		List<String> empresa1 = new ArrayList<String>();
 		List<String> empresa2 = new ArrayList<String>();
 		List<String> empresa3 = new ArrayList<String>();
+		List<String> empresa4 = new ArrayList<String>();
 		
 		empresa1.add("Rolito");
 		empresa1.add("EDITBA");
@@ -206,16 +210,17 @@ public class TestDominio {
 		empresa3.add("2017");
 		empresa3.add("9999");
 		
-		empresa3.add("Axel's Consortium Bags");
-		empresa3.add("Free Cash Flow");
-		empresa3.add("2017");
-		empresa3.add("1000");
+		empresa4.add("Axel's Consortium Bags");
+		empresa4.add("Free Cash Flow");
+		empresa4.add("2017");
+		empresa4.add("1000");
 		
 		List<List<String>> empresasAParsear = new ArrayList<List<String>>();
 		
 		empresasAParsear.add(empresa1);
 		empresasAParsear.add(empresa2);
 		empresasAParsear.add(empresa3);
+		empresasAParsear.add(empresa4);
 		
 		Integer anio = 2000;
 		
@@ -228,6 +233,8 @@ public class TestDominio {
 		anio = 2017;
 		
 		Assert.assertEquals(Parser.aEmpresas(empresasAParsear).get(1).getPeriodos().get(0).getAnio(), anio);
+		
+		Assert.assertNotEquals(Parser.aEmpresas(empresasAParsear).get(1).getPeriodos().get(1).getAnio(), anio);
 
 	}
 	
@@ -236,6 +243,7 @@ public class TestDominio {
 		List<String> empresa1 = new ArrayList<String>();
 		List<String> empresa2 = new ArrayList<String>();
 		List<String> empresa3 = new ArrayList<String>();
+		List<String> empresa4 = new ArrayList<String>();
 		
 		empresa1.add("Rolito");
 		empresa1.add("EDITBA");
@@ -252,17 +260,17 @@ public class TestDominio {
 		empresa3.add("2017");
 		empresa3.add("9999");
 		
-		empresa3.add("Axel's Consortium Bags");
-		empresa3.add("Free Cash Flow");
-		empresa3.add("2017");
-		empresa3.add("1000");
+		empresa4.add("Axel's Consortium Bags");
+		empresa4.add("Free Cash Flow");
+		empresa4.add("2017");
+		empresa4.add("1000");
 		
 		List<List<String>> empresasAParsear = new ArrayList<List<String>>();
 		
 		empresasAParsear.add(empresa1);
 		empresasAParsear.add(empresa2);
 		empresasAParsear.add(empresa3);
-		
+		empresasAParsear.add(empresa4);
 		
 		Assert.assertEquals(Parser.aEmpresas(empresasAParsear).get(0).getPeriodos().get(0).getCuentas().get(0).getValor(), 6969);
 		
