@@ -129,7 +129,9 @@ public class Parser {
 			
 			Cuenta cuentaActual = periodoActual.getCuentas().get(0); // .get(0) porque en este momento todas las empresas tienen una sola cuenta
 			
-			boolean contieneElAnio = misPeriodos.stream().anyMatch(p -> p.getAnio() == periodoActual.getAnio()); // SIEMPRE da false.. WTF?
+			boolean contieneElAnio = misPeriodos.stream().anyMatch(p -> p.getAnio().intValue() == periodoActual.getAnio().intValue()); // SIEMPRE da false.. WTF?
+			
+			// boolean contieneElAnio = misPeriodos.stream().map(p -> p.getAnio()).filter(p -> p == periodoActual.getAnio()).count() == 1;
 			
 			if(contieneElAnio) {
 				misPeriodos.get(posicionDeCuentaRespectoAlAnio(misPeriodos, periodoActual.getAnio())).agregarCuenta(cuentaActual);;
