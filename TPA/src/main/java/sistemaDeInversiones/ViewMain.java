@@ -10,7 +10,7 @@ public class ViewMain extends MainWindow<VMPrincipal> {
 	
 	VMBolsaComercial miBolsa;
 	
-	public ViewMain(bolsaDeEmpresasParasito bolsaEmpresas) {
+	public ViewMain(BolsaDeEmpresas bolsaEmpresas) {
 		super(new VMPrincipal());
 		//Se carga el viewModel para la próxima ventana con la bolsa de empresas ya cargadas
 		miBolsa = new VMBolsaComercial(bolsaEmpresas);
@@ -29,9 +29,9 @@ public class ViewMain extends MainWindow<VMPrincipal> {
 	}
 
 	public static void main(String[] args) {
-		//Aca se deberían cargar las cuentas
-		bolsaDeEmpresasParasito bolsaEmpresas = new bolsaDeEmpresasParasito();
-		//bolsaEmpresas.cargarEmpresas();
+		//Intancio una bolsa de Empresas
+		BolsaDeEmpresas bolsaEmpresas =  Instanciador_Bolsa_Empresas.instanciar();
+		//Se la paso al constructor de la view
 		new ViewMain(bolsaEmpresas).startApplication();
 	}
 

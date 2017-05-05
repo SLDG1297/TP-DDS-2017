@@ -49,5 +49,19 @@ public class TestDominio {
 		String nombre = bolsaEmpresas.buscarEmpresa("Jorgito").getCuentas().get(0).getNombre();
 		Assert.assertEquals(nombre, "FDS");
 	}*/
-		
+	
+	@Test
+	public void cuentasDeUnaEmpresa(){
+	List<Cuenta> listaC1 = Arrays.asList(new Cuenta("EBITDA",2000),new Cuenta("Free Cash Flow",3000),new Cuenta("FDS",4000));
+	List<Cuenta> listaC2 = Arrays.asList(new Cuenta("FDS",1000),new Cuenta("EBITDA",1500));
+	List<Cuenta> listaC3 = Arrays.asList(new Cuenta("Free Cash Flow",2000));
+	List<Periodo> periodo2 = Arrays.asList(new Periodo(2001, listaC2),new Periodo(2014, listaC3),new Periodo(2016, listaC1));
+	
+	Empresa empresa = new Empresa();
+	empresa = bolsaEmpresas.buscarEmpresa("Guaymallén");
+	List<Integer> periodosEmpresa = new ArrayList<Integer>();
+	periodosEmpresa = empresa.obtenerPeriodos();
+	Assert.assertEquals(periodosEmpresa,periodo2);
+	
+	}
 }

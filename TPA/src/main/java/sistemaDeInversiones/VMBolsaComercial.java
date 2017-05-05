@@ -13,7 +13,7 @@ public class VMBolsaComercial {
 	public String nombreEmpresa;
 	//Empresa seleccionada en el selector -----------------Recordar cambiar a bolsa de empresa NO parasito luego
 	public Empresa empresa;
-	public bolsaDeEmpresasParasito bolsaEmpresas;
+	public BolsaDeEmpresas bolsaEmpresas;
 	//Para bindear items del selector de periodos de la empresa elegida
 	public Integer periodoElegido;
 	public List<Integer> listaDePeriodosDeEmpresa;
@@ -21,7 +21,7 @@ public class VMBolsaComercial {
 	
 	
 	//Constructor ----RECORDAR cambiar a bolsaDeEmpresas NO parasito
-	public VMBolsaComercial(bolsaDeEmpresasParasito bolsaEmpresas) {
+	public VMBolsaComercial(BolsaDeEmpresas bolsaEmpresas) {
 		super();
 		this.bolsaEmpresas = bolsaEmpresas;
 		listaDeNombresDeEmpresas = this.buscarNombresDeEmpresas();
@@ -47,11 +47,11 @@ public class VMBolsaComercial {
 	}
 
 
-	public bolsaDeEmpresasParasito getBolsaEmpresas() {
+	public BolsaDeEmpresas getBolsaEmpresas() {
 		return bolsaEmpresas;
 	}
 
-	public void setBolsaEmpresas(bolsaDeEmpresasParasito bolsaEmpresas) {
+	public void setBolsaEmpresas(BolsaDeEmpresas bolsaEmpresas) {
 		this.bolsaEmpresas = bolsaEmpresas;
 	}
 
@@ -83,7 +83,7 @@ public class VMBolsaComercial {
 	//obtener la lista de periodos correspondientes a esa empresa
 	public void buscarEmpresaYSusPeriodos() {
 		empresa = this.bolsaEmpresas.buscarEmpresa(nombreEmpresa);
-		listaDePeriodosDeEmpresa = this.buscarPeriodosDeEmpresa();
+		this.listaDePeriodosDeEmpresa = this.buscarPeriodosDeEmpresa();
 	}
     
 	public List<String> buscarNombresDeEmpresas() {

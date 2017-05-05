@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class bolsaDeEmpresas {
+public class BolsaDeEmpresas {
 	// Con unas empresas para probar las vistas.
 	private static List<Empresa> empresas = new ArrayList<Empresa>();
 	

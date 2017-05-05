@@ -4,16 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
  
-public class LectorDeArchivos {
-   
-   
+public abstract class LectorDeArchivos {
  
-    public static final String SEPARADOR = ",";
-    public static final String QUOTE = "\"";
- 
-    public static void main(String[] args) {
+    public static List<List<String>> listaFinal = new ArrayList<List<String>>();;
+    
+    public static List<List<String>> entregarLista() {
  
         BufferedReader bufferLectura = null;
         try {
@@ -24,16 +23,19 @@ public class LectorDeArchivos {
             String linea = bufferLectura.readLine();
  
             while (linea != null) {
-                // Separar la linea leída con el separador definido previamente
-                String[] campos = linea.split(SEPARADOR);
- 
-                campos = removeTrailingQuotes(campos);
- 
-                System.out.println(Arrays.toString(campos));
- 
-                // Volver a leer otra línea del fichero
-                linea = bufferLectura.readLine();
-            }
+                // Split toma string hasta donde aparezca una "," y los mete en una posicion del array
+                String[] array = linea.split(",");
+                //Creo una lista de string
+                List<String> lista = new ArrayList<String>();
+                //Meto los String del array en la lista de String
+                for (int i= 0; i < array.length; i++ ){
+                	lista.add(array[i]);
+                }
+                	 //Meto la lista(que representa una empresa, cuenta, valor y periodo) dentro de la lista que contendra listas de string
+                    listaFinal.add(lista);
+                    // Volver a leer otra línea del fichero
+                    linea = bufferLectura.readLine();
+                }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -46,16 +48,8 @@ public class LectorDeArchivos {
                 }
             }
         }
+        return listaFinal;
     }
  
-    private static String[] removeTrailingQuotes(String[] fields) {
- 
-        String result[] = new String[fields.length];
- 
-        for (int i = 0; i < result.length; i++) {
-            result[i] = fields[i].replaceAll("^" + QUOTE, "").replaceAll(QUOTE + "$", "");
-        }
-        return result;
-    }
  
 }

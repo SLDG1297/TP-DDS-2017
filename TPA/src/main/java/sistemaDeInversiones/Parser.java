@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Parser {
+public abstract class Parser {
 	
 	public static List<Empresa> aEmpresas(List<List<String>> empresasAParsear) {
 		List<Empresa> misEmpresas = new ArrayList<Empresa>();

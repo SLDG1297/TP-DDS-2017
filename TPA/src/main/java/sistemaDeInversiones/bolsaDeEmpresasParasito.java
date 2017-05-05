@@ -12,7 +12,7 @@ public class bolsaDeEmpresasParasito {
 		private static List<Cuenta> listaC3 = Arrays.asList(new Cuenta("Free Cash Flow",2000));
 		private static List<Periodo> periodo1 = Arrays.asList(new Periodo(1990, listaC1));
 	    private static List<Periodo> periodo2 = Arrays.asList(new Periodo(2001, listaC2),new Periodo(2014, listaC3),new Periodo(2016, listaC1));
-		private static List<Empresa> empresas = Arrays.asList(new Empresa("Guaymallén",periodo1), new Empresa("Jorgito",periodo2), new Empresa("Aguila",periodo1));
+		private static List<Empresa> empresas = Arrays.asList(new Empresa("otra",periodo1), new Empresa("Guaymallén",periodo2), new Empresa("Aguila",periodo1));
 		
 		public List<Empresa> getEmpresas() {
 			return empresas;
