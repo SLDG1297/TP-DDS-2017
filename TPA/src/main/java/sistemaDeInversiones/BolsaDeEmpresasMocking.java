@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class bolsaDeEmpresasParasito {
+public class BolsaDeEmpresasMocking {
 	    // Con unas empresas para probar las vistas.
 	    
 	    private static List<Cuenta> listaC1 = Arrays.asList(new Cuenta("EBITDA",2000),new Cuenta("Free Cash Flow",3000),new Cuenta("FDS",4000));

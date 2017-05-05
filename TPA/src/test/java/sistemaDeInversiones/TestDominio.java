@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class TestDominio {
 
-	private bolsaDeEmpresasParasito bolsaEmpresas = new bolsaDeEmpresasParasito();
+	private BolsaDeEmpresasMocking bolsaEmpresas = new BolsaDeEmpresasMocking();
 
 	/*@Before
 	public void crearBolsaComercialDePrueba() {
