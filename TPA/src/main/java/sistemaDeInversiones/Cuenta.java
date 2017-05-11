@@ -9,10 +9,6 @@ public class Cuenta {
 	String nombre;
 	int valor;
 	
-	public Cuenta() {
-		
-	}
-	
 	public Cuenta(String nuevoNombre, int nuevoValor) {
 		this.nombre = nuevoNombre;
 		this.valor = nuevoValor;

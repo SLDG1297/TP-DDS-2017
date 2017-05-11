@@ -11,6 +11,12 @@ public class Periodo {
 		anio = nuevoAnio;
 		cuentas = nuevasCuentas;
 	}
+	
+	// Esto solo lo usa el Parser para crear la empresa rápidamente
+	public Periodo(Integer nuevoAnio, Cuenta nuevaCuenta) {
+		anio = nuevoAnio;
+		cuentas.add(nuevaCuenta);
+	}
 
 	public Integer getAnio() {
 		return anio;

@@ -17,12 +17,12 @@ public class BolsaDeEmpresas {
 		empresas = empresasNuevas;
 	}
 
-	public static Empresa buscarEmpresa(String unNombre) {
+	public Empresa buscarEmpresa(String unNombre) {
 		Empresa empresaBuscada = empresas.stream().filter( e -> e.getNombre() == unNombre).findFirst().get();
 		return empresaBuscada;	
 	}
 	
-	public static List<String> buscarNombresDeEmpresas() {
+	public List<String> buscarNombresDeEmpresas() {
 		List<String> nombres = empresas.stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());
 		return nombres;		
 	}

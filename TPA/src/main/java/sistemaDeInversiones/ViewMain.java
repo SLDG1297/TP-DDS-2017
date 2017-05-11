@@ -1,5 +1,7 @@
 package sistemaDeInversiones;
 
+import java.io.IOException;
+
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
@@ -28,11 +30,14 @@ public class ViewMain extends MainWindow<VMPrincipal> {
 
 	}
 
-	public static void main(String[] args) {
-		//Intancio una bolsa de Empresas
+	public static void main(String[] args) throws IOException {
+	
+		// Instancio una bolsa de Empresas
 		BolsaDeEmpresas bolsaEmpresas =  Instanciador_Bolsa_Empresas.instanciar();
-		//Se la paso al constructor de la view
+		
+		// Se la paso al constructor de la view
 		new ViewMain(bolsaEmpresas).startApplication();
+		
 	}
 
 }

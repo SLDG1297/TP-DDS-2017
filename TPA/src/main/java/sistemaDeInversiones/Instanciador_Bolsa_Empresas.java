@@ -1,23 +1,31 @@
 package sistemaDeInversiones;
 
 import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public abstract class Instanciador_Bolsa_Empresas {
+public class Instanciador_Bolsa_Empresas {
 	
-	private static List<List<String>> obtenerListaString(){
-		return LectorDeArchivos.entregarLista();
-	}
-	
-	private static List<Empresa> obtenerListaEmpresas(){
-		return Parser.aEmpresas(obtenerListaString());
-	}
-	
-	public static BolsaDeEmpresas instanciar(){
+	public static BolsaDeEmpresas instanciar() throws IOException {
 		BolsaDeEmpresas bolsaEmpresa = new BolsaDeEmpresas();
-		bolsaEmpresa.setEmpresas(obtenerListaEmpresas());
+		bolsaEmpresa.setEmpresas(obtenerEmpresas());
+		
 		return bolsaEmpresa;
 	}
-
+	
+	private static List<Empresa> obtenerEmpresas() throws IOException {
+	
+		// Instancio el Lector de Archivos
+		LectorDeArchivos miLector = new LectorDeArchivos();
+		InputStream stream = miLector.getFile("cuentitasDeHector.csv");
+		
+		// Instancio el Parser
+		CSVParser miParser = new CSVParser(",");
+		List<Empresa> misEmpresas = new ArrayList<Empresa>();
+		misEmpresas = miParser.parse(stream);
+		
+		return misEmpresas;
+	}
+	
 }
