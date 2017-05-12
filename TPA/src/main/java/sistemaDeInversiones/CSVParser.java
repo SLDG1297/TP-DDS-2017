@@ -1,11 +1,14 @@
 package sistemaDeInversiones;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,27 +21,27 @@ public class CSVParser {
 	CSVParser(String miSeparador) {
 		separador = miSeparador;
 	}
-	
-	public List<Empresa> parse(InputStream stream) throws IOException {
-		List<Empresa> empresasAParsear = new ArrayList<Empresa>();
 		
-		// bufferLectura = new BufferedReader(new FileReader("cuentitasDeHector.csv"));
-		
-		try (BufferedReader buffer = new BufferedReader(new FileReader(stream))) {
-			empresas = buffer.lines()
-			.map(line -> Arrays.asList(line.split(this.separador)))
-			.map(line -> new Empresa(line.get(0), line.get(1), line.get(2), line.get(4))
-			.collect(Collectors.toList());
+	public List<Empresa> parse(InputStream stream){
+		List<Empresa> empresas = new ArrayList<Empresa>();
+		try{
 			
-		} catch(IOException e) {
-			throw e;
-		}
-		
+			BufferedReader buffer = new BufferedReader(new InputStreamReader(stream));
+			empresas = (List<Empresa>) buffer.lines()
+					.map(line -> Arrays.asList(line.split(this.separador)))
+				       .map(line -> new Empresa(line.get(0), line.get(1), line.get(2), line.get(3)) //Lo que pasa aca es que get 2 y 3 siguen siendo String nachito, hay que hacer un metodo aEmpresas como el que tenia que tranformaba los string en periodos y valores, tal cokmo lo especifico el ayudante en los comentarios
+				       .collect(Collectors.toList()));
+			
+			
+		}catch (IOException e){}
+
 		List<Empresa> empresasDefinitivas = new ArrayList<Empresa>();
 		empresasDefinitivas = this.combinarEmpresas(empresasAParsear);
 		
 		return empresasDefinitivas;
 	}
+	
+	
 	
 	private List<Empresa> combinarEmpresas(List<Empresa> empresasAParsear) {
 		List<Empresa> misEmpresas = new ArrayList<Empresa>();
