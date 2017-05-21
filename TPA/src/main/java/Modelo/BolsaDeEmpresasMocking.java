@@ -1,4 +1,4 @@
-package sistemaDeInversiones;
+package Modelo;
 
 import java.util.Arrays;
 import java.util.List;

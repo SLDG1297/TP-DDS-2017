@@ -1,4 +1,4 @@
-package sistemaDeInversiones;
+package View;
 
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
@@ -7,10 +7,17 @@ import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
-public class ViewCargarCuentas extends Window<VMBolsaComercial> {
+import Modelo.Empresa;
+
+public class ViewCargarCuentas extends Window<VMCargarCuentas> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
+
 	// No nos cierra del todo qué es WindowOwner. Así que se pone así para que no rompa Eclipse.
-	public ViewCargarCuentas(WindowOwner panelPrincipal, VMBolsaComercial miNuevaBolsa) {
+	public ViewCargarCuentas(WindowOwner panelPrincipal, VMCargarCuentas miNuevaBolsa) {
 		super(panelPrincipal, miNuevaBolsa);
 	}
 	

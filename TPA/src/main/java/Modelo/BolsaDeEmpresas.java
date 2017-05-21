@@ -1,13 +1,12 @@
-package sistemaDeInversiones;
+package Modelo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BolsaDeEmpresas {
 	// Con unas empresas para probar las vistas.
-	private static List<Empresa> empresas = new ArrayList<Empresa>();
+	private List<Empresa> empresas = new ArrayList<Empresa>();
 	
 	public List<Empresa> getEmpresas() {
 		return empresas;
@@ -18,12 +17,12 @@ public class BolsaDeEmpresas {
 	}
 
 	public Empresa buscarEmpresa(String unNombre) {
-		Empresa empresaBuscada = empresas.stream().filter( e -> e.getNombre() == unNombre).findFirst().get();
+		Empresa empresaBuscada = this.getEmpresas().stream().filter( e -> e.getNombre() == unNombre).findFirst().get();
 		return empresaBuscada;	
 	}
 	
 	public List<String> buscarNombresDeEmpresas() {
-		List<String> nombres = empresas.stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());
+		List<String> nombres = this.getEmpresas().stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());
 		return nombres;		
 	}
 }

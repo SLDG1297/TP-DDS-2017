@@ -1,4 +1,4 @@
-package sistemaDeInversiones;
+package View;
 
 import java.io.IOException;
 
@@ -6,16 +6,23 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 
-public class ViewMain extends MainWindow<VMPrincipal> {
+import Archivo.Instanciador_Bolsa_Empresas;
+import Modelo.BolsaDeEmpresas;
+
+public class ViewMain extends MainWindow<VM_Main> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Esto no debería tener un ViewModel, al menos por ahora. Es sólo una vista que lleva a otras vistas.
 	// Se hardcodea así para Eclipse no rompa.
 	
-	VMBolsaComercial miBolsa;
+	VMCargarCuentas miBolsa;
 	
 	public ViewMain(BolsaDeEmpresas bolsaEmpresas) {
-		super(new VMPrincipal());
+		super(new VM_Main());
 		//Se carga el viewModel para la próxima ventana con la bolsa de empresas ya cargadas
-		miBolsa = new VMBolsaComercial(bolsaEmpresas);
+		miBolsa = new VMCargarCuentas(bolsaEmpresas);
 	}
 
 	@Override
@@ -31,9 +38,9 @@ public class ViewMain extends MainWindow<VMPrincipal> {
 	}
 
 	public static void main(String[] args) throws IOException {
-	
+		Instanciador_Bolsa_Empresas instancia = new Instanciador_Bolsa_Empresas();
 		// Instancio una bolsa de Empresas
-		BolsaDeEmpresas bolsaEmpresas =  Instanciador_Bolsa_Empresas.instanciar();
+		BolsaDeEmpresas bolsaEmpresas =  instancia.instanciar();
 		
 		// Se la paso al constructor de la view
 		new ViewMain(bolsaEmpresas).startApplication();

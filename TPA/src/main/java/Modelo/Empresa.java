@@ -1,26 +1,23 @@
-package sistemaDeInversiones;
+package Modelo;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.io.IOException;
-import com.google.gson.Gson;
+
 
 import org.uqbar.commons.utils.Observable;
 
 @Observable
-public class Empresa {
+public class Empresa extends Object{
 	private String nombre;
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	// Esto solo lo usa el Parser para crear la empresa rápidamente
-	public Empresa(String nuevoNombre, String nombreDeCuenta, Integer periodo, int valor) {
-		nombre = nuevoNombre;
-		periodos.add(new Periodo(periodo, new Cuenta(nombreDeCuenta, valor)));
+	public Empresa(String nuevoNombre, String nombreDeCuenta, String periodo, String valor) {
+		nombre = nuevoNombre;		
+		periodos.add(new Periodo(Integer.parseInt(periodo), new Cuenta(nombreDeCuenta, Integer.parseInt(valor))));
 	}
 	
 	public Empresa(String nuevoNombre, List<Periodo> nuevosPeriodos) {
@@ -50,7 +47,7 @@ public class Empresa {
 	}
 	
 	public List<Integer> obtenerPeriodos(){
-		List<Integer> periodosEmpresa = this.periodos.stream().map(p -> p.getAnio()).collect(Collectors.toList());
+		List<Integer> periodosEmpresa = this.getPeriodos().stream().map(p -> p.getAnio()).collect(Collectors.toList());
 		return periodosEmpresa;
 	}
 	
@@ -58,6 +55,16 @@ public class Empresa {
 		Periodo periodoSeleccionado = this.getPeriodos().stream().filter(p -> p.getAnio() == periodo).findFirst().get();
 		List<Cuenta> cuentas = periodoSeleccionado.getCuentas();
 	    return cuentas;
+	}
+
+	public Object collect1(Collector<Object, ?, List<Object>> list) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object collect(Collector<Object, ?, List<Object>> list) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 /*

@@ -1,15 +1,20 @@
-package sistemaDeInversiones;
+package View;
 
-import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
+import Modelo.Cuenta;
+
 public class ViewTablaCuentas extends Window<VMTablaCuentas> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public ViewTablaCuentas(WindowOwner panelGestionar, VMTablaCuentas unaTablaCuentas) {
 		super(panelGestionar, unaTablaCuentas);

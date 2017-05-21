@@ -1,12 +1,12 @@
-package sistemaDeInversiones;
-import java.util.Arrays;
+package View;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.uqbar.commons.utils.Observable;
 
+import Modelo.BolsaDeEmpresas;
+import Modelo.Empresa;
+
 @Observable
-public class VMBolsaComercial {
+public class VMCargarCuentas {
 
 	// Para bindear items del selector de empresas
 	public List<String> listaDeNombresDeEmpresas;
@@ -21,7 +21,7 @@ public class VMBolsaComercial {
 	
 	
 	//Constructor ----RECORDAR cambiar a bolsaDeEmpresas NO parasito
-	public VMBolsaComercial(BolsaDeEmpresas bolsaEmpresas) {
+	public VMCargarCuentas(BolsaDeEmpresas bolsaEmpresas) {
 		super();
 		this.bolsaEmpresas = bolsaEmpresas;
 		listaDeNombresDeEmpresas = this.buscarNombresDeEmpresas();

@@ -1,10 +1,13 @@
-package sistemaDeInversiones;
+package View;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
+
+import Modelo.Cuenta;
+import Modelo.Empresa;
 
 @Observable
 public class VMTablaCuentas {
@@ -19,7 +22,7 @@ public class VMTablaCuentas {
 	private List<String> listaDeNombresDeCuentas = new ArrayList<String>();//Solo para probar el selector por ahora
 	
 	//Constructor
-	VMTablaCuentas(VMBolsaComercial bolsaComercial) {
+	VMTablaCuentas(VMCargarCuentas bolsaComercial) {
 		empresaSeleccionada = bolsaComercial.getEmpresa();
 		nombreEmpresa = empresaSeleccionada.getNombre();
 		periodoSeleccionado = bolsaComercial.getPeriodoElegido();
