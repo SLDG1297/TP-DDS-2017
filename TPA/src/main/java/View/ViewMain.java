@@ -14,8 +14,6 @@ public class ViewMain extends MainWindow<VM_Main> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	// Esto no debería tener un ViewModel, al menos por ahora. Es sólo una vista que lleva a otras vistas.
-	// Se hardcodea así para Eclipse no rompa.
 	
 	VMCargarCuentas miBolsa;
 	

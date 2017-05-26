@@ -44,19 +44,4 @@ public class ViewTablaCuentas extends Window<VMTablaCuentas> {
 	    .bindContentsToProperty("valor");
 	}
 }
-	/*public void createFormPanel(Panel panelTabla){
-		
-		Table<Cuenta> table = new Table<Cuenta>(panelTabla, Cuenta.class);
-		new Column<Cuenta>(table);
-		table.setTitle("Cuenta"); // el nombre de la columna
-		table.setFixedSize(150); // el tamaño que va a tener
-		table.bindContentsToProperty("nombreCuenta");
-		new Column<Cuenta>(table);
-		table.setTitle("Valor"); // el nombre de la columna
-		table.setFixedSize(150); // el tamaño que va a tener
-		table.bindContentsToProperty("valorCuenta");
-		new Column<Cuenta>(table);
-		table.setTitle("Periodo"); // el nombre de la columna
-		table.setFixedSize(150); // el tamaño que va a tener
-		table.bindContentsToProperty("periodoCuenta");
-	}*/
+	
