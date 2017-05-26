@@ -11,7 +11,7 @@ public class VMCargarCuentas {
 	// Para bindear items del selector de empresas
 	public List<String> listaDeNombresDeEmpresas;
 	public String nombreEmpresa;
-	//Empresa seleccionada en el selector -----------------Recordar cambiar a bolsa de empresa NO parasito luego
+	//Empresa seleccionada en el selector 
 	public Empresa empresa;
 	public BolsaDeEmpresas bolsaEmpresas;
 	//Para bindear items del selector de periodos de la empresa elegida
@@ -20,7 +20,7 @@ public class VMCargarCuentas {
 	
 	
 	
-	//Constructor ----RECORDAR cambiar a bolsaDeEmpresas NO parasito
+	//Constructor
 	public VMCargarCuentas(BolsaDeEmpresas bolsaEmpresas) {
 		super();
 		this.bolsaEmpresas = bolsaEmpresas;

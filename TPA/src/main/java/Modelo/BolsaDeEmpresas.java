@@ -17,7 +17,7 @@ public class BolsaDeEmpresas {
 	}
 
 	public Empresa buscarEmpresa(String unNombre) {
-		Empresa empresaBuscada = this.getEmpresas().stream().filter( e -> e.getNombre() == unNombre).findFirst().get();
+		Empresa empresaBuscada = this.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().get();
 		return empresaBuscada;	
 	}
 	

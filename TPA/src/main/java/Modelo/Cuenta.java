@@ -20,11 +20,11 @@ public class Cuenta {
 		this.nombre = nombre;
 	}
 
-	public int getValor() {
+	public Integer getValor() {
 		return valor;
 	}
 
-	public void setValor(int valor) {
+	public void setValor(Integer valor) {
 		this.valor = valor;
 	}
 
