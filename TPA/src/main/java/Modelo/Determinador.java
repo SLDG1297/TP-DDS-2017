@@ -20,20 +20,23 @@ public class Determinador{
             return new BigDecimal(cuenta.getValor().toString());
         }
        
-        if(isNumber(operando)){
+        if(esNumeroValido(operando)){
             return new BigDecimal(operando);
         }
-        throw new Exception();
+        //throw new Exception("Operando no válido");----------------------------------------Ver cómo tratar excepción.
+        return new BigDecimal("jaj");
         }
         
-        private static boolean isNumber(String x){
-        	x.replace(",", "").replace(".", "");
-
-        	if (x.matches("^[0-9]")){
-        	return false;
-        	}
-        	else{
+        public static boolean esNumeroValido(String s) {
+        	try
+        	{
+        	Integer.parseInt(s.replace(".", ""));
+        	// s es un integer valido
         	return true;
         	}
-    }
+        	catch (NumberFormatException ex)
+        	{
+        	return false;
+        	}
+        	}
 }

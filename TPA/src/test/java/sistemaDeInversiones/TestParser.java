@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestParser {
+/*public class TestParser {
 	@Test
 	public void parseaUnaEmpresaNombre() {
 		List<String> empresa = new ArrayList<String>();
@@ -423,4 +423,4 @@ public class TestParser {
 			
 	}
 	
-}
+}*/

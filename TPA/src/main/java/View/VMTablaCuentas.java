@@ -70,8 +70,7 @@ public class VMTablaCuentas {
 
 	//Retorna una lista de nombres, de la lista de objetos cuentas
 	public List<String> nombresDeCuentas() {
-		List<String> nombres = listaDeCuentas.stream().map((Cuenta e) -> e.getNombre()).collect(Collectors.toList());
-		return nombres;
+		return listaDeCuentas.stream().map((Cuenta e) -> e.getNombre()).collect(Collectors.toList());
 	}
 	
 }

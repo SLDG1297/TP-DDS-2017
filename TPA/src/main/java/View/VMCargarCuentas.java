@@ -18,8 +18,6 @@ public class VMCargarCuentas {
 	public Integer periodoElegido;
 	public List<Integer> listaDePeriodosDeEmpresa;
 	
-	
-	
 	//Constructor
 	public VMCargarCuentas(BolsaDeEmpresas bolsaEmpresas) {
 		super();

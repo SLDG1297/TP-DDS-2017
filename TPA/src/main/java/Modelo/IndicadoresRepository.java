@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class IndicadoresRepository {
-
+	
 	private List<Indicador> indicadores = new ArrayList<Indicador>();
 	
 	public boolean existeIndicador(String nombre){
@@ -16,4 +16,7 @@ public class IndicadoresRepository {
 		return indicadores.stream().filter(i -> i.getNombre().equals(nombre)).findFirst().get();
 	}
 	
+	public void agregarIndicador(Indicador indicador){
+		indicadores.add(indicador);
+	}
 }
