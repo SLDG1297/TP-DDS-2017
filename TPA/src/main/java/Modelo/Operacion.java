@@ -1,10 +1,18 @@
 package Modelo;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-import Modelo.Cuenta;
-
-public interface Operacion {
-	public BigDecimal aplicar(List <Cuenta> cuentas);
+public abstract class Operacion implements Expresion {
+	Operacion valorA, valorB;
+	
+	public Operacion(Operacion valorA) {
+	    this.valorA = valorA;
+	}
+	
+	public abstract BigDecimal calcular(Query query);
+	
+	public void addOperando(Operacion operando){
+		  this.valorB = operando;
+	}
+	
 }
