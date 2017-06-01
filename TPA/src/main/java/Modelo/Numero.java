@@ -3,7 +3,6 @@ package Modelo;
 import java.math.BigDecimal;
 
 public class Numero extends Expresion{
-
 	private BigDecimal numero;
 	
 	public Numero(BigDecimal num){

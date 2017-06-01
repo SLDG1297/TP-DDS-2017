@@ -1,10 +1,13 @@
 package Modelo;
 
+import java.math.BigDecimal;
+
 public class IndicadorBuilder {
 
 	String nombreIndicador;
 	Expresion operandoAnterior;
 	IndicadoresRepository repositorio = IndicadoresRepository.getInstancia();
+
 	
 	public void setNombreIndicador(String nombreIndicador) {
 		this.nombreIndicador = nombreIndicador;
