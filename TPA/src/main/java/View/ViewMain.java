@@ -7,22 +7,19 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 
 import Archivo.Instanciador_Bolsa_Empresas;
-import Indicadores.IndicadoresRepository;
 import Modelo.BolsaDeEmpresas;
+import Modelo.IndicadoresRepository;
 
 public class ViewMain extends MainWindow<VM_Main> {
 
 	private static final long serialVersionUID = 1L;
 	
 	VMCargarCuentas miBolsa;
-	
-	VMIndicadores misIndicadores;
-	
-	public ViewMain(BolsaDeEmpresas bolsaEmpresas, IndicadoresRepository indicadores) {
+		
+	public ViewMain(BolsaDeEmpresas bolsaEmpresas) {
 		super(new VM_Main());
 		//Se carga el viewModel para la próxima ventana con la bolsa de empresas ya cargadas
 		miBolsa = new VMCargarCuentas(bolsaEmpresas);
-		misIndicadores = new VMIndicadores(indicadores);
 	}
 
 	@Override
@@ -36,16 +33,15 @@ public class ViewMain extends MainWindow<VM_Main> {
 		new Button(panelPrincipal).setCaption("Comparar gráficamente empresas");
 		
 		new Button(panelPrincipal).setCaption("Gestionar Indicadores").onClick(() -> new ViewGestionDeIndicadores(this, new VMGestionDeIndicadores()).open());
-
 	}
 
 	public static void main(String[] args) throws IOException {
 		Instanciador_Bolsa_Empresas instancia = new Instanciador_Bolsa_Empresas();
 		// Instancio una bolsa de Empresas
 		BolsaDeEmpresas bolsaEmpresas =  instancia.instanciar();
-		
+				
 		// Se la paso al constructor de la view
-		new ViewMain(bolsaEmpresas, null).startApplication();
+		new ViewMain(bolsaEmpresas).startApplication(); 
 		
 	}
 

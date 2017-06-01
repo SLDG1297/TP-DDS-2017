@@ -31,14 +31,24 @@ public class ViewAgregarIndicador extends Window<VMAgregarIndicador> {
 		new Label(panelAgregarIndicador).setText("Elija accion para el operando indicador elegido");
 		new Label(panelAgregarIndicador); //Espacio
 		
-		new Button(panelAgregarIndicador).setCaption("Sumar");
-		new Button(panelAgregarIndicador).setCaption("Restar");
-		new Button(panelAgregarIndicador).setCaption("Multiplicar");
-		new Button(panelAgregarIndicador).setCaption("Dividir");
+		Button suma = new Button(panelAgregarIndicador);
+		Button resta = new Button(panelAgregarIndicador);
+		Button multiplicar = new Button(panelAgregarIndicador);
+		Button dividir = new Button(panelAgregarIndicador);
+		Button crear = new Button(panelAgregarIndicador);
 		
-		//.onClick(() -> new ViewAgregarIndicador(this, new VMAgregarIndicador()).open());
+		suma.setCaption("Sumar").onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().tomarIndicador()));
+		suma.onClick(() -> new ViewSuma(this, new VMIngresarOperando()).open()); 
 		
-
+		resta.setCaption("Resta");
+		multiplicar.setCaption("Multiplicar");
+		dividir.setCaption("Dividir");
+		
+		new Label(panelAgregarIndicador); //Espacio
+		
+		crear.setCaption("Crear Indicador");
+			
+		
 	}
 	
 

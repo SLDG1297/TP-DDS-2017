@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class IndicadorBuilder {
 
 	String nombreIndicador;
-	Expresion operandoAnterior;
+	Operacion operandoAnterior = new Suma(new Numero(new BigDecimal(0)));
 	IndicadoresRepository repositorio = IndicadoresRepository.getInstancia();
 
 	
@@ -13,15 +13,15 @@ public class IndicadorBuilder {
 		this.nombreIndicador = nombreIndicador;
 	}
 	
-	public Expresion getOperandoAnterior() {
+	public Operacion getOperandoAnterior() {
 		return operandoAnterior;
 	}
 
-	public void setOperandoAnterior(Expresion operandoAnterior) {
+	public void setOperandoAnterior(Operacion operandoAnterior) {
 		this.operandoAnterior = operandoAnterior;
 	}
 	
-	public void crearIndicador(Expresion formula){
+	public void crearIndicador(Expresion formula){ //Tiene que ser Expresion formula o Operacion formula?
 		this.repositorio.agregarIndicador(new Indicador(nombreIndicador,formula));
 	}
 }
