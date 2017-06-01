@@ -7,20 +7,22 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 
 import Archivo.Instanciador_Bolsa_Empresas;
+import Indicadores.IndicadoresRepository;
 import Modelo.BolsaDeEmpresas;
 
 public class ViewMain extends MainWindow<VM_Main> {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	VMCargarCuentas miBolsa;
 	
-	public ViewMain(BolsaDeEmpresas bolsaEmpresas) {
+	VMIndicadores misIndicadores;
+	
+	public ViewMain(BolsaDeEmpresas bolsaEmpresas, IndicadoresRepository indicadores) {
 		super(new VM_Main());
 		//Se carga el viewModel para la próxima ventana con la bolsa de empresas ya cargadas
 		miBolsa = new VMCargarCuentas(bolsaEmpresas);
+		misIndicadores = new VMIndicadores(indicadores);
 	}
 
 	@Override
@@ -29,9 +31,11 @@ public class ViewMain extends MainWindow<VM_Main> {
 
 		new Button(panelPrincipal).setCaption("Ingresar una nueva empresa");
 
-		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas").onClick(() -> new ViewCargarCuentas(this,miBolsa).open());
+		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas").onClick(() -> new ViewCargarCuentas(this, miBolsa).open());
 
 		new Button(panelPrincipal).setCaption("Comparar gráficamente empresas");
+		
+		new Button(panelPrincipal).setCaption("Gestionar indicadores").onClick(() -> new ViewIndicadores(this, misIndicadores).open());
 
 	}
 

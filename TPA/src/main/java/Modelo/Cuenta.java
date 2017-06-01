@@ -9,8 +9,8 @@ public class Cuenta extends Expresion{
 	String nombre;
 	Integer valor;
 	
-	public Cuenta(String nuevoNombre, Integer nuevoValor) {
-		this.nombre = nuevoNombre;
+	public Cuenta(Object object2, Integer nuevoValor) {
+		this.nombre = (String) object2;
 		this.valor = nuevoValor;
 	}
 	
@@ -33,6 +33,7 @@ public class Cuenta extends Expresion{
 	public void setValor(Integer valor) {
 		this.valor = valor;
 	}
+	
 
 	public BigDecimal calcular(Query query) {
 		return query.obtenerValorCuenta(this.nombre);

@@ -1,8 +1,8 @@
 package Archivo;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +19,14 @@ public class CSVParser {
 		separador = miSeparador;
 	}
 		
-	public List<Empresa> parse(InputStream stream) throws IOException{
+	public List<Empresa> parse(FileInputStream stream) throws IOException{
 		List<Empresa> empresas = new ArrayList<Empresa>();
 		BufferedReader buffer = new BufferedReader(new InputStreamReader(stream));
 		empresas = this.aEmpresas(this.devolverLineas(buffer));
 
 		
 		return this.combinarEmpresas(empresas);
+		
 	}
 	
 	//Tuve que hacer esto lamentablemente porque buffer.lines es de tipo Stream<String> y al momento de mapearlo no lo tranformaba a una lista de empresas, ni siquiera casteando

@@ -3,22 +3,20 @@ package Modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 
 import org.uqbar.commons.utils.Observable;
 
 @Observable
-public class Empresa{
-	
+public class Empresa {
 	private String nombre;
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	// Esto solo lo usa el Parser para crear la empresa rápidamente
-	public Empresa(String nuevoNombre, String nombreDeCuenta, String periodo, String valor) {
-		nombre = nuevoNombre;		
-		periodos.add(new Periodo(Integer.parseInt(periodo), new Cuenta(nombreDeCuenta, Integer.parseInt(valor))));
+	public Empresa(Object object, Object object2, Object object3, Object object4) {
+		nombre = (String) object;		
+		periodos.add(new Periodo(Integer.parseInt((String) object3), new Cuenta(object2, Integer.parseInt((String) object4))));
 	}
 	
 	public Empresa(String nuevoNombre, List<Periodo> nuevosPeriodos) {
@@ -58,3 +56,4 @@ public class Empresa{
 	    return cuentas;
 	}
 }
+
