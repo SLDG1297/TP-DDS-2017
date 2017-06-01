@@ -3,7 +3,7 @@ package Modelo;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class Indicador implements Expresion {
+public class Indicador extends Expresion {
 
 	private String nombre;
 	private Expresion formula;

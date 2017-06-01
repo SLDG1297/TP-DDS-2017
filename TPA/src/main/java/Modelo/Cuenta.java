@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import org.uqbar.commons.utils.Observable;
 
 @Observable
-public class Cuenta implements Expresion{
+public class Cuenta extends Expresion{
 	String nombre;
 	Integer valor;
 	

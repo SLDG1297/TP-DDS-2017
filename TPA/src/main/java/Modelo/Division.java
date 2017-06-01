@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Division extends Operacion{
-    Operacion valorA, valorB;
+	Expresion valorA, valorB;
     
-  public Division(Operacion valorA) {
+  public Division(Expresion valorA) {
     super(valorA);
   }
     

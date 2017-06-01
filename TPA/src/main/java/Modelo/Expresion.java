@@ -5,8 +5,8 @@ import java.util.List;
 
 import Modelo.Cuenta;
 
-public interface Expresion {
+public abstract class Expresion {
 	
-	public BigDecimal calcular(Query query);
+	public abstract BigDecimal calcular(Query query);
 	
 }

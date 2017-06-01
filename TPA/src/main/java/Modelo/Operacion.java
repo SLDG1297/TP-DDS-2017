@@ -2,16 +2,16 @@ package Modelo;
 
 import java.math.BigDecimal;
 
-public abstract class Operacion implements Expresion {
-	Operacion valorA, valorB;
+public abstract class Operacion extends Expresion {
+	Expresion valorA, valorB;
 	
-	public Operacion(Operacion valorA) {
+	public Operacion(Expresion valorA) {
 	    this.valorA = valorA;
 	}
 	
 	public abstract BigDecimal calcular(Query query);
 	
-	public void addOperando(Operacion operando){
+	public void addOperando(Expresion operando){
 		  this.valorB = operando;
 	}
 	
