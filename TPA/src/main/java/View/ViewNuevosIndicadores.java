@@ -61,7 +61,7 @@ public class ViewNuevosIndicadores extends Window<VMNuevosIndicadores> {
 		indicador.onClick(() -> new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open());
 		
 		numero.setCaption("Numero").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
-		numero.onClick(() -> new ViewAgregarNumero(this, new VMAgregarNumero()).open());
+		numero.onClick(() -> new ViewAgregarNumero(this, new VMAgregarNumero(miIndicadorBuilder)).open());
 		
 		//cuenta.setCaption("Cuenta").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
 		//cuenta.onClick(() -> new ViewAgregarCuenta(this, new VMAgregarCuenta()).open());
