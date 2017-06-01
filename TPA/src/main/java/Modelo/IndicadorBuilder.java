@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class IndicadorBuilder {
 
 	String nombreIndicador;
-	Expresion operandoAnterior;
+	Expresion operandoAnterior = new Suma(new Numero(new BigDecimal(0)));
 	IndicadoresRepository repositorio = IndicadoresRepository.getInstancia();
 
 	

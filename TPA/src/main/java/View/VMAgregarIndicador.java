@@ -22,6 +22,14 @@ public class VMAgregarIndicador {
 		miIndicadorBuilder = indicadorBuilder;
 	}
 
+	public IndicadorBuilder getMiIndicadorBuilder() {
+		return miIndicadorBuilder;
+	}
+
+	public void setMiIndicadorBuilder(IndicadorBuilder miIndicadorBuilder) {
+		this.miIndicadorBuilder = miIndicadorBuilder;
+	}
+
 	public String getNombreDeIndicadorElegido() {
 		return nombreDeIndicadorElegido;
 	}
