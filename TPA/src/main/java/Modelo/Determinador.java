@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 public class Determinador{
         public static BigDecimal determinar(String operando, List<Cuenta> cuentas){
         	
-        if(IndicadoresRepository.existeIndicador(operando)){
+  /*      if(IndicadoresRepository.existeIndicador(operando)){
             Operacion formula = IndicadoresRepository.getIndicador(operando).getFormula();
             return formula.aplicar(cuentas);
-        }
+        }*/
         
         if(cuentas.stream().map(c -> c.getNombre()).collect(Collectors.toList()).contains(operando)){
             Cuenta cuenta = cuentas.stream().filter(c -> c.getNombre().equals(operando)).collect(Collectors.toList()).get(0);

@@ -32,6 +32,8 @@ public class ViewMain extends MainWindow<VM_Main> {
 		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas").onClick(() -> new ViewCargarCuentas(this,miBolsa).open());
 
 		new Button(panelPrincipal).setCaption("Comparar gráficamente empresas");
+		
+		new Button(panelPrincipal).setCaption("Gestionar Indicadores").onClick(() -> new ViewGestionDeIndicadores(this, new VMGestionDeIndicadores()).open());
 
 	}
 
