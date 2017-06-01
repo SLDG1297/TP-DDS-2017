@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Multiplicacion extends Operacion{
-    Expresion valorA, valorB;
-    
   public Multiplicacion(Expresion valorA) {
   super(valorA);
   }

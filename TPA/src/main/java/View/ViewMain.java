@@ -35,11 +35,7 @@ public class ViewMain extends MainWindow<VM_Main> {
 
 		new Button(panelPrincipal).setCaption("Comparar gráficamente empresas");
 		
-<<<<<<< HEAD
-		new Button(panelPrincipal).setCaption("Gestionar indicadores").onClick(() -> new ViewIndicadores(this, misIndicadores).open());
-=======
 		new Button(panelPrincipal).setCaption("Gestionar Indicadores").onClick(() -> new ViewGestionDeIndicadores(this, new VMGestionDeIndicadores()).open());
->>>>>>> 8b82eff9c4e4914f589cada8ee2b76e9a19cef7e
 
 	}
 
@@ -49,7 +45,7 @@ public class ViewMain extends MainWindow<VM_Main> {
 		BolsaDeEmpresas bolsaEmpresas =  instancia.instanciar();
 		
 		// Se la paso al constructor de la view
-		new ViewMain(bolsaEmpresas).startApplication();
+		new ViewMain(bolsaEmpresas, null).startApplication();
 		
 	}
 

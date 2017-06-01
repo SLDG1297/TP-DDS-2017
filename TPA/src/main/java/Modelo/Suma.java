@@ -3,9 +3,7 @@ package Modelo;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class Suma extends Operacion{
-	Expresion valorA, valorB;
-    
+public class Suma extends Operacion{ 
   public Suma(Expresion valorA) {
     super(valorA);
   }

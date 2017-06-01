@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Division extends Operacion{
-	Expresion valorA, valorB;
-    
   public Division(Expresion valorA) {
     super(valorA);
   }

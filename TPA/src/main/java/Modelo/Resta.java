@@ -4,8 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Resta extends Operacion{
-	Expresion valorA, valorB;
-    
   public Resta(Expresion valorA) {
   super(valorA);
   }
