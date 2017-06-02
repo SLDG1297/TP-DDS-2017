@@ -15,6 +15,7 @@ public class Suma extends Operacion {
 	
 	@Override
 	public BigDecimal calcular(Query query) {
+		this.sePuedeCalcular();
 		return this.valorA.calcular(query).add(this.valorB.calcular(query));
 	}
 }

@@ -50,21 +50,31 @@ public class ViewNuevosIndicadores extends Window<VMNuevosIndicadores> {
 		
 		new Label(panelNuevos).setText("Elija el tipo del primer operando");
 		
-		Button indicador = new Button(panelNuevos);
-		Button numero = new Button(panelNuevos);
+		Button indicador = new Button(panelNuevos).setCaption("Indicador");
+		Button numero = new Button(panelNuevos).setCaption("Numero");
 		Button cuenta = new Button(panelNuevos).setCaption("Cuenta");
 		
-		//el siguiente metodo de indicador le debe dar al builder el nombre del indicador que estamos creando. Decidir donde creo
-		//ese builder para empezar a pasarlo.
+	
+		indicador.onClick(() -> {
+			
+			miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador());
+			new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open();
+			
+		});
 		
-		indicador.setCaption("Indicador").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
-		indicador.onClick(() -> new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open());
+		numero.onClick(() -> {
+			
+			miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador());
+			new ViewAgregarNumero(this, new VMAgregarNumero(miIndicadorBuilder)).open();
+			
+		});
+
+		cuenta.onClick(() -> {
+			
+			miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador());
+			new ViewAgregarCuenta(this, new VMAgregarCuenta(miIndicadorBuilder)).open();
 		
-		numero.setCaption("Numero").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
-		numero.onClick(() -> new ViewAgregarNumero(this, new VMAgregarNumero(miIndicadorBuilder)).open());
-		
-		cuenta.setCaption("Cuenta").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
-		cuenta.onClick(() -> new ViewAgregarCuenta(this, new VMAgregarCuenta(miIndicadorBuilder)).open());
+		});
 		
 	}
 	

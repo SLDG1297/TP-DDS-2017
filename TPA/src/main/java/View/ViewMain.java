@@ -1,14 +1,11 @@
 package View;
 
 import java.io.IOException;
-
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
-
 import Archivo.Instanciador_Bolsa_Empresas;
-import Modelo.BolsaDeEmpresas;
-import Modelo.IndicadoresRepository;
+
 
 public class ViewMain extends MainWindow<VM_Main> {
 
@@ -33,9 +30,9 @@ public class ViewMain extends MainWindow<VM_Main> {
 	}
 
 	public static void main(String[] args) throws IOException {
-		//Instancio una bolsa de Empresas
+		//Instancio una bolsa de Empresas y creo su archivo de repositorio.
 		new Instanciador_Bolsa_Empresas().instanciar();
-
+		//AlmacenIndicadores.obtenerRepositorioIndicadores("repositorioIndicadores");
 		new ViewMain().startApplication(); 
 		
 	}
