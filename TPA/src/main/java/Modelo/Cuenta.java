@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 
 import org.uqbar.commons.utils.Observable;
 
+import Exepciones.NombreCuentaErroneoException;
+
 @Observable
 public class Cuenta extends Expresion{
 	String nombre;
@@ -37,6 +39,12 @@ public class Cuenta extends Expresion{
 
 	public BigDecimal calcular(Query query) {
 		return query.obtenerValorCuenta(this.nombre);
+		/*try{
+		return query.obtenerValorCuenta(this.nombre);
+		}
+		catch(NombreCuentaErroneoException e){
+			//Hay que tratar excepción de alguna forma
+		}*/
 	}
 
 }
