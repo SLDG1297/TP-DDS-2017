@@ -37,5 +37,4 @@ public class Periodo {
 	public void agregarCuenta(Cuenta miCuenta) {
 		this.cuentas.add(miCuenta);
 	}
-
 }

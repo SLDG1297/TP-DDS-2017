@@ -7,7 +7,6 @@ public class IndicadorBuilder {
 	String nombreIndicador;
 	Operacion operandoAnterior = new Suma(new Numero(new BigDecimal(0)));
 	IndicadoresRepository repositorio = IndicadoresRepository.getInstancia();
-
 	
 	public void setNombreIndicador(String nombreIndicador) {
 		this.nombreIndicador = nombreIndicador;

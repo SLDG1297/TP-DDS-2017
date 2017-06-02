@@ -23,6 +23,6 @@ public class BolsaDeEmpresas {
 	
 	public List<String> buscarNombresDeEmpresas() {
 		List<String> nombres = this.getEmpresas().stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());
-		return nombres;		
+		return nombres;
 	}
 }
