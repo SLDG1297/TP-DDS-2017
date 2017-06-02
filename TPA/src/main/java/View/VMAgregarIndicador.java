@@ -2,9 +2,8 @@ package View;
 
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
-import Modelo.BolsaDeEmpresas;
-import Modelo.Empresa;
-import Modelo.Expresion;
+
+import Modelo.CadenaActualDeMiIndicador;
 import Modelo.Indicador;
 import Modelo.IndicadorBuilder;
 import Modelo.IndicadoresRepository;
@@ -37,6 +36,10 @@ public class VMAgregarIndicador {
 	public void setNombreDeIndicadorElegido(String nombreDeIndicadorElegido) {
 		this.nombreDeIndicadorElegido = nombreDeIndicadorElegido;
 	}
+	
+	public String getMiCadena() {
+		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+	}
 
 	public List<String> getNombresDeIndicadoresExistentes() {
 		return nombresDeIndicadoresExistentes;
@@ -46,7 +49,7 @@ public class VMAgregarIndicador {
 		this.nombresDeIndicadoresExistentes = nombresDeIndicadoresExistentes;
 	}
 	
-	public Indicador tomarIndicador() {
+	public Indicador devolverIndicador() {
 		
 		Indicador indicadorBuscado;
 		indicadorBuscado = IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);

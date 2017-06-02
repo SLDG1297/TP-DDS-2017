@@ -21,7 +21,7 @@ public class IndicadorBuilder {
 		this.operandoAnterior = operandoAnterior;
 	}
 	
-	public void crearIndicador(Expresion formula){ //Tiene que ser Expresion formula o Operacion formula?
-		this.repositorio.agregarIndicador(new Indicador(nombreIndicador,formula));
+	public void crearIndicador(){ 
+		this.repositorio.agregarIndicador(new Indicador(nombreIndicador,operandoAnterior));
 	}
 }

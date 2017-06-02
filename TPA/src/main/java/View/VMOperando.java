@@ -2,6 +2,7 @@ package View;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 import Modelo.BolsaDeEmpresas;
+import Modelo.CadenaActualDeMiIndicador;
 import Modelo.Empresa;
 import Modelo.IndicadorBuilder;
 
@@ -23,5 +24,9 @@ IndicadorBuilder miIndicadorBuilder;
 
 	public void setMiIndicadorBuilder(IndicadorBuilder miIndicadorBuilder) {
 		this.miIndicadorBuilder = miIndicadorBuilder;
+	}
+	
+	public String getMiCadena() {
+		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
 	}
 }

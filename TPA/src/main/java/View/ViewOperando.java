@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.Color;
 import java.io.IOException;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
@@ -25,6 +26,10 @@ public class ViewOperando extends Window<VMOperando> {
 
 		this.setTitle("Nuevo operando");
 
+		new Label(panelSuma).setText("Estado actual del indicador:");
+		new Label(panelSuma).setBackground(Color.WHITE).bindValueToProperty("miCadena");
+		new Label(panelSuma); // Espacio
+		
 		new Label(panelSuma).setText("Seleccione nuevo operando a sumar");
 		new Label(panelSuma); // Espacio
 
@@ -34,6 +39,7 @@ public class ViewOperando extends Window<VMOperando> {
 		
 		indicador.onClick(() -> new ViewAgregarIndicador(this, new VMAgregarIndicador(this.getModelObject().getMiIndicadorBuilder())).open());
 		numero.onClick(() -> new ViewAgregarNumero(this, new VMAgregarNumero(this.getModelObject().getMiIndicadorBuilder())).open());
+		cuenta.onClick(() -> new ViewAgregarCuenta(this, new VMAgregarCuenta(this.getModelObject().getMiIndicadorBuilder())).open());
 		
 	}
 
