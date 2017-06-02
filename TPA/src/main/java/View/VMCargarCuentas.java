@@ -13,7 +13,7 @@ public class VMCargarCuentas {
 	public String nombreEmpresa;
 	//Empresa seleccionada en el selector 
 	public Empresa empresa;
-	public BolsaDeEmpresas bolsaEmpresas = BolsaDeEmpresas.getInstancia();
+	public BolsaDeEmpresas bolsaEmpresas;
 	//Para bindear items del selector de periodos de la empresa elegida
 	public Integer periodoElegido;
 	public List<Integer> listaDePeriodosDeEmpresa;
@@ -21,6 +21,7 @@ public class VMCargarCuentas {
 	//Constructor
 	public VMCargarCuentas() {
 		super();
+		bolsaEmpresas = BolsaDeEmpresas.getInstancia();
 		listaDeNombresDeEmpresas = this.buscarNombresDeEmpresas();
 	}
 

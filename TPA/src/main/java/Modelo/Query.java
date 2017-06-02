@@ -11,8 +11,8 @@ public class Query {
 
 	private List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
-	public Query(Empresa empresa, Periodo periodo){
-	cuentas = empresa.obtenerCuentasEnPeriodo(periodo.getAnio());
+	public Query(Empresa empresa, Integer periodo){
+	cuentas = empresa.obtenerCuentasEnPeriodo(periodo);
 	}
 	
 	public BigDecimal obtenerValorCuenta(String nombreCuenta){

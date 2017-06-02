@@ -55,7 +55,6 @@ public class ViewAgregarNumero extends Window<VMAgregarNumero> {
 		
 		Button crear = new Button(panelNumero).setCaption("Crear indicador");		
 	
-		
 		suma.onClick(() -> {
 			
 			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverNumero());
