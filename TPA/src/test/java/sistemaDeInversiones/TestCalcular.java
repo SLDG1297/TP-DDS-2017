@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import Exepciones.NoHayLaMismaCantidadDeEmpresasQueDeCuentasException;
+import Exepciones.NombreCuentaErroneoException;
 import Modelo.BolsaDeEmpresas;
 import Modelo.Expresion;
 import Modelo.Operacion;
@@ -63,6 +65,16 @@ public class TestCalcular {
 	@Test
 	public void calculoDeNumeros(){
 		Assert.assertEquals(new BigDecimal(200), unaConstante.calcular(query));
+	}
+	
+	@Test
+	public void QueryObtineValorCuenta(){
+		Assert.assertEquals(new BigDecimal(2000), query.obtenerValorCuenta("EBITDA"));
+	}
+	
+	@Test(expected = NombreCuentaErroneoException.class)
+	public void QueryArrojaExcepcionSiNombreDeEmpresaEsErroneo(){
+		query.obtenerValorCuenta("EDITBA");
 	}
 	
 	@Test
