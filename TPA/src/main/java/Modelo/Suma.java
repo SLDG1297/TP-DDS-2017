@@ -4,8 +4,13 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Suma extends Operacion {
+	
 	public Suma(Expresion valorA) {
 		super(valorA);
+	}
+	
+	public Suma(Expresion valorA, Expresion valorB){
+		super(valorA, valorB);
 	}
 	
 	@Override

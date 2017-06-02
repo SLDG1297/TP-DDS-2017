@@ -7,6 +7,10 @@ public class Resta extends Operacion{
   public Resta(Expresion valorA) {
   super(valorA);
   }
+  
+  public Resta(Expresion valorA, Expresion valorB){
+		super(valorA, valorB);
+	}
     
   @Override
   public BigDecimal calcular(Query query) {

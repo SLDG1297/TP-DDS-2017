@@ -38,7 +38,6 @@ public class ViewAgregarIndicador extends Window<VMAgregarIndicador> {
 		new Label(panelAgregarIndicador); //Espacio
 		
 		Selector<Expresion> selector = new Selector<Expresion>(panelAgregarIndicador);
-		selector.allowNull(true);
 		selector.bindValueToProperty("nombreDeIndicadorElegido");
 		selector.bindItemsToProperty("nombresDeIndicadoresExistentes");
 		
@@ -53,7 +52,7 @@ public class ViewAgregarIndicador extends Window<VMAgregarIndicador> {
 		
 		Button crear = new Button(panelAgregarIndicador);
 		
-		// Habria q hacer seter cada vez q hay get del builder
+		// Habria q hacer setter cada vez que hay get del builder
 		
 		crear.onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador()));
 		crear.onClick(() -> this.getModelObject().miIndicadorBuilder.crearIndicador());

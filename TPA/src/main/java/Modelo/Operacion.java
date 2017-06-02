@@ -9,6 +9,11 @@ public abstract class Operacion extends Expresion {
 	    this.valorA = valorA;
 	}
 	
+	public Operacion(Expresion valorA, Expresion valorB){
+		this.valorA = valorA;
+		this.valorB = valorB;
+	}
+	
 	public abstract BigDecimal calcular(Query query);
 	
 	public void addOperando(Expresion operando){
