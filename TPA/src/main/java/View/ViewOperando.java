@@ -42,5 +42,5 @@ public class ViewOperando extends Window<VMOperando> {
 		cuenta.onClick(() -> new ViewAgregarCuenta(this, new VMAgregarCuenta(this.getModelObject().getMiIndicadorBuilder())).open());
 		
 	}
-
+	
 }
