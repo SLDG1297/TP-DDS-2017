@@ -24,7 +24,7 @@ import Modelo.Suma;
 public class ViewAgregarNumero extends Window<VMAgregarNumero> {
 	
 	IndicadorBuilder miIndicadorBuilder;
-
+    
 	public ViewAgregarNumero(WindowOwner panelPrincipal, VMAgregarNumero vmNumero) {
 		super(panelPrincipal, vmNumero);
 		miIndicadorBuilder = vmNumero.getMiIndicadorBuilder();
@@ -46,7 +46,7 @@ public class ViewAgregarNumero extends Window<VMAgregarNumero> {
 		suma.onClick(() -> this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Suma(this.getModelObject().miIndicadorBuilder.getOperandoAnterior())));
 		suma.onClick(() -> new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open());
 		
-		resta.setCaption("Resta").onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().tomarIndicador()));
+	    resta.setCaption("Resta").onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().tomarIndicador()));
 		resta.onClick(() -> this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Resta(this.getModelObject().miIndicadorBuilder.getOperandoAnterior())));
 		resta.onClick(() -> new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open());
 		

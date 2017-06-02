@@ -1,10 +1,9 @@
 package View;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.uqbar.commons.utils.Observable;
-import Modelo.BolsaDeEmpresas;
-import Modelo.Empresa;
-import Modelo.Expresion;
 import Modelo.Indicador;
 import Modelo.IndicadorBuilder;
 import Modelo.IndicadoresRepository;
@@ -20,6 +19,7 @@ public class VMAgregarIndicador {
 	public VMAgregarIndicador(IndicadorBuilder indicadorBuilder) {
 		super();	
 		miIndicadorBuilder = indicadorBuilder;
+		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().getIndicadores().stream().map(i -> i.getNombre()).collect(Collectors.toList());
 	}
 
 	public IndicadorBuilder getMiIndicadorBuilder() {
@@ -47,10 +47,7 @@ public class VMAgregarIndicador {
 	}
 	
 	public Indicador tomarIndicador() {
-		
-		Indicador indicadorBuscado;
-		indicadorBuscado = IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);
-		return indicadorBuscado;
+		return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);
 		
 	}
 	
