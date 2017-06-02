@@ -18,8 +18,8 @@ public class ViewCargarCuentas extends Window<VMCargarCuentas> {
 	private static final long serialVersionUID = 2L;
 
 	// No nos cierra del todo qué es WindowOwner. Así que se pone así para que no rompa Eclipse.
-	public ViewCargarCuentas(WindowOwner panelPrincipal, VMCargarCuentas miNuevaBolsa) {
-		super(panelPrincipal, miNuevaBolsa);
+	public ViewCargarCuentas(WindowOwner panelPrincipal, VMCargarCuentas VM) {
+		super(panelPrincipal, VM);
 	}
 	
 	@Override

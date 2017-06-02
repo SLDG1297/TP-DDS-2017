@@ -1,6 +1,7 @@
 package View;
 
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
@@ -51,10 +52,8 @@ public class VMAgregarIndicador {
 		this.nombresDeIndicadoresExistentes = nombresDeIndicadoresExistentes;
 	}
 	
-
 	public Indicador devolverIndicador() {
-		return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);
-
+		return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);	
 	}
 	
 }
