@@ -30,13 +30,16 @@ public class IndicadoresRepository {
 	public void agregarIndicador(Indicador indicador){
 		instancia.indicadores.add(indicador);
 	}
+	
+	public void agregarIndicador(List<Indicador> indicadores){
+		instancia.indicadores.addAll(indicadores);
+	}
 
 	public static IndicadoresRepository getInstancia() {
 		
 		if(instancia == null){
 			instancia = new IndicadoresRepository();
 		}
-		
 		return instancia;
 	}
 }

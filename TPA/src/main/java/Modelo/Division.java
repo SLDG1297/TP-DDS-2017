@@ -15,6 +15,7 @@ public class Division extends Operacion{
     
   @Override
   public BigDecimal calcular(Query query) {
+	 this.sePuedeCalcular();
      return this.valorA.calcular(query).divide(this.valorB.calcular(query));
   }
   

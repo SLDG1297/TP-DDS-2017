@@ -14,6 +14,7 @@ public class Resta extends Operacion{
     
   @Override
   public BigDecimal calcular(Query query) {
+	 this.sePuedeCalcular();
      return this.valorA.calcular(query).subtract(this.valorB.calcular(query));
   }
   
