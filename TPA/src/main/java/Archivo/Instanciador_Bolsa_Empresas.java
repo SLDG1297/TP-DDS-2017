@@ -11,11 +11,8 @@ import java.util.ArrayList;
 
 public class Instanciador_Bolsa_Empresas {
 	
-	public BolsaDeEmpresas instanciar() throws IOException {
-		BolsaDeEmpresas bolsaEmpresa = new BolsaDeEmpresas();
-		bolsaEmpresa.setEmpresas(obtenerEmpresas());
-		
-		return bolsaEmpresa;
+	public void instanciar() throws IOException {
+	    BolsaDeEmpresas.getInstancia().setEmpresas(obtenerEmpresas());
 	}
 	
 	private List<Empresa> obtenerEmpresas() throws IOException {
