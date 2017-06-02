@@ -13,16 +13,17 @@ import com.google.gson.GsonBuilder;
 public class AlmacenIndicadores {
 	static Gson serializador = new GsonBuilder().setPrettyPrinting().create();
 	
-	private static String serializarRepositorioIndicadores(IndicadoresRepository unRepositorio){
-		return serializador.toJson(unRepositorio);
+	private static String serializarRepositorioIndicadores(){
+		return serializador.toJson(IndicadoresRepository.getInstancia());
 	}
+		
 	
 	private static IndicadoresRepository deserializarRepositorioIndicadores(String indicadorJSON){
 		return serializador.fromJson(indicadorJSON, IndicadoresRepository.class);
 	}
 	
-	public static void almacenarRepositorioIndicadores(String nombreRuta, IndicadoresRepository unRepositorio) throws IOException{
-		String texto = serializarRepositorioIndicadores(unRepositorio);
+	public static void almacenarRepositorioIndicadores(String nombreRuta) throws IOException{
+		String texto = serializarRepositorioIndicadores();
 		String ruta = nombreRuta + ".txt";
 		File archivo = new File(ruta);			
 		BufferedWriter buffer = new BufferedWriter(new FileWriter(archivo));
@@ -32,7 +33,7 @@ public class AlmacenIndicadores {
         buffer.close();
 	}
 	
-	public static void obtenerRepositorioIndicadores(String nombreRuta, IndicadoresRepository unRepositorio) throws IOException{
+	public static void obtenerRepositorioIndicadores(String nombreRuta) throws IOException{
 		File archivo = new File(nombreRuta + ".txt");
 		BufferedReader buffer = new BufferedReader(new FileReader(archivo));
 		String texto = new String();
@@ -44,6 +45,6 @@ public class AlmacenIndicadores {
 		buffer.close();
 		
 		IndicadoresRepository nuevoRepositorio = deserializarRepositorioIndicadores(texto);
-		unRepositorio.agregarIndicador(nuevoRepositorio.getIndicadores());
+		IndicadoresRepository.getInstancia().agregarIndicador(nuevoRepositorio.getIndicadores());
 	}
 }
