@@ -22,6 +22,10 @@ public class IndicadoresRepository {
 	public void agregarIndicador(Indicador indicador) {
 		indicadores.add(indicador);
 	}
+	
+	public void agregarIndicador(List<Indicador> indicadores){
+		instancia.indicadores.addAll(indicadores);
+	}
 
 	public static IndicadoresRepository getInstancia() {
 

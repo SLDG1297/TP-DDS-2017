@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import Exepciones.FaltaOperandoDerechoException;
 import Exepciones.NoHayLaMismaCantidadDeEmpresasQueDeCuentasException;
 import Exepciones.NombreCuentaErroneoException;
 import Modelo.BolsaDeEmpresas;
@@ -120,6 +121,21 @@ public class TestCalcular {
 	}
 	
 	@Test
+	public void calculoParentesis(){
+		// Fórmula: XD + (FCF * EBITDA)
+		Suma operandoIzquierdo = new Suma(cuenta3);
+		
+		Multiplicacion producto = new Multiplicacion(cuenta2);
+		producto.addOperando(cuenta1);
+		
+		Parentesis operandoDerecho = new Parentesis(producto);
+		
+		operandoIzquierdo.addOperando(operandoDerecho);
+		
+		Assert.assertEquals(new BigDecimal(6000500), operandoIzquierdo.calcular(query));
+	}
+	
+	@Test
 	public void calculoOperacionesAnidadas(){
 		Assert.assertEquals(new BigDecimal(2500), indicador.calcular(query));
 	}
@@ -132,7 +148,13 @@ public class TestCalcular {
 		
 		Assert.assertEquals(new BigDecimal(4500), suma.calcular(query));
 	}
-	
+
+	@Test(expected = FaltaOperandoDerechoException.class)
+	public void arrojarExcepcionSiNoHayOperandoDerecho(){
+		Suma suma = new Suma(cuenta1);
+		suma.calcular(query);
+	}
+
 	@Test
 	public void verificarConsistenciaDeIndicadores() {
 		//Indicadores predefinidos
@@ -166,7 +188,5 @@ public class TestCalcular {
 		IndicadoresRepository.getInstancia().agregarIndicador(indicador1);
 		
 		Assert.assertEquals("Indicador4", IndicadoresRepository.getInstancia().getIndicadores().get(3).getNombre());
-		
-		
 	}
 }

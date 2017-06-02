@@ -35,16 +35,16 @@ public class TestDominio {
 	Assert.assertEquals(periodosEmpresa,periodo2);
 	
 	}*/
+	
 	@Test
-	public void verEmpresas(){
-	try {
-		new Instanciador_Bolsa_Empresas().instanciar();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	public void verEmpresas() {
+		try {
+			new Instanciador_Bolsa_Empresas().instanciar();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		BolsaDeEmpresas bolsa = BolsaDeEmpresas.getInstancia();
+		System.out.println(bolsa.getEmpresas().stream().map(e -> e.getNombre()).collect(Collectors.toList()));
 	}
-	BolsaDeEmpresas bolsa = BolsaDeEmpresas.getInstancia();
-	System.out.println(bolsa.getEmpresas().stream().map(e -> e.getNombre()).collect(Collectors.toList()));
-	}
-
 }
