@@ -1,22 +1,19 @@
 package Modelo;
 
 import java.math.BigDecimal;
-
 import org.uqbar.commons.utils.Observable;
 
-import Exepciones.NombreCuentaErroneoException;
-
 @Observable
-public class Cuenta extends Expresion{
+public class Cuenta extends Expresion {
 	String nombre;
 	Integer valor;
-	
+
 	public Cuenta(Object object2, Integer nuevoValor) {
 		this.nombre = (String) object2;
 		this.valor = nuevoValor;
 	}
-	
-	public Cuenta(String nuevoNombre){
+
+	public Cuenta(String nuevoNombre) {
 		this.nombre = nuevoNombre;
 	}
 
@@ -35,16 +32,14 @@ public class Cuenta extends Expresion{
 	public void setValor(Integer valor) {
 		this.valor = valor;
 	}
-	
 
 	public BigDecimal calcular(Query query) {
 		return query.obtenerValorCuenta(this.nombre);
-		/*try{
-		return query.obtenerValorCuenta(this.nombre);
-		}
-		catch(NombreCuentaErroneoException e){
-			//Hay que tratar excepción de alguna forma
-		}*/
+		/*
+		 * try{ return query.obtenerValorCuenta(this.nombre); }
+		 * catch(NombreCuentaErroneoException e){ //Hay que tratar excepción de
+		 * alguna forma }
+		 */
 	}
 
 }

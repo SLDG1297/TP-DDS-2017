@@ -1,14 +1,12 @@
 package View;
 
 import java.awt.Color;
-
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
 import Modelo.CadenaActualDeMiIndicador;
 import Modelo.Division;
 import Modelo.Expresion;
@@ -68,8 +66,10 @@ public class ViewAgregarIndicador extends Window<VMAgregarIndicador> {
 		crear.onClick(() -> {
 			
 			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador());
-			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
 			this.getModelObject().miIndicadorBuilder.crearIndicador();
+			CadenaActualDeMiIndicador.instanciar().agregar(this.getModelObject().getNombreDeIndicadorElegido());
+			new ViewIndicadorCreado(this, new VMIndicadorCreado()).open();
+			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
 			
 		});
 		

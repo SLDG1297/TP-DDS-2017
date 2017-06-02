@@ -3,17 +3,12 @@ package sistemaDeInversiones;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import Exepciones.FaltaOperandoDerechoException;
-import Exepciones.NoHayLaMismaCantidadDeEmpresasQueDeCuentasException;
 import Exepciones.NombreCuentaErroneoException;
-import Modelo.BolsaDeEmpresas;
 import Modelo.Expresion;
-import Modelo.Operacion;
 import Modelo.Numero;
 import Modelo.Cuenta;
 import Modelo.Indicador;
@@ -26,7 +21,6 @@ import Modelo.Empresa;
 import Modelo.Parentesis;
 import Modelo.Periodo;
 import Modelo.Query;
-
 
 public class TestCalcular {
 	// Para probar Numeros

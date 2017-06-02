@@ -1,9 +1,6 @@
 package View;
 
-
 import java.awt.Color;
-import java.io.IOException;
-
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import Modelo.Division;
@@ -11,7 +8,6 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-import Modelo.AlmacenIndicadores;
 import Modelo.CadenaActualDeMiIndicador;
 import Modelo.Multiplicacion;
 import Modelo.Resta;
@@ -64,7 +60,7 @@ public class ViewAgregarCuenta extends Window<VMAgregarCuenta> {
 		crear.onClick(() -> {
 			
 			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverCuenta());
-			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
+			
 			/*try {
 				AlmacenIndicadores.almacenarRepositorioIndicadores("repositorioIndicadores");
 			} catch (IOException e) {
@@ -72,7 +68,11 @@ public class ViewAgregarCuenta extends Window<VMAgregarCuenta> {
 				e.printStackTrace();
 			}*/
 			this.getModelObject().miIndicadorBuilder.crearIndicador();
+			CadenaActualDeMiIndicador.instanciar().agregar(this.getModelObject().getCuentaElegida());
+			new ViewIndicadorCreado(this, new VMIndicadorCreado()).open();
+			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
 			
+					
 		});
 		
 		resta.onClick(() -> {

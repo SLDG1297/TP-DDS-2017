@@ -1,30 +1,25 @@
 package View;
 
 import java.awt.Color;
-import java.io.IOException;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.windows.MainWindow;
-import Archivo.Instanciador_Bolsa_Empresas;
-import Modelo.BolsaDeEmpresas;
 import Modelo.CadenaActualDeMiIndicador;
 import Modelo.Division;
-import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
-import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.widgets.Selector;
-import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-import Modelo.Empresa;
-import Modelo.IndicadorBuilder;
 import Modelo.Multiplicacion;
 import Modelo.Resta;
 import Modelo.Suma;
 
 public class ViewAgregarNumero extends Window<VMAgregarNumero> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ViewAgregarNumero(WindowOwner panelPrincipal, VMAgregarNumero vmNumero) {
 		super(panelPrincipal, vmNumero);
 		
@@ -68,8 +63,10 @@ public class ViewAgregarNumero extends Window<VMAgregarNumero> {
 		crear.onClick(() -> {
 			
 			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverNumero());
-			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
 			this.getModelObject().miIndicadorBuilder.crearIndicador();
+			CadenaActualDeMiIndicador.instanciar().agregar(this.getModelObject().devolverStringDeNumero());
+			new ViewIndicadorCreado(this, new VMIndicadorCreado()).open();
+			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
 			
 		});
 		

@@ -1,16 +1,10 @@
 package View;
 
-import java.math.BigDecimal;
-
 import org.uqbar.commons.utils.Observable;
-
 import Modelo.CadenaActualDeMiIndicador;
 import Modelo.Cuenta;
 import Modelo.Expresion;
-import Modelo.Indicador;
 import Modelo.IndicadorBuilder;
-import Modelo.IndicadoresRepository;
-import Modelo.Suma;
 
 
 
