@@ -46,4 +46,6 @@ public class TestDominio {
 	BolsaDeEmpresas bolsa = BolsaDeEmpresas.getInstancia();
 	System.out.println(bolsa.getEmpresas().stream().map(e -> e.getNombre()).collect(Collectors.toList()));
 	}
+
 }
+

@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,10 @@ public class CadenaActualDeMiIndicador {
 	
 	public void agregar(String cadena) {
 		this.cadenaActual.add(cadena);
+	}
+	
+	public void agregar(BigDecimal numero) {
+		this.cadenaActual.add(numero.toString());
 	}
 	
 	public void removerUltimoAgregado() {

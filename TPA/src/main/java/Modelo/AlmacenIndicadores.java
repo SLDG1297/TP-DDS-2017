@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class AlmacenIndicadores {
-	static Gson serializador = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+	static Gson serializador = new GsonBuilder().setPrettyPrinting().create();
 	
 	private static String serializarRepositorioIndicadores(IndicadoresRepository unRepositorio){
 		return serializador.toJson(unRepositorio);

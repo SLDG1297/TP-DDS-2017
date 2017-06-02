@@ -3,8 +3,7 @@
     "nombre": "Indicador1",
     "formula": {
       "valorA": {
-        "nombre": "EDITBA",
-        "valor": null
+        "nombre": "EDITBA"
       },
       "valorB": {
         "numero": 4.5
@@ -16,16 +15,14 @@
     "formula": {
       "valorA": {
         "valorA": {
-          "nombre": "Free Cash Flow",
-          "valor": null
+          "nombre": "Free Cash Flow"
         },
         "valorB": {
           "numero": 3
         }
       },
       "valorB": {
-        "nombre": "EDITBA",
-        "valor": null
+        "nombre": "EDITBA"
       }
     }
   },
@@ -36,8 +33,7 @@
         "nombre": "Indicador1",
         "formula": {
           "valorA": {
-            "nombre": "EDITBA",
-            "valor": null
+            "nombre": "EDITBA"
           },
           "valorB": {
             "numero": 4.5
@@ -49,16 +45,14 @@
         "formula": {
           "valorA": {
             "valorA": {
-              "nombre": "Free Cash Flow",
-              "valor": null
+              "nombre": "Free Cash Flow"
             },
             "valorB": {
               "numero": 3
             }
           },
           "valorB": {
-            "nombre": "EDITBA",
-            "valor": null
+            "nombre": "EDITBA"
           }
         }
       }
@@ -69,8 +63,7 @@
       "nombre": "Indicador1",
       "formula": {
         "valorA": {
-          "nombre": "EDITBA",
-          "valor": null
+          "nombre": "EDITBA"
         },
         "valorB": {
           "numero": 4.5
@@ -82,16 +75,14 @@
       "formula": {
         "valorA": {
           "valorA": {
-            "nombre": "Free Cash Flow",
-            "valor": null
+            "nombre": "Free Cash Flow"
           },
           "valorB": {
             "numero": 3
           }
         },
         "valorB": {
-          "nombre": "EDITBA",
-          "valor": null
+          "nombre": "EDITBA"
         }
       }
     },
@@ -102,8 +93,7 @@
           "nombre": "Indicador1",
           "formula": {
             "valorA": {
-              "nombre": "EDITBA",
-              "valor": null
+              "nombre": "EDITBA"
             },
             "valorB": {
               "numero": 4.5
@@ -115,16 +105,14 @@
           "formula": {
             "valorA": {
               "valorA": {
-                "nombre": "Free Cash Flow",
-                "valor": null
+                "nombre": "Free Cash Flow"
               },
               "valorB": {
                 "numero": 3
               }
             },
             "valorB": {
-              "nombre": "EDITBA",
-              "valor": null
+              "nombre": "EDITBA"
             }
           }
         }

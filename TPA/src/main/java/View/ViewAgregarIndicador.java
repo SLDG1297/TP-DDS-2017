@@ -8,6 +8,8 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
+
+import Modelo.CadenaActualDeMiIndicador;
 import Modelo.Division;
 import Modelo.Expresion;
 import Modelo.Multiplicacion;
@@ -44,42 +46,62 @@ public class ViewAgregarIndicador extends Window<VMAgregarIndicador> {
 		new Label(panelAgregarIndicador).setText("Elija accion para el operando indicador elegido");
 		new Label(panelAgregarIndicador); //Espacio
 		
-		Button suma = new Button(panelAgregarIndicador);
-		Button resta = new Button(panelAgregarIndicador);
-		Button multiplicar = new Button(panelAgregarIndicador);
-		Button dividir = new Button(panelAgregarIndicador);
+		Button suma = new Button(panelAgregarIndicador).setCaption("Sumar");
+		Button resta = new Button(panelAgregarIndicador).setCaption("Resta");
+		Button multiplicar = new Button(panelAgregarIndicador).setCaption("Multiplicar");
+		Button dividir = new Button(panelAgregarIndicador).setCaption("Dividir");
 		new Label(panelAgregarIndicador); //Espacio
 		
-		Button crear = new Button(panelAgregarIndicador);
+		Button crear = new Button(panelAgregarIndicador).setCaption("Crear indicador");
+	
 		
-		// Habria q hacer setter cada vez que hay get del builder
-		
-		crear.onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador()));
-		crear.onClick(() -> this.getModelObject().miIndicadorBuilder.crearIndicador());
-		
-		suma.setCaption("Sumar").onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador()));
-		suma.onClick(() -> this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Suma(this.getModelObject().miIndicadorBuilder.getOperandoAnterior())));
-		suma.onClick(() -> new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open());
-		
-		resta.setCaption("Resta").onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador()));
-		resta.onClick(() -> this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Resta(this.getModelObject().miIndicadorBuilder.getOperandoAnterior())));
-		resta.onClick(() -> new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open());
-		
-		multiplicar.setCaption("Multiplicar").onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador()));
-		multiplicar.onClick(() -> this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Multiplicacion(this.getModelObject().miIndicadorBuilder.getOperandoAnterior())));
-		multiplicar.onClick(() -> new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open());
-		
-
-		dividir.setCaption("Dividir").onClick(() -> this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador()));
-		dividir.onClick(() -> this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Division(this.getModelObject().miIndicadorBuilder.getOperandoAnterior())));
-		dividir.onClick(() -> new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open());
-
-		
-		new Label(panelAgregarIndicador); //Espacio
-		
-		crear.setCaption("Crear Indicador");
+		suma.onClick(() -> {
 			
+			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador());
+			CadenaActualDeMiIndicador.instanciar().agregar(this.getModelObject().getNombreDeIndicadorElegido());
+			this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Suma(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
+			CadenaActualDeMiIndicador.instanciar().agregar("+");
+			new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open();
+			
+		});
 		
+		crear.onClick(() -> {
+			
+			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador());
+			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
+			this.getModelObject().miIndicadorBuilder.crearIndicador();
+			
+		});
+		
+		resta.onClick(() -> {
+			
+			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador());
+			CadenaActualDeMiIndicador.instanciar().agregar(this.getModelObject().getNombreDeIndicadorElegido());
+			this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Resta(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
+			CadenaActualDeMiIndicador.instanciar().agregar("-");
+			new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open();
+	
+		});
+				
+		multiplicar.onClick(() -> {
+			
+			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador());
+			CadenaActualDeMiIndicador.instanciar().agregar(this.getModelObject().getNombreDeIndicadorElegido());
+			this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Multiplicacion(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
+			CadenaActualDeMiIndicador.instanciar().agregar("*");
+			new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open();
+			
+		});
+		
+		dividir.onClick(() -> {
+			
+			this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.getModelObject().devolverIndicador());
+			CadenaActualDeMiIndicador.instanciar().agregar(this.getModelObject().getNombreDeIndicadorElegido());
+			this.getModelObject().miIndicadorBuilder.setOperandoAnterior(new Division(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
+			CadenaActualDeMiIndicador.instanciar().agregar("/");
+			new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open();
+			
+		});
 	}
 	
 
