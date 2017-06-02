@@ -4,11 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
-<<<<<<< HEAD
-
 import Modelo.CadenaActualDeMiIndicador;
-=======
->>>>>>> refs/remotes/origin/entrega2
 import Modelo.Indicador;
 import Modelo.IndicadorBuilder;
 import Modelo.IndicadoresRepository;
@@ -55,17 +51,10 @@ public class VMAgregarIndicador {
 		this.nombresDeIndicadoresExistentes = nombresDeIndicadoresExistentes;
 	}
 	
-<<<<<<< HEAD
+
 	public Indicador devolverIndicador() {
-		
-		Indicador indicadorBuscado;
-		indicadorBuscado = IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);
-		return indicadorBuscado;
-=======
-	public Indicador tomarIndicador() {
 		return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);
->>>>>>> refs/remotes/origin/entrega2
-		
+
 	}
 	
 }
