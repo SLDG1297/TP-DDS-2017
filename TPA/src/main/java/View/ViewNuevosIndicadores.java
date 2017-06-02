@@ -52,7 +52,7 @@ public class ViewNuevosIndicadores extends Window<VMNuevosIndicadores> {
 		
 		Button indicador = new Button(panelNuevos);
 		Button numero = new Button(panelNuevos);
-		Button cuenta = new Button(panelNuevos);
+		Button cuenta = new Button(panelNuevos).setCaption("Cuenta");
 		
 		//el siguiente metodo de indicador le debe dar al builder el nombre del indicador que estamos creando. Decidir donde creo
 		//ese builder para empezar a pasarlo.
@@ -63,8 +63,8 @@ public class ViewNuevosIndicadores extends Window<VMNuevosIndicadores> {
 		numero.setCaption("Numero").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
 		numero.onClick(() -> new ViewAgregarNumero(this, new VMAgregarNumero(miIndicadorBuilder)).open());
 		
-		//cuenta.setCaption("Cuenta").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
-		//cuenta.onClick(() -> new ViewAgregarCuenta(this, new VMAgregarCuenta()).open());
+		cuenta.setCaption("Cuenta").onClick(() -> miIndicadorBuilder.setNombreIndicador(this.getModelObject().getNombreDelIndicador()));
+		cuenta.onClick(() -> new ViewAgregarCuenta(this, new VMAgregarCuenta(miIndicadorBuilder)).open());
 		
 	}
 	
