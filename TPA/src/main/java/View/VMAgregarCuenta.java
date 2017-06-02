@@ -20,6 +20,8 @@ public class VMAgregarCuenta {
 	IndicadorBuilder miIndicadorBuilder;
 	String cuentaElegida;
 
+	String miCadena = CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+
 	public VMAgregarCuenta(IndicadorBuilder indicadorBuilder) {
 		miIndicadorBuilder = indicadorBuilder;
 	}
@@ -45,10 +47,15 @@ public class VMAgregarCuenta {
 		Cuenta cuenta = new Cuenta(cuentaElegida);
 		return cuenta;
 	}
-	
+
 	public String getMiCadena() {
-		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+		return miCadena;
 	}
+
+	public void setMiCadena(String miCadena) {
+		this.miCadena = miCadena;
+	}
+	
 
 	/*
 	public Object realizarSuma() {

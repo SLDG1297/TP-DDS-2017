@@ -16,6 +16,7 @@ import Modelo.Operacion;
 import Modelo.Numero;
 import Modelo.Cuenta;
 import Modelo.Indicador;
+import Modelo.IndicadoresRepository;
 import Modelo.Suma;
 import Modelo.Resta;
 import Modelo.Multiplicacion;
@@ -130,5 +131,42 @@ public class TestCalcular {
 		suma.addOperando(indicador);
 		
 		Assert.assertEquals(new BigDecimal(4500), suma.calcular(query));
+	}
+	
+	@Test
+	public void verificarConsistenciaDeIndicadores() {
+		//Indicadores predefinidos
+
+		Expresion x = new Suma(new Numero(new BigDecimal(8)),new Numero(new BigDecimal(4)));
+		
+		//Indicador1 = EDITBA + 4.5
+		Indicador indicador1 = new Indicador("Indicador1", x);
+	    //Indicador2 = Free Cash Flow / 3 - EDITBA
+		Indicador indicador2 = new Indicador("Indicador2",new Resta(new Division(new Cuenta("Free Cash Flow"),new Numero(new BigDecimal(3))),new Cuenta("EDITBA")));
+		//Indicador3 = Indicador1 * Indicador2
+		Indicador indicador3 = new Indicador("Indicador3",new Multiplicacion(indicador1,indicador2));
+		
+		
+		//private List<Indicador> indicadores = new ArrayList<Indicador>();
+		
+		List<Indicador> indicadores = Arrays.asList(indicador1, indicador2, indicador3);
+		
+		Assert.assertEquals("Indicador1", indicadores.get(0).getNombre());
+		Assert.assertEquals(x, indicadores.get(0).getFormula());
+		Assert.assertEquals(new BigDecimal(12), indicadores.get(0).calcular(query));
+	}
+	
+	@Test
+	public void verificarConsistenciaDeRepositorioDeIndicadores() {
+		
+		Expresion x = new Suma(new Numero(new BigDecimal(8)),new Numero(new BigDecimal(4)));
+		
+		Indicador indicador1 = new Indicador("Indicador4", x);
+		
+		IndicadoresRepository.getInstancia().agregarIndicador(indicador1);
+		
+		Assert.assertEquals("Indicador4", IndicadoresRepository.getInstancia().getIndicadores().get(3).getNombre());
+		
+		
 	}
 }

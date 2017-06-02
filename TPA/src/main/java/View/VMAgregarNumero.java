@@ -17,9 +17,9 @@ public class VMAgregarNumero {
 
 	IndicadorBuilder miIndicadorBuilder;
 	BigDecimal numeroElegido;
+	String miCadena = CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
 	
-	
-		public VMAgregarNumero(IndicadorBuilder indicadorBuilder) {
+	public VMAgregarNumero(IndicadorBuilder indicadorBuilder) {
 		miIndicadorBuilder = indicadorBuilder;
 	}
 		
@@ -44,15 +44,19 @@ public class VMAgregarNumero {
 	
 	public Expresion devolverNumero() {
 		
-		Numero numero;
-		numero = new Numero(numeroElegido);
-		return numero;
+		return new Numero(numeroElegido);
 		
 	}
 	
+	
 	public String getMiCadena() {
-		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+		return miCadena;
 	}
+
+	public void setMiCadena(String miCadena) {
+		this.miCadena = miCadena;
+	}
+	
 
 
 }
