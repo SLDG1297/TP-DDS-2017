@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class BolsaDeEmpresas {
 	
-	private static BolsaDeEmpresas instancia = null;
+	private static BolsaDeEmpresas bolsa = null;
 	
 	// Con unas empresas para probar las vistas.
 	private List<Empresa> empresas = new ArrayList<Empresa>();
@@ -20,19 +20,19 @@ public class BolsaDeEmpresas {
 	}
 
 	public Empresa buscarEmpresa(String unNombre) {
-		return instancia.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().get();
+		return bolsa.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().get();
 	}
 	
 	public List<String> buscarNombresDeEmpresas() {
-		return instancia.getEmpresas().stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());		
+		return bolsa.getEmpresas().stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());		
 	}
 	
     public static BolsaDeEmpresas getInstancia() {
 		
-		if(instancia == null){
-			instancia = new BolsaDeEmpresas();
+		if(bolsa == null){
+			bolsa = new BolsaDeEmpresas();
 		}
 		
-		return instancia;
+		return bolsa;
 	}
 }

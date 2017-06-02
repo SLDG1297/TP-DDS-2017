@@ -45,7 +45,7 @@ public class TestCalcular {
 	Empresa empresa = new Empresa("Rolito", periodos);
 	
 	// Para calcular valores
-	Query query = new Query(empresa, periodo);
+	Query query = new Query(empresa, periodo.getAnio());
 	
 	@Before
 	public void iniciarTestCalcular(){
