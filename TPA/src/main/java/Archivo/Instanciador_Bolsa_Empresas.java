@@ -2,8 +2,8 @@ package Archivo;
 
 import java.util.List;
 
-import Modelo.BolsaDeEmpresas;
-import Modelo.Empresa;
+import Modelo.Empresa.Empresa;
+import Modelo.Empresa.BolsaDeEmpresas;
 
 import java.io.FileInputStream;
 import java.io.IOException;

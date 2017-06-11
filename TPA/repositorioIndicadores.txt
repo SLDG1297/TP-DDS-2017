@@ -1,61 +1,18 @@
 {
   "indicadores": [
     {
-      "nombre": "Indicador1",
-      "formula": {
-        "valorA": {
-          "nombre": "EDITBA"
-        },
-        "valorB": {
-          "numero": 4.5
-        }
-      }
-    },
-    {
-      "nombre": "Indicador2",
+      "nombre": "sdf",
       "formula": {
         "valorA": {
           "valorA": {
-            "nombre": "Free Cash Flow"
+            "numero": 0
           },
           "valorB": {
-            "numero": 3
+            "numero": 45
           }
         },
         "valorB": {
-          "nombre": "EDITBA"
-        }
-      }
-    },
-    {
-      "nombre": "Indicador3",
-      "formula": {
-        "valorA": {
-          "nombre": "Indicador1",
-          "formula": {
-            "valorA": {
-              "nombre": "EDITBA"
-            },
-            "valorB": {
-              "numero": 4.5
-            }
-          }
-        },
-        "valorB": {
-          "nombre": "Indicador2",
-          "formula": {
-            "valorA": {
-              "valorA": {
-                "nombre": "Free Cash Flow"
-              },
-              "valorB": {
-                "numero": 3
-              }
-            },
-            "valorB": {
-              "nombre": "EDITBA"
-            }
-          }
+          "numero": 22
         }
       }
     }

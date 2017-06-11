@@ -7,9 +7,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import Modelo.Cuenta;
-import Modelo.Empresa;
-import Modelo.Periodo;
+
+import Modelo.Empresa.Empresa;
+import Modelo.Empresa.Periodo;
+import Modelo.Empresa.Cuenta;
 
 public class CSVParser {
 	

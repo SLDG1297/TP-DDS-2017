@@ -5,12 +5,14 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 import Archivo.Instanciador_Bolsa_Empresas;
-import Modelo.AlmacenIndicadores;
+import Modelo.Indicadores.AlmacenIndicadores;
+import View.Cuentas.VMCargarCuentas;
+import View.Cuentas.ViewCargarCuentas;
+import View.Indicadores.VMGestionDeIndicadores;
+import View.Indicadores.ViewGestionDeIndicadores;
 
 
 public class ViewMain extends MainWindow<VM_Main> {
-
-	private static final long serialVersionUID = 1L;
 	
 		
 	public ViewMain() {
@@ -19,15 +21,15 @@ public class ViewMain extends MainWindow<VM_Main> {
 
 	@Override
 	public void createContents(Panel panelPrincipal) {
-		this.setTitle("Sistema de inversiones v1.0");
+		this.setTitle("Sistema de inversiones");
 
 		new Button(panelPrincipal).setCaption("Ingresar una nueva empresa");
 
-		new Button(panelPrincipal).setCaption("Gestionar cuentas de las empresas").onClick(() -> new ViewCargarCuentas(this, new VMCargarCuentas()).open());
-
-		new Button(panelPrincipal).setCaption("Comparar gráficamente empresas");
+		new Button(panelPrincipal).setCaption("Gestionar Cuentas").onClick(() -> new ViewCargarCuentas(this, new VMCargarCuentas()).open());
 		
 		new Button(panelPrincipal).setCaption("Gestionar Indicadores").onClick(() -> new ViewGestionDeIndicadores(this, new VMGestionDeIndicadores()).open());
+
+		
 	}
 
 	public static void main(String[] args) throws IOException {
