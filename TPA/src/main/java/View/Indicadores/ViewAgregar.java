@@ -16,6 +16,7 @@ import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Resta;
 import Modelo.Indicadores.Suma;
+import Modelo.Indicadores.Operacion;
 
 public abstract class ViewAgregar extends Window<VMAgregar> {
 
@@ -49,52 +50,32 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 		Button crear = new Button(x).setCaption("Crear indicador");
 
 		suma.onClick(() -> {
-
-			this.agregarOperando();
-			this.mostrarCadena(this.cadena());
-			this.getModelObject().miIndicadorBuilder
-					.setOperandoAnterior(new Suma(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
-			this.mostrarCadena("+");
-			this.nuevaViewOperando();
+			
+			this.efectoBotonOperacion("+", new Suma(getOperandoAnterior()));
 
 		});
 
 		resta.onClick(() -> {
-
-			this.agregarOperando();
-			this.mostrarCadena(this.cadena());
-			this.getModelObject().miIndicadorBuilder
-					.setOperandoAnterior(new Resta(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
-			this.mostrarCadena("-");
-			this.nuevaViewOperando();
+			
+			this.efectoBotonOperacion("-", new Resta(getOperandoAnterior()));
 
 		});
 
 		multiplicar.onClick(() -> {
-
-			this.agregarOperando();
-			this.mostrarCadena(this.cadena());
-			this.getModelObject().miIndicadorBuilder.setOperandoAnterior(
-					new Multiplicacion(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
-			this.mostrarCadena("*");
-			this.nuevaViewOperando();
+			
+			this.efectoBotonOperacion("*", new Multiplicacion(getOperandoAnterior()));
 
 		});
 
 		dividir.onClick(() -> {
-
-			this.agregarOperando();
-			this.mostrarCadena(this.cadena());
-			this.getModelObject().miIndicadorBuilder
-					.setOperandoAnterior(new Division(this.getModelObject().miIndicadorBuilder.getOperandoAnterior()));
-			this.mostrarCadena("/");
-			this.nuevaViewOperando();
+			
+			this.efectoBotonOperacion("/", new Division(getOperandoAnterior()));
 
 		});
 
 		crear.onClick(() -> {
 
-			this.agregarOperando();
+			this.agregarSegundoOperando();
 			this.getModelObject().miIndicadorBuilder.crearIndicador();
 			this.mostrarCadena(this.cadena());
 			this.mensajeIndicadorCreado();
@@ -108,11 +89,31 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 		});
 
 	}
-
-	private void agregarOperando() {
-		this.getModelObject().getMiIndicadorBuilder().getOperandoAnterior().addOperando(this.operacion());
+	
+	//Es el algoritmo/efecto que usan todos botones operacion 
+	private void efectoBotonOperacion(String x, Operacion y ){
+		this.agregarSegundoOperando();
+		this.mostrarCadena(this.cadena());
+		this.nuevaOperacion(y);
+		this.mostrarCadena(x);
+		this.nuevaViewOperando();
 	}
-
+	
+	//Agrega el Segundo operando a la Operacion Anterior que esta en el Builder(La primera es una Suma, que por el momento tiene una sola expresion que es un 0, aca lo que se hace es agregarle el segundo operando)
+	//Este segundo operando es lo que ingresa o selecciona el usuario, por eso eun un metodo abstracto ya que es distinto en cada clase
+	private void agregarSegundoOperando() {
+		this.getOperandoAnterior().addOperando(this.operacion());
+	}
+	
+	private Operacion getOperandoAnterior(){
+		return this.getModelObject().miIndicadorBuilder.getOperandoAnterior();
+	}
+	
+	//Crea una Nueva Operacion, y esta ahora es Operando anterior en el Builder  
+	private void nuevaOperacion(Operacion x){
+		this.getModelObject().miIndicadorBuilder.setOperandoAnterior(x);
+	}
+		
 	// Es para el manejo de cadenas
 	private void mostrarCadena(String string) {
 		CadenaActualDeMiIndicador.instanciar().agregar(string);
@@ -125,6 +126,10 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	private void mensajeIndicadorCreado() {
 		new ViewIndicadorCreado(this, new VMIndicadorCreado()).open();
 	}
+	
+	
+	
+	
 
 	public abstract void cuerpo(Panel x);
 	public abstract String cadena(); // Es para el manejo de cadenas particular de cadena de cada view, que son distintas

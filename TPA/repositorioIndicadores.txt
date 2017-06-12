@@ -1,7 +1,7 @@
 {
   "indicadores": [
     {
-      "nombre": "sdf",
+      "nombre": "hola",
       "formula": {
         "valorA": {
           "valorA": {
@@ -12,7 +12,7 @@
           }
         },
         "valorB": {
-          "numero": 22
+          "numero": 2
         }
       }
     }
