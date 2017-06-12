@@ -2,7 +2,7 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-public class Numero extends Expresion{
+public class Numero implements Expresion{
 	private BigDecimal numero;
 	
 	public Numero(BigDecimal num){

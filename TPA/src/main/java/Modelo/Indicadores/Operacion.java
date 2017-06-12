@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import Exepciones.FaltaOperandoDerechoException;
 
-public abstract class Operacion extends Expresion {
+public abstract class Operacion implements Expresion {
 	Expresion valorA, valorB;
 	
 	public Operacion(Expresion valorA) {
@@ -16,7 +16,12 @@ public abstract class Operacion extends Expresion {
 		this.valorB = valorB;
 	}
 	
-	public abstract BigDecimal calcular(Query query);
+	public BigDecimal calcular(Query query){
+		this.sePuedeCalcular();
+		return this.realizarOperacion(query);
+	}
+	
+	public abstract BigDecimal realizarOperacion(Query query);
 	
 	protected void sePuedeCalcular(){
 		if(valorB == null)

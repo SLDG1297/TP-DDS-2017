@@ -62,7 +62,7 @@ public class AlmacenIndicadores {
 			buffer.close();
 		
 			List<Indicador> indicadores = deserializarRepositorioIndicadores(texto).getInstancia().getIndicadores();
-			IndicadoresRepository.getInstancia().agregarIndicador(indicadores);
+			IndicadoresRepository.getInstancia().agregarIndicadores(indicadores);
 		}
 		
 		catch(IOException error)
