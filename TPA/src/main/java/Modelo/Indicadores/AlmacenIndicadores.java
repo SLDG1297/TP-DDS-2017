@@ -1,27 +1,33 @@
 package Modelo.Indicadores;
 
+import java.io.IOException;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class AlmacenIndicadores {
 	static Gson serializador = new GsonBuilder().setPrettyPrinting().create();
-	static String ruta = "repositorioIndicadores.txt";
+	//static Gson serializador = new Gson();
+	static String ruta = "repositorioIndicadores.csv";
 	
 	private static String serializarRepositorioIndicadores(){
-		return serializador.toJson(IndicadoresRepository.getInstancia());
+		return serializador.toJson(IndicadoresRepository.getInstancia().getIndicadores());
 	}
 		
 	
-	private static IndicadoresRepository deserializarRepositorioIndicadores(String indicadoresJSON){
-		return serializador.fromJson(indicadoresJSON, IndicadoresRepository.class);
+	private static List<Indicador> deserializarRepositorioIndicadores(Reader reader){
+		Type lista = new TypeToken<List<Indicador>>(){}.getType();
+		return serializador.fromJson(reader, lista);
 	}
 	
 	public static void almacenarRepositorioIndicadores() throws IOException{
@@ -43,31 +49,16 @@ public class AlmacenIndicadores {
 	}
 	
 	public static void obtenerRepositorioIndicadores() throws IOException{
-		try
-		{
-			String texto = "";
-			String linea = "";
-			File archivo = new File(ruta);
+		/*
 			
-			if(archivo.createNewFile())
-			{
-				almacenarRepositorioIndicadores();
-			}
-			
-			BufferedReader buffer = new BufferedReader(new FileReader(archivo));
-			while((linea = buffer.readLine()) != null)
-			{
-				texto.concat(linea);
-			}
-			buffer.close();
+		Reader reader = new FileReader(ruta);
+		List<Indicador> x = deserializarRepositorioIndicadores(reader);
 		
-			List<Indicador> indicadores = deserializarRepositorioIndicadores(texto).getInstancia().getIndicadores();
-			IndicadoresRepository.getInstancia().agregarIndicador(indicadores);
+		for(int i=0;i<x.size();i++){
+			IndicadoresRepository.getInstancia().agregarIndicador(x.get(i));
 		}
+		*/
+	
 		
-		catch(IOException error)
-		{
-			error.printStackTrace();
-		}
 	}
 }

@@ -3,6 +3,7 @@ package View.Indicadores;
 import java.awt.Color;
 import java.io.IOException;
 
+import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
@@ -41,6 +42,10 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	}
 
 	public void fin(Panel x) {
+		/*Panel horizontal1 = new Panel(x);
+		horizontal1.setLayout(new HorizontalLayout());
+		Panel horizontal2 = new Panel(x);
+		horizontal2.setLayout(new HorizontalLayout());*/
 		Button suma = new Button(x).setCaption("Sumar");
 		Button resta = new Button(x).setCaption("Resta");
 		Button multiplicar = new Button(x).setCaption("Multiplicar");
@@ -91,7 +96,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	}
 	
 	//Es el algoritmo/efecto que usan todos botones operacion 
-	private void efectoBotonOperacion(String x, Operacion y ){
+	private void efectoBotonOperacion(String x, Expresion y ){
 		this.agregarSegundoOperando();
 		this.mostrarCadena(this.cadena());
 		this.nuevaOperacion(y);
@@ -105,12 +110,16 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 		this.getOperandoAnterior().addOperando(this.operacion());
 	}
 	
-	private Operacion getOperandoAnterior(){
+	private Expresion getOperandoAnterior(){
+		if (this.getModelObject().miIndicadorBuilder.getOperandoAnterior() == null){
+			return this.casoBase();
+		}else{
 		return this.getModelObject().miIndicadorBuilder.getOperandoAnterior();
+		}
 	}
 	
 	//Crea una Nueva Operacion, y esta ahora es Operando anterior en el Builder  
-	private void nuevaOperacion(Operacion x){
+	private void nuevaOperacion(Expresion x){
 		this.getModelObject().miIndicadorBuilder.setOperandoAnterior(x);
 	}
 		
@@ -128,11 +137,9 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	}
 	
 	
-	
-	
-
 	public abstract void cuerpo(Panel x);
 	public abstract String cadena(); // Es para el manejo de cadenas particular de cadena de cada view, que son distintas
 	public abstract Expresion operacion();
+	public abstract Expresion casoBase();
 
 }

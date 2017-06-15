@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "sdfsdf",
+    "formula": {
+      "valorA": {
+        "valorA": {
+          "valorA": {
+            "numero": 45
+          },
+          "valorB": {
+            "nombre": "hols"
+          }
+        },
+        "valorB": {
+          "numero": 45
+        }
+      },
+      "valorB": {
+        "numero": 2
+      }
+    }
+  }
+]

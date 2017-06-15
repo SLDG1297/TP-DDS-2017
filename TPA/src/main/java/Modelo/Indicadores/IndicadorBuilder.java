@@ -5,18 +5,18 @@ import java.math.BigDecimal;
 public class IndicadorBuilder {
 
 	String nombreIndicador;
-	Operacion operandoAnterior = new Suma(new Numero(new BigDecimal(0)));
+	Expresion operandoAnterior = null;
 	IndicadoresRepository repositorio = IndicadoresRepository.getInstancia();
 	
 	public void setNombreIndicador(String nombreIndicador) {
 		this.nombreIndicador = nombreIndicador;
 	}
 	
-	public Operacion getOperandoAnterior() {
+	public Expresion getOperandoAnterior() {
 		return operandoAnterior;
 	}
 
-	public void setOperandoAnterior(Operacion operandoAnterior) {
+	public void setOperandoAnterior(Expresion operandoAnterior) {
 		this.operandoAnterior = operandoAnterior;
 	}
 	

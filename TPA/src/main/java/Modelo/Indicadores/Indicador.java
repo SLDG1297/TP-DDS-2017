@@ -31,4 +31,8 @@ public class Indicador extends Expresion {
 	public void setFormula(Expresion formula) {
 		this.formula = formula;
 	}
+	
+	public void addOperando(Expresion operando){
+		/*this.formula = operando;*/
+	}
 }

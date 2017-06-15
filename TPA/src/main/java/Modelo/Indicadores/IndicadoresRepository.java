@@ -26,8 +26,8 @@ public class IndicadoresRepository {
 		indicadores.remove(indicador);
 	}
 	
-	public void agregarIndicador(List<Indicador> indicadores){
-		instancia.indicadores.addAll(indicadores);
+	public void setIndicadores(List<Indicador> unosIndicadores){
+		this.indicadores = unosIndicadores;
 	}
 
 	public static IndicadoresRepository getInstancia() {
@@ -49,10 +49,12 @@ public class IndicadoresRepository {
 			instancia.indicadores.add(indicador1);
 			instancia.indicadores.add(indicador2);
 			instancia.indicadores.add(indicador3);*/
-			return instancia = new IndicadoresRepository();
-		}else{
-
-		return instancia;
+		instancia = new IndicadoresRepository();
 		}
+		return instancia;
+	}
+
+	public static void setInstancia(IndicadoresRepository instancia) {
+		IndicadoresRepository.instancia = instancia;
 	}
 }

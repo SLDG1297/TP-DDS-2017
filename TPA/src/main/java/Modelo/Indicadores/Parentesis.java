@@ -13,4 +13,7 @@ public class Parentesis extends Expresion{
 		return expresion.calcular(query);
 	}
 
+	public void addOperando(Expresion operando){
+		/*expresion = operando;*/
+	}
 }
