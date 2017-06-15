@@ -16,12 +16,14 @@ import java.io.FileWriter;
 import java.util.List;
 
 public class AlmacenIndicadores {
-	static Gson serializador = new GsonBuilder().setPrettyPrinting().create();
-	//static Gson serializador = new Gson();
+	//static Gson serializador = new GsonBuilder().setPrettyPrinting().create();
+	static Gson serializador = new Gson();
 	static String ruta = "repositorioIndicadores.csv";
 	
 	private static String serializarRepositorioIndicadores(){
-		return serializador.toJson(IndicadoresRepository.getInstancia().getIndicadores());
+		Type listType  = new TypeToken<List<Indicador>>(){}.getType();
+		List<Indicador> lista = IndicadoresRepository.getInstancia().getIndicadores();
+		return serializador.toJson(lista, listType);
 	}
 		
 	
@@ -49,15 +51,15 @@ public class AlmacenIndicadores {
 	}
 	
 	public static void obtenerRepositorioIndicadores() throws IOException{
-		/*
 			
 		Reader reader = new FileReader(ruta);
+		
 		List<Indicador> x = deserializarRepositorioIndicadores(reader);
 		
 		for(int i=0;i<x.size();i++){
 			IndicadoresRepository.getInstancia().agregarIndicador(x.get(i));
 		}
-		*/
+	
 	
 		
 	}

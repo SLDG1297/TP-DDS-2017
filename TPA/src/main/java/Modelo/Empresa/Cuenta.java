@@ -43,5 +43,9 @@ public class Cuenta extends Expresion {
 		 * alguna forma }
 		 */
 	}
+	
+	public void addOperando(Expresion operando){
+		/*this.a = operando;*/
+	}
 
 }

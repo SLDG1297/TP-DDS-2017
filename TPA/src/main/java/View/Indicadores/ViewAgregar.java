@@ -81,7 +81,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 		crear.onClick(() -> {
 
 			this.agregarSegundoOperando();
-			this.getModelObject().miIndicadorBuilder.crearIndicador();
+			this.getModelObject().miIndicadorBuilder.crearIndicador(this.getOperandoAnterior());
 			this.mostrarCadena(this.cadena());
 			this.mensajeIndicadorCreado();
 			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();

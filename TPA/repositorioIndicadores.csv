@@ -1,23 +1,8 @@
 [
   {
-    "nombre": "sdfsdf",
+    "nombre": "prueba",
     "formula": {
-      "valorA": {
-        "valorA": {
-          "valorA": {
-            "numero": 45
-          },
-          "valorB": {
-            "nombre": "hols"
-          }
-        },
-        "valorB": {
-          "numero": 45
-        }
-      },
-      "valorB": {
-        "numero": 2
-      }
+      "numero": 45
     }
   }
 ]

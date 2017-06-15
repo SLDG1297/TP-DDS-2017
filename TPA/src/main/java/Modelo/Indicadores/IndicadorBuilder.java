@@ -20,7 +20,7 @@ public class IndicadorBuilder {
 		this.operandoAnterior = operandoAnterior;
 	}
 	
-	public void crearIndicador(){ 
-		this.repositorio.agregarIndicador(new Indicador(nombreIndicador,operandoAnterior));
+	public void crearIndicador(Expresion expresion){ 
+		this.repositorio.agregarIndicador(new Indicador(nombreIndicador,expresion));
 	}
 }
