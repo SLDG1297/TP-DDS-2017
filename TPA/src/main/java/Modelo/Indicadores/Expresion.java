@@ -2,10 +2,12 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-public abstract class Expresion {
+public interface Expresion {
 
-	public abstract BigDecimal calcular(Query query);
+
+	public BigDecimal calcular(Query query);
 	
-	public abstract void addOperando(Expresion operando);
+	public void addOperando(Expresion operando);
+
 
 }

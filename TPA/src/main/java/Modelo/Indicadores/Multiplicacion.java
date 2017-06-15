@@ -12,8 +12,7 @@ public class Multiplicacion extends Operacion {
 	}
 
 	@Override
-	public BigDecimal calcular(Query query) {
-		this.sePuedeCalcular();
+	public BigDecimal realizarOperacion(Query query) {
 		return this.valorA.calcular(query).multiply(this.valorB.calcular(query));
 	}
 

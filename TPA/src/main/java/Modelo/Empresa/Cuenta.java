@@ -6,7 +6,7 @@ import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Query;
 
 @Observable
-public class Cuenta extends Expresion {
+public class Cuenta implements Expresion {
 	String nombre;
 	Integer valor;
 

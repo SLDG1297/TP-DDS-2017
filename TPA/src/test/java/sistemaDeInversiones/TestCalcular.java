@@ -8,37 +8,19 @@ import org.junit.Before;
 import org.junit.Test;
 import Exepciones.FaltaOperandoDerechoException;
 import Exepciones.NombreCuentaErroneoException;
-<<<<<<< Updated upstream
-import Modelo.Expresion;
-import Modelo.Numero;
-import Modelo.Cuenta;
-import Modelo.Indicador;
-import Modelo.IndicadoresRepository;
-import Modelo.Suma;
-import Modelo.Resta;
-import Modelo.Multiplicacion;
-import Modelo.Division;
-import Modelo.Empresa;
-import Modelo.Parentesis;
-import Modelo.Periodo;
-import Modelo.Query;
-=======
+import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
-import Modelo.Empresa.Empresa.BolsaDeEmpresas;
-import Modelo.Empresa.Empresa.Cuenta;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Numero;
-import Modelo.Indicadores.Operacion;
 import Modelo.Indicadores.Parentesis;
 import Modelo.Indicadores.Query;
 import Modelo.Indicadores.Resta;
 import Modelo.Indicadores.Suma;
->>>>>>> Stashed changes
 
 public class TestCalcular {
 	// Para probar Numeros
@@ -199,6 +181,6 @@ public class TestCalcular {
 		
 		IndicadoresRepository.getInstancia().agregarIndicador(indicador1);
 		
-		Assert.assertEquals("Indicador4", IndicadoresRepository.getInstancia().getIndicadores().get(3).getNombre());
+		Assert.assertEquals("Indicador4", IndicadoresRepository.getInstancia().getIndicadores().get(0).getNombre());
 	}
 }

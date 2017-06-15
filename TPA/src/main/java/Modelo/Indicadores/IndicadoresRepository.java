@@ -13,6 +13,10 @@ public class IndicadoresRepository {
 	public List<Indicador> getIndicadores() {
 		return indicadores;
 	}
+	
+	public void setIndicadores(List<Indicador> unosIndicadores){
+		this.indicadores = unosIndicadores;
+	}
 
 	public Indicador getIndicador(String nombre) {
 		return indicadores.stream().filter(i -> i.getNombre().equals(nombre)).findFirst().get();
@@ -22,12 +26,13 @@ public class IndicadoresRepository {
 		indicadores.add(indicador);
 	}
 	
-	public void eliminarIndicador(Indicador indicador) {
-		indicadores.remove(indicador);
+	public void agregarIndicadores(List<Indicador> unosIndicadores){
+		indicadores.addAll(unosIndicadores);
 	}
 	
-	public void setIndicadores(List<Indicador> unosIndicadores){
-		this.indicadores = unosIndicadores;
+
+	public void eliminarIndicador(Indicador indicador) {
+		indicadores.remove(indicador);
 	}
 
 	public static IndicadoresRepository getInstancia() {

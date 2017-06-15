@@ -2,7 +2,7 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-public class Parentesis extends Expresion{
+public class Parentesis implements Expresion{
     private Expresion expresion;
 	
 	public Parentesis(Expresion _expresion) {

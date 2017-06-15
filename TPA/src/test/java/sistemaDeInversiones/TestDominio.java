@@ -4,16 +4,12 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 import org.junit.Test;
 import Archivo.Instanciador_Bolsa_Empresas;
-<<<<<<< Updated upstream
-import Modelo.BolsaDeEmpresas;
 
-=======
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
-import Modelo.Empresa.Empresa.BolsaDeEmpresas;
-import Modelo.Empresa.Empresa.BolsaDeEmpresasMocking;
-import Modelo.Empresa.Empresa.Cuenta;
->>>>>>> Stashed changes
+import Modelo.Empresa.BolsaDeEmpresas;
+import Modelo.Empresa.BolsaDeEmpresasMocking;
+import Modelo.Empresa.Cuenta;
 
 public class TestDominio {
     /*

@@ -52,13 +52,14 @@ public class AlmacenIndicadores {
 	
 	public static void obtenerRepositorioIndicadores() throws IOException{
 			
-		Reader reader = new FileReader(ruta);
+		/*Reader reader = new FileReader(ruta);
 		
 		List<Indicador> x = deserializarRepositorioIndicadores(reader);
+
 		
 		for(int i=0;i<x.size();i++){
 			IndicadoresRepository.getInstancia().agregarIndicador(x.get(i));
-		}
+		}*/
 	
 	
 		
