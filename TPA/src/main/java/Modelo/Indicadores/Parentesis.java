@@ -14,6 +14,5 @@ public class Parentesis implements Expresion{
 	}
 
 	public void addOperando(Expresion operando){
-		/*expresion = operando;*/
 	}
 }

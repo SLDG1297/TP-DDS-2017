@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 public class Numero implements Expresion{
 	private BigDecimal numero;
-	private Expresion a;
 	
 	public Numero(BigDecimal num){
 		this.numero = num;
@@ -15,7 +14,6 @@ public class Numero implements Expresion{
 	}
 	
 	public void addOperando(Expresion operando){
-		/*this.a = operando;*/
 	}
 
 }

@@ -1,8 +1,1 @@
-[
-  {
-    "nombre": "prueba",
-    "formula": {
-      "numero": 45
-    }
-  }
-]
+[{"nombre":"pruebaJson","formula":{"numero":45}}]

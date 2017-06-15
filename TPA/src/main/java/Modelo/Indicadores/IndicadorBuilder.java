@@ -1,7 +1,5 @@
 package Modelo.Indicadores;
 
-import java.math.BigDecimal;
-
 public class IndicadorBuilder {
 
 	String nombreIndicador;

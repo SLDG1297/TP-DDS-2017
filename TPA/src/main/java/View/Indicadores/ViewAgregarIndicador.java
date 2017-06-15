@@ -36,9 +36,4 @@ public class ViewAgregarIndicador extends ViewAgregar {
 	public Expresion operacion(){
 		return this.getModelObject().devolverIndicador();
 	}
-	
-	public Expresion casoBase(){
-		return this.getModelObject().devolverIndicador();
-	}
-
 }

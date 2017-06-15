@@ -3,7 +3,6 @@ package View.Indicadores;
 import java.awt.Color;
 import java.io.IOException;
 
-import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
@@ -17,7 +16,6 @@ import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Resta;
 import Modelo.Indicadores.Suma;
-import Modelo.Indicadores.Operacion;
 
 public abstract class ViewAgregar extends Window<VMAgregar> {
 
@@ -112,7 +110,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	
 	private Expresion getOperandoAnterior(){
 		if (this.getModelObject().miIndicadorBuilder.getOperandoAnterior() == null){
-			return this.casoBase();
+			return this.operacion();
 		}else{
 		return this.getModelObject().miIndicadorBuilder.getOperandoAnterior();
 		}
@@ -140,6 +138,5 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	public abstract void cuerpo(Panel x);
 	public abstract String cadena(); // Es para el manejo de cadenas particular de cadena de cada view, que son distintas
 	public abstract Expresion operacion();
-	public abstract Expresion casoBase();
 
 }

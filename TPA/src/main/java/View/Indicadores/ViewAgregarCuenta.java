@@ -33,11 +33,4 @@ public class ViewAgregarCuenta extends ViewAgregar {
 		return this.getModelObject().devolverCuenta();
 	}
 	
-	public Expresion casoBase(){
-		return this.getModelObject().devolverCuenta();
-	}
-	
-	
-	
-	
 }

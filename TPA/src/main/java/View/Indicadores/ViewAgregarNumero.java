@@ -33,8 +33,4 @@ public class ViewAgregarNumero extends ViewAgregar {
 	public Expresion operacion(){
 		return this.getModelObject().devolverNumero();
 	}
-	
-	public Expresion casoBase(){
-	return this.getModelObject().devolverNumero();
-	}
 }
