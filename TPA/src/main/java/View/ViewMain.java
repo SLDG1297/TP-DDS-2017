@@ -5,7 +5,7 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 import Archivo.Instanciador_Bolsa_Empresas;
-import Modelo.Indicadores.AlmacenIndicadores;
+import Modelo.Indicadores.AlmacenadorDeIndicadores;
 import View.Cuentas.VMCargarCuentas;
 import View.Cuentas.ViewCargarCuentas;
 import View.Indicadores.VMGestionDeIndicadores;
@@ -23,8 +23,6 @@ public class ViewMain extends MainWindow<VM_Main> {
 	public void createContents(Panel panelPrincipal) {
 		this.setTitle("Sistema de inversiones");
 
-		new Button(panelPrincipal).setCaption("Ingresar una nueva empresa");
-
 		new Button(panelPrincipal).setCaption("Gestionar Cuentas").onClick(() -> new ViewCargarCuentas(this, new VMCargarCuentas()).open());
 		
 		new Button(panelPrincipal).setCaption("Gestionar Indicadores").onClick(() -> new ViewGestionDeIndicadores(this, new VMGestionDeIndicadores()).open());
@@ -35,7 +33,7 @@ public class ViewMain extends MainWindow<VM_Main> {
 	public static void main(String[] args) throws IOException {
 		//Instancio una bolsa de Empresas y creo su archivo de repositorio.
 		new Instanciador_Bolsa_Empresas().instanciar();
-		AlmacenIndicadores.obtenerRepositorioIndicadores();
+		AlmacenadorDeIndicadores.obtenerRepositorioIndicadores();
 		new ViewMain().startApplication(); 
 		
 	}

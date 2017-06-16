@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import Exepciones.Empresas.NoExisteLaEmpresaException;
+
 public class BolsaDeEmpresas {
 	
 	private static BolsaDeEmpresas bolsa = null;
@@ -20,10 +22,14 @@ public class BolsaDeEmpresas {
 	}
 
 	public Empresa buscarEmpresa(String unNombre) {
-		return bolsa.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().get();
+		Empresa empresaBuscada = bolsa.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().get();
+		
+		if(empresaBuscada.getNombre() != unNombre) throw new NoExisteLaEmpresaException();
+		
+		return empresaBuscada;
 	}
 	
-	public List<String> buscarNombresDeEmpresas() {
+	public List<String> getNombresDeEmpresas() {
 		return bolsa.getEmpresas().stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());		
 	}
 	

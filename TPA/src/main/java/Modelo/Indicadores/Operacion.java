@@ -2,7 +2,7 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-import Exepciones.FaltaOperandoDerechoException;
+import Exepciones.Indicadores.FaltaOperandoDerechoException;
 
 public abstract class Operacion implements Expresion {
 	Expresion valorA, valorB;

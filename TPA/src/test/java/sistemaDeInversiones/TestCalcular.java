@@ -6,8 +6,9 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import Exepciones.FaltaOperandoDerechoException;
-import Exepciones.NombreCuentaErroneoException;
+
+import Exepciones.Indicadores.FaltaOperandoDerechoException;
+import Exepciones.Indicadores.NombreCuentaErroneoException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;

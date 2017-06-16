@@ -3,6 +3,7 @@ package Modelo.Empresa;
 import java.util.ArrayList;
 import java.util.List;
 
+import Exepciones.Periodos.YaExisteLaCuentaException;
 import Modelo.Empresa.Cuenta;
 
 public class Periodo {
@@ -37,6 +38,8 @@ public class Periodo {
 	}
 	
 	public void agregarCuenta(Cuenta miCuenta) {
+		if(this.cuentas.contains(miCuenta)) throw new YaExisteLaCuentaException();
+		
 		this.cuentas.add(miCuenta);
 	}
 }

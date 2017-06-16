@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
+import Exepciones.Empresas.NoExisteElPeriodoException;
+
 
 @Observable
 public class Empresa {
@@ -53,7 +55,11 @@ public class Empresa {
 	
 	public List<Cuenta> obtenerCuentasEnPeriodo(int periodo){
 		Periodo periodoSeleccionado = this.getPeriodos().stream().filter(p -> p.getAnio() == periodo).findFirst().get();
+		
+		if(periodoSeleccionado.getAnio() != periodo) throw new NoExisteElPeriodoException();
+		
 		List<Cuenta> cuentas = periodoSeleccionado.getCuentas();
+		
 	    return cuentas;
 	}
 }

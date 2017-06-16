@@ -3,6 +3,8 @@ package Modelo.Indicadores;
 import java.util.ArrayList;
 import java.util.List;
 
+import Exepciones.Indicadores.NoHayIndicadoresEnElRepositorioException;
+
 public class IndicadoresRepository {
 
 	private static IndicadoresRepository instancia = null;
@@ -10,6 +12,7 @@ public class IndicadoresRepository {
 	private List<Indicador> indicadores = new ArrayList<Indicador>();
 
 	public List<Indicador> getIndicadores() {
+		if(indicadores.size() == 0) throw new NoHayIndicadoresEnElRepositorioException();
 		return indicadores;
 	}
 	

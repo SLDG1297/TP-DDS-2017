@@ -103,7 +103,7 @@ public class VMEvaluacionIndicadores {
 		}
 	    
 		public List<String> buscarNombresDeEmpresas() {
-			return this.bolsaEmpresas.buscarNombresDeEmpresas();
+			return this.bolsaEmpresas.getNombresDeEmpresas();
 		}
 		
 		public List<Integer> buscarPeriodosDeEmpresa(){

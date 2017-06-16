@@ -9,7 +9,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
-import Modelo.Indicadores.AlmacenIndicadores;
+import Modelo.Indicadores.AlmacenadorDeIndicadores;
 import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Expresion;
@@ -84,7 +84,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 			this.mensajeIndicadorCreado();
 			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
 			try {
-				AlmacenIndicadores.almacenarRepositorioIndicadores();
+				AlmacenadorDeIndicadores.almacenarRepositorioIndicadores();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -15,7 +15,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.List;
 
-public class AlmacenIndicadores {
+public class AlmacenadorDeIndicadores {
 	//static Gson serializador = new GsonBuilder().setPrettyPrinting().create();
 	static Gson serializador = new Gson();
 	static String ruta = "repositorioIndicadores.csv";
