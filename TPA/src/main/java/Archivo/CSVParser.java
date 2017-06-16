@@ -93,7 +93,7 @@ public class CSVParser {
 			String nombreDeEmpresa = nombresDeEmpresa.get(i);
 			List<Empresa> empresasConMismoNombre = new ArrayList<Empresa>();
 			
-			empresasConMismoNombre = empresasAParsear.stream().filter(e -> e.getNombre() == nombreDeEmpresa).collect(Collectors.toList());
+			empresasConMismoNombre = empresasAParsear.stream().filter(e -> e.getNombre().equals(nombreDeEmpresa)).collect(Collectors.toList());
 			
 			Empresa empresaDefinitiva = this.formarEmpresaDefinitiva(empresasConMismoNombre);
 			

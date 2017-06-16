@@ -20,6 +20,8 @@ public class AlmacenIndicadores {
 	static Gson serializador = new Gson();
 	static String ruta = "repositorioIndicadores.csv";
 	
+	
+	
 	private static String serializarRepositorioIndicadores(){
 		Type listType  = new TypeToken<List<Indicador>>(){}.getType();
 		List<Indicador> lista = IndicadoresRepository.getInstancia().getIndicadores();
@@ -56,8 +58,8 @@ public class AlmacenIndicadores {
 		
 		List<Indicador> x = deserializarRepositorioIndicadores(reader);
 
-		
-		for(int i=0;i<x.size();i++){
+		IndicadoresRepository.getInstancia().setIndicadores(x);*/
+		/*for(int i=0;i<x.size();i++){
 			IndicadoresRepository.getInstancia().agregarIndicador(x.get(i));
 		}*/
 	
