@@ -3,8 +3,8 @@ package sistemaDeInversiones;
 import java.io.IOException;
 import java.util.stream.Collectors;
 import org.junit.Test;
-import Archivo.Instanciador_Bolsa_Empresas;
 
+import Archivo.Empresa.Instanciador_Bolsa_Empresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Empresa.BolsaDeEmpresas;

@@ -1,4 +1,4 @@
-package Archivo;
+package Archivo.Empresa;
 
 import java.util.List;
 
