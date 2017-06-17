@@ -36,7 +36,7 @@ public class ViewEliminarIndicador extends Window<VMEliminarIndicador>{
 			
 			Button eliminarIndicador = new Button(panelEliminar);
 			eliminarIndicador.setCaption("Eliminar");	
-			eliminarIndicador.onClick(()-> this.getModelObject().eliminar());
+			eliminarIndicador.onClick(()-> this.getModelObject().x());
 	}
 
 }

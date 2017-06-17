@@ -47,5 +47,9 @@ public class Cuenta implements Expresion {
 	public void addOperando(Expresion operando){
 		/*this.a = operando;*/
 	}
+	
+	public String nombre(){
+		return "";
+	}
 
 }

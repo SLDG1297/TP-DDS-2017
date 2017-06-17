@@ -29,8 +29,22 @@ public class VMEliminarIndicador {
 		indicadorSeleccionado = IndicadoresRepository.getInstancia().getIndicador(nombreIndicador);
 	}
 	
-	public void eliminar(){
+	public void eliminar(Indicador indicador){
 		IndicadoresRepository.getInstancia().eliminarIndicador(indicadorSeleccionado); 
+	}
+	
+	public void x(){
+		List<Indicador> lista = IndicadoresRepository.getInstancia().getIndicadores();
+		for(int i=lista.size()-1; i>=0; i--){
+			if (this.contieneIndicador(lista.get(i), indicadorSeleccionado) == true){
+				this.eliminar(lista.get(i));
+			}
+		}
+		this.eliminar(indicadorSeleccionado);
+	}
+
+public boolean contieneIndicador(Indicador indicador, Indicador indicadorSeleccionado){
+		return indicador.mostrarIndicadoresDeFormula().contains(indicadorSeleccionado.getNombre());
 	}
 
 	public String getNombreIndicador() {

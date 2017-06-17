@@ -1,1 +1,1 @@
-[{"nombre":"json","formula":{"type":"numero","numero":45}}]
+[{"nombre":"a","formula":{"type":"Numero","numero":45}},{"nombre":"b","formula":{"type":"Numero","numero":3}},{"nombre":"cTieneB","formula":{"type":"Indicador","nombre":"b","formula":{"type":"Numero","numero":3}}},{"nombre":"dTieneCqueTieneB","formula":{"type":"Indicador","nombre":"cTieneB","formula":{"type":"Indicador","nombre":"b","formula":{"type":"Numero","numero":3}}}}]
