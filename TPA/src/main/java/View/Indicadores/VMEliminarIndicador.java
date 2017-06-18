@@ -1,10 +1,12 @@
 package View.Indicadores;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
+import Archivo.Indicadores.AlmacenadorDeIndicadores;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
 
@@ -30,20 +32,25 @@ public class VMEliminarIndicador {
 	}
 	
 	public void eliminar(Indicador indicador){
-		IndicadoresRepository.getInstancia().eliminarIndicador(indicadorSeleccionado); 
+		IndicadoresRepository.getInstancia().eliminarIndicador(indicador); 
 	}
 	
-	public void x(){
+	public void eliminarIndicador(){
 		List<Indicador> lista = IndicadoresRepository.getInstancia().getIndicadores();
 		for(int i=lista.size()-1; i>=0; i--){
-			if (this.contieneIndicador(lista.get(i), indicadorSeleccionado) == true){
+			if (this.contieneIndicador(lista.get(i)) == true){
 				this.eliminar(lista.get(i));
 			}
 		}
 		this.eliminar(indicadorSeleccionado);
+		try {
+			AlmacenadorDeIndicadores.getInstancia().almacenarRepositorioIndicadores();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
-public boolean contieneIndicador(Indicador indicador, Indicador indicadorSeleccionado){
+public boolean contieneIndicador(Indicador indicador){
 		return indicador.mostrarIndicadoresDeFormula().contains(indicadorSeleccionado.getNombre());
 	}
 
