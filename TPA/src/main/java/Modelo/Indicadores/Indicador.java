@@ -39,15 +39,11 @@ public class Indicador implements Expresion {
 	}
 	
 	public String nombre(){
-		return getNombre();
+		if (!formula.nombre().equals("")){
+			return getNombre() + "," + formula.nombre();
+		}else{
+			return getNombre() + ",";
+		}
 	}
 	
-	public List<String> mostrarIndicadoresDeFormula(){
-		List<String> lista = new ArrayList<String>();
-		lista.add(this.nombre());
-		if (!formula.nombre().equals("")){
-		lista.add(formula.nombre());
-		}
-		return lista;
-	}
 }

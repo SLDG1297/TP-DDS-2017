@@ -1,6 +1,7 @@
 package View.Indicadores;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,7 +39,7 @@ public class VMEliminarIndicador {
 	public void eliminarIndicador(){
 		List<Indicador> lista = IndicadoresRepository.getInstancia().getIndicadores();
 		for(int i=lista.size()-1; i>=0; i--){
-			if (this.contieneIndicador(lista.get(i)) == true){
+			if (this.contieneIndicador(lista.get(i)) == true){ //Le pregunta a cada indicador del repositorio si tiene en su formula o si es el indicador a eliminar
 				this.eliminar(lista.get(i));
 			}
 		}
@@ -51,8 +52,17 @@ public class VMEliminarIndicador {
 	}
 
 public boolean contieneIndicador(Indicador indicador){
-		return indicador.mostrarIndicadoresDeFormula().contains(indicadorSeleccionado.getNombre());
+		return this.mostrarIndicadoresDeFormula(indicador).contains(indicadorSeleccionado.getNombre());
 	}
+
+public List<String> mostrarIndicadoresDeFormula(Indicador indicador){
+		String[] array = indicador.nombre().split(","); //Separa toma cada nombre de indicador que esta separado por una coma y una guarda en un array
+		List<String> lista = new ArrayList<String>();
+		for (int i= 0; i < array.length; i++ ){ 
+        	lista.add(array[i]); //transforma el array en un lista
+        }
+		return lista;
+}
 
 	public String getNombreIndicador() {
 		return nombreIndicador;

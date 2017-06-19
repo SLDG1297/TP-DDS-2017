@@ -1,1 +1,1 @@
-[{"nombre":"a","formula":{"type":"Numero","numero":45}},{"nombre":"b","formula":{"type":"Numero","numero":3}},{"nombre":"cTieneB","formula":{"type":"Indicador","nombre":"b","formula":{"type":"Numero","numero":3}}}]
+[{"nombre":"a","formula":{"type":"Numero","numero":45}},{"nombre":"b","formula":{"type":"Numero","numero":3}},{"nombre":"c","formula":{"type":"Indicador","nombre":"b","formula":{"type":"Numero","numero":3}}},{"nombre":"d","formula":{"type":"Indicador","nombre":"c","formula":{"type":"Indicador","nombre":"b","formula":{"type":"Numero","numero":3}}}}]
