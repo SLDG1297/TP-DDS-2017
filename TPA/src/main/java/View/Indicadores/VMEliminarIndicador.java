@@ -43,9 +43,8 @@ public class VMEliminarIndicador {
 				this.eliminar(lista.get(i));
 			}
 		}
-		this.eliminar(indicadorSeleccionado);
 		try {
-			AlmacenadorDeIndicadores.getInstancia().almacenarRepositorioIndicadores();
+			AlmacenadorDeIndicadores.getInstancia().almacenarRepositorioIndicadores(); //Actualiza el estado de los nuevos indicadores 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -56,7 +55,7 @@ public boolean contieneIndicador(Indicador indicador){
 	}
 
 public List<String> mostrarIndicadoresDeFormula(Indicador indicador){
-		String[] array = indicador.nombre().split(","); //Separa toma cada nombre de indicador que esta separado por una coma y una guarda en un array
+		String[] array = indicador.imprimirFormulaindicador().split(","); //Separa toma cada nombre de indicador que esta separado por una coma y una guarda en un array
 		List<String> lista = new ArrayList<String>();
 		for (int i= 0; i < array.length; i++ ){ 
         	lista.add(array[i]); //transforma el array en un lista

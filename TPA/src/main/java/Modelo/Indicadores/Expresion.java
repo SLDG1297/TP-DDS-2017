@@ -9,7 +9,7 @@ public interface Expresion {
 	
 	public void addOperando(Expresion operando);
 	
-	public String nombre();
+	public String imprimirFormulaindicador();
 
 
 }

@@ -48,7 +48,7 @@ public class Cuenta implements Expresion {
 		/*this.a = operando;*/
 	}
 	
-	public String nombre(){
+	public String imprimirFormulaindicador(){
 		return "";
 	}
 

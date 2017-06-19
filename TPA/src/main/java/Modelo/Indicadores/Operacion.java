@@ -32,7 +32,7 @@ public abstract class Operacion implements Expresion {
 		  this.valorB = operando;
 	}
 	
-	public String nombre(){
+	public String imprimirFormulaindicador(){
 		return "";
 	}
 }

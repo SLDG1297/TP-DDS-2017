@@ -1,8 +1,6 @@
 package Modelo.Indicadores;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Indicador implements Expresion {
 
@@ -38,9 +36,9 @@ public class Indicador implements Expresion {
 		/*this.formula = operando;*/
 	}
 	
-	public String nombre(){
-		if (!formula.nombre().equals("")){
-			return getNombre() + "," + formula.nombre();
+	public String imprimirFormulaindicador(){
+		if (!formula.imprimirFormulaindicador().equals("")){
+			return getNombre() + "," + formula.imprimirFormulaindicador();
 		}else{
 			return getNombre() + ",";
 		}
