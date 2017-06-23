@@ -1,6 +1,7 @@
 package Modelo.Empresa;
 
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 import org.uqbar.commons.utils.Observable;
 
 import Exepciones.Empresas.NoExisteElPeriodoException;
+import Exepciones.Indicadores.NombreCuentaErroneoException;
 
 
 @Observable
@@ -61,6 +63,20 @@ public class Empresa {
 		List<Cuenta> cuentas = periodoSeleccionado.getCuentas();
 		
 	    return cuentas;
+	}
+	
+	public Cuenta buscarCuenta(List<Cuenta> cuentas, String nombreCuenta){
+		List<Cuenta> cuentaEncontrada = cuentas.stream().filter(c -> c.getNombre().equals(nombreCuenta)).collect(Collectors.toList());
+		if(cuentaEncontrada.size() == 0)
+			throw new NombreCuentaErroneoException();
+		else
+			return cuentaEncontrada.get(0);
+	}
+	
+	public BigDecimal buscarValorCuentaEnPeriodo(String nombreCuenta, Integer periodo){
+		List<Cuenta> cuentas = this.obtenerCuentasEnPeriodo(periodo);
+		Cuenta cuenta = this.buscarCuenta(cuentas, nombreCuenta);
+		return new BigDecimal(cuenta.getValor().toString());		
 	}
 }
 

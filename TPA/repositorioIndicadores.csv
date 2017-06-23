@@ -1,1 +1,1 @@
-[{"nombre":"a","formula":{"type":"Numero","numero":45}}]
+[{"nombre":"Indicador1","formula":{"type":"Suma","valorA":{"type":"Numero","numero":4},"valorB":{"type":"Cuenta","nombre":"Free Cash Flow"}}}]

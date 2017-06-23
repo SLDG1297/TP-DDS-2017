@@ -10,7 +10,6 @@ public class BolsaDeEmpresas {
 	
 	private static BolsaDeEmpresas bolsa = null;
 	
-	// Con unas empresas para probar las vistas.
 	private List<Empresa> empresas = new ArrayList<Empresa>();
 	
 	public List<Empresa> getEmpresas() {

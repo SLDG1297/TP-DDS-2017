@@ -64,6 +64,7 @@ public class TestCalcular {
 		Assert.assertEquals(new BigDecimal(200), unaConstante.calcular(query));
 	}
 	
+	/*
 	@Test
 	public void QueryObtineValorCuenta(){
 		Assert.assertEquals(new BigDecimal(2000), query.obtenerValorCuenta("EBITDA"));
@@ -73,6 +74,7 @@ public class TestCalcular {
 	public void QueryArrojaExcepcionSiNombreDeEmpresaEsErroneo(){
 		query.obtenerValorCuenta("EDITBA");
 	}
+	*/
 	
 	@Test
 	public void calculoDeCuentas(){
