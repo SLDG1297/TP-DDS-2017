@@ -1,4 +1,4 @@
-package Modelo.Metodologias;
+package Modelo.Metodologias.Condiciones;
 
 public interface Condiciones {
 

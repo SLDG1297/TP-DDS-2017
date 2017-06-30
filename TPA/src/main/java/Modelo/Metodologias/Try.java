@@ -8,7 +8,7 @@ public abstract class Try<T> {
 	public static <U> Try<U> ofFailable(Supplier<U> f) {
 		try {
 			return Try.successful(f.get());
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			return Try.failure(e);
 		}
 	}
@@ -17,7 +17,7 @@ public abstract class Try<T> {
 		return new Success<>(x);
 	}
 	
-	public static <U> Try<U> failure(Throwable e) {
+	public static <U> Try<U> failure(RuntimeException e) {
 		return new Failure<>(e);
 	}
 	
@@ -50,9 +50,9 @@ class Success<T> extends Try<T> {
 }
 
 class Failure<T> extends Try<T> {
-	private final Throwable e;
+	private final RuntimeException e;
 
-	public Failure(Throwable e) {
+	public Failure(RuntimeException e) {
 		this.e = e;  
 	}
 
