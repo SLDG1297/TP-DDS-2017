@@ -2,6 +2,8 @@ package View.Indicadores;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,6 +50,13 @@ public class VMEliminarIndicador {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		/*Collections.reverse(lista);
+		for (Indicador indicador : lista){
+			if (this.contieneIndicador(indicador) == true){	
+				this.eliminar(indicador);
+			}
+		}*/
 	}
 
 public boolean contieneIndicador(Indicador indicador){
@@ -56,11 +65,8 @@ public boolean contieneIndicador(Indicador indicador){
 
 public List<String> mostrarIndicadoresDeFormula(Indicador indicador){
 		String[] array = indicador.imprimirFormulaindicador().split(","); //Separa toma cada nombre de indicador que esta separado por una coma y una guarda en un array
-		List<String> lista = new ArrayList<String>();
-		for (int i= 0; i < array.length; i++ ){ 
-        	lista.add(array[i]); //transforma el array en un lista
-        }
-		return lista;
+		return Arrays.asList(array); //transforma el array en un lista
+		
 }
 
 	public String getNombreIndicador() {

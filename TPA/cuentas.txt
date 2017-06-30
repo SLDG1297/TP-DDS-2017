@@ -1,3 +1,0 @@
-{"nombre": "Nombre","valor": 4,"periodo": 3}
-{"nombre": "Lepra Inc.","valor": 3,"periodo": 10}
-{"nombre": "Nombre","valor": 4,"periodo": 3}
