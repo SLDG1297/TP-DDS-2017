@@ -17,9 +17,9 @@ public class Empresa {
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	// Esto solo lo usa el Parser para crear la empresa rápidamente
-	public Empresa(Object object, Object object2, Object object3, Object object4) {
-		nombre = (String) object;		
-		periodos.add(new Periodo(Integer.parseInt((String) object3), new Cuenta(object2, Integer.parseInt((String) object4))));
+	public Empresa(String nombre, String nombreCuenta, String anio, String valorCuenta) {
+		this.nombre =  nombre;		
+		periodos.add(new Periodo(Integer.parseInt(anio), new Cuenta(nombreCuenta, Integer.parseInt(valorCuenta))));
 	}
 	
 	public Empresa(String nuevoNombre, List<Periodo> nuevosPeriodos) {

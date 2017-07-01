@@ -10,8 +10,8 @@ public class Cuenta implements Expresion {
 	String nombre;
 	Integer valor;
 
-	public Cuenta(Object object2, Integer nuevoValor) {
-		this.nombre = (String) object2;
+	public Cuenta(String nombre, Integer nuevoValor) {
+		this.nombre = nombre;
 		this.valor = nuevoValor;
 	}
 
