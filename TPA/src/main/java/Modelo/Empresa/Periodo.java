@@ -3,7 +3,7 @@ package Modelo.Empresa;
 import java.util.ArrayList;
 import java.util.List;
 
-import Exepciones.Periodos.YaExisteLaCuentaException;
+import Exepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Empresa.Cuenta;
 
 public class Periodo {

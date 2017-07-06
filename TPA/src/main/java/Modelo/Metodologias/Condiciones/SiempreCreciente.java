@@ -10,8 +10,8 @@ import Modelo.Metodologias.Condiciones.Comportamiento;
 
 public class SiempreCreciente extends Comportamiento {
 
-	public SiempreCreciente(Indicador indicador, Empresa empresa, int anios) {
-		super(indicador, empresa, anios);
+	public SiempreCreciente(Indicador indicador, int anios) {
+		super(indicador, anios);
 	}
 
 	@Override

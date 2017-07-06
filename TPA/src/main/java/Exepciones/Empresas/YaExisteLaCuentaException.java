@@ -1,4 +1,4 @@
-package Exepciones.Periodos;
+package Exepciones.Empresas;
 
 public class YaExisteLaCuentaException extends RuntimeException{
 

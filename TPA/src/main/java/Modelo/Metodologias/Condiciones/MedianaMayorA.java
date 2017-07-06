@@ -7,8 +7,8 @@ import Modelo.Indicadores.Indicador;
 
 public class MedianaMayorA extends Mediana {
 
-	public MedianaMayorA(Indicador indicador, Empresa empresa, BigDecimal valor) {
-		super(indicador, empresa, valor);
+	public MedianaMayorA(Indicador indicador, BigDecimal valor) {
+		super(indicador, valor);
 	}
 
 	@Override

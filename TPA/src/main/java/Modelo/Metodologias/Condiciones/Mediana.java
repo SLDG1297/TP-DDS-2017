@@ -12,8 +12,8 @@ public abstract class Mediana extends Condicion {
 
 	protected BigDecimal valor;
 
-	public Mediana(Indicador indicador, Empresa empresa, BigDecimal valor) {
-		super(indicador, empresa);
+	public Mediana(Indicador indicador, BigDecimal valor) {
+		super(indicador);
 		this.valor = valor;
 	}
 

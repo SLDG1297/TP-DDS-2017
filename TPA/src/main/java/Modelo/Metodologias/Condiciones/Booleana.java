@@ -14,8 +14,8 @@ public abstract class Booleana extends Condicion {
 	protected BigDecimal valor;
 	protected int anios;
 	
-	public Booleana(Indicador indicador, Empresa empresa, BigDecimal valor, int anios) {
-		super(indicador, empresa);
+	public Booleana(Indicador indicador, BigDecimal valor, int anios) {
+		super(indicador);
 		this.valor = valor;
 		this.anios = anios;
 	}

@@ -1,7 +1,9 @@
 package Modelo.Metodologias.Condiciones;
 
+import Modelo.Empresa.Empresa;
+
 public interface Condiciones {
 
-	public boolean cumple();
+	public boolean cumple(Empresa empresa);
 	
 }

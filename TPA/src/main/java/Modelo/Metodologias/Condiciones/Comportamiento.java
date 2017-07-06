@@ -14,8 +14,8 @@ public abstract class Comportamiento extends Condicion {
 
 	protected int anios;
 
-	public Comportamiento(Indicador indicador, Empresa empresa, int anios) {
-		super(indicador, empresa);
+	public Comportamiento(Indicador indicador, int anios) {
+		super(indicador);
 		this.anios = anios;
 	}
 	

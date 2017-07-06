@@ -12,8 +12,8 @@ public abstract class Promedio extends Condicion {
 	
 		protected BigDecimal valor;
 	
-		public Promedio(Indicador indicador, Empresa empresa, BigDecimal valor) {
-			super(indicador, empresa);
+		public Promedio(Indicador indicador, BigDecimal valor) {
+			super(indicador);
 			this.valor = valor;
 		}
 		

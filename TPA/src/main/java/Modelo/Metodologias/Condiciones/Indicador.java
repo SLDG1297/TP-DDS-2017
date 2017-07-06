@@ -1,5 +1,6 @@
 package Modelo.Metodologias.Condiciones;
 
+import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.IndicadoresRepository;
 
 public class Indicador implements Condiciones {
@@ -11,7 +12,7 @@ public class Indicador implements Condiciones {
 	}
 
 	@Override
-	public boolean cumple() {
+	public boolean cumple(Empresa empresa) {
 		return IndicadoresRepository.getInstancia().getIndicadores().contains(indicador);
 	}
 }

@@ -7,8 +7,8 @@ import Modelo.Indicadores.Indicador;
 
 public class SumatoriaMenorA extends Sumatoria {
 
-	public SumatoriaMenorA(Indicador indicador, Empresa empresa, BigDecimal valor) {
-		super(indicador, empresa, valor);
+	public SumatoriaMenorA(Indicador indicador, BigDecimal valor) {
+		super(indicador, valor);
 	}
 
 	@Override

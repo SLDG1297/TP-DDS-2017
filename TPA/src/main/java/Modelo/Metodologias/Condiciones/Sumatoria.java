@@ -12,8 +12,8 @@ public abstract class Sumatoria extends Condicion {
 
 	protected BigDecimal valor;
 
-	public Sumatoria(Indicador indicador, Empresa empresa, BigDecimal valor) {
-		super(indicador, empresa);
+	public Sumatoria(Indicador indicador, BigDecimal valor) {
+		super(indicador);
 		this.valor = valor;
 	}
 

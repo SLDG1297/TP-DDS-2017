@@ -16,12 +16,12 @@ public abstract class Condicion implements Condiciones{
 	protected Empresa empresa;
 
 	
-	public Condicion(Indicador indicador, Empresa empresa) {
+	public Condicion(Indicador indicador) {
 		this.indicador = indicador;
-		this.empresa = empresa;
 	}
 	
-	public boolean cumple(){
+	public boolean cumple(Empresa empresa){
+		this.empresa = empresa;
 		List<Periodo> listaPeriodos = this.inicio(empresa.getPeriodos());
 		List<Try<BigDecimal>> listaSuccess = this.cuerpo(listaPeriodos);
 		return fin(listaSuccess);

@@ -1,0 +1,33 @@
+Entrega 2
+----------
+ 
+)Excepciones:
+ 
+	Cuando un indicador usa una cuenta que una empresa no tiene, es necesario para la entrega 3
+ 
+)Correcciones de Fede:
+ 
+	El título es expresivo
+ 
+)Test:
+ 
+	Modularizar los test
+ 
+)Selector:
+ 
+	Que no sea necesario tocar un botón para que se vean las opciones de un selector a otro
+ 
+)Mostrar en el label lo que el usuario va poniendo: 
+ 
+	Hacerlo a través del  modelo porque usa composite, el método imprimir va en la interfaz expresión
+ 
+)Cartel de indicador eliminado
+ 
+ 
+Entrega 3
+---------
+
+
+
+ 
+ 

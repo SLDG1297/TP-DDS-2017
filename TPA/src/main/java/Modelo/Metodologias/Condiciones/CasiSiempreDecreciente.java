@@ -10,8 +10,8 @@ import Modelo.Metodologias.Try;
 
 public class CasiSiempreDecreciente extends Comportamiento {
 
-	public CasiSiempreDecreciente(Indicador indicador, Empresa empresa, int anios) {
-		super(indicador, empresa, anios);
+	public CasiSiempreDecreciente(Indicador indicador, int anios) {
+		super(indicador, anios);
 	}
 
 	@Override

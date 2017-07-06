@@ -9,7 +9,7 @@ import Modelo.Metodologias.Condiciones.Booleana;
 public class MenorAEnPeriodos extends Booleana{
 
 	public MenorAEnPeriodos(Indicador indicador, Empresa empresa, BigDecimal valor, int anios) {
-		super(indicador, empresa, valor, anios);
+		super(indicador, valor, anios);
 	}
 
 	@Override

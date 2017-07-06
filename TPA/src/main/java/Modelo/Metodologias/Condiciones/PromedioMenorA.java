@@ -2,13 +2,12 @@ package Modelo.Metodologias.Condiciones;
 
 import java.math.BigDecimal;
 
-import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 
 public class PromedioMenorA extends Promedio {
 
-	public PromedioMenorA(Indicador indicador, Empresa empresa, BigDecimal valor) {
-		super(indicador, empresa, valor);
+	public PromedioMenorA(Indicador indicador, BigDecimal valor) {
+		super(indicador, valor);
 	}
 	
 	@Override
