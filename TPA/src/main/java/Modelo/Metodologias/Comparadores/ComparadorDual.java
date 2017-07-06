@@ -18,7 +18,6 @@ public class ComparadorDual {
 		this.metodologia = metodologia;
 	}
 	
-	//Como es el modelo debe retornar un objeto resultado
 	public Resultado comparar(){
 		if (this.aplicarMetodologia(empresa1) && this.aplicarMetodologia(empresa2)){
 			return new Empate(empresa1, empresa2);
