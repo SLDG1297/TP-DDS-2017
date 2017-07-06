@@ -1,10 +1,12 @@
-package Modelo.Metodologias;
+package Modelo.Metodologias.Comparadores;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Empresa.Empresa;
+import Modelo.Metodologias.Metodologia;
+import Modelo.Metodologias.Resultados.Resultado;
 
 public class ComparadorMultiple {
 

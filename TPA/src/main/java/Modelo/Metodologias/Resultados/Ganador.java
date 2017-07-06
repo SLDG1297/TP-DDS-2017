@@ -1,11 +1,13 @@
-package Modelo.Metodologias;
+package Modelo.Metodologias.Resultados;
 
 import Modelo.Empresa.Empresa;
 
 public class Ganador extends Resultado {
-
+	
 	public Ganador(Empresa empresa) {
 		super(empresa);
+		nombre = empresa.getNombre();
 	}
+
 
 }

@@ -1,4 +1,4 @@
-package Modelo.Metodologias;
+package Modelo.Metodologias.Resultados;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,8 @@ import java.util.List;
 import Modelo.Empresa.Empresa;
 
 public abstract class Resultado {
-			
+	
+	protected String nombre;
 	protected List<Empresa> listaEmpresas = new ArrayList<Empresa>();
 
 	public Resultado(Empresa empresa){
@@ -17,6 +18,8 @@ public abstract class Resultado {
 		return listaEmpresas;
 	}
 	
-	
+	public String getNombre() {
+		return nombre;
+	}
 	
 }

@@ -1,6 +1,10 @@
-package Modelo.Metodologias;
+package Modelo.Metodologias.Comparadores;
 
 import Modelo.Empresa.Empresa;
+import Modelo.Metodologias.Metodologia;
+import Modelo.Metodologias.Resultados.Empate;
+import Modelo.Metodologias.Resultados.Ganador;
+import Modelo.Metodologias.Resultados.Resultado;
 
 public class ComparadorDual {
 
@@ -15,7 +19,6 @@ public class ComparadorDual {
 	}
 	
 	//Como es el modelo debe retornar un objeto resultado
-	//Supongo que ustedes en las View haran algo asi como mostrarResultado().getEmpresas().stream().map(x->x.getNombre()).collect(Collectors.toList()); para usar solo el String
 	public Resultado comparar(){
 		if (this.aplicarMetodologia(empresa1) && this.aplicarMetodologia(empresa2)){
 			return new Empate(empresa1, empresa2);
