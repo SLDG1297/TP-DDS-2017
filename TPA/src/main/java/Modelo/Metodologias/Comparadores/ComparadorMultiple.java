@@ -26,4 +26,12 @@ public class ComparadorMultiple {
 		}
 		return listaResultados;
 	}
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public Metodologia getMetodologia() {
+		return metodologia;
+	}
 }

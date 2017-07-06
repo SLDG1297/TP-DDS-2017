@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import Exepciones.Indicadores.NombreCuentaErroneoException;
+import Exepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Cuenta;
 
@@ -25,7 +25,7 @@ public class Query {
 	public Cuenta buscarCuenta(String nombreCuenta){
 		List<Cuenta> cuentaEncontrada = cuentas.stream().filter(c -> c.getNombre().equals(nombreCuenta)).collect(Collectors.toList());
 		if(cuentaEncontrada.size() == 0)
-			throw new NombreCuentaErroneoException();
+			throw new NoTieneLaCuentaException();
 		else
 			return cuentaEncontrada.get(0);
 	}

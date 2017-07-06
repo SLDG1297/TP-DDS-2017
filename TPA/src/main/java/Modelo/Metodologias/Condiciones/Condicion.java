@@ -24,7 +24,11 @@ public abstract class Condicion implements Condiciones{
 		this.empresa = empresa;
 		List<Periodo> listaPeriodos = this.inicio(empresa.getPeriodos());
 		List<Try<BigDecimal>> listaSuccess = this.cuerpo(listaPeriodos);
-		return fin(listaSuccess);
+		if (listaSuccess.size() > 0){
+			return fin(listaSuccess);
+		}else{
+			return false;
+		}
 	}
 	
 	protected List<Periodo> inicio(List<Periodo> lista){
