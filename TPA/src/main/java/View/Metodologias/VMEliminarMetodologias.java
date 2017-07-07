@@ -17,11 +17,11 @@ public class VMEliminarMetodologias {
 	
 	public void destruirMetodologiaSeleccionada() {
 		MetodologiasRepository.getInstancia().removerMetodologia(nombreDeMetodologiaElegida);
-		try {
+		/*try {
 			AlmacenadorDeMetodologias.getInstancia().almacenarRepositorioMetodologias();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public void setNombreDeMetodologiaElegida(String nombreMetodologiaElegida) {

@@ -52,11 +52,11 @@ public class ViewAgregarBooleana extends Window<VMAgregarBooleana> {
 		finalizarMetodologia.onClick(()->{
 		this.getModelObject().crearCondicion();
 		this.getModelObject().crearMetodologia();
-			try {
+			/*try {
 				AlmacenadorDeMetodologias.getInstancia().almacenarRepositorioMetodologias();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			}*/
 		new ViewMetodologiaCreada(this, new VMMetodologiaCreada()).open();
 		});
 		

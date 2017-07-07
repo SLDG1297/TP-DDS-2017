@@ -1,1 +1,1 @@
-
+[{"nombre":"PRUEBA_MayorAEnPeriodos","listaCondiciones":[{"type":"MayorAEnPeriodos","valor":1,"anios":1,"indicador":{"nombre":"b","formula":{"numero":453}}}]},{"nombre":"asdf","listaCondiciones":[{"type":"MayorAEnPeriodos","valor":200,"anios":1,"indicador":{"nombre":"c","formula":{"nombre":"b","formula":{"numero":453}}}}]}]
