@@ -6,4 +6,6 @@ public interface Condiciones {
 
 	public boolean cumple(Empresa empresa);
 	
+	public String mostrarCadena();
+	
 }
