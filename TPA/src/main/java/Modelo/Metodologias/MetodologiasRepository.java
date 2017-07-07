@@ -8,16 +8,7 @@ import java.util.stream.Collectors;
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
 import Excepciones.Metodologias.NoExisteLaMetodologiaException;
-import Excepciones.Empresas.NoExisteLaEmpresaException;
-import Modelo.Empresa.Empresa;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import Modelo.Indicadores.IndicadoresRepository;
-import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
 
 
 public class MetodologiasRepository {
@@ -30,6 +21,8 @@ public class MetodologiasRepository {
 		if (instancia == null) {
 			instancia = new MetodologiasRepository();
 			instancia.agregarMetodologia(new Metodologia("PRUEBA_MayorAEnPeriodos", new MayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(0), new BigDecimal(500), 1)));
+			instancia.agregarMetodologia(new Metodologia("PRUEBA_MayorAEnPeriodos2", new MayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(0), new BigDecimal(20), 1)));
+
 		}
 		return instancia;
 	}
