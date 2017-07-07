@@ -31,7 +31,7 @@ public class ViewCreacion extends Window<VMCreacion>  {
 		new TextBox(panelPrincipal).bindValueToProperty("nombreMetodologia");
 		new Label(panelPrincipal); //Espacio
 		
-		new Label(panelPrincipal).setText("Elija indicador");
+		new Label(panelPrincipal).setText("Elegir un indicador");
 		new Label(panelPrincipal); //Espacio
 		
 		//Selector del indicador a elegir para aplicarle una condicion
@@ -39,7 +39,9 @@ public class ViewCreacion extends Window<VMCreacion>  {
 		selector.bindValueToProperty("nombreDeIndicadorElegido");
 		selector.bindItemsToProperty("nombresDeIndicadoresExistentes");
 		
+		new Label(panelPrincipal); //Espacio
 		new Label(panelPrincipal).setText("Elija la condicion que desea agregar");
+		new Label(panelPrincipal); //Espacio
 		
 		Button booleana = new Button(panelPrincipal).setCaption("Mayor o menor a valor en N periodos");
 		Button prosummed = new Button(panelPrincipal).setCaption("Promedio, Sumatoria o mediana mayor o menor a un valor");
