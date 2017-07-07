@@ -9,7 +9,7 @@ import Modelo.Metodologias.Resultados.ResultadoAdapterView;
 
 
 @Observable
-public class VMResultadoMultiple {
+public class VMResultadoGlobal {
 	
 	
 	public List<ResultadoAdapterView> listaResultadosAdapter;
@@ -17,7 +17,7 @@ public class VMResultadoMultiple {
 	
 	
 
-	public VMResultadoMultiple(List<ResultadoAdapterView> listaResultados) {
+	public VMResultadoGlobal(List<ResultadoAdapterView> listaResultados) {
 		super();
 		this.listaResultadosAdapter = listaResultados;
 		
