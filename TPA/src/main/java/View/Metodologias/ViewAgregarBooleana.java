@@ -1,12 +1,12 @@
 package View.Metodologias;
 
 import org.uqbar.arena.bindings.ObservableProperty;
+
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.RadioSelector;
-import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
@@ -28,12 +28,29 @@ public class ViewAgregarBooleana extends Window<VMAgregarBooleana> {
 		radio.bindValueToProperty("operacionElegida");
 		radio.bindItemsToProperty("operaciones");
 
+		new Label(panel).setText("Ingresar valor a comparar");
+		new Label(panel); //Espacio
+		
 		new NumericField(panel).bindValueToProperty("valorElegido");
 		new Label(panel); //Espacio
 		
+		new Label(panel).setText("Ingresar cantidad de periodos a considerar");
+		new Label(panel); //Espacio
+		
+		new NumericField(panel).bindValueToProperty("periodoElegido");
+		new Label(panel); //Espacio
+		
 		Button agregarCondicion = new Button(panel).setCaption("Agregar condicion");
-		agregarCondicion.onClick(()-> new ViewMasCondiciones(this, new VMMasCondiciones(this.getModelObject().getMiMetodologiaBuilder())));
+		agregarCondicion.onClick(()-> {
+		this.getModelObject().crearCondicion();
+		new ViewMasCondiciones(this, new VMMasCondiciones(this.getModelObject().getMiMetodologiaBuilder())).open();
+		});
 		Button finalizarMetodologia = new Button(panel).setCaption("Finalizar metodologia");
+		finalizarMetodologia.onClick(()->{
+		this.getModelObject().crearCondicion();
+		this.getModelObject().crearMetodologia();
+		new ViewMetodologiaCreada(this, new VMMetodologiaCreada()).open();
+		});
 		
 	}
 	

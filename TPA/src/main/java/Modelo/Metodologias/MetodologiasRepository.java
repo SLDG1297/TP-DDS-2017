@@ -7,6 +7,18 @@ import java.util.stream.Collectors;
 
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
+import Excepciones.Metodologias.NoExisteLaMetodologiaException;
+import Exepciones.Empresas.NoExisteLaEmpresaException;
+import Modelo.Empresa.Empresa;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import Modelo.Indicadores.IndicadoresRepository;
+import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
+
 
 public class MetodologiasRepository {
 	
@@ -40,7 +52,12 @@ public class MetodologiasRepository {
 	}
 	
 	public Metodologia obtenerMetodologia(String nombreDeMetodologia) {
-		return listaMetodologias.stream().filter(metodologia -> metodologia.getNombre() == nombreDeMetodologia).collect(Collectors.toList()).get(0); // Medio leproso. No me funca el findFirst
+		try{
+			Metodologia metodologiaBuscada= instancia.getListaMetodologias().stream().filter( m -> m.getNombre().equals(nombreDeMetodologia)).findFirst().get();
+			return metodologiaBuscada;
+		} catch(RuntimeException e){
+			throw new NoExisteLaMetodologiaException();
+		}
 	}
 	
 	public List<String> nombresDeMetodologias() {

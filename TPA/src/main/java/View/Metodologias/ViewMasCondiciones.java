@@ -20,7 +20,7 @@ public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
 	@Override
 	public void createContents(Panel panelPrincipal) {
 		
-		new Label(panelPrincipal).setText("Elija indicador");
+		new Label(panelPrincipal).setText("Elegir un indicador");
 		new Label(panelPrincipal); //Espacio
 		
 		//Selector del indicador a elegir para aplicarle una condicion
@@ -34,30 +34,26 @@ public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
 		Button prosummed = new Button(panelPrincipal).setCaption("Promedio, Sumatoria o mediana mayor o menor a un valor");
 		Button comportamiento = new Button(panelPrincipal).setCaption("Comportamiento en N periodos");
 		
-        /*booleana.onClick(() -> {
-			
-			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
-			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			new ViewAgregarBooleana(this, new VMAgregarBooleana(miMetodologiaBuilder)).open();
-			
+		booleana.onClick(() -> {
+				
+	    this.getModelObject().iniciarBuilder();
+		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+				
 		});
-        
-        prosummed.onClick(() -> {
-			
-			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
-			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			//new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open();
-			
+	        
+	    prosummed.onClick(() -> {
+				
+	    this.getModelObject().iniciarBuilder();
+		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+				
+	    });
+	       
+	    comportamiento.onClick(() -> {
+				
+	    this.getModelObject().iniciarBuilder();
+		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+				
 		});
-        
-        comportamiento.onClick(() -> {
-			
-			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
-			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			//new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open();
-			
-		});
-		*/
 	}
 	
 }
