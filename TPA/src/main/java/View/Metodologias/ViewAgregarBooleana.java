@@ -1,5 +1,7 @@
 package View.Metodologias;
 
+import java.io.IOException;
+
 import org.uqbar.arena.bindings.ObservableProperty;
 
 import org.uqbar.arena.widgets.Button;
@@ -10,6 +12,7 @@ import org.uqbar.arena.widgets.RadioSelector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
+import Archivo.Metodologias.AlmacenadorDeMetodologias;
 import Modelo.Metodologias.MetodologiaBuilder;
 
 public class ViewAgregarBooleana extends Window<VMAgregarBooleana> {
@@ -49,6 +52,11 @@ public class ViewAgregarBooleana extends Window<VMAgregarBooleana> {
 		finalizarMetodologia.onClick(()->{
 		this.getModelObject().crearCondicion();
 		this.getModelObject().crearMetodologia();
+			try {
+				AlmacenadorDeMetodologias.getInstancia().almacenarRepositorioMetodologias();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		new ViewMetodologiaCreada(this, new VMMetodologiaCreada()).open();
 		});
 		
