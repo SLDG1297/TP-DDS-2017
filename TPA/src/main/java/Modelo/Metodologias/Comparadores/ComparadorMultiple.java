@@ -6,6 +6,7 @@ import java.util.List;
 import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
+import Modelo.Metodologias.MetodologiasRepository;
 import Modelo.Metodologias.Resultados.Resultado;
 import Modelo.Metodologias.Resultados.ResultadoAdapterView;
 
@@ -16,6 +17,11 @@ public class ComparadorMultiple {
 
 	public ComparadorMultiple(Empresa empresa, Metodologia metodologia){
 		this.empresa = empresa;
+		this.metodologia = metodologia;
+	}
+	
+	public ComparadorMultiple(Metodologia metodologia){
+		
 		this.metodologia = metodologia;
 	}
 	
@@ -30,6 +36,20 @@ public class ComparadorMultiple {
 		}
 		return listaResultadosAdapter;
 	}
+	
+	public List<ResultadoAdapterView> compararTodosconTodo(){
+		List<Empresa> listaEmpresas = BolsaDeEmpresas.getInstancia().getEmpresas();
+		List<ResultadoAdapterView> listaResultadosAdapter = new ArrayList<ResultadoAdapterView>();
+		for(int i=0; listaEmpresas.size()>i; i++){
+			
+			boolean resultado = new ComparadorUnario(listaEmpresas.get(i),metodologia).evaluar();
+			ResultadoAdapterView resultadoFinal = new ResultadoAdapterView(listaEmpresas.get(i).getNombre(),metodologia, resultado);
+			listaResultadosAdapter.add(resultadoFinal);
+		}
+		return listaResultadosAdapter;
+	}
+	
+	
 
 	public Empresa getEmpresa() {
 		return empresa;

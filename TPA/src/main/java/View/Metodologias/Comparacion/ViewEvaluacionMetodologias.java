@@ -8,6 +8,9 @@ import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import Modelo.Empresa.Empresa;
+import Modelo.Metodologias.Comparadores.ComparadorMultiple;
+import View.Metodologias.VMEvaluacionGlobal;
+import View.Metodologias.ViewEvaluacionGlobal;
 
 public class ViewEvaluacionMetodologias extends Window<VMEvaluacionMetodologias>  {
 		
@@ -30,6 +33,9 @@ public class ViewEvaluacionMetodologias extends Window<VMEvaluacionMetodologias>
 			new Label(panelPrincipal);
 			
 			new Button(panelPrincipal).setCaption("Evaluacion multiple").onClick(() -> new ViewEvaluacionMultiple(this,new VMEvaluacionMultiple()).open());
+			new Label(panelPrincipal);
+			
+			new Button(panelPrincipal).setCaption("Evaluacion global").onClick(() -> new ViewEvaluacionGlobal(this, new VMEvaluacionGlobal()).open());
 			new Label(panelPrincipal);
 			
 			

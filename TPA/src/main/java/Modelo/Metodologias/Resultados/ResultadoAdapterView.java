@@ -2,6 +2,9 @@ package Modelo.Metodologias.Resultados;
 
 import org.uqbar.commons.utils.Observable;
 
+import Modelo.Empresa.Empresa;
+import Modelo.Metodologias.Metodologia;
+
 @Observable
 public class ResultadoAdapterView {
 	
@@ -9,7 +12,29 @@ public class ResultadoAdapterView {
 	public String empresaA;
 	public String empresaAComparar;
 	public String resultado;
+	public String metodologia;
+	public boolean evaluacion;
 	
+	public String getMetodologia() {
+		return metodologia;
+	}
+
+
+	public void setMetodologia(String metodologia) {
+		this.metodologia = metodologia;
+	}
+
+
+	public boolean isEvaluacion() {
+		return evaluacion;
+	}
+
+
+	public void setEvaluacion(boolean evaluacion) {
+		this.evaluacion = evaluacion;
+	}
+
+
 	public String getEmpresaA() {
 		return empresaA;
 	}
@@ -51,9 +76,12 @@ public class ResultadoAdapterView {
 		
 	}
 
-	///////////////////////////////////////////////////////////
-	
-	
-	
+	public ResultadoAdapterView(String empresaA, Metodologia metodologia,  boolean evaluacion) {
+		
+		this.empresaA = empresaA;
+		this.metodologia = metodologia.getNombre();
+		this.evaluacion = evaluacion;
+		
+	}
 
 }
