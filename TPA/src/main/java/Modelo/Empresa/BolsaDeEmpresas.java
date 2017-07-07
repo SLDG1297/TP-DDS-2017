@@ -22,12 +22,10 @@ public class BolsaDeEmpresas {
 	}
 
 	public Empresa buscarEmpresa(String unNombre) {
-		try{
-		Empresa empresaBuscada = bolsa.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().get();
-		return empresaBuscada;
-		}catch(RuntimeException e){
-		throw new NoExisteLaEmpresaException();
-		}
+		return bolsa.getEmpresas().stream()
+	            .filter(empresa -> empresa.getNombre().equals(unNombre))
+	            .findFirst()
+	            .orElseThrow(() -> new NoExisteLaEmpresaException());
 	}
 	
 	public List<String> getNombresDeEmpresas() {
