@@ -47,7 +47,7 @@ public class Periodo {
 		if(lista.size() > anios){
 			return lista.subList(lista.size()-1-anios, lista.size()-1).contains(periodo);
 		}else{
-			return true;
+			return false;
 		}
 	}
 }

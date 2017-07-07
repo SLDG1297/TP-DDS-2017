@@ -6,7 +6,7 @@ public class Ganador extends Resultado {
 	
 	public Ganador(Empresa empresa) {
 		super(empresa);
-		nombre = empresa.getNombre();
+		nombre = "Ganador" + empresa.getNombre();
 	}
 
 

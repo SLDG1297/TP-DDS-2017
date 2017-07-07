@@ -2,6 +2,20 @@ package Modelo.Metodologias;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import Excepciones.Metodologias.NoExisteLaMetodologiaException;
+import Exepciones.Empresas.NoExisteLaEmpresaException;
+import Modelo.Empresa.Empresa;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import Modelo.Indicadores.IndicadoresRepository;
+import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
+
 
 public class MetodologiasRepository {
 	
@@ -13,6 +27,7 @@ public class MetodologiasRepository {
 	public static MetodologiasRepository getInstancia() {
 		if (instancia == null){
 			instancia = new MetodologiasRepository();
+			instancia.agregarMetodologia(new Metodologia("PRUEBA_MayorAEnPeriodos", new MayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(0), new BigDecimal(1), 1)));
 		}
 		return instancia;
 	}
@@ -23,6 +38,19 @@ public class MetodologiasRepository {
 	
 	public void agregarMetodologia(Metodologia metodologia){
 		listaMetodologias.add(metodologia);
+	}
+	
+	public Metodologia buscarMetodologia(String unNombre) {
+		try{
+		Metodologia metodologiaBuscada= instancia.getListaMetodologias().stream().filter( m -> m.getNombre().equals(unNombre)).findFirst().get();
+		return metodologiaBuscada;
+		}catch(RuntimeException e){
+		throw new NoExisteLaMetodologiaException();
+		}
+	}
+	
+	public List<String> getNombresDeMetodologias() {
+		return instancia.getListaMetodologias().stream().map((Metodologia m) -> m.getNombre()).collect(Collectors.toList());		
 	}
 	
 	
