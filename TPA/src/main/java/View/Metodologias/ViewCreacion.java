@@ -44,7 +44,7 @@ public class ViewCreacion extends Window<VMCreacion>  {
 		new Label(panelPrincipal); //Espacio
 		
 		Button booleana = new Button(panelPrincipal).setCaption("Mayor o menor a valor en N periodos");
-		Button prosummed = new Button(panelPrincipal).setCaption("Promedio, Sumatoria o mediana mayor o menor a un valor");
+		Button prosummed = new Button(panelPrincipal).setCaption("Promedio, sumatoria o mediana mayor o menor a un valor");
 		Button comportamiento = new Button(panelPrincipal).setCaption("Comportamiento en N periodos");
 		
         booleana.onClick(() -> {
@@ -59,7 +59,7 @@ public class ViewCreacion extends Window<VMCreacion>  {
 			
 			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
 			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			//new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open();
+			new ViewAgregarPromedioSumatoriaMediana(this, new VMAgregarPromedioSumatoriaMediana(miMetodologiaBuilder)).open();
 			
 		});
         
@@ -67,7 +67,7 @@ public class ViewCreacion extends Window<VMCreacion>  {
 			
 			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
 			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			//new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open();
+			new ViewAgregarComportamiento(this, new VMAgregarComportamiento(miMetodologiaBuilder)).open();
 			
 		});
 		

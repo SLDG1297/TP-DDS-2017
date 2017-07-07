@@ -11,35 +11,27 @@ import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import Archivo.Metodologias.AlmacenadorDeMetodologias;
-import Modelo.Metodologias.MetodologiaBuilder;
 
-public class ViewAgregarPromedioSumatoriaMediana extends Window<VMAgregarPromedioSumatoriaMediana> {
+public class ViewAgregarComportamiento extends Window<VMAgregarComportamiento> {
 
-	public ViewAgregarPromedioSumatoriaMediana(WindowOwner owner, VMAgregarPromedioSumatoriaMediana model) {
+	public ViewAgregarComportamiento(WindowOwner owner, VMAgregarComportamiento model) {
 		super(owner, model);
 	}
 
 	@Override
 	public void createContents(Panel panel) {
 		
-		new Label(panel).setText("Elegir si quiere un promedio, sumatoria o mediana");
+		new Label(panel).setText("Comportamiento del indicador a lo largo de N periodos");
 		new Label(panel); //Espacio
 		
-		RadioSelector<String> radio1 = new RadioSelector<String>(panel);
-		radio1.bindValueToProperty("operacionElegida");
-		radio1.bindItemsToProperty("operaciones");
+		RadioSelector<String> radio = new RadioSelector<String>(panel);
+		radio.bindValueToProperty("comportamientoElegido");
+		radio.bindItemsToProperty("comportamientos");
 		
-		new Label(panel).setText("Elegir si quiere que la operacion sea mayor o menor a un valor");
-		new Label(panel); //Espacio
-
-		RadioSelector<String> radio2 = new RadioSelector<String>(panel);
-		radio2.bindValueToProperty("comparadorElegido");
-		radio2.bindItemsToProperty("comparadores");
-		
-		new Label(panel).setText("Ingresar valor a comparar");
+		new Label(panel).setText("Ingresar cantidad de periodos a considerar");
 		new Label(panel); //Espacio
 		
-		new NumericField(panel).bindValueToProperty("valorElegido");
+		new NumericField(panel).bindValueToProperty("periodoElegido");
 		new Label(panel); //Espacio
 		
 		Button agregarCondicion = new Button(panel).setCaption("Agregar condicion");
@@ -61,5 +53,5 @@ public class ViewAgregarPromedioSumatoriaMediana extends Window<VMAgregarPromedi
 		
 	}
 	
+	
 }
-

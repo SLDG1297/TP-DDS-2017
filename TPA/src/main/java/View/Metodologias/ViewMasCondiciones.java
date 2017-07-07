@@ -44,14 +44,14 @@ public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
 	    prosummed.onClick(() -> {
 				
 	    this.getModelObject().iniciarBuilder();
-		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+		new ViewAgregarPromedioSumatoriaMediana(this, new VMAgregarPromedioSumatoriaMediana(this.getModelObject().getMiMetodologiaBuilder())).open();
 				
 	    });
 	       
 	    comportamiento.onClick(() -> {
 				
 	    this.getModelObject().iniciarBuilder();
-		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+		new ViewAgregarComportamiento(this, new VMAgregarComportamiento(this.getModelObject().getMiMetodologiaBuilder())).open();
 				
 		});
 	}
