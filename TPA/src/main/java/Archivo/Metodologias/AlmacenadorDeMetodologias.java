@@ -8,12 +8,20 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import Archivo.Indicadores.RuntimeTypeAdapterFactory;
+import Modelo.Empresa.Cuenta;
+import Modelo.Empresa.Deserializable;
+import Modelo.Indicadores.Division;
+import Modelo.Indicadores.Multiplicacion;
+import Modelo.Indicadores.Numero;
+import Modelo.Indicadores.Resta;
+import Modelo.Indicadores.Suma;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiasRepository;
 import Modelo.Metodologias.Condiciones.Booleana;
 import Modelo.Metodologias.Condiciones.CasiSiempreCreciente;
 import Modelo.Metodologias.Condiciones.CasiSiempreDecreciente;
 import Modelo.Metodologias.Condiciones.Comportamiento;
+import Modelo.Metodologias.Condiciones.Condicion;
 import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Metodologias.Condiciones.Indicador;
 import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
@@ -43,14 +51,19 @@ public class AlmacenadorDeMetodologias {
 	static AlmacenadorDeMetodologias instancia = null;
 	static String ruta = "repositorioMetodologias.csv";
 	
-	private RuntimeTypeAdapterFactory<Condiciones> adapter(){
-		RuntimeTypeAdapterFactory<Condiciones> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
-            .of(Condiciones.class, "type")
-            .registerSubtype(Booleana.class, "Booleana")
-            .registerSubtype(Promedio.class, "Promedio")
-            .registerSubtype(Sumatoria.class, "Sumatoria")
-            .registerSubtype(Mediana.class, "Mediana")
-            .registerSubtype(Comportamiento.class, "Comportamiento")
+	private RuntimeTypeAdapterFactory<Deserializable> adapter(){
+		RuntimeTypeAdapterFactory<Deserializable> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+            .of(Deserializable.class, "type")
+            
+            .registerSubtype(Suma.class, "Suma")
+            .registerSubtype(Resta.class, "Resta")
+            .registerSubtype(Numero.class, "Numero")
+            .registerSubtype(Modelo.Indicadores.Indicador.class, "Modelo.Indicadores.Indicador")
+            .registerSubtype(Division.class, "Division")
+            .registerSubtype(Multiplicacion.class, "Multiplicacion")
+            .registerSubtype(Cuenta.class, "Cuenta")
+            
+            .registerSubtype(Condicion.class, "Condicion")
             .registerSubtype(MayorAEnPeriodos.class, "MayorAEnPeriodos")
             .registerSubtype(MenorAEnPeriodos.class, "MenorAEnPeriodos")
             .registerSubtype(PromedioMayorA.class, "PromedioMayorA")

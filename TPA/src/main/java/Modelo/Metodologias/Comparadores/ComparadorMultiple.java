@@ -10,21 +10,24 @@ import Modelo.Metodologias.Resultados.Resultado;
 
 public class ComparadorMultiple {
 
-	private Empresa empresa;
-	private Metodologia metodologia;
+	public Empresa empresa;
+	public Metodologia metodologia;
 
 	public ComparadorMultiple(Empresa empresa, Metodologia metodologia){
 		this.empresa = empresa;
 		this.metodologia = metodologia;
 	}
 	
-	public List<Resultado> comparar(){
+	public List<ResultadoAdapterView> comparar(){
 		List<Empresa> listaEmpresas = BolsaDeEmpresas.getInstancia().getEmpresas();
-		List<Resultado> listaResultados = new ArrayList<Resultado>();
+		List<ResultadoAdapterView> listaResultadosAdapter = new ArrayList<ResultadoAdapterView>();
 		for(int i=0; listaEmpresas.size()>i; i++){
-			listaResultados.add(new ComparadorDual(empresa, listaEmpresas.get(i), metodologia).comparar());
+			
+			Resultado resultado = new ComparadorDual(empresa, listaEmpresas.get(i), metodologia).comparar();
+			ResultadoAdapterView resultadoFinal = new ResultadoAdapterView(empresa.getNombre(), listaEmpresas.get(i).getNombre(), resultado.getNombre());
+			listaResultadosAdapter.add(resultadoFinal);
 		}
-		return listaResultados;
+		return listaResultadosAdapter;
 	}
 
 	public Empresa getEmpresa() {
