@@ -19,14 +19,17 @@ public class ComparadorDual {
 	}
 	
 	public Resultado comparar(){
-		if (this.aplicarMetodologia(empresa1) && this.aplicarMetodologia(empresa2) || !this.aplicarMetodologia(empresa1) && !this.aplicarMetodologia(empresa2)){
+		if (empresa1 == empresa2){
+			return new Empate(empresa1, empresa2);
+		}
+		else if (this.aplicarMetodologia(empresa1) && this.aplicarMetodologia(empresa2) || !this.aplicarMetodologia(empresa1) && !this.aplicarMetodologia(empresa2)){
 			return new Empate(empresa1, empresa2);
 		}else if (this.aplicarMetodologia(empresa1)){
 			return new Ganador(empresa1);
 		}else{
 			return new Ganador(empresa2);
 		}
-	}//bianchi llora :`(
+	}
 	
 	private boolean aplicarMetodologia(Empresa empresa){
 		return metodologia.cumple(empresa);
