@@ -1,1 +1,5 @@
+<<<<<<< Updated upstream
 [{"nombre":"PRUEBA_MayorAEnPeriodos","listaCondiciones":[{"type":"MayorAEnPeriodos","valor":500,"anios":1,"indicador":{"nombre":"b","formula":{"numero":453}}}]},{"nombre":"a","listaCondiciones":[{"type":"MenorAEnPeriodos","valor":1,"anios":1,"indicador":{"nombre":"b","formula":{"numero":453}}},{"type":"SumatoriaMenorA","valor":2,"indicador":{"nombre":"c","formula":{"nombre":"b","formula":{"numero":453}}}},{"type":"CasiSiempreDecreciente","anios":2,"indicador":{"nombre":"d","formula":{"nombre":"c","formula":{"nombre":"b","formula":{"numero":453}}}}}]}]
+=======
+[{"nombre":"b"},{"nombre":"c"},{"nombre":"d"},{"nombre":"TieneSoloUnaConstante"},{"nombre":"TieneSoloUnaCuenta"},{"nombre":"IndicadorConOperaciones"},{"nombre":"VoyageVoyage","listaCondiciones":[{"valor":450,"anios":2,"indicador":{"nombre":"IndicadorConOperaciones","formula":{"valorA":{"valorA":{"valorA":{"valorA":{"numero":100},"valorB":{"nombre":"EDITBA"}},"valorB":{"numero":50}},"valorB":{"numero":1}},"valorB":{"nombre":"b","formula":{"numero":453}}}}}]}]
+>>>>>>> Stashed changes

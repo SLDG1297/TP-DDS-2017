@@ -14,6 +14,7 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Numero;
+import Modelo.Indicadores.Resta;
 import Modelo.Indicadores.Suma;
 
 import java.io.BufferedWriter;
@@ -32,6 +33,7 @@ public class AlmacenadorDeIndicadores {
 		RuntimeTypeAdapterFactory<Expresion> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
             .of(Expresion.class, "type")
             .registerSubtype(Suma.class, "Suma")
+            .registerSubtype(Resta.class, "Resta")
             .registerSubtype(Numero.class, "Numero")
             .registerSubtype(Indicador.class, "Indicador")
             .registerSubtype(Division.class, "Division")

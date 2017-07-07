@@ -4,13 +4,14 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import Modelo.Empresa.Deserializable;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;
 import Modelo.Metodologias.Try;
 
-public abstract class Condicion implements Condiciones{
+public abstract class Condicion implements Condiciones, Deserializable{
 
 	protected Indicador indicador;
 	protected Empresa empresa;

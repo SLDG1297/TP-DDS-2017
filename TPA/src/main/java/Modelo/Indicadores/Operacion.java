@@ -3,8 +3,9 @@ package Modelo.Indicadores;
 import java.math.BigDecimal;
 
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
+import Modelo.Empresa.Deserializable;
 
-public abstract class Operacion implements Expresion {
+public abstract class Operacion implements Expresion, Deserializable {
 	Expresion valorA, valorB;
 	
 	public Operacion(Expresion valorA) {

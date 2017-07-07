@@ -2,7 +2,9 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-public class Indicador implements Expresion {
+import Modelo.Empresa.Deserializable;
+
+public class Indicador implements Expresion, Deserializable{
 
 	private String nombre;
 	private Expresion formula;
