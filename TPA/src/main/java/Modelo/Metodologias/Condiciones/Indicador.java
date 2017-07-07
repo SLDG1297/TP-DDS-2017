@@ -19,6 +19,6 @@ public class Indicador implements Condiciones, Deserializable{
 	
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " ???";
+		return "El indicador " + indicador.getNombre() + "";
 	}
 }

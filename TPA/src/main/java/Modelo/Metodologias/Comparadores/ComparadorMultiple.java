@@ -7,6 +7,7 @@ import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Resultados.Resultado;
+import Modelo.Metodologias.Resultados.ResultadoAdapterView;
 
 public class ComparadorMultiple {
 

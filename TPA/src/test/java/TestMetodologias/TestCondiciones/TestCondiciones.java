@@ -1,4 +1,4 @@
-package Metodologias;
+package TestMetodologias.TestCondiciones;
 
 import java.io.IOException;
 

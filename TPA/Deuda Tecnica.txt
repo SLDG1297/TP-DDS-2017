@@ -3,11 +3,15 @@ Entrega 2
  
 )Correcciones de Fede:
  
-	El título es expresivo
+	El título es expresivo, sonj las correcciones que hizo en GitHub
  
 )Test:
  
-	Modularizar los test
+	Realizar Test de Primera y Segunda Entrega
+	
+)Excepciones:
+
+	No se muestra una View de Error cuando el usuario evalua un indicador que tiene una cuenta en su formula, que la empresa no tiene (La excepcion ya existe) pero en la view hay que capturarla y lanzar una pantalla, en la view pajas, no en el modelo.
  
 )Selector:
  
@@ -18,12 +22,14 @@ Entrega 2
 	Hacerlo a través del  modelo porque usa composite, el método imprimir va en la interfaz expresión
  
 )Cartel de indicador eliminado
- 
+ 	
  
 Entrega 3
 ---------
 
-) Al cerrar una ventana, que la cadena realizada por la metodologia logre ir eliminando lo que se agregó y, claramente, no se desea.
+) Mostrar Cadena:
+
+	Al cerrar una ventana, que la cadena realizada por la metodologia logre ir eliminando lo que se agregó y, claramente, no se desea.
 
  
  

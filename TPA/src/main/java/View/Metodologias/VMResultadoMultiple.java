@@ -3,7 +3,8 @@ package View.Metodologias;
 
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
-import Modelo.Metodologias.Comparadores.ResultadoAdapterView;
+
+import Modelo.Metodologias.Resultados.ResultadoAdapterView;
 
 
 

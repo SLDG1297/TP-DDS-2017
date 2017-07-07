@@ -8,7 +8,7 @@ import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import Modelo.Empresa.Cuenta;
-import Modelo.Metodologias.Comparadores.ResultadoAdapterView;
+import Modelo.Metodologias.Resultados.ResultadoAdapterView;
 
 public class ViewResultadoMultiple extends Window<VMResultadoMultiple>  {
 		

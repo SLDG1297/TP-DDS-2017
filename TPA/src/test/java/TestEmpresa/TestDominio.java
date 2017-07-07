@@ -1,4 +1,4 @@
-package sistemaDeInversiones;
+package TestEmpresa;
 
 import java.io.IOException;
 import java.util.stream.Collectors;

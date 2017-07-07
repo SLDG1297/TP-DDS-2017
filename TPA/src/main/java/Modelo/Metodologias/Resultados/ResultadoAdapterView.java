@@ -1,4 +1,4 @@
-package Modelo.Metodologias.Comparadores;
+package Modelo.Metodologias.Resultados;
 
 import org.uqbar.commons.utils.Observable;
 
