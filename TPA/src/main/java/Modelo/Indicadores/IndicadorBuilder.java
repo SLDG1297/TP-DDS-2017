@@ -3,11 +3,12 @@ package Modelo.Indicadores;
 public class IndicadorBuilder {
 
 	String nombreIndicador;
-	Expresion operandoAnterior = null;
+	Expresion operandoAnterior;
 	IndicadoresRepository repositorio = IndicadoresRepository.getInstancia();
 	
 	public void setNombreIndicador(String nombreIndicador) {
 		this.nombreIndicador = nombreIndicador;
+		this.operandoAnterior = null;
 	}
 	
 	public Expresion getOperandoAnterior() {

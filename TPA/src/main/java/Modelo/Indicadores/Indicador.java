@@ -33,7 +33,6 @@ public class Indicador implements Expresion {
 	}
 	
 	public void addOperando(Expresion operando){
-		/*this.formula = operando;*/
 	}
 	
 	public String imprimirFormulaindicador(){

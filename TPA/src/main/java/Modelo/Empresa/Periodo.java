@@ -44,7 +44,7 @@ public class Periodo {
 	}
 	
 	public boolean estaEntre(int anios, List<Periodo> lista, Periodo periodo){
-		if(lista.size() > anios){
+		if(lista.size() >= anios){
 			return lista.subList(lista.size()-1-anios, lista.size()-1).contains(periodo);
 		}else{
 			return false;

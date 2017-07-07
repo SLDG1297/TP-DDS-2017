@@ -17,7 +17,7 @@ public class ViewGestionDeMetodologias extends Window<VMGestionDeMetodologias> {
 
 		new Button(panelPrincipal).setCaption("Consultar metodologias").onClick(() -> new ViewEvaluacionMetodologias(this,new VMEvaluacionMetodologias()).open());
 		
-		new Button(panelPrincipal).setCaption("Ingresar nuevas metodologas").onClick(() -> new ViewCreacion(this,new VMCreacion()).open());
+		new Button(panelPrincipal).setCaption("Ingresar nuevas metodologias").onClick(() -> new ViewCreacion(this,new VMCreacion()).open());
 
 		new Button(panelPrincipal).setCaption("Eliminar metodologias (proximamente)").onClick(() -> new ViewEliminarMetodologias(this,new VMEliminarMetodologias()).open());
 }

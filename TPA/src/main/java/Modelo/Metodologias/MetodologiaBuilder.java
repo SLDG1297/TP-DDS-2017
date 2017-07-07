@@ -1,13 +1,26 @@
 package Modelo.Metodologias;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
+import Modelo.Metodologias.Condiciones.Condicion;
+import Modelo.Metodologias.Condiciones.Condiciones;
 
 public class MetodologiaBuilder {
 
-	String nombreMetodologia;
-	Indicador indicadorSeleccionado;
-	MetodologiasRepository repositorio = MetodologiasRepository.getInstancia();
+	private String nombreMetodologia;
+	private Indicador indicadorSeleccionado;
+	public List<Condiciones> getCondiciones() {
+		return condiciones;
+	}
+
+	public void setCondiciones(List<Condiciones> condiciones) {
+		this.condiciones = condiciones;
+	}
+
+	private MetodologiasRepository repositorio = MetodologiasRepository.getInstancia();
+	private List<Condiciones> condiciones = new ArrayList<Condiciones>();
 	
 	public Indicador getIndicadorSeleccionado() {
 		return indicadorSeleccionado;
@@ -24,9 +37,12 @@ public class MetodologiaBuilder {
 	public void setNombreMetodologia(String nombreMetodologia) {
 		this.nombreMetodologia = nombreMetodologia;
 	}
-
-	//TODO
+	
+	public void agregarCondicion(Condicion c){
+		condiciones.add(c);
+	}
+	
 	public void crearMetodologia(){ 
-		//this.repositorio.agregarMetodologia(new Metodologia(nombreIndicador,expresion));
+	repositorio.agregarMetodologia(new Metodologia(nombreMetodologia,condiciones));
 	}
 }
