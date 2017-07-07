@@ -1,4 +1,4 @@
-package Exepciones.Indicadores;
+package Excepciones.Indicadores;
 
 public class FaltaOperandoDerechoException extends RuntimeException{
 

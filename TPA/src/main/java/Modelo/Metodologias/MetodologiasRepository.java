@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
 import Excepciones.Metodologias.NoExisteLaMetodologiaException;
-import Exepciones.Empresas.NoExisteLaEmpresaException;
+import Excepciones.Empresas.NoExisteLaEmpresaException;
 import Modelo.Empresa.Empresa;
 
 import java.math.BigDecimal;
@@ -21,12 +21,11 @@ import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
 
 
 public class MetodologiasRepository {
-	
+
 	private static MetodologiasRepository instancia = null;
 
 	private List<Metodologia> listaMetodologias = new ArrayList<Metodologia>();
 
-	
 	public static MetodologiasRepository getInstancia() {
 		if (instancia == null) {
 			instancia = new MetodologiasRepository();
@@ -37,6 +36,10 @@ public class MetodologiasRepository {
 
 	public List<Metodologia> getListaMetodologias() {
 		return listaMetodologias;
+	}
+	
+	public void setListaMetodologias(List<Metodologia> listaMetodologias) {
+		this.listaMetodologias = listaMetodologias;
 	}
 	
 	public void agregarMetodologia(Metodologia metodologia) {
@@ -63,6 +66,4 @@ public class MetodologiasRepository {
 	public List<String> nombresDeMetodologias() {
 		return listaMetodologias.stream().map(miMetodologia -> miMetodologia.getNombre()).collect(Collectors.toList());
 	}
-	
-	
 }

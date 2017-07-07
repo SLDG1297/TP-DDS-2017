@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
-import Exepciones.Empresas.NoExisteElPeriodoException;
+import Excepciones.Empresas.NoExisteElPeriodoException;
 
 
 @Observable
