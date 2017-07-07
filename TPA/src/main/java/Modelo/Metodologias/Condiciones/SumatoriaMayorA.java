@@ -16,4 +16,9 @@ public class SumatoriaMayorA extends Sumatoria {
 		return 1;
 	}
 
+	@Override
+	public String mostrarCadena() {
+		return "El indicador " + indicador.getNombre() + " tiene una sumatoria mayor que " + valor.toString();
+	}
+	
 }

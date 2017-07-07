@@ -14,4 +14,9 @@ public class PromedioMenorA extends Promedio {
 	protected int booleano() {
 		return -1;
 	}
+	
+	@Override
+	public String mostrarCadena() {
+		return "El indicador " + indicador.getNombre() + " tiene un promedio menor a " + valor.toString();
+	}
 }

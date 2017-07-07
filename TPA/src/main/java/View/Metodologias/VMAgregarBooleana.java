@@ -81,8 +81,8 @@ public class VMAgregarBooleana {
     	miMetodologiaBuilder.agregarCondicion(nuevaCondicion);
     }
 
-	public void crearMetodologia() {
-		miMetodologiaBuilder.crearMetodologia();
+	public Metodologia crearMetodologia() {
+		return miMetodologiaBuilder.crearMetodologia();
 	}
 	
 }

@@ -10,6 +10,7 @@ import org.uqbar.arena.widgets.RadioSelector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
+import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiaBuilder;
 
 public class ViewAgregarBooleana extends Window<VMAgregarBooleana> {
@@ -41,15 +42,18 @@ public class ViewAgregarBooleana extends Window<VMAgregarBooleana> {
 		new Label(panel); //Espacio
 		
 		Button agregarCondicion = new Button(panel).setCaption("Agregar condicion");
-		agregarCondicion.onClick(()-> {
-		this.getModelObject().crearCondicion();
-		new ViewMasCondiciones(this, new VMMasCondiciones(this.getModelObject().getMiMetodologiaBuilder())).open();
+		
+		agregarCondicion.onClick(() -> {
+			this.getModelObject().crearCondicion();
+			new ViewMasCondiciones(this, new VMMasCondiciones(this.getModelObject().getMiMetodologiaBuilder())).open();
 		});
+		
 		Button finalizarMetodologia = new Button(panel).setCaption("Finalizar metodologia");
-		finalizarMetodologia.onClick(()->{
-		this.getModelObject().crearCondicion();
-		this.getModelObject().crearMetodologia();
-		new ViewMetodologiaCreada(this, new VMMetodologiaCreada()).open();
+		
+		finalizarMetodologia.onClick(() -> {
+			this.getModelObject().crearCondicion();
+			Metodologia miNuevaMetodologia = this.getModelObject().crearMetodologia();
+			new ViewMetodologiaCreada(this, new VMMetodologiaCreada(miNuevaMetodologia)).open();
 		});
 		
 	}

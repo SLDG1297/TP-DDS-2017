@@ -23,7 +23,7 @@ Entrega 2
 Entrega 3
 ---------
 
-
+) Al cerrar una ventana, que la cadena realizada por la metodologia logre ir eliminando lo que se agregó y, claramente, no se desea.
 
  
  

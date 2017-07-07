@@ -15,5 +15,10 @@ public class SumatoriaMenorA extends Sumatoria {
 	protected int booleano() {
 		return -1;
 	}
+	
+	@Override
+	public String mostrarCadena() {
+		return "El indicador " + indicador.getNombre() + " tiene una sumatoria menor que " + valor.toString();
+	}
 
 }

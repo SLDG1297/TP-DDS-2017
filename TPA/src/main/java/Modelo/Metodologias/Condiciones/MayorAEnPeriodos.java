@@ -16,12 +16,11 @@ public class MayorAEnPeriodos extends Booleana {
 	protected int booleano() {
 		return 1;
 	}
-
-	/*
+	
 	@Override
 	public String mostrarCadena() {
-		return "es mayor a" + valor.toString() + "en" + String.valueOf(anios);
+		return "El indicador " + indicador.getNombre() + " es mayor a " + valor.toString() + " en " + String.valueOf(anios) + " años";
 	}
-	*/	
+
 
 }

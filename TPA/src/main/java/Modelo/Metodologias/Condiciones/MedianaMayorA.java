@@ -15,5 +15,10 @@ public class MedianaMayorA extends Mediana {
 	protected int booleano() {
 		return 1;
 	}
+	
+	@Override
+	public String mostrarCadena() {
+		return "El indicador " + indicador.getNombre() + " tiene una mediana mayor a " + valor.toString();
+	}
 
 }

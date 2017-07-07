@@ -14,4 +14,10 @@ public class PromedioMayorA extends Promedio{
 	protected int booleano() {
 		return 1;
 	}
+	
+	@Override
+	public String mostrarCadena() {
+		return "El indicador " + indicador.getNombre() + " tiene un promedio mayor a " + valor.toString();
+	}
+
 }

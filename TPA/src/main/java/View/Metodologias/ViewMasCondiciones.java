@@ -1,5 +1,7 @@
 package View.Metodologias;
 
+import java.awt.Color;
+
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
@@ -20,6 +22,10 @@ public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
 	@Override
 	public void createContents(Panel panelPrincipal) {
 		
+		new Label(panelPrincipal).setText("Condiciones actuales de la metodologia:");
+		new Label(panelPrincipal).setBackground(Color.WHITE).bindValueToProperty("miCadena");
+		new Label(panelPrincipal); //Espacio
+		
 		new Label(panelPrincipal).setText("Elegir un indicador");
 		new Label(panelPrincipal); //Espacio
 		
@@ -36,22 +42,22 @@ public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
 		
 		booleana.onClick(() -> {
 				
-	    this.getModelObject().iniciarBuilder();
-		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+		    this.getModelObject().iniciarBuilder();
+			new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
 				
 		});
 	        
 	    prosummed.onClick(() -> {
 				
-	    this.getModelObject().iniciarBuilder();
-		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+		    this.getModelObject().iniciarBuilder();
+			new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
 				
 	    });
 	       
 	    comportamiento.onClick(() -> {
 				
-	    this.getModelObject().iniciarBuilder();
-		new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+		    this.getModelObject().iniciarBuilder();
+			new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
 				
 		});
 	}

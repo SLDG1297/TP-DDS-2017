@@ -127,7 +127,7 @@ public class VMEvaluacionDual {
 		super();
 		listaDeEmpresas = BolsaDeEmpresas.getInstancia().getNombresDeEmpresas();
 		listaDeMetodologias = MetodologiasRepository.getInstancia().nombresDeMetodologias();
-		}
+	}
 
 
 	public List<String> getListaDeEmpresas() {
@@ -152,7 +152,7 @@ public class VMEvaluacionDual {
 		
 		setListaDeEmpresasSinEmpresaA(listaDeEmpresas.stream().filter(x -> !x.equals(nombreEmpresaA)).collect(Collectors.toList()));
 		
-		}
+	}
 	
 	public void buscarMetodologia(){
 		

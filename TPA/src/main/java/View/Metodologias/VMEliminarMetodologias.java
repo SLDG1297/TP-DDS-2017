@@ -32,6 +32,5 @@ public class VMEliminarMetodologias {
 	public List<String> getNombresDeMetodologiasExistentes() {
 		return nombresDeMetodologiasExistentes;
 	}
-	
 
 }

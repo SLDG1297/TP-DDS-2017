@@ -26,4 +26,9 @@ public class CasiSiempreDecreciente extends Comportamiento {
 		return this.esMayor(try1, try2);
 	}
 
+	@Override
+	public String mostrarCadena() {
+		return "El indicador " + indicador.getNombre() + " es casi siempre decreciente en " + String.valueOf(anios) + " años";
+	}
+	
 }

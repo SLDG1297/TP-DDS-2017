@@ -26,6 +26,10 @@ public class VMMasCondiciones {
 	public String getNombreDeIndicadorElegido() {
 		return nombreDeIndicadorElegido;
 	}
+	
+	public String getMiCadena() {
+		return miMetodologiaBuilder.mostrarCadena();
+	}
 
 	public void setNombreDeIndicadorElegido(String nombreDeIndicadorElegido) {
 		this.nombreDeIndicadorElegido = nombreDeIndicadorElegido;
@@ -46,7 +50,7 @@ public class VMMasCondiciones {
 	}
 	
 	public void iniciarBuilder(){
-	miMetodologiaBuilder.setIndicadorSeleccionado(this.devolverIndicador());
+		miMetodologiaBuilder.setIndicadorSeleccionado(this.devolverIndicador());
 	}
 	
 	public Indicador devolverIndicador() {

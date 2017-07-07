@@ -50,4 +50,5 @@ public abstract class Condicion implements Condiciones{
 			.map(elem -> elem.get().doubleValue()) //Trasforma a doubles la lista de Try<BigDecimal>
 			.reduce((a, b) -> a+b).get(); // Suma la lista, no puedo usar sum()
 	}
+	
 }

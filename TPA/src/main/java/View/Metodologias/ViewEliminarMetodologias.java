@@ -32,7 +32,7 @@ public class ViewEliminarMetodologias extends Window<VMEliminarMetodologias> {
 			new Label(panelPrincipal); //Espacio
 			
 			Button destruir = new Button(panelPrincipal).setCaption("Eliminar metodologia");
-			
+									
 			destruir.onClick(() -> {
 				this.getModelObject().destruirMetodologiaSeleccionada();
 			});

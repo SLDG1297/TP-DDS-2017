@@ -30,7 +30,7 @@ public class MetodologiasRepository {
 	public static MetodologiasRepository getInstancia() {
 		if (instancia == null) {
 			instancia = new MetodologiasRepository();
-			instancia.agregarMetodologia(new Metodologia("PRUEBA_MayorAEnPeriodos", new MayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(0), new BigDecimal(1), 1)));
+			instancia.agregarMetodologia(new Metodologia("PRUEBA_MayorAEnPeriodos", new MayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(0), new BigDecimal(500), 1)));
 		}
 		return instancia;
 	}

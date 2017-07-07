@@ -2,6 +2,8 @@ package Modelo.Metodologias;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Empresa.Empresa;
 
@@ -28,6 +30,10 @@ public class Metodologia {
 	
 	public boolean cumple(Empresa empresa){
 		return listaCondiciones.stream().allMatch(condicion -> condicion.cumple(empresa));
+	}
+	
+	public String mostrarCadena() {
+		return String.join(" && ", listaCondiciones.stream().map(c -> c.mostrarCadena()).collect(Collectors.toList()));
 	}
 
 	public String getNombre() {

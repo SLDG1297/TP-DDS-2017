@@ -2,6 +2,7 @@ package Modelo.Metodologias;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Condiciones.Condicion;
@@ -41,8 +42,15 @@ public class MetodologiaBuilder {
 	public void agregarCondicion(Condicion c){
 		condiciones.add(c);
 	}
-	
-	public void crearMetodologia(){ 
-	repositorio.agregarMetodologia(new Metodologia(nombreMetodologia,condiciones));
+
+	public String mostrarCadena() {
+		return String.join(" && ", condiciones.stream().map(c -> c.mostrarCadena()).collect(Collectors.toList()));
 	}
+	
+	public Metodologia crearMetodologia(){ 
+		Metodologia miNuevaMetodologia = new Metodologia(nombreMetodologia,condiciones);
+		repositorio.agregarMetodologia(miNuevaMetodologia);
+		return miNuevaMetodologia;
+	}
+	
 }
