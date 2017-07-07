@@ -5,6 +5,9 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
+import View.Metodologias.Comparacion.VMEvaluacionMetodologias;
+import View.Metodologias.Comparacion.ViewEvaluacionMetodologias;
+
 public class ViewGestionDeMetodologias extends Window<VMGestionDeMetodologias> {
 
 	public ViewGestionDeMetodologias(WindowOwner panelPrincipal, VMGestionDeMetodologias gestionador) {

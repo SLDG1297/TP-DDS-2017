@@ -1,4 +1,4 @@
-package View.Metodologias;
+package View.Metodologias.Comparacion;
 
 import org.uqbar.commons.utils.Observable;
 
