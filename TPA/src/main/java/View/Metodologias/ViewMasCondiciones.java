@@ -11,25 +11,14 @@ import org.uqbar.arena.windows.WindowOwner;
 import Modelo.Indicadores.Expresion;
 import Modelo.Metodologias.MetodologiaBuilder;
 
-public class ViewCreacion extends Window<VMCreacion>  {
+public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
 	
-	MetodologiaBuilder miMetodologiaBuilder;
-	
-	public ViewCreacion(WindowOwner owner, VMCreacion model) {
+	public ViewMasCondiciones(WindowOwner owner, VMMasCondiciones model) {
 		super(owner, model);
-		miMetodologiaBuilder = new MetodologiaBuilder();
 	}
 
 	@Override
 	public void createContents(Panel panelPrincipal) {
-		
-        this.setTitle("Nueva metodologia");
-		
-		new Label(panelPrincipal).setText("Nombre de la nueva metodologia");
-		new Label(panelPrincipal); //Espacio
-		
-		new TextBox(panelPrincipal).bindValueToProperty("nombreMetodologia");
-		new Label(panelPrincipal); //Espacio
 		
 		new Label(panelPrincipal).setText("Elija indicador");
 		new Label(panelPrincipal); //Espacio
@@ -45,7 +34,7 @@ public class ViewCreacion extends Window<VMCreacion>  {
 		Button prosummed = new Button(panelPrincipal).setCaption("Promedio, Sumatoria o mediana mayor o menor a un valor");
 		Button comportamiento = new Button(panelPrincipal).setCaption("Comportamiento en N periodos");
 		
-        booleana.onClick(() -> {
+        /*booleana.onClick(() -> {
 			
 			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
 			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
@@ -68,7 +57,7 @@ public class ViewCreacion extends Window<VMCreacion>  {
 			//new ViewAgregarIndicador(this, new VMAgregarIndicador(miIndicadorBuilder)).open();
 			
 		});
-		
+		*/
 	}
 	
 }

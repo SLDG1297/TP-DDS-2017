@@ -10,7 +10,7 @@ public class Metodologia {
 	private String nombre;
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
-	//Para crearse debe tener al menos una condicion, nose como afectara esto en la vista
+	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista
 	//Supongo que haran un builder, seria lo mas logico asi no cambian el modelo
 	public Metodologia(String nombre, Condiciones condicion) {
 		this.nombre = nombre;
