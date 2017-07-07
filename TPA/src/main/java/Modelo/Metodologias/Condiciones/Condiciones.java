@@ -5,5 +5,8 @@ import Modelo.Empresa.Empresa;
 public interface Condiciones {
 
 	public boolean cumple(Empresa empresa);
+	/*
+	public String mostrarCadena();
+	*/
 	
 }
