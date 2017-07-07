@@ -29,8 +29,8 @@ public class ViewEvaluacionMetodologias extends Window<VMEvaluacionMetodologias>
 			new Button(panelPrincipal).setCaption("Evaluacion dual").onClick(() -> new ViewEvaluacionDual(this,new VMEvaluacionDual()).open());
 			new Label(panelPrincipal);
 			
-		/*	new Button(panelPrincipal).setCaption("Evaluacion global").onClick(() -> new ViewEvaluacionGlobal(this,new VMEvaluacionGlobal()).open());
-			new Label(panelPrincipal);*/
+			new Button(panelPrincipal).setCaption("Evaluacion multiple").onClick(() -> new ViewEvaluacionMultiple(this,new VMEvaluacionMultiple()).open());
+			new Label(panelPrincipal);
 			
 			
 		}

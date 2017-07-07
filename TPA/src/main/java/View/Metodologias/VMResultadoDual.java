@@ -2,9 +2,7 @@ package View.Metodologias;
 
 import org.uqbar.commons.utils.Observable;
 
-import Modelo.Empresa.BolsaDeEmpresas;
-import Modelo.Metodologias.MetodologiasRepository;
-import Modelo.Metodologias.Resultados.Ganador;
+
 import Modelo.Metodologias.Resultados.Resultado;
 
 
