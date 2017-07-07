@@ -1,10 +1,6 @@
 Entrega 2
 ----------
  
-)Excepciones:
- 
-	Cuando un indicador usa una cuenta que una empresa no tiene, es necesario para la entrega 3
- 
 )Correcciones de Fede:
  
 	El título es expresivo
