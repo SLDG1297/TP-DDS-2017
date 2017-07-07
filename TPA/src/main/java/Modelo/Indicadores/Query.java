@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import Exepciones.Indicadores.NoTieneLaCuentaException;
+import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Cuenta;
 
