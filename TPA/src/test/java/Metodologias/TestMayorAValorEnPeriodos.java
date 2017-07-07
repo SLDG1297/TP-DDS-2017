@@ -12,7 +12,7 @@ import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.Condicion;
 import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
 
-public class mayorAValorEnPeriodos extends TestCondiciones {
+public class TestMayorAValorEnPeriodos extends TestCondiciones {
 	
 	@Test
 	public void CumpleSi_LaEmpresaTiene_TodasLasCuenta() {

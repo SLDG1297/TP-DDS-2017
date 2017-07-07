@@ -6,7 +6,12 @@ import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
 
+import Modelo.Indicadores.Indicador;
+import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiaBuilder;
+import Modelo.Metodologias.Condiciones.Condicion;
+import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
+import Modelo.Metodologias.Condiciones.MenorAEnPeriodos;
 
 @Observable
 public class VMAgregarBooleana {
@@ -14,6 +19,7 @@ public class VMAgregarBooleana {
 	private String operacionElegida;
 	private List<String> operaciones = new ArrayList<String>();
 	private BigDecimal valorElegido;
+	private Integer periodoElegido;
 	private MetodologiaBuilder miMetodologiaBuilder;
 	
 	public VMAgregarBooleana(MetodologiaBuilder _miMetodologiaBuilder){
@@ -55,6 +61,28 @@ public class VMAgregarBooleana {
 		this.valorElegido = valorElegido;
 	}
 
+	public Integer getPeriodoElegido() {
+		return periodoElegido;
+	}
 
+	public void setPeriodoElegido(Integer periodoElegido) {
+		this.periodoElegido = periodoElegido;
+	}
+	
+    public void crearCondicion(){
+    	Indicador indicadorSeleccionado = miMetodologiaBuilder.getIndicadorSeleccionado();
+    	Condicion nuevaCondicion;
+    	if(operacionElegida.equals("Mayor")){
+    		nuevaCondicion = new MayorAEnPeriodos(indicadorSeleccionado, valorElegido, periodoElegido);
+    	}
+    	else{
+    		nuevaCondicion = new MenorAEnPeriodos(indicadorSeleccionado, valorElegido, periodoElegido);
+    	}
+    	miMetodologiaBuilder.agregarCondicion(nuevaCondicion);
+    }
+
+	public void crearMetodologia() {
+		miMetodologiaBuilder.crearMetodologia();
+	}
 	
 }

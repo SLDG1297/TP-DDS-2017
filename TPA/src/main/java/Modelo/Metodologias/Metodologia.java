@@ -17,6 +17,11 @@ public class Metodologia {
 		this.addCondicion(condicion);
 	}
 	
+	public Metodologia(String nombre, List<Condiciones> condiciones){
+		this.nombre = nombre;
+		this.listaCondiciones = condiciones;
+	}
+	
 	public void addCondicion(Condiciones condicion){
 		listaCondiciones.add(condicion);
 	}
