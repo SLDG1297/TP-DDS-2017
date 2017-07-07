@@ -11,14 +11,16 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.Condicion;
 import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
+import Modelo.Metodologias.Condiciones.Promedio;
+import Modelo.Metodologias.Condiciones.PromedioMayorA;
 
-public class mayorAValorEnPeriodos extends TestCondiciones {
+public class TestPromedioMayorA extends TestCondiciones {
 	
 	@Test
 	public void CumpleSi_LaEmpresaTiene_TodasLasCuenta() {
 		
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(1));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
@@ -29,71 +31,61 @@ public class mayorAValorEnPeriodos extends TestCondiciones {
 	public void noCumpleSi_LaEmpresaNoTiene_AlgunaCuenta() {
 		
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1115000), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(1115000));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rip SA");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
 	
 	@Test
-	public void fallaSi_NoTieneLaCantidadDePeriodos_QueElUsuarioQuiereEvaluar() {
-		
-		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1), 15);
-		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
-		
-		Assert.assertFalse(condicion.cumple(empresa));
-	}
-	
-	@Test
-	public void cumpleSiElValor_DelIndicadorQueSoloTieneUnNumero_EsMayorAlQuePusoElUsuario(){
+	public void cumpleSiElPromedio_DelIndicadorQueSoloTieneUnNumero_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(3);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(1));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
 	
 	@Test
-	public void noCumpleSiElValor_DelIndicadorQueSoloTieneUnNumero_EsMenorAlQuePusoElUsuario(){
+	public void noCumpleSiElPromedio_DelIndicadorQueSoloTieneUnNumero_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(3);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1500), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(1500));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
 	
 	@Test
-	public void cumpleSiElValor_DelIndicadorQueTieneOtroIndicadorDentro_EsMayorAlQuePusoElUsuario(){
+	public void cumpleSiElPromedio_DelIndicadorQueTieneOtroIndicadorDentro_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(2);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(1));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
 	
 	@Test
-	public void noCumpleSiElValor_DelIndicadorQueTieneOtroIndicadorDentro_EsMenorAlQuePusoElUsuario(){
+	public void noCumpleSiElPromedio_DelIndicadorQueTieneOtroIndicadorDentro_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(2);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1500), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(1500));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
 	
 	@Test
-	public void cumpleSiElValor_DelIndicadorQueTieneOperacionesrDentro_EsMayorAlQuePusoElUsuario(){
+	public void cumpleSiElPromedio_DelIndicadorQueTieneOperacionesrDentro_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(5);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(1), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(1));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
 	
 	@Test
-	public void noCumpleSiElValor_DelIndicadorQueTieneOperacionesrDentro_EsMenorAlQuePusoElUsuario(){
+	public void noCumpleSiElPromedio_DelIndicadorQueTieneOperacionesrDentro_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(5);
-		Condicion condicion = new MayorAEnPeriodos(indicador, new BigDecimal(20000), 1);
+		Condicion condicion = new PromedioMayorA(indicador, new BigDecimal(20000));
 		Empresa empresa = BolsaDeEmpresas.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
