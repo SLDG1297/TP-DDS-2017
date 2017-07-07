@@ -10,18 +10,23 @@ import com.google.gson.reflect.TypeToken;
 import Archivo.Indicadores.RuntimeTypeAdapterFactory;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiasRepository;
+import Modelo.Metodologias.Condiciones.Booleana;
 import Modelo.Metodologias.Condiciones.CasiSiempreCreciente;
 import Modelo.Metodologias.Condiciones.CasiSiempreDecreciente;
+import Modelo.Metodologias.Condiciones.Comportamiento;
 import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Metodologias.Condiciones.Indicador;
 import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
+import Modelo.Metodologias.Condiciones.Mediana;
 import Modelo.Metodologias.Condiciones.MedianaMayorA;
 import Modelo.Metodologias.Condiciones.MedianaMenorA;
 import Modelo.Metodologias.Condiciones.MenorAEnPeriodos;
+import Modelo.Metodologias.Condiciones.Promedio;
 import Modelo.Metodologias.Condiciones.PromedioMayorA;
 import Modelo.Metodologias.Condiciones.PromedioMenorA;
 import Modelo.Metodologias.Condiciones.SiempreCreciente;
 import Modelo.Metodologias.Condiciones.SiempreDecreciente;
+import Modelo.Metodologias.Condiciones.Sumatoria;
 import Modelo.Metodologias.Condiciones.SumatoriaMayorA;
 import Modelo.Metodologias.Condiciones.SumatoriaMenorA;
 
@@ -41,6 +46,11 @@ public class AlmacenadorDeMetodologias {
 	private RuntimeTypeAdapterFactory<Condiciones> adapter(){
 		RuntimeTypeAdapterFactory<Condiciones> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
             .of(Condiciones.class, "type")
+            .registerSubtype(Booleana.class, "Booleana")
+            .registerSubtype(Promedio.class, "Promedio")
+            .registerSubtype(Sumatoria.class, "Sumatoria")
+            .registerSubtype(Mediana.class, "Mediana")
+            .registerSubtype(Comportamiento.class, "Comportamiento")
             .registerSubtype(MayorAEnPeriodos.class, "MayorAEnPeriodos")
             .registerSubtype(MenorAEnPeriodos.class, "MenorAEnPeriodos")
             .registerSubtype(PromedioMayorA.class, "PromedioMayorA")
@@ -53,7 +63,7 @@ public class AlmacenadorDeMetodologias {
 			.registerSubtype(CasiSiempreCreciente.class, "CasiSiempreCreciente")
 			.registerSubtype(SiempreDecreciente.class, "SiempreDecreciente")
 			.registerSubtype(CasiSiempreDecreciente.class, "CasiSiempreDecreciente")
-			.registerSubtype(Indicador.class, "Metodologias");
+			.registerSubtype(Indicador.class, "Indicador");
 		
 		return runtimeTypeAdapterFactory;
 	}
@@ -110,7 +120,7 @@ public class AlmacenadorDeMetodologias {
 	}
 	
 	private Type listType(){
-		return new TypeToken<List<Indicador>>(){}.getType();
+		return new TypeToken<List<Metodologia>>(){}.getType();
 	}
 	
 	
