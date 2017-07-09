@@ -3,14 +3,10 @@ package View.Metodologias.Comparacion;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
-import Modelo.Empresa.Empresa;
-import Modelo.Metodologias.Comparadores.ComparadorMultiple;
-import View.Metodologias.VMEvaluacionGlobal;
-import View.Metodologias.ViewEvaluacionGlobal;
+import View.Metodologias.Comparacion.VMEvaluacionGlobal;
+import View.Metodologias.Comparacion.ViewEvaluacionGlobal;
 
 public class ViewEvaluacionMetodologias extends Window<VMEvaluacionMetodologias>  {
 		

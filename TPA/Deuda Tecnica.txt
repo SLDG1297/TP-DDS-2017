@@ -1,13 +1,20 @@
+Entrega 1
+----------
+
+)Test:
+ 
+	Realizar Test Entrega
+
 Entrega 2
 ----------
  
 )Correcciones de Fede:
  
-	El título es expresivo, sonj las correcciones que hizo en GitHub
+	El título es expresivo, corregit todo lo que Fede marco en GitHub
  
 )Test:
  
-	Realizar Test de Primera y Segunda Entrega
+	Realizar Test Entrega
 	
 )Excepciones:
 
@@ -15,21 +22,37 @@ Entrega 2
  
 )Selector:
  
-	Que no sea necesario tocar un botón para que se vean las opciones de un selector a otro
+	Que se de objetos y Que no sea necesario tocar un botón para hacer una seleccion
  
 )Mostrar en el label lo que el usuario va poniendo: 
  
-	Hacerlo a través del  modelo porque usa composite, el método imprimir va en la interfaz expresión
+	Hacerlo a través del  modelo porque usa composite, el método imprimir() va en la interfaz expresión
  
 )Cartel de indicador eliminado
+	
+	Hay que Agregarlo
  	
  
 Entrega 3
 ---------
 
-) Mostrar Cadena:
+)Test
+	
+	Testear todos los Comparadores
+	Terminar test de condiciones (Jesus se encarga solo de terminar de testear las condiciones)
+
+)Comparador Global:
+
+	Que Exista un comparador global para no usar comparador multiple. Es una desicion de diseño (Jesus)
+
+)Mostrar Cadena:
 
 	Al cerrar una ventana, que la cadena realizada por la metodologia logre ir eliminando lo que se agregó y, claramente, no se desea.
+ 
+)Selector:
+ 
+	Que se de objetos y Que no sea necesario tocar un botón para hacer una seleccion
+	
+)SiempreCreciente:
 
- 
- 
+	Usar Fold en vez de un For

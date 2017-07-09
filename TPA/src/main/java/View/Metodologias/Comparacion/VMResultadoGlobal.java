@@ -1,4 +1,4 @@
-package View.Metodologias;
+package View.Metodologias.Comparacion;
 
 
 import java.util.List;
