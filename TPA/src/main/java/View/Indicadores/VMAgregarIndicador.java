@@ -20,7 +20,7 @@ public class VMAgregarIndicador extends VMAgregar  {
 	
 	public VMAgregarIndicador(IndicadorBuilder indicadorBuilder) {
 		super(indicadorBuilder);
-		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().getIndicadores().stream().map(i -> i.getNombre()).collect(Collectors.toList());
+		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().obtenerNombreDeTodosLosIndicadores();
 	}
 
 	public IndicadorBuilder getMiIndicadorBuilder() {

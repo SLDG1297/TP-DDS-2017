@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Exepciones.Indicadores.FaltaOperandoDerechoException;
-import Exepciones.Indicadores.NombreCuentaErroneoException;
+import Exepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;

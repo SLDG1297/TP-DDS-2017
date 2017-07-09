@@ -4,7 +4,6 @@ public class IndicadorBuilder {
 
 	String nombreIndicador;
 	Expresion operandoAnterior = null;
-	IndicadoresRepository repositorio = IndicadoresRepository.getInstancia();
 	
 	public void setNombreIndicador(String nombreIndicador) {
 		this.nombreIndicador = nombreIndicador;
@@ -19,6 +18,6 @@ public class IndicadorBuilder {
 	}
 	
 	public void crearIndicador(Expresion expresion){ 
-		this.repositorio.agregarIndicador(new Indicador(nombreIndicador,expresion));
+		IndicadoresRepository.getInstancia().agregarIndicador(new Indicador(nombreIndicador,expresion));
 	}
 }

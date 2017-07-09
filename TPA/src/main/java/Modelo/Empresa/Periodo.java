@@ -3,6 +3,8 @@ package Modelo.Empresa;
 import java.util.ArrayList;
 import java.util.List;
 
+import Exepciones.Empresas.NoExisteElPeriodoException;
+import Exepciones.Indicadores.NoTieneLaCuentaException;
 import Exepciones.Periodos.YaExisteLaCuentaException;
 import Modelo.Empresa.Cuenta;
 
@@ -42,4 +44,9 @@ public class Periodo {
 		
 		this.cuentas.add(miCuenta);
 	}
+	
+	public Cuenta buscarCuenta(String nombreCuenta){
+		return this.cuentas.stream().filter(c -> c.getNombre().equals(nombreCuenta)).findFirst().orElseThrow(()-> new NoTieneLaCuentaException());
+	}
+
 }

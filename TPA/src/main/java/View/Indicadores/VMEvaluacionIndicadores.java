@@ -107,7 +107,7 @@ public class VMEvaluacionIndicadores {
 		}
 		
 		public List<Integer> buscarPeriodosDeEmpresa(){
-			return this.empresa.obtenerPeriodos();
+			return this.empresa.obtenerAniosDeTodosLosPeriodos();
 		}
 
 		public String getNombreIndicador() {

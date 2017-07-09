@@ -1,1 +1,1 @@
-[{"nombre":"Indicador1","formula":{"type":"Suma","valorA":{"type":"Numero","numero":4},"valorB":{"type":"Cuenta","nombre":"Free Cash Flow"}}}]
+[{"nombre":"Indicador1","formula":{"type":"Suma","valorA":{"type":"Numero","numero":4},"valorB":{"type":"Cuenta","nombre":"Free Cash Flow"}}},{"nombre":"Random","formula":{"type":"Suma","valorA":{"type":"Numero","numero":12},"valorB":{"type":"Cuenta","nombre":"Free Cash Flow"}}}]

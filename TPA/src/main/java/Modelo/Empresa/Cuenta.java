@@ -10,8 +10,8 @@ public class Cuenta implements Expresion {
 	String nombre;
 	Integer valor;
 
-	public Cuenta(Object object2, Integer nuevoValor) {
-		this.nombre = (String) object2;
+	public Cuenta(String nombre, Integer nuevoValor) {
+		this.nombre = nombre;
 		this.valor = nuevoValor;
 	}
 
@@ -36,11 +36,10 @@ public class Cuenta implements Expresion {
 	}
 
 	public BigDecimal calcular(Query query) {
-		return query.getEmpresa().buscarValorCuentaEnPeriodo(this.nombre,query.getPeriodo());
+		return new BigDecimal(query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta(this.nombre).getValor());
 	}
 	
 	public void addOperando(Expresion operando){
-		/*this.a = operando;*/
 	}
 	
 	public String imprimirFormulaindicador(){
