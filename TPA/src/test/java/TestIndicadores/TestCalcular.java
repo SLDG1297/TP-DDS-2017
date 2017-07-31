@@ -67,12 +67,12 @@ public class TestCalcular {
 	
 	@Test
 	public void QueryObtineValorCuenta(){
-		Assert.assertEquals(new BigDecimal(2000), query.obtenerValorCuenta("EBITDA"));
+		Assert.assertEquals(new BigDecimal(2000), query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta("EBITDA").getValor());
 	}
 	
 	@Test(expected = NoTieneLaCuentaException.class)
 	public void QueryArrojaExcepcionSiNombreDeEmpresaEsErroneo(){
-		query.obtenerValorCuenta("EDITBA");
+		query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta("EBITDA").getValor();
 	}
 	
 	@Test
