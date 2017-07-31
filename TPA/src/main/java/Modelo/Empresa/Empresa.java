@@ -2,12 +2,14 @@ package Modelo.Empresa;
 
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 
 import org.uqbar.commons.utils.Observable;
 
+import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Excepciones.Empresas.NoExisteElPeriodoException;
 
 
@@ -17,10 +19,10 @@ public class Empresa {
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	// Esto solo lo usa el Parser para crear la empresa rápidamente
-	public Empresa(String nombre, String nombreCuenta, String anio, String valorCuenta) {
-		this.nombre =  nombre;		
-		periodos.add(new Periodo(Integer.parseInt(anio), new Cuenta(nombreCuenta, Integer.parseInt(valorCuenta))));
-	}
+	public Empresa(String nombre, String nombreCuenta, String anio, String valor) {
+		 this.nombre =  nombre;		
+		 periodos.add(new Periodo(Integer.parseInt(anio), new Cuenta(nombreCuenta, Integer.parseInt(valor))));
+		 }
 	
 	public Empresa(String nuevoNombre, List<Periodo> nuevosPeriodos) {
 		nombre = nuevoNombre;
@@ -48,19 +50,13 @@ public class Empresa {
 		this.periodos = periodos;
 	}
 	
-	public List<Integer> obtenerPeriodos(){
+	public List<Integer> obtenerAniosDeTodosLosPeriodos(){
 		List<Integer> periodosEmpresa = this.getPeriodos().stream().map(p -> p.getAnio()).collect(Collectors.toList());
 		return periodosEmpresa;
 	}
 	
-	public List<Cuenta> obtenerCuentasEnPeriodo(int periodo){
-		Periodo periodoSeleccionado = this.getPeriodos().stream().filter(p -> p.getAnio() == periodo).findFirst().get();
-		
-		if(periodoSeleccionado.getAnio() != periodo) throw new NoExisteElPeriodoException();
-		
-		List<Cuenta> cuentas = periodoSeleccionado.getCuentas();
-		
-	    return cuentas;
-	}
+	public Periodo buscarPeriodo(Integer periodo){
+	    return this.periodos.stream().filter(p -> p.getAnio().equals(periodo)).findFirst().orElseThrow(()-> new NoExisteElPeriodoException());
+    }
 }
 

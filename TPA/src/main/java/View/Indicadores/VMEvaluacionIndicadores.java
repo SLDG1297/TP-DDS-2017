@@ -107,7 +107,7 @@ public class VMEvaluacionIndicadores {
 		}
 		
 		public List<Integer> buscarPeriodosDeEmpresa(){
-			return this.empresa.obtenerPeriodos();
+			return this.empresa.obtenerAniosDeTodosLosPeriodos();
 		}
 
 		public String getNombreIndicador() {
@@ -151,7 +151,5 @@ public class VMEvaluacionIndicadores {
 		public void setResultado(BigDecimal resultado) {
 			this.resultado = resultado;
 		}
-	
-	
 	
 }

@@ -65,7 +65,7 @@ public class VMTablaCuentas {
 	
 	//Retorna la lista de cuentas de la empresa de la vista anterior correspondiente al periodo seleccionado
 	public List<Cuenta> buscarCuentas() {
-		return empresaSeleccionada.obtenerCuentasEnPeriodo(periodoSeleccionado);
+		return empresaSeleccionada.buscarPeriodo(periodoSeleccionado).getCuentas();
 	}
 
 	//Retorna una lista de nombres, de la lista de objetos cuentas
