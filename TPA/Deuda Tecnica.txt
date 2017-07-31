@@ -1,7 +1,7 @@
 Entrega 1
 ----------
 
-)Test:
+)Test: SANTI
  
 	Realizar Test Entrega
 
@@ -12,9 +12,9 @@ Entrega 2
  
 	El título es expresivo, corregit todo lo que Fede marco en GitHub
  
-)Test:
+)Test: SANTI
  
-	Realizar Test Entrega
+	Realizar Test Entrega 
 	
 )Excepciones:
 
@@ -38,7 +38,7 @@ Entrega 3
 
 )Test
 	
-	Testear todos los Comparadores
+	Testear todos los Comparadores SANTI
 	Terminar test de condiciones (Jesus se encarga solo de terminar de testear las condiciones)
 
 )Comparador Global:
