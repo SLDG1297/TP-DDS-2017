@@ -10,7 +10,7 @@ Entrega 2
  
 )Correcciones de Fede:
  
-	El título es expresivo, corregit todo lo que Fede marco en GitHub
+	El tÃ­tulo es expresivo, corregit todo lo que Fede marco en GitHub
  
 )Test:
  
@@ -18,17 +18,17 @@ Entrega 2
 	
 )Excepciones:
 
-	No se muestra una View de Error cuando el usuario evalua un indicador que tiene una cuenta en su formula, que la empresa no tiene (La excepcion ya existe) pero en la view hay que capturarla y lanzar una pantalla, en la view pajas, no en el modelo.
+	No se muestra una View de Error cuando el usuario evalua un indicador que tiene una cuenta en su formula, que la empresa no tiene (La excepcion ya existe) pero en la view hay que capturarla y lanzar una pantalla, en la view pajas, no en el modelo. GONZA
  
 )Selector:
  
-	Que se de objetos y Que no sea necesario tocar un botón para hacer una seleccion
+	Que se de objetos y Que no sea necesario tocar un botÃ³n para hacer una seleccion GONZA
  
 )Mostrar en el label lo que el usuario va poniendo: 
  
-	Hacerlo a través del  modelo porque usa composite, el método imprimir() va en la interfaz expresión
+	Hacerlo a travÃ©s del  modelo porque usa composite, el mÃ©todo imprimir() va en la interfaz expresiÃ³n
  
-)Cartel de indicador eliminado
+)Cartel de indicador eliminado GONZA
 	
 	Hay que Agregarlo
  	
@@ -43,15 +43,15 @@ Entrega 3
 
 )Comparador Global:
 
-	Que Exista un comparador global para no usar comparador multiple. Es una desicion de diseño (Jesus)
+	Que Exista un comparador global para no usar comparador multiple. Es una desicion de diseÃ±o (JESUS CON GONZA)
 
 )Mostrar Cadena:
 
-	Al cerrar una ventana, que la cadena realizada por la metodologia logre ir eliminando lo que se agregó y, claramente, no se desea.
+	Al cerrar una ventana, que la cadena realizada por la metodologia logre ir eliminando lo que se agregÃ³ y, claramente, no se desea.
  
 )Selector:
  
-	Que se de objetos y Que no sea necesario tocar un botón para hacer una seleccion
+	Que se de objetos y Que no sea necesario tocar un botÃ³n para hacer una seleccion GONZA
 	
 )SiempreCreciente:
 
