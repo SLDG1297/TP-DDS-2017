@@ -38,7 +38,7 @@ public class Indicador implements Expresion, Deserializable{
 	}
 	
 	public String imprimirFormula() {
-		return formula.imprimirFormula();
+		return nombre + " = " + formula.imprimirFormula();
 	}
 	
 }
