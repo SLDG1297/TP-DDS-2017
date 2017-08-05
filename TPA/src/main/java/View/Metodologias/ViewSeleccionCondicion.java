@@ -12,8 +12,8 @@ import View.Metodologias.VMSeleccionCondicion;
 
 public abstract class ViewSeleccionCondicion extends Window<VMSeleccionCondicion> {
 
-	public ViewSeleccionCondicion(WindowOwner panelPrincipal, VMSeleccionCondicion VMmetodologia) {
-		super(panelPrincipal, VMmetodologia);
+	public ViewSeleccionCondicion(WindowOwner panelPrincipal, VMSeleccionCondicion VMSeleccion) {
+		super(panelPrincipal, VMSeleccion);
 	}
 	
 	@Override
@@ -51,29 +51,31 @@ public abstract class ViewSeleccionCondicion extends Window<VMSeleccionCondicion
 		
         booleana.onClick(() -> {
 			
-			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
-			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			new ViewAgregarBooleana(this, new VMAgregarBooleana(miMetodologiaBuilder)).open();
+			this.ponerNombreEnBuilder();
+			this.getModelObject().iniciarBuilder();
+			new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
 			
 		});
         
         prosummed.onClick(() -> {
 			
-			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
-			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			new ViewAgregarPromedioSumatoriaMediana(this, new VMAgregarPromedioSumatoriaMediana(miMetodologiaBuilder)).open();
+        	this.ponerNombreEnBuilder();
+        	this.getModelObject().iniciarBuilder();
+        	new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
 			
 		});
         
         comportamiento.onClick(() -> {
 			
-			miMetodologiaBuilder.setNombreMetodologia(this.getModelObject().getNombreMetodologia());
-			miMetodologiaBuilder.setIndicadorSeleccionado(this.getModelObject().devolverIndicador());
-			new ViewAgregarComportamiento(this, new VMAgregarComportamiento(miMetodologiaBuilder)).open();
+        	this.ponerNombreEnBuilder();
+			this.getModelObject().iniciarBuilder();
+			new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
 			
 		});
 		
 	}
+	
+	public abstract void ponerNombreEnBuilder();
 	
 	
 	
