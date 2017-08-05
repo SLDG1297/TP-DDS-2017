@@ -13,7 +13,7 @@ import org.uqbar.arena.windows.WindowOwner;
 import Modelo.Indicadores.Expresion;
 import Modelo.Metodologias.MetodologiaBuilder;
 
-public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
+public class ViewMasCondiciones extends ViewSeleccionCondicion  {
 	
 	public ViewMasCondiciones(WindowOwner owner, VMMasCondiciones model) {
 		super(owner, model);
@@ -60,6 +60,15 @@ public class ViewMasCondiciones extends Window<VMMasCondiciones>  {
 		new ViewAgregarComportamiento(this, new VMAgregarComportamiento(this.getModelObject().getMiMetodologiaBuilder())).open();
 				
 		});
+	}
+
+	@Override
+	public void comienzo(Panel panel) {
+		
+		new Label(panel).setText("Condiciones actuales de la metodologia:");
+		new Label(panel).setBackground(Color.WHITE).bindValueToProperty("miCadena");
+		new Label(panel); //Espacio
+		
 	}
 	
 }

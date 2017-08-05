@@ -11,7 +11,7 @@ import org.uqbar.arena.windows.WindowOwner;
 import Modelo.Indicadores.Expresion;
 import Modelo.Metodologias.MetodologiaBuilder;
 
-public class ViewCreacion extends Window<VMCreacion>  {
+public class ViewCreacion extends ViewSeleccionCondicion {
 	
 	MetodologiaBuilder miMetodologiaBuilder;
 	
@@ -72,5 +72,20 @@ public class ViewCreacion extends Window<VMCreacion>  {
 		});
 		
 	}
+
+	@Override
+	public void comienzo(Panel panel) {
+		
+        this.setTitle("Nueva metodologia");
+		
+		new Label(panel).setText("Nombre de la nueva metodologia");
+		new Label(panel); //Espacio
+		
+		new TextBox(panel).bindValueToProperty("nombreMetodologia");
+		new Label(panel); //Espacio
+		
+	}
+	
+	
 	
 }
