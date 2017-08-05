@@ -16,4 +16,8 @@ public class Suma extends Operacion {
 	public BigDecimal realizarOperacion(Query query) {
 		return this.valorA.calcular(query).add(this.valorB.calcular(query));
 	}
+	
+	public String imprimirFormula() {
+		return valorA.imprimirFormula() + " + " + valorB.imprimirFormula();
+	}
 }

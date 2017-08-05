@@ -15,5 +15,10 @@ public class Parentesis implements Expresion{
 
 	public void addOperando(Expresion operando){
 	}
+
+	public String imprimirFormula() {
+		return "( " + expresion.imprimirFormula() + " )";
+	}
+	
 	
 }

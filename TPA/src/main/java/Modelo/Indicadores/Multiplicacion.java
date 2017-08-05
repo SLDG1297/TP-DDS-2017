@@ -16,4 +16,9 @@ public class Multiplicacion extends Operacion {
 		return this.valorA.calcular(query).multiply(this.valorB.calcular(query));
 	}
 
+	@Override
+	public String imprimirFormula() {
+		return valorA.imprimirFormula() + " * " + valorB.imprimirFormula();
+	}
+
 }

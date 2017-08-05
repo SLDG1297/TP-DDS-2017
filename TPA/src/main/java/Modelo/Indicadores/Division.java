@@ -17,4 +17,9 @@ public class Division extends Operacion {
 		return this.valorA.calcular(query).divide(this.valorB.calcular(query));
 	}
 
+	@Override
+	public String imprimirFormula() {
+		return valorA.imprimirFormula() + " / " + valorB.imprimirFormula();
+	}
+
 }
