@@ -21,4 +21,9 @@ public class IndicadorBuilder {
 	public void crearIndicador(Expresion expresion){ 
 		IndicadoresRepository.getInstancia().agregarIndicador(new Indicador(nombreIndicador,expresion));
 	}
+	
+	public String imprimirFormula() {
+		return operandoAnterior.imprimirFormula();
+	}
+	
 }
