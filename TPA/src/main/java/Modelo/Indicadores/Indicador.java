@@ -37,12 +37,6 @@ public class Indicador implements Expresion, Deserializable{
 	public void addOperando(Expresion operando){
 	}
 	
-	public String imprimirFormulaindicador(){
-		if (!formula.imprimirFormulaindicador().equals("")){
-			return getNombre() + "," + formula.imprimirFormulaindicador();
-		}else{
-			return getNombre() + ",";
-		}
-	}
+
 	
 }

@@ -18,8 +18,6 @@ public class Numero implements Expresion, Deserializable{
 	public void addOperando(Expresion operando){
 	}
 	
-	public String imprimirFormulaindicador(){
-		return "";
-	}
+
 
 }

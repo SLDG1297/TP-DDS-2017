@@ -27,7 +27,4 @@ public abstract class Operacion implements Expresion, Deserializable {
 		  this.valorB = operando;
 	}
 	
-	public String imprimirFormulaindicador(){
-		return "";
-	}
 }
