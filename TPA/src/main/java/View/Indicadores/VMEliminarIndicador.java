@@ -64,7 +64,7 @@ public boolean contieneIndicador(Indicador indicador){
 	}
 
 public List<String> mostrarIndicadoresDeFormula(Indicador indicador){
-		String[] array = indicador.imprimirFormulaindicador().split(","); //Separa toma cada nombre de indicador que esta separado por una coma y una guarda en un array
+		String[] array = indicador.imprimirFormula().split(","); //Separa toma cada nombre de indicador que esta separado por una coma y una guarda en un array
 		return Arrays.asList(array); //transforma el array en un lista
 		
 }
