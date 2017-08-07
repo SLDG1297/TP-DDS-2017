@@ -2,6 +2,7 @@ package Archivo.Empresa;
 
 import java.util.List;
 
+import Archivo.LectorDeArchivos;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.BolsaDeEmpresas;
 
@@ -19,7 +20,7 @@ public class Instanciador_Bolsa_Empresas {
 	
 		// Instancio el Lector de Archivos
 		LectorDeArchivos miLector = new LectorDeArchivos();
-		FileInputStream stream = (FileInputStream) miLector.getFile("cuentitasDeHector.csv");
+		FileInputStream stream = miLector.getFile("cuentitasDeHector.csv");
 		
 		// Instancio el Parser
 		CSVParser miParser = new CSVParser(",");
