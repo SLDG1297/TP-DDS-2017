@@ -20,7 +20,7 @@ public class VMAgregarIndicador extends VMAgregar  {
 	
 	public VMAgregarIndicador(IndicadorBuilder indicadorBuilder) {
 		super(indicadorBuilder);
-		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().getNombresIndicadores();
+		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().obtenerNombreDeTodosLosIndicadores();
 	}
 
 	public IndicadorBuilder getMiIndicadorBuilder() {
@@ -54,8 +54,5 @@ public class VMAgregarIndicador extends VMAgregar  {
 	public String getMiCadena() {
 		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
 	}
-	
-	
-	
-	
+
 }

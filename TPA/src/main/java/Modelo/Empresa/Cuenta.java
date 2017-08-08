@@ -36,16 +36,11 @@ public class Cuenta implements Expresion, Deserializable {
 	}
 
 	public BigDecimal calcular(Query query) {
-		return query.obtenerValorCuenta(this.nombre);
-		/*
-		 * try{ return query.obtenerValorCuenta(this.nombre); }
-		 * catch(NombreCuentaErroneoException e){ //Hay que tratar excepción de
-		 * alguna forma }
-		 */
+		return new BigDecimal(query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta(this.nombre).getValor());
 	}
 	
 	public void addOperando(Expresion operando){
-		/*this.a = operando;*/
+
 	}
 	
 	public String imprimirFormulaindicador(){

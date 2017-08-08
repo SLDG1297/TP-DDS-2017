@@ -50,18 +50,5 @@ public class VMAgregarCuenta extends VMAgregar{
 	public void setMiCadena(String miCadena) {
 		this.miCadena = miCadena;
 	}
-	
-
-	/*
-	public Object realizarSuma() {
-
-		
-		miIndicadorBuilder.getOperandoAnterior().addOperando(this.devolverCuenta());
-		miIndicadorBuilder.setOperandoAnterior(new Suma(miIndicadorBuilder.getOperandoAnterior()));
-		
-		
-		return null;
-	}
-	 */
 
 }

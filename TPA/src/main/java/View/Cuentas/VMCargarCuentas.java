@@ -89,6 +89,6 @@ public class VMCargarCuentas {
 	}
 	
 	public List<Integer> buscarPeriodosDeEmpresa(){
-		return this.empresa.obtenerPeriodos();
+		return this.empresa.obtenerAniosDeTodosLosPeriodos();
 	}
 }
