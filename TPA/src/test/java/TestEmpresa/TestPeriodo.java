@@ -45,8 +45,8 @@ public class TestPeriodo {
 		Cuenta rolito = periodo.buscarCuenta("Rolito");
 		Cuenta axxxel = periodo.buscarCuenta("Axxxel");
 		
-		Assert.assertEquals("Se encontró la cuenta 'Rolito'", cuenta1, rolito);
-		Assert.assertEquals("Se encontró la cuenta 'Axel'", cuenta2, axxxel);
+		Assert.assertEquals(cuenta1, rolito);
+		Assert.assertEquals(cuenta2, axxxel);
 	}
 	
 	@Test(expected = NoTieneLaCuentaException.class)
@@ -59,11 +59,25 @@ public class TestPeriodo {
 		periodo.agregarCuenta(cuenta3);
 		// No funciona porque Arrays.asList en Período no devuelve una lista que pueda redimensionarse.
 		// Más info acá: https://stackoverflow.com/questions/9320409/unsupportedoperationexception-at-java-util-abstractlist-add
-		Assert.assertEquals("Se pudo añadir la cuenta 'Skybell'", Arrays.asList(cuenta1, cuenta2, cuenta3), periodo.getCuentas());
+		Assert.assertEquals(Arrays.asList(cuenta1, cuenta2, cuenta3), periodo.getCuentas());
 	}
 	
 	@Test(expected = YaExisteLaCuentaException.class)
 	public void noSeDeberiaAgregarUnaCuentaQueYaExsite(){
 		periodo.agregarCuenta(cuenta1);
 	}
+	
+	@Test
+	public void sePuedeBuscarUnaCuenta(){
+		Cuenta cuentaBuscada = periodo.buscarCuenta("Rolito");
+		
+		Assert.assertEquals(cuenta1, cuentaBuscada);
+	}
+	
+	@Test (expected = NoTieneLaCuentaException.class)
+	public void noSeDeberiaEncontrarUnaCuentaQueNoExiste(){
+		periodo.buscarCuenta("NoDeberíaHaberUnaEmpresaAsí");
+	}
+	
+	// No entiendo el método 'Está Entre'
 }

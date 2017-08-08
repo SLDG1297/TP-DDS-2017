@@ -20,7 +20,7 @@ public class TestCuenta {
 	public void sePuedeInstanciarUnaCuentaConValorCero() {
 		prueba1.setValor(0);
 
-		Assert.assertEquals("El valor de la cuenta es 0", new Integer(0), prueba1.getValor());
+		Assert.assertEquals(new Integer(0), prueba1.getValor());
 	}
 
 	@Test(expected = CuentaSinNombreException.class)
