@@ -13,7 +13,7 @@ public class TestCuenta {
 
 	@Before
 	public void iniciarCuentas() {
-		prueba1 = UtilsCuenta.crearCuenta("FCF", 10000);
+		prueba1 = CreadorCuenta.crearCuenta("FCF", 10000);
 	}
 
 	@Test

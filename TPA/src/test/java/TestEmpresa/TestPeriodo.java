@@ -15,14 +15,14 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Periodo;
 
 public class TestPeriodo {
-	Cuenta cuenta1 = UtilsCuenta.crearCuenta("Rolito", 500);
-	Cuenta cuenta2 = UtilsCuenta.crearCuenta("Axxxel", 700);
-	Cuenta cuenta3 = UtilsCuenta.crearCuenta("Skybell", 800);
+	Cuenta cuenta1 = CreadorCuenta.crearCuenta("Rolito", 500);
+	Cuenta cuenta2 = CreadorCuenta.crearCuenta("Axxxel", 700);
+	Cuenta cuenta3 = CreadorCuenta.crearCuenta("Skybell", 800);
 	Periodo periodo;
 	
 	@Before
 	public void iniciarPeriodo(){
-		periodo = UtilsPeriodo.crearPeriodo(2000, Arrays.asList(cuenta1, cuenta2));
+		periodo = CreadorPeriodo.crearPeriodo(2000, Arrays.asList(cuenta1, cuenta2));
 	}
 	
 	@After
