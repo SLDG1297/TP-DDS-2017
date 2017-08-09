@@ -10,7 +10,6 @@ public class BolsaDeEmpresas {
 	
 	private static BolsaDeEmpresas bolsa = null;
 	
-	// Con unas empresas para probar las vistas.
 	private List<Empresa> empresas = new ArrayList<Empresa>();
 	
 	public List<Empresa> getEmpresas() {
@@ -22,10 +21,7 @@ public class BolsaDeEmpresas {
 	}
 
 	public Empresa buscarEmpresa(String unNombre) {
-		return bolsa.getEmpresas().stream()
-	            .filter(empresa -> empresa.getNombre().equals(unNombre))
-	            .findFirst()
-	            .orElseThrow(() -> new NoExisteLaEmpresaException());
+		return bolsa.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().orElseThrow(() -> new NoExisteLaEmpresaException());
 	}
 	
 	public List<String> getNombresDeEmpresas() {

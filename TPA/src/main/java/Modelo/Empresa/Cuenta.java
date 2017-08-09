@@ -40,7 +40,7 @@ public class Cuenta implements Expresion, Deserializable {
 	}
 	
 	public void addOperando(Expresion operando){
-
+		
 	}
 	
 	public String imprimirFormulaindicador(){

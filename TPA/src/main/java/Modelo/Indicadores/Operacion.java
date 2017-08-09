@@ -22,7 +22,7 @@ public abstract class Operacion implements Expresion, Deserializable {
 	}
 	
 	public abstract BigDecimal realizarOperacion(Query query);
-	
+
 	public void addOperando(Expresion operando){
 		  this.valorB = operando;
 	}

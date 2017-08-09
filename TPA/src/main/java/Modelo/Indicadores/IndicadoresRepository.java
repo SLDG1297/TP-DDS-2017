@@ -1,10 +1,8 @@
 package Modelo.Indicadores;
 
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 import Excepciones.Indicadores.NoHayIndicadoresEnElRepositorioException;
 import Excepciones.Indicadores.NombreIndicadorErroneoException;
 
@@ -30,7 +28,6 @@ public class IndicadoresRepository {
 	    public List<String> obtenerNombreDeTodosLosIndicadores(){
         return this.indicadores.stream().map(i -> i.getNombre()).collect(Collectors.toList());
 	}
-
 	public void agregarIndicador(Indicador indicador) {
 		indicadores.add(indicador);
 	}
@@ -47,7 +44,6 @@ public class IndicadoresRepository {
 	public static IndicadoresRepository getInstancia() {
 
 		if (instancia == null) {
-	
 		instancia = new IndicadoresRepository();
 		}
 		return instancia;

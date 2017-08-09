@@ -20,4 +20,5 @@ public class Query {
 	public Integer getPeriodo() {
 		return periodo;
 	}
+	
 }

@@ -1,13 +1,11 @@
 package TestIndicadores;
 
 import java.math.BigDecimal;
-
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Cuenta;
@@ -65,6 +63,7 @@ public class TestCalcular {
 		Assert.assertEquals(new BigDecimal(200), unaConstante.calcular(query));
 	}
 	
+	/*
 	@Test
 	public void QueryObtineValorCuenta(){
 		Assert.assertEquals(new BigDecimal(2000), query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta("EBITDA").getValor());
@@ -74,6 +73,7 @@ public class TestCalcular {
 	public void QueryArrojaExcepcionSiNombreDeEmpresaEsErroneo(){
 		query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta("EBITDA").getValor();
 	}
+	*/
 	
 	@Test
 	public void calculoDeCuentas(){
