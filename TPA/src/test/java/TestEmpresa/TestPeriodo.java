@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import Excepciones.Empresas.PeriodoAnioNoPositivoException;
 import Excepciones.Empresas.PeriodoSinCuentasException;
 import Excepciones.Empresas.YaExisteLaCuentaException;
 import Excepciones.Indicadores.NoTieneLaCuentaException;
@@ -28,11 +27,6 @@ public class TestPeriodo {
 	@After
 	public void resetarPeriodo(){
 		periodo = null;
-	}
-	
-	@Test(expected = PeriodoAnioNoPositivoException.class)
-	public void noSeDeberiaPoderCrearUnPeriodoDelAñoCero(){
-		periodo.setAnio(0);
 	}
 	
 	@Test(expected = PeriodoSinCuentasException.class)
@@ -57,7 +51,7 @@ public class TestPeriodo {
 	@Test
 	public void sePuedeAgregarUnaCuenta(){
 		periodo.agregarCuenta(cuenta3);
-		// No funciona porque Arrays.asList en Período no devuelve una lista que pueda redimensionarse.
+		// No me funciona porque Arrays.asList en Período no devuelve una lista que pueda redimensionarse al parecer.
 		// Más info acá: https://stackoverflow.com/questions/9320409/unsupportedoperationexception-at-java-util-abstractlist-add
 		Assert.assertEquals(Arrays.asList(cuenta1, cuenta2, cuenta3), periodo.getCuentas());
 	}
