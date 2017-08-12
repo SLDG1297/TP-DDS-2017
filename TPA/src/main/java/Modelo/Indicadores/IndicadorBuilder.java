@@ -27,6 +27,9 @@ public class IndicadorBuilder {
 	}
 	
 	public String imprimirFormula() {
+		if(operandoAnterior == null) {
+			return "";
+		}
 		return operandoAnterior.imprimirFormula();
 	}
 	
