@@ -19,7 +19,11 @@ public class Division extends Operacion {
 
 	@Override
 	public String imprimirFormula() {
-		return valorA.imprimirFormula() + " / " + valorB.imprimirFormula();
+		if(valorA == null) {
+			return "";
+		}
+		
+		return valorA.imprimirFormula() + " / " + super.imprimirFormula();
 	}
 
 }

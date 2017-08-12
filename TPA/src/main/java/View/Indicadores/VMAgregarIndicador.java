@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
-import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadorBuilder;
 import Modelo.Indicadores.IndicadoresRepository;
@@ -52,7 +51,7 @@ public class VMAgregarIndicador extends VMAgregar  {
 	}
 	
 	public String getMiCadena() {
-		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+		return miIndicadorBuilder.imprimirFormula();
 	}
 
 }

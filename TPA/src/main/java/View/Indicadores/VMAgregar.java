@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
-import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Empresa.Cuenta;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Indicador;
@@ -23,7 +22,7 @@ public abstract class VMAgregar{
 		public List<String> nombresDeIndicadoresExistentes;
 		public IndicadorBuilder miIndicadorBuilder;
 		public BigDecimal numeroElegido;
-		public String miCadena = CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+		public String miCadena = miIndicadorBuilder.imprimirFormula();
 		public String cuentaElegida;
 		
 		//Constructor

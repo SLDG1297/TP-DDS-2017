@@ -13,6 +13,7 @@ public class ViewIndicadorCreado extends Window<VMIndicadorCreado> {
 
 	public ViewIndicadorCreado(WindowOwner panelMensaje, VMIndicadorCreado vmIndicadorCreado) {
 		super(panelMensaje, vmIndicadorCreado);
+		
 	}
 
 	@Override

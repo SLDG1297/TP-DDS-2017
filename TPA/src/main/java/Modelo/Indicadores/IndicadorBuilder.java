@@ -18,8 +18,12 @@ public class IndicadorBuilder {
 		this.operandoAnterior = operandoAnterior;
 	}
 	
-	public void crearIndicador(Expresion expresion){ 
-		IndicadoresRepository.getInstancia().agregarIndicador(new Indicador(nombreIndicador,expresion));
+	public Indicador crearIndicador(Expresion expresion){ 
+		Indicador indicadorCreado;
+		indicadorCreado = new Indicador(nombreIndicador, expresion);
+		IndicadoresRepository.getInstancia().agregarIndicador(indicadorCreado);
+		
+		return indicadorCreado;
 	}
 	
 	public String imprimirFormula() {

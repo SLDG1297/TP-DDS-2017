@@ -9,6 +9,7 @@ import org.uqbar.arena.windows.MainWindow;
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
 import Archivo.Indicadores.AlmacenadorDeIndicadores;
 import Archivo.Metodologias.AlmacenadorDeMetodologias;
+import Modelo.Indicadores.IndicadoresRepository;
 import View.Cuentas.VMCargarCuentas;
 import View.Cuentas.ViewCargarCuentas;
 import View.Indicadores.VMGestionDeIndicadores;
@@ -42,7 +43,10 @@ public class ViewMain extends MainWindow<VM_Main> {
 		new Instanciador_Bolsa_Empresas().instanciar();
 		AlmacenadorDeIndicadores.getInstancia().obtenerRepositorioIndicadores();
 		//AlmacenadorDeMetodologias.getInstancia().obtenerRepositorioMetodologias();
+		
 		new ViewMain().startApplication(); 
+		
+		// System.out.println(IndicadoresRepository.getInstancia().getIndicador("IndicadorConOperaciones").imprimirFormula());
 		
 	}
 
