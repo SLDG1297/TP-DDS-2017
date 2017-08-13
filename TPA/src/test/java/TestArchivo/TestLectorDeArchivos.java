@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Archivo.Empresa.LectorDeArchivos;
+import Archivo.LectorDeArchivos;
 
 /*public class TestLectorDeArchivos {
 	

@@ -2,17 +2,18 @@ package View.Indicadores;
 
 import java.awt.Color;
 import java.io.IOException;
-
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
-import Archivo.Indicadores.AlmacenadorDeIndicadores;
+import Archivo.EscritorDeAchivos;
+import Archivo.SerializadorJson;
 import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Resta;
 import Modelo.Indicadores.Suma;
@@ -40,10 +41,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	}
 
 	public void fin(Panel x) {
-		/*Panel horizontal1 = new Panel(x);
-		horizontal1.setLayout(new HorizontalLayout());
-		Panel horizontal2 = new Panel(x);
-		horizontal2.setLayout(new HorizontalLayout());*/
+
 		Button suma = new Button(x).setCaption("Sumar");
 		Button resta = new Button(x).setCaption("Resta");
 		Button multiplicar = new Button(x).setCaption("Multiplicar");
@@ -83,12 +81,8 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 			this.mostrarCadena(this.cadena());
 			this.mensajeIndicadorCreado();
 			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
-			try {
-				AlmacenadorDeIndicadores.getInstancia().almacenarRepositorioIndicadores();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+			String lista = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
+			new EscritorDeAchivos().escribir("repositorioIndicadores.csv", lista);
 		});
 
 	}

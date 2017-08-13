@@ -1,15 +1,12 @@
 package View.Indicadores;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.uqbar.commons.utils.Observable;
 
-import Archivo.Indicadores.AlmacenadorDeIndicadores;
+import Archivo.EscritorDeAchivos;
+import Archivo.SerializadorJson;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
 
@@ -45,18 +42,9 @@ public class VMEliminarIndicador {
 				this.eliminar(lista.get(i));
 			}
 		}
-		try {
-			AlmacenadorDeIndicadores.getInstancia().almacenarRepositorioIndicadores(); //Actualiza el estado de los nuevos indicadores 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String indicadores = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
+		new EscritorDeAchivos().escribir("repositorioIndicadores.csv", indicadores);
 		
-		/*Collections.reverse(lista);
-		for (Indicador indicador : lista){
-			if (this.contieneIndicador(indicador) == true){	
-				this.eliminar(indicador);
-			}
-		}*/
 	}
 
 public boolean contieneIndicador(Indicador indicador){

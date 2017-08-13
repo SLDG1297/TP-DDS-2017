@@ -5,6 +5,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
+import Modelo.Metodologias.MetodologiaBuilder;
 import View.Metodologias.Comparacion.VMEvaluacionMetodologias;
 import View.Metodologias.Comparacion.ViewEvaluacionMetodologias;
 
@@ -20,7 +21,7 @@ public class ViewGestionDeMetodologias extends Window<VMGestionDeMetodologias> {
 
 		new Button(panelPrincipal).setCaption("Consultar metodologias").onClick(() -> new ViewEvaluacionMetodologias(this,new VMEvaluacionMetodologias()).open());
 		
-		new Button(panelPrincipal).setCaption("Ingresar nuevas metodologias").onClick(() -> new ViewCreacion(this,new VMCreacion()).open());
+		new Button(panelPrincipal).setCaption("Ingresar nuevas metodologias").onClick(() -> new ViewCreacion(this,new VMSeleccionCondicion(new MetodologiaBuilder())).open());
 
 		new Button(panelPrincipal).setCaption("Eliminar metodologias").onClick(() -> new ViewEliminarMetodologias(this,new VMEliminarMetodologias()).open());
 	}

@@ -46,7 +46,7 @@ public class ViewAgregarPromedioSumatoriaMediana extends Window<VMAgregarPromedi
 		Button agregarCondicion = new Button(panel).setCaption("Agregar condicion");
 		agregarCondicion.onClick(()-> {
 		this.getModelObject().crearCondicion();
-		new ViewMasCondiciones(this, new VMMasCondiciones(this.getModelObject().getMiMetodologiaBuilder())).open();
+		new ViewMasCondiciones(this, new VMSeleccionCondicion(this.getModelObject().getMiMetodologiaBuilder())).open();
 		});
 		Button finalizarMetodologia = new Button(panel).setCaption("Finalizar metodologia");
 		finalizarMetodologia.onClick(()->{

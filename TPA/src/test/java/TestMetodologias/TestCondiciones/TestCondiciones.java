@@ -1,17 +1,14 @@
 package TestMetodologias.TestCondiciones;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
-import Archivo.Indicadores.AlmacenadorDeIndicadores;
+import Archivo.Indicadores.InstanciadorListaIndicadores;
 import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Empresa.Empresa;
 
@@ -21,7 +18,7 @@ public abstract class TestCondiciones {
 	@Before
 	public void x() throws IOException{
 	new Instanciador_Bolsa_Empresas().instanciar();
-	AlmacenadorDeIndicadores.getInstancia().obtenerRepositorioIndicadores();
+	new InstanciadorListaIndicadores().instanciarListaIndicadores();
 	}
 	
 	@Test
