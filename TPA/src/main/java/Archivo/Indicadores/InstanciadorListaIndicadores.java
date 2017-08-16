@@ -34,13 +34,12 @@ public class InstanciadorListaIndicadores {
 	}
 
 	private Type generarType() {
-		Type type = new TypeToken<List<Indicador>>(){}.getType();
-		return type;
+		return new TypeToken<List<Indicador>>(){}.getType();
+		
 	}
 
 	private Reader generarReader(String ruta) throws FileNotFoundException {
 		InputStream stream =  new LectorDeArchivos().getFile(ruta);
-		Reader reader = new BufferedReader(new InputStreamReader(stream));
-		return reader;
+		return new BufferedReader(new InputStreamReader(stream));
 	}
 }
