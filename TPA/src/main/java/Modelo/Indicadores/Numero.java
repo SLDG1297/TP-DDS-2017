@@ -2,9 +2,9 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-import Modelo.Empresa.Deserializable;
+import Modelo.Empresa.Deserializa;
 
-public class Numero implements Expresion, Deserializable{
+public class Numero implements Expresion, Deserializa{
 	private BigDecimal numero;
 	
 	public Numero(BigDecimal num){

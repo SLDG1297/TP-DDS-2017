@@ -9,7 +9,7 @@ import com.google.gson.reflect.TypeToken;
 
 import Archivo.RuntimeTypeAdapterFactory;
 import Modelo.Empresa.Cuenta;
-import Modelo.Empresa.Deserializable;
+import Modelo.Empresa.Deserializa;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Numero;
@@ -51,9 +51,9 @@ public class AlmacenadorDeMetodologias {
 	static AlmacenadorDeMetodologias instancia = null;
 	static String ruta = "repositorioMetodologias.csv";
 	
-	private RuntimeTypeAdapterFactory<Deserializable> adapter(){
-		RuntimeTypeAdapterFactory<Deserializable> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
-            .of(Deserializable.class, "type")
+	private RuntimeTypeAdapterFactory<Deserializa> adapter(){
+		RuntimeTypeAdapterFactory<Deserializa> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+            .of(Deserializa.class, "type")
             
             .registerSubtype(Suma.class, "Suma")
             .registerSubtype(Resta.class, "Resta")

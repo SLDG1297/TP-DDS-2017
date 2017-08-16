@@ -6,7 +6,7 @@ import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Query;
 
 @Observable
-public class Cuenta implements Expresion, Deserializable {
+public class Cuenta implements Expresion, Deserializa {
 	String nombre;
 	Integer valor;
 

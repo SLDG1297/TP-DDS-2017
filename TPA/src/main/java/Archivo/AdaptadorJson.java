@@ -14,8 +14,6 @@ import Modelo.Indicadores.Suma;
 
 public class AdaptadorJson {
 	
-	private static AdaptadorJson instancia = null;
-	
 	private RuntimeTypeAdapterFactory<Expresion> adapter(){
 		RuntimeTypeAdapterFactory<Expresion> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
             .of(Expresion.class, "type")
@@ -33,10 +31,4 @@ public class AdaptadorJson {
 		return new GsonBuilder().registerTypeAdapterFactory(this.adapter()).create();
 	}
 	
-	public static AdaptadorJson getInstancia(){
-		if(instancia == null){
-			instancia = new AdaptadorJson();
-		}
-		return instancia; 
-	}
 }

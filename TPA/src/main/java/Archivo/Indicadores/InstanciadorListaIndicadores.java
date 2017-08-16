@@ -29,7 +29,7 @@ public class InstanciadorListaIndicadores {
 	}
 
 	private List<Indicador> deserializarListaIndicadores(Reader reader, Type type) {
-		Gson gson = AdaptadorJson.getInstancia().getAdaptador(); //Usamos un adaptador para poder luego deserializar sin probloemas, ya que usamos interfaces
+		Gson gson = new AdaptadorJson().getAdaptador(); //Usamos un adaptador para poder luego deserializar sin probloemas, ya que usamos interfaces
 		return gson.fromJson(reader, type);
 	}
 
