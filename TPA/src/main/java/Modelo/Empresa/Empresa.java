@@ -1,17 +1,12 @@
 package Modelo.Empresa;
 
-
+import java.math.BigDecimal;
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
-
 import org.uqbar.commons.utils.Observable;
-
 import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Excepciones.Empresas.NoExisteElPeriodoException;
-
 
 @Observable
 public class Empresa {
@@ -58,5 +53,6 @@ public class Empresa {
 	public Periodo buscarPeriodo(Integer periodo){
 	    return this.periodos.stream().filter(p -> p.getAnio().equals(periodo)).findFirst().orElseThrow(()-> new NoExisteElPeriodoException());
     }
+
 }
 

@@ -17,7 +17,7 @@ public class SiempreCreciente extends Comportamiento {
 	@Override
 	protected boolean satisface(List<Boolean> comportamiento) {
 		
-		return comportamiento.stream().allMatch(bool -> bool == true);
+		return comportamiento.stream().allMatch(bool -> bool);
 	}
 
 	@Override

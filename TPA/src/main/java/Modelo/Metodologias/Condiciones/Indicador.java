@@ -1,10 +1,10 @@
 package Modelo.Metodologias.Condiciones;
 
-import Modelo.Empresa.Deserializable;
+import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.IndicadoresRepository;
 
-public class Indicador implements Condiciones, Deserializable{
+public class Indicador implements Condiciones, Deserializa{
 
 	private Modelo.Indicadores.Indicador indicador;
 

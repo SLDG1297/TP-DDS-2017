@@ -17,7 +17,7 @@ public class CasiSiempreDecreciente extends Comportamiento {
 	@Override
 	protected boolean satisface(List<Boolean> comportamiento) {
 		
-		return comportamiento.stream().filter(bool->bool == false).collect(Collectors.toList()).size() <= 1;
+		return comportamiento.stream().filter(bool->bool).collect(Collectors.toList()).size() <= 1;
 	}
 
 	@Override
