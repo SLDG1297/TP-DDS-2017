@@ -2,7 +2,6 @@ package Modelo.Metodologias.Comparadores;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
