@@ -12,30 +12,58 @@ import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiasRepository;
 
 @Observable
-public class VMEvaluacionUnitaria {
+public class VMEvaluacion {
 	
+
 	public List<String> listaDeEmpresas;
 	public List<String> listaDeMetodologias;
+	public List<String> listaDeEmpresasSinEmpresaElegida;
 	public String nombreEmpresaElegida;
 	public Empresa empresaElegida;
+	public String nombreEmpresaB;
+	public Empresa empresaB;
 	public String nombreMetodologiaElegida;
 	public Metodologia metodologiaElegida;
 	
-	public VMEvaluacionUnitaria (){
+	public VMEvaluacion (){
 		
 		super();
 		listaDeEmpresas = BolsaDeEmpresas.getInstancia().getNombresDeEmpresas();
 		listaDeMetodologias = MetodologiasRepository.getInstancia().nombresDeMetodologias();
 		
 	}
-	
+		
 	public void buscarEmpresa() {
 		setEmpresaElegida(BolsaDeEmpresas.getInstancia().buscarEmpresa(getNombreEmpresaElegida()));
 	}
 	
-public void buscarMetodologia(){
+	public void buscarMetodologia(){
 		
 		setMetodologiaElegida(MetodologiasRepository.getInstancia().obtenerMetodologia(nombreMetodologiaElegida));
+	}
+
+	public String getNombreEmpresaB() {
+		
+	return nombreEmpresaB;
+	
+	}
+
+	public void setNombreEmpresaB(String nombreEmpresaB) {
+		
+	this.nombreEmpresaB = nombreEmpresaB;
+	
+	}
+
+	public Empresa getEmpresaB() {
+		
+	return empresaB;
+	
+	}
+
+	public void setEmpresaB(Empresa empresaB) {
+		
+	this.empresaB = empresaB;
+	
 	}
 
 	public List<String> getListaDeEmpresas() {
@@ -84,6 +112,26 @@ public void buscarMetodologia(){
 
 	public void setMetodologiaElegida(Metodologia metodologiaElegida) {
 		this.metodologiaElegida = metodologiaElegida;
+	}
+	
+	
+	public void buscarEmpresaB() {
+		setEmpresaB(BolsaDeEmpresas.getInstancia().buscarEmpresa(getNombreEmpresaB()));
+	}
+	
+	public void generarListaSinPrimerEmpresaElegida() {
+		
+		setListaDeEmpresasSinEmpresaElegida(listaDeEmpresas.stream().filter(x -> !x.equals(nombreEmpresaElegida)).collect(Collectors.toList()));
+		
+	}
+
+	public void setListaDeEmpresasSinEmpresaElegida(List<String> listaDeEmpresasSinEmpresaElegida) {
+	this.listaDeEmpresasSinEmpresaElegida = listaDeEmpresasSinEmpresaElegida;
+	
+	}
+	
+	public List<String> getListaDeEmpresasSinEmpresaElegida() {
+		return listaDeEmpresasSinEmpresaElegida;
 	}
 	
 }
