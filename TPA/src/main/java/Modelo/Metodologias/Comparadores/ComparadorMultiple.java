@@ -18,11 +18,6 @@ public class ComparadorMultiple {
 		this.metodologia = metodologia;
 	}
 	
-	public ComparadorMultiple(Metodologia metodologia){
-		
-		this.metodologia = metodologia;
-	}
-	
 	public List<ResultadoAdapterView> comparar(){
 		List<Empresa> listaEmpresas = BolsaDeEmpresas.getInstancia().getEmpresas();
 		return listaEmpresas.stream().map(emp -> generarResultadoViewAdapter(emp)).collect(Collectors.toList());
@@ -46,24 +41,6 @@ public class ComparadorMultiple {
 		return new ComparadorDual(empresa, emp, metodologia).comparar();
 	}
 	
-	public List<ResultadoAdapterView> compararTodosconTodo(){
-		List<Empresa> listaEmpresas = BolsaDeEmpresas.getInstancia().getEmpresas();
-		return listaEmpresas.stream().map(emp -> new ResultadoAdapterView(emp.getNombre(), metodologia, generarResultadoUnario(emp))).collect(Collectors.toList());
-		
-		/*List<ResultadoAdapterView> listaResultadosAdapter = new ArrayList<ResultadoAdapterView>();
-		for(int i=0; listaEmpresas.size()>i; i++){
-			
-			boolean resultado = new ComparadorUnario(listaEmpresas.get(i),metodologia).evaluar();
-			ResultadoAdapterView resultadoFinal = new ResultadoAdapterView(listaEmpresas.get(i).getNombre(),metodologia, resultado);
-			listaResultadosAdapter.add(resultadoFinal);
-		}
-		return listaResultadosAdapter;*/
-
-	}
-
-	private boolean generarResultadoUnario(Empresa emp) {
-		return new ComparadorUnario(emp,metodologia).evaluar();
-	}
 	
 	public Empresa getEmpresa() {
 		return empresa;

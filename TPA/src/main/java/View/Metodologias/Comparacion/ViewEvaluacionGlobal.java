@@ -4,6 +4,8 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.WindowOwner;
+
+import Modelo.Metodologias.Comparadores.ComparadorGlobal;
 import Modelo.Metodologias.Comparadores.ComparadorMultiple;
 
 
@@ -22,8 +24,8 @@ public class ViewEvaluacionGlobal extends ViewEvaluacion  {
 			new Label(panelPrincipal);
 			new Button(panelPrincipal).setCaption("Evaluar").onClick(() -> {
 				
-				ComparadorMultiple comparador = new ComparadorMultiple(this.getModelObject().getMetodologiaElegida());
-				new ViewResultadoGlobal(this,new VMResultadoGlobal(comparador.compararTodosconTodo())).open();
+				ComparadorGlobal comparador = new ComparadorGlobal(this.getModelObject().getMetodologiaElegida());
+				new ViewResultadoGlobal(this,new VMResultadoGlobal(comparador.comparar())).open();
 
 			});
 			
