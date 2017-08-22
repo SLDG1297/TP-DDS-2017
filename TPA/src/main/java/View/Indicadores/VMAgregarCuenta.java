@@ -13,11 +13,12 @@ public class VMAgregarCuenta extends VMAgregar{
 	IndicadorBuilder miIndicadorBuilder;
 	String cuentaElegida;
 
-	public String miCadena = miIndicadorBuilder.imprimirFormula();
+	public String miCadena;
 
 	public VMAgregarCuenta(IndicadorBuilder indicadorBuilder) {
 		super(indicadorBuilder);
 		miIndicadorBuilder = indicadorBuilder;
+		miCadena = miIndicadorBuilder.imprimirFormula();
 	}
 
 	public IndicadorBuilder getMiIndicadorBuilder() {

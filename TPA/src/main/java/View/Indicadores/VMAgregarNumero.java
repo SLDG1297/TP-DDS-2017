@@ -12,11 +12,12 @@ public class VMAgregarNumero extends VMAgregar {
 
 	IndicadorBuilder miIndicadorBuilder;
 	BigDecimal numeroElegido;
-	public String miCadena = miIndicadorBuilder.imprimirFormula();
+	public String miCadena;
 	
 	public VMAgregarNumero(IndicadorBuilder indicadorBuilder) {
 		super(indicadorBuilder);
 		miIndicadorBuilder = indicadorBuilder;
+		miCadena = miIndicadorBuilder.imprimirFormula();
 	}
 		
 		

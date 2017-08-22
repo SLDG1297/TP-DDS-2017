@@ -22,13 +22,14 @@ public abstract class VMAgregar {
 		public List<String> nombresDeIndicadoresExistentes;
 		public IndicadorBuilder miIndicadorBuilder;
 		public BigDecimal numeroElegido;
-		public String miCadena = miIndicadorBuilder.imprimirFormula();
+		public String miCadena;
 		public String cuentaElegida;
 		
 		//Constructor
 		public VMAgregar(IndicadorBuilder indicadorBuilder) {
 			super();	
 			miIndicadorBuilder = indicadorBuilder;
+			miCadena = miIndicadorBuilder.imprimirFormula();
 		}
 
 		public IndicadorBuilder getMiIndicadorBuilder() {

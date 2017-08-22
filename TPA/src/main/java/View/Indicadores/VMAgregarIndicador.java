@@ -49,9 +49,5 @@ public class VMAgregarIndicador extends VMAgregar  {
 	public Indicador devolverIndicador() {
 		return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);	
 	}
-	
-	public String getMiCadena() {
-		return miIndicadorBuilder.imprimirFormula();
-	}
 
 }
