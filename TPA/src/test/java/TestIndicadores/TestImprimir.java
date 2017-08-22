@@ -23,6 +23,8 @@ public class TestImprimir {
 	public void sePuedeImprimirEDITBAmas(){
 		indicador.setOperandoAnterior(new Suma(new Numero(new BigDecimal(2000))));
 		
+		System.out.println(indicador.imprimirFormula());
+		
 		Assert.assertEquals("2000 + ", indicador.getOperandoAnterior().imprimirFormula());
 	}
 }

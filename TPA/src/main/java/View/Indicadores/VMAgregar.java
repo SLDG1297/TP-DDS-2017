@@ -12,7 +12,7 @@ import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Numero;
 
 @Observable
-public abstract class VMAgregar{
+public abstract class VMAgregar {
 	 	
 		//Creo que esta clase deberia estar vacia y que las VM de las clases concretas tener el codigo correspondiente de cada una 
 		//a lo sumo solamente dejar el contructor y los get y set del builder
@@ -63,11 +63,9 @@ public abstract class VMAgregar{
 			return numeroElegido;
 		}
 
-
 		public void setNumeroElegido(BigDecimal numeroElegido) {
 			this.numeroElegido = numeroElegido;
 		}
-		
 		
 		public Expresion devolverNumero() {
 			
@@ -78,7 +76,6 @@ public abstract class VMAgregar{
 		public String devolverStringDeNumero() {		
 			 return numeroElegido.toString();
 		}
-		
 		
 		public String getMiCadena() {
 			return miCadena;
