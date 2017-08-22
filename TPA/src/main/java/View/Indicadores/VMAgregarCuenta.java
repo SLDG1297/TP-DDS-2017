@@ -2,7 +2,6 @@ package View.Indicadores;
 
 import org.uqbar.commons.utils.Observable;
 import Modelo.Empresa.Cuenta;
-import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.IndicadorBuilder;
 
@@ -14,11 +13,12 @@ public class VMAgregarCuenta extends VMAgregar{
 	IndicadorBuilder miIndicadorBuilder;
 	String cuentaElegida;
 
-	String miCadena = CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+	public String miCadena;
 
 	public VMAgregarCuenta(IndicadorBuilder indicadorBuilder) {
 		super(indicadorBuilder);
 		miIndicadorBuilder = indicadorBuilder;
+		miCadena = miIndicadorBuilder.imprimirFormula();
 	}
 
 	public IndicadorBuilder getMiIndicadorBuilder() {

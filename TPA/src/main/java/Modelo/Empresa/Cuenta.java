@@ -43,8 +43,8 @@ public class Cuenta implements Expresion, Deserializa {
 		
 	}
 	
-	public String imprimirFormulaindicador(){
-		return "";
+	public String imprimirFormula() {
+		return nombre;
 	}
 
 }

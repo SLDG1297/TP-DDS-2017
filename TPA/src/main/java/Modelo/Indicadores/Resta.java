@@ -16,4 +16,7 @@ public class Resta extends Operacion {
 		return this.valorA.calcular(query).subtract(this.valorB.calcular(query));
 	}
 
+	public String miOperador() {
+		return "-";
+	}
 }

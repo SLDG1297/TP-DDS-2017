@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
-import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Metodologia;
 

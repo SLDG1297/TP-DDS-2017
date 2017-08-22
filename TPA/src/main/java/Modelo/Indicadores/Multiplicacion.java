@@ -16,4 +16,7 @@ public class Multiplicacion extends Operacion {
 		return this.valorA.calcular(query).multiply(this.valorB.calcular(query));
 	}
 
+	public String miOperador() {
+		return "*";
+	}
 }

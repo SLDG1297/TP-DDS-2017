@@ -18,8 +18,8 @@ public class Numero implements Expresion, Deserializa{
 	public void addOperando(Expresion operando){
 	}
 	
-	public String imprimirFormulaindicador(){
-		return "";
+	public String imprimirFormula() {
+		return numero.toString();
 	}
 
 }

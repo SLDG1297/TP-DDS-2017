@@ -2,7 +2,6 @@
 package View.Indicadores;
 
 import org.uqbar.commons.utils.Observable;
-import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Indicadores.IndicadorBuilder;
 
 @Observable
@@ -25,6 +24,6 @@ IndicadorBuilder miIndicadorBuilder;
 	}
 	
 	public String getMiCadena() {
-		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+		return miIndicadorBuilder.imprimirFormula();
 	}
 }

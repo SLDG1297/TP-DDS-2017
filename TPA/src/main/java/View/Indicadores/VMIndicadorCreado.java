@@ -3,17 +3,20 @@ package View.Indicadores;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.uqbar.commons.utils.Observable;
-import Modelo.Indicadores.CadenaActualDeMiIndicador;
+import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
 
 @Observable
 public class VMIndicadorCreado {
 	public List<String> nombresDeIndicadoresExistentes;
+	private Indicador indicadorCreado;
 
-	public VMIndicadorCreado() {
+	public VMIndicadorCreado(Indicador indicadorNuevo) {
 
 		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().getIndicadores().stream().map(i -> i.getNombre()).collect(Collectors.toList());
 
+		indicadorCreado = indicadorNuevo;
+		
 	}
 
 	public List<String> getNombresDeIndicadoresExistentes() {
@@ -25,6 +28,6 @@ public class VMIndicadorCreado {
 	}
 	
 	public String getMiCadena() {
-		return CadenaActualDeMiIndicador.instanciar().mostrarCadenaActual();
+		return indicadorCreado.imprimirFormula();
 	}
 }
