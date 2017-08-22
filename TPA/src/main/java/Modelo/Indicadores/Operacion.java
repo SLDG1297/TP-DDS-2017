@@ -26,12 +26,21 @@ public abstract class Operacion implements Expresion, Deserializable {
 	public void addOperando(Expresion operando){
 		  this.valorB = operando;
 	}
-	
-	public String imprimirFormula() {
-		if(valorB != null)
-			return valorB.imprimirFormula();
+
+	protected String imprimirValorB() {
+		if(valorB == null)
+			return "";		
 		
-		return "";
+		return valorB.imprimirFormula();
+	}
+	
+	abstract public String miOperador();
+		
+	public String imprimirFormula() {
+		if(valorA == null)
+			return "";
+		
+		return valorA.imprimirFormula() + " " + this.miOperador() + " " + this.imprimirValorB();
 	}
 	
 }

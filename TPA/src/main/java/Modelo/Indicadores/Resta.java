@@ -16,12 +16,7 @@ public class Resta extends Operacion {
 		return this.valorA.calcular(query).subtract(this.valorB.calcular(query));
 	}
 
-	public String imprimirFormula() {
-		if(valorA == null) {
-			return "";
-		}
-		
-		return valorA.imprimirFormula() + " - " + super.imprimirFormula();
+	public String miOperador() {
+		return "-";
 	}
-
 }
