@@ -43,8 +43,6 @@ public abstract class Condicion implements Condiciones, Deserializa{
 	}
 	
 	protected abstract boolean fin(List<Try<BigDecimal>> success);
-	
-	protected abstract int booleano();
 
 	protected double sum(List<Try<BigDecimal>> success){
 		return success.stream()

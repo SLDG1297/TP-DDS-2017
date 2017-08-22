@@ -1,19 +1,14 @@
 package View.Metodologias;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.uqbar.commons.utils.Observable;
-
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiaBuilder;
 import Modelo.Metodologias.Condiciones.CasiSiempreCreciente;
 import Modelo.Metodologias.Condiciones.CasiSiempreDecreciente;
 import Modelo.Metodologias.Condiciones.Condicion;
-import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
-import Modelo.Metodologias.Condiciones.MenorAEnPeriodos;
 import Modelo.Metodologias.Condiciones.SiempreCreciente;
 import Modelo.Metodologias.Condiciones.SiempreDecreciente;
 

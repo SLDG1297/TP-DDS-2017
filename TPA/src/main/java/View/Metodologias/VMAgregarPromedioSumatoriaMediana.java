@@ -1,22 +1,14 @@
 package View.Metodologias;
 
 import java.math.BigDecimal;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.uqbar.commons.utils.Observable;
-
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiaBuilder;
 import Modelo.Metodologias.Condiciones.Condicion;
-import Modelo.Metodologias.Condiciones.MedianaMayorA;
-import Modelo.Metodologias.Condiciones.MedianaMenorA;
-import Modelo.Metodologias.Condiciones.PromedioMayorA;
-import Modelo.Metodologias.Condiciones.PromedioMenorA;
-import Modelo.Metodologias.Condiciones.SumatoriaMayorA;
-import Modelo.Metodologias.Condiciones.SumatoriaMenorA;
+import Modelo.Metodologias.Condiciones.CondicionFactory;
 
 @Observable
 public class VMAgregarPromedioSumatoriaMediana {
@@ -105,28 +97,28 @@ public class VMAgregarPromedioSumatoriaMediana {
     	
     	if(operacionElegida.equals("Promedio")){
     		if(comparadorElegido.equals("Mayor")){
-        		nuevaCondicion = new PromedioMayorA(indicadorSeleccionado, valorElegido);
+        		nuevaCondicion = new CondicionFactory().crearPromedioMayorA(indicadorSeleccionado, valorElegido);
         	}
         	else{
-        		nuevaCondicion = new PromedioMenorA(indicadorSeleccionado, valorElegido);
+        		nuevaCondicion = new CondicionFactory().crearPromedioMenorA(indicadorSeleccionado, valorElegido);
         	}
     	}
     	
     	if(operacionElegida.equals("Sumatoria")){
     		if(comparadorElegido.equals("Mayor")){
-        		nuevaCondicion = new SumatoriaMayorA(indicadorSeleccionado, valorElegido);
+        		nuevaCondicion = new CondicionFactory().crearSumatoriaMayorA(indicadorSeleccionado, valorElegido);
         	}
         	else{
-        		nuevaCondicion = new SumatoriaMenorA(indicadorSeleccionado, valorElegido);
+        		nuevaCondicion = new CondicionFactory().crearSumatoriaMenorA(indicadorSeleccionado, valorElegido);
         	}
     	}
     	
     	else{
     		if(comparadorElegido.equals("Mayor")){
-        		nuevaCondicion = new MedianaMayorA(indicadorSeleccionado, valorElegido);
+        		nuevaCondicion = new CondicionFactory().crearMedianaMayorA(indicadorSeleccionado, valorElegido);
         	}
         	else{
-        		nuevaCondicion = new MedianaMenorA(indicadorSeleccionado, valorElegido);
+        		nuevaCondicion = new CondicionFactory().crearMedianaMenorA(indicadorSeleccionado, valorElegido);
         	}
     	}
     	
