@@ -1,9 +1,9 @@
 package TestEmpresa;
 
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,42 +16,38 @@ import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 
 public class TestEmpresa {
-	Cuenta cuenta1 = CreadorCuenta.crearCuenta("XD", 680);
-	Cuenta cuenta2 = CreadorCuenta.crearCuenta("DX", 86);
-	Cuenta cuenta3 = CreadorCuenta.crearCuenta("Holis", 1000);
-	Cuenta cuenta4 = CreadorCuenta.crearCuenta("XD", 420);
-	Cuenta cuenta5 = CreadorCuenta.crearCuenta("Aserejé", 15000);
+	Cuenta cuenta1 = new Cuenta("XD", 680);
+	Cuenta cuenta2 = new Cuenta("DX", 86);
+	Cuenta cuenta3 = new Cuenta("Holis", 1000);
+	Cuenta cuenta4 = new Cuenta("XD", 420);
+	Cuenta cuenta5 = new Cuenta("Aserejé", 15000);
 
-	Periodo periodo1 = CreadorPeriodo.crearPeriodo(2006, Arrays.asList(cuenta1, cuenta2));
-	Periodo periodo2 = CreadorPeriodo.crearPeriodo(2007, Arrays.asList(cuenta3, cuenta4));
-	Periodo periodo3 = CreadorPeriodo.crearPeriodo(2007, Arrays.asList(cuenta3));
-	Periodo periodo4 = CreadorPeriodo.crearPeriodo(2008, Arrays.asList(cuenta5, cuenta3));
+	Periodo periodo1 = new Periodo(2006, Arrays.asList(cuenta1, cuenta2));
+	Periodo periodo2 = new Periodo(2007, Arrays.asList(cuenta3, cuenta4));
+	Periodo periodo3 = new Periodo(2007, Arrays.asList(cuenta3));
+	Periodo periodo4 = new Periodo(2008, Arrays.asList(cuenta5, cuenta3));
 
 	Empresa empresa;
 
 	@Before
 	public void iniciarEmpresa() {
-		empresa = CreadorEmpresa.crearEmpresa("Rolito INC.", Arrays.asList(periodo1, periodo2));
-	}
-
-	@After
-	public void resetearEmpresa() {
-		empresa = null;
+		List<Periodo> periodos = new LinkedList<Periodo>();
+		periodos.addAll(Arrays.asList(periodo1, periodo2));
+		
+		empresa = new Empresa("Rolito INC.", periodos);
 	}
 
 	@Test(expected = EmpresaSinNombreException.class)
 	public void noSeDeberianTenerEmpresasSinNombre() {
-		CreadorEmpresa.crearEmpresa("", Arrays.asList(periodo1));
+		new Empresa("", Arrays.asList(periodo1));
 	}
 
 	@Test(expected = EmpresaSinPeriodoException.class)
 	public void noSeDeberianTenerEmpresasSinPeriodos() {
-		Empresa prueba = CreadorEmpresa.crearEmpresa("No hay nada", null);
-
-		Assert.assertEquals(prueba.getPeriodos(), null);
+		new Empresa("No hay nada", Arrays.asList());
 	}
 
-	// TODO: Tests para añadir cuentas y períodos.
+	// TODO: No se le puede añadir cuentas y períodos a la empresa. Por qué no son mutables?
 
 	@Test
 	public void sePuedenObtenerLosAniosDeLosPeriodos() {

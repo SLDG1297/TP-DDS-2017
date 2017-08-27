@@ -1,5 +1,7 @@
 package TestEmpresa;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Arrays;
 
 import org.junit.After;
@@ -14,19 +16,18 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Periodo;
 
 public class TestPeriodo {
-	Cuenta cuenta1 = CreadorCuenta.crearCuenta("Rolito", 500);
-	Cuenta cuenta2 = CreadorCuenta.crearCuenta("Axxxel", 700);
-	Cuenta cuenta3 = CreadorCuenta.crearCuenta("Skybell", 800);
+	Cuenta cuenta1 = new Cuenta("Rolito", 500);
+	Cuenta cuenta2 = new Cuenta("Axxxel", 700);
+	Cuenta cuenta3 = new Cuenta("Skybell", 800);
+	
 	Periodo periodo;
 	
 	@Before
 	public void iniciarPeriodo(){
-		periodo = CreadorPeriodo.crearPeriodo(2000, Arrays.asList(cuenta1, cuenta2));
-	}
-	
-	@After
-	public void resetarPeriodo(){
-		periodo = null;
+		List<Cuenta> cuentas = new LinkedList<Cuenta>();
+		cuentas.addAll(Arrays.asList(cuenta1, cuenta2));
+		
+		periodo = new Periodo(2000, cuentas);
 	}
 	
 	@Test(expected = PeriodoSinCuentasException.class)
@@ -51,8 +52,7 @@ public class TestPeriodo {
 	@Test
 	public void sePuedeAgregarUnaCuenta(){
 		periodo.agregarCuenta(cuenta3);
-		// No me funciona porque Arrays.asList en Período no devuelve una lista que pueda redimensionarse al parecer.
-		// Más info acá: https://stackoverflow.com/questions/9320409/unsupportedoperationexception-at-java-util-abstractlist-add
+		
 		Assert.assertEquals(Arrays.asList(cuenta1, cuenta2, cuenta3), periodo.getCuentas());
 	}
 	
@@ -72,6 +72,8 @@ public class TestPeriodo {
 	public void noSeDeberiaEncontrarUnaCuentaQueNoExiste(){
 		periodo.buscarCuenta("NoDeberíaHaberUnaEmpresaAsí");
 	}
-	
-	// No entiendo el método 'Está Entre'
+
+	// No entiendo el método 'Está Entre', de hecho, no trabaja con el estado
+	// interno de un Período, así que
+	// no está bien que es responsabilidad esté ahí.
 }
