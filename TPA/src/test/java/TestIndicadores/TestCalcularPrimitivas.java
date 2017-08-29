@@ -6,11 +6,11 @@ import org.junit.Test;
 public class TestCalcularPrimitivas extends TemplateTestCalcular{
 	@Test
 	public void sePuedeCalcularUnNumero() {
-		Assert.assertEquals(20, natural.calcular(consulta).intValue());
+		Assert.assertEquals(20, evaluarEntero(natural));
 	}
 
 	@Test
 	public void sePuedeCalcularUnaCuenta() {
-		Assert.assertEquals(2000, ebitda.calcular(consulta).intValue());
+		Assert.assertEquals(2000, evaluarEntero(ebitda));
 	}
 }

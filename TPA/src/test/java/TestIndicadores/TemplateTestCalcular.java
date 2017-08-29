@@ -5,12 +5,15 @@ import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.experimental.theories.DataPoints;
+import org.junit.experimental.theories.Theories;
+import org.junit.runner.RunWith;
 
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.*;
 
+@RunWith(Theories.class)
 public class TemplateTestCalcular {
 	public static Numero natural = new Numero(new BigDecimal(20));
 	public static Numero uno = new Numero(new BigDecimal(1));
@@ -30,6 +33,14 @@ public class TemplateTestCalcular {
 	
 	@DataPoints
 	public static Expresion[] numerosReales = {natural, uno, cero, entero, realNegativo, realPositivo, ebitda};
+	
+	public static BigDecimal evaluar(Expresion unaExpresion){
+		return unaExpresion.calcular(consulta);
+	}
+	
+	public static int evaluarEntero(Expresion unaExpresion){
+		return evaluar(unaExpresion).intValue();
+	}
 	
 	@Before
 	public void iniciarExpresiones(){
