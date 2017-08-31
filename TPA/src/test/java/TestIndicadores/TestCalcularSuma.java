@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Before;
 
-public class TestCalcularSuma extends TemplateTestCalcular{
+public class TestCalcularSuma extends TemplateTestIndicadores{
 	Suma sumaConNatural;
 	Suma sumaConEbitda;
 	Suma sumaConRoe;

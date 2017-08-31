@@ -12,7 +12,7 @@ import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Numero;
 
-public class TestCalcularMultiplicacion extends TemplateTestCalcular {
+public class TestCalcularMultiplicacion extends TemplateTestIndicadores {
 	Multiplicacion productoExpectante;
 	Multiplicacion productoConNatural;
 	

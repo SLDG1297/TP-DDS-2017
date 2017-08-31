@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-/*public class TestParser {
-	@Test
+@Deprecated
+public class TestParser {
+	/*@Test
 	public void parseaUnaEmpresaNombre() {
 		List<String> empresa = new ArrayList<String>();
 		
@@ -422,5 +422,5 @@ import org.junit.Test;
 		Assert.assertEquals(Parser.aEmpresas(empresasAParsear).get(1).getNombre(), "Axel's Consortium Bags");
 			
 	}
-	
-}*/
+*/	
+}

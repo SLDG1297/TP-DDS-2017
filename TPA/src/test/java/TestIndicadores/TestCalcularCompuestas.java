@@ -8,7 +8,7 @@ import org.junit.experimental.theories.Theory;
 
 import Modelo.Indicadores.*;
 
-public class TestCalcularCompuestas extends TemplateTestCalcular{
+public class TestCalcularCompuestas extends TemplateTestIndicadores{
 	@Test
 	public void sePuedeHacerUnCalculoConTodasLasOperacionesYValores(){
 		Suma adicion = new Suma(natural, entero);

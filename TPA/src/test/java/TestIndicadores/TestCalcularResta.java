@@ -12,7 +12,7 @@ import Excepciones.Indicadores.FaltaOperandoDerechoException;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Resta;
 
-public class TestCalcularResta extends TemplateTestCalcular{
+public class TestCalcularResta extends TemplateTestIndicadores{
 	Resta restaExpectante;
 	Resta restaConNatural;
 	

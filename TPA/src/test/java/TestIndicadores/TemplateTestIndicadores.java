@@ -14,7 +14,7 @@ import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.*;
 
 @RunWith(Theories.class)
-public class TemplateTestCalcular {
+public class TemplateTestIndicadores {
 	public static Numero natural = new Numero(new BigDecimal(20));
 	public static Numero uno = new Numero(new BigDecimal(1));
 	public static Numero cero = new Numero(new BigDecimal(0));

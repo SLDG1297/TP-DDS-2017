@@ -22,6 +22,7 @@ import Modelo.Indicadores.Query;
 import Modelo.Indicadores.Resta;
 import Modelo.Indicadores.Suma;
 
+@Deprecated
 public class TestCalcular {
 	// Para probar Numeros
 	Numero unaConstante = new Numero(new BigDecimal(200));

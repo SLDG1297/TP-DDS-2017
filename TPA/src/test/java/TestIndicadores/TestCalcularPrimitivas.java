@@ -3,7 +3,7 @@ package TestIndicadores;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TestCalcularPrimitivas extends TemplateTestCalcular{
+public class TestCalcularPrimitivas extends TemplateTestIndicadores{
 	@Test
 	public void sePuedeCalcularUnNumero() {
 		Assert.assertEquals(20, evaluarEntero(natural));

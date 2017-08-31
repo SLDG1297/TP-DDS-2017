@@ -7,9 +7,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Archivo.LectorDeArchivos;
-
-/*public class TestLectorDeArchivos {
-	
+@Deprecated
+public class TestLectorDeArchivos {
+	/*
 	@Test
 	public void ParserYLectorDeArchivos() {
 		List<List<String>> empresasAParsear = new ArrayList<List<String>>();
@@ -46,5 +46,5 @@ import Archivo.LectorDeArchivos;
 		
 		
 		Assert.assertEquals(Parser.aEmpresas(empresasAParsear).get(1).getPeriodos().get(0).getCuentas().get(1).getValor(), 7171);
-	}
-}*/
+	}*/
+}

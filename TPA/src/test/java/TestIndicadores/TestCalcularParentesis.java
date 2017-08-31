@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
 
-public class TestCalcularParentesis extends TemplateTestCalcular {
+public class TestCalcularParentesis extends TemplateTestIndicadores {
 	@Test
 	public void esLoMismoPonerMasParentesisAUnaSumaSimple() {
 		Suma suma = new Suma(natural, natural);

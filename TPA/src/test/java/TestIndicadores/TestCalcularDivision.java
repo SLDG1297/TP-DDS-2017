@@ -9,7 +9,7 @@ import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Numero;
 
-public class TestCalcularDivision extends TemplateTestCalcular {
+public class TestCalcularDivision extends TemplateTestIndicadores {
 	Numero dos = new Numero(new BigDecimal(2));
 	Numero cuatro = new Numero(new BigDecimal(4));
 
