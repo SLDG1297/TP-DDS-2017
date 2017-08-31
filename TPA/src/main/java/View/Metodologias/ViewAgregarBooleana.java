@@ -1,9 +1,5 @@
 package View.Metodologias;
 
-import java.io.IOException;
-
-import org.uqbar.arena.bindings.ObservableProperty;
-
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
@@ -11,10 +7,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.RadioSelector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
 import Modelo.Metodologias.Metodologia;
-import Archivo.Metodologias.AlmacenadorDeMetodologias;
-import Modelo.Metodologias.MetodologiaBuilder;
 
 public class ViewAgregarBooleana extends Window<VMAgregarBooleana> {
 

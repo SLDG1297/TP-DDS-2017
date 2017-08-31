@@ -3,40 +3,32 @@ package View.Metodologias.Comparacion;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
-import org.uqbar.arena.widgets.Selector;
-import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
+import Modelo.Metodologias.Comparadores.ComparadorGlobal;
 import Modelo.Metodologias.Comparadores.ComparadorMultiple;
-import Modelo.Metodologias.Comparadores.ComparadorUnario;
 
-public class ViewEvaluacionGlobal extends Window<VMEvaluacionGlobal>  {
+
+public class ViewEvaluacionGlobal extends ViewEvaluacion  {
 		
-		public ViewEvaluacionGlobal(WindowOwner panelPrincipal, VMEvaluacionGlobal vmEvaluacionGlobal) {
-			super(panelPrincipal, vmEvaluacionGlobal);
+		public ViewEvaluacionGlobal(WindowOwner panelPrincipal, VMEvaluacion vmEvaluacion) {
+			super(panelPrincipal, vmEvaluacion);
 		}
 
 		@Override
 		public void createContents(Panel panelPrincipal) {
 			
 			this.setTitle("Evaluacion global");
-			
-			new Label(panelPrincipal).setText("Elija metodologìa a utilizar");
-			new Label(panelPrincipal);
-			
-			Selector<String> selector = new Selector<String>(panelPrincipal);
-			selector.allowNull(false);
-			selector.bindItemsToProperty("listaDeMetodologias");
-			selector.bindValueToProperty("nombreMetodologiaElegida");
-			
-			new Label(panelPrincipal);
-			new Button(panelPrincipal).setCaption("Seleccionar").onClick(() -> this.getModelObject().buscarMetodologia());
+			mostrarMetodologias(panelPrincipal);
 			
 			new Label(panelPrincipal);
 			new Button(panelPrincipal).setCaption("Evaluar").onClick(() -> {
 				
-				ComparadorMultiple comparador = new ComparadorMultiple(this.getModelObject().getMetodologiaElegida());
-				new ViewResultadoGlobal(this,new VMResultadoGlobal(comparador.compararTodosconTodo())).open();
+				ComparadorGlobal comparador = new ComparadorGlobal(this.getModelObject().getMetodologiaElegida());
+				new ViewResultadoGlobal(this,new VMResultadoGlobal(comparador.comparar())).open();
 
 			});
-		}}
+			
+		}
+		
+	}

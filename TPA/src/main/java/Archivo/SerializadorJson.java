@@ -8,7 +8,7 @@ public class SerializadorJson {
 	
 	public String serializar(Object object){ //Recibo Object porque quiero que esta clase serialize cualquier objeto
 		Type type = new TypeToken<Object>(){}.getType(); //uso type por si quiero serializar listas
-		Gson gson = AdaptadorJson.getInstancia().getAdaptador(); //Usamos un adaptador para poder luego deserializar sin probloemas, ya que usamos interfaces
+		Gson gson = new AdaptadorJson().getAdaptador(); //Usamos un adaptador para poder luego deserializar sin probloemas, ya que usamos interfaces
 		return gson.toJson(object, type);
 	}
 

@@ -3,9 +3,9 @@ package Modelo.Indicadores;
 import java.math.BigDecimal;
 
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Modelo.Empresa.Deserializable;
+import Modelo.Empresa.Deserializa;
 
-public abstract class Operacion implements Expresion, Deserializable {
+public abstract class Operacion implements Expresion, Deserializa {
 	Expresion valorA, valorB;
 	
 	public Operacion(Expresion valorA) {
@@ -26,8 +26,21 @@ public abstract class Operacion implements Expresion, Deserializable {
 	public void addOperando(Expresion operando){
 		  this.valorB = operando;
 	}
-	
-	public String imprimirFormulaindicador(){
-		return "";
+
+	protected String imprimirValorB() {
+		if(valorB == null)
+			return "";		
+		
+		return valorB.imprimirFormula();
 	}
+	
+	abstract public String miOperador();
+		
+	public String imprimirFormula() {
+		if(valorA == null)
+			return "";
+		
+		return valorA.imprimirFormula() + " " + this.miOperador() + " " + this.imprimirValorB();
+	}
+	
 }

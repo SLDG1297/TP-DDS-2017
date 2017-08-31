@@ -1,7 +1,5 @@
 package View.Metodologias;
 
-import java.io.IOException;
-
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
@@ -9,10 +7,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.RadioSelector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
-import Archivo.Metodologias.AlmacenadorDeMetodologias;
 import Modelo.Metodologias.Metodologia;
-import Modelo.Metodologias.MetodologiaBuilder;
 
 public class ViewAgregarPromedioSumatoriaMediana extends Window<VMAgregarPromedioSumatoriaMediana> {
 
@@ -52,11 +47,7 @@ public class ViewAgregarPromedioSumatoriaMediana extends Window<VMAgregarPromedi
 		finalizarMetodologia.onClick(()->{
 		this.getModelObject().crearCondicion();
 		Metodologia miMetodologia = this.getModelObject().crearMetodologia();
-			try {
-				AlmacenadorDeMetodologias.getInstancia().almacenarRepositorioMetodologias();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	
 		new ViewMetodologiaCreada(this, new VMMetodologiaCreada(miMetodologia)).open();
 		});
 		

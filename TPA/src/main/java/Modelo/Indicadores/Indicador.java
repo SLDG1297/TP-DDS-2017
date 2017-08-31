@@ -2,9 +2,9 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-import Modelo.Empresa.Deserializable;
+import Modelo.Empresa.Deserializa;
 
-public class Indicador implements Expresion, Deserializable{
+public class Indicador implements Expresion, Deserializa{
 
 	private String nombre;
 	private Expresion formula;
@@ -37,12 +37,8 @@ public class Indicador implements Expresion, Deserializable{
 	public void addOperando(Expresion operando){
 	}
 	
-	public String imprimirFormulaindicador(){
-		if (!formula.imprimirFormulaindicador().equals("")){
-			return getNombre() + "," + formula.imprimirFormulaindicador();
-		}else{
-			return getNombre() + ",";
-		}
+	public String imprimirFormula() {
+		return "( " + nombre + " = " + formula.imprimirFormula() + " )";
 	}
 	
 }

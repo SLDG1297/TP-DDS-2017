@@ -3,15 +3,12 @@ package View.Metodologias;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.uqbar.commons.utils.Observable;
-
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiaBuilder;
 import Modelo.Metodologias.Condiciones.Condicion;
-import Modelo.Metodologias.Condiciones.MayorAEnPeriodos;
-import Modelo.Metodologias.Condiciones.MenorAEnPeriodos;
+import Modelo.Metodologias.Condiciones.CondicionFactory;
 
 @Observable
 public class VMAgregarBooleana {
@@ -73,10 +70,10 @@ public class VMAgregarBooleana {
     	Indicador indicadorSeleccionado = miMetodologiaBuilder.getIndicadorSeleccionado();
     	Condicion nuevaCondicion;
     	if(operacionElegida.equals("Mayor")){
-    		nuevaCondicion = new MayorAEnPeriodos(indicadorSeleccionado, valorElegido, periodoElegido);
+    		nuevaCondicion = new CondicionFactory().crearMayorAEnPeriodos(indicadorSeleccionado, valorElegido, periodoElegido);
     	}
     	else{
-    		nuevaCondicion = new MenorAEnPeriodos(indicadorSeleccionado, valorElegido, periodoElegido);
+    		nuevaCondicion = new CondicionFactory().crearMenorAEnPeriodos(indicadorSeleccionado, valorElegido, periodoElegido);
     	}
     	miMetodologiaBuilder.agregarCondicion(nuevaCondicion);
     }

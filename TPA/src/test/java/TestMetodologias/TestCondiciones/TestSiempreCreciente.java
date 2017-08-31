@@ -1,16 +1,12 @@
 package TestMetodologias.TestCondiciones;
 
-import java.math.BigDecimal;
-
 import org.junit.Assert;
 import org.junit.Test;
-
 import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.Condicion;
-import Modelo.Metodologias.Condiciones.PromedioMayorA;
 import Modelo.Metodologias.Condiciones.SiempreCreciente;
 
 public class TestSiempreCreciente extends TestCondiciones {

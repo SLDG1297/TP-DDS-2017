@@ -10,10 +10,10 @@ import org.uqbar.arena.windows.WindowOwner;
 
 import Archivo.EscritorDeAchivos;
 import Archivo.SerializadorJson;
-import Modelo.Indicadores.CadenaActualDeMiIndicador;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.IndicadoresRepository;
+import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Resta;
 import Modelo.Indicadores.Suma;
@@ -52,47 +52,48 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 
 		suma.onClick(() -> {
 			
-			this.efectoBotonOperacion("+", new Suma(getOperandoAnterior()));
+			this.efectoBotonOperacion(new Suma(getOperandoAnterior()));
 
 		});
 
 		resta.onClick(() -> {
 			
-			this.efectoBotonOperacion("-", new Resta(getOperandoAnterior()));
+			this.efectoBotonOperacion(new Resta(getOperandoAnterior()));
 
 		});
 
 		multiplicar.onClick(() -> {
 			
-			this.efectoBotonOperacion("*", new Multiplicacion(getOperandoAnterior()));
+			this.efectoBotonOperacion(new Multiplicacion(getOperandoAnterior()));
 
 		});
 
 		dividir.onClick(() -> {
 			
-			this.efectoBotonOperacion("/", new Division(getOperandoAnterior()));
+			this.efectoBotonOperacion(new Division(getOperandoAnterior()));
 
 		});
 
 		crear.onClick(() -> {
 
+			Indicador indicadorCreado;
+			
 			this.agregarSegundoOperando();
-			this.getModelObject().miIndicadorBuilder.crearIndicador(this.getOperandoAnterior());
-			this.mostrarCadena(this.cadena());
-			this.mensajeIndicadorCreado();
-			CadenaActualDeMiIndicador.instanciar().eliminarCadenaActual();
+			indicadorCreado = this.getModelObject().miIndicadorBuilder.crearIndicador(this.getOperandoAnterior());
 			String lista = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
 			new EscritorDeAchivos().escribir("repositorioIndicadores.csv", lista);
+			
+			this.mensajeIndicadorCreado(indicadorCreado);
 		});
 
 	}
 	
 	//Es el algoritmo/efecto que usan todos botones operacion 
-	private void efectoBotonOperacion(String x, Expresion y ){
+	private void efectoBotonOperacion(Expresion y) {
 		this.agregarSegundoOperando();
-		this.mostrarCadena(this.cadena());
+		this.mostrarCadena();
 		this.nuevaOperacion(y);
-		this.mostrarCadena(x);
+		this.mostrarCadena();
 		this.nuevaViewOperando();
 	}
 	
@@ -116,16 +117,16 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	}
 		
 	// Es para el manejo de cadenas
-	private void mostrarCadena(String string) {
-		CadenaActualDeMiIndicador.instanciar().agregar(string);
+	private void mostrarCadena() {
+		this.getModelObject().miIndicadorBuilder.imprimirFormula();
 	}
 
 	private void nuevaViewOperando() {
 		new ViewOperando(this, new VMOperando(this.getModelObject().getMiIndicadorBuilder())).open();
 	}
 
-	private void mensajeIndicadorCreado() {
-		new ViewIndicadorCreado(this, new VMIndicadorCreado()).open();
+	private void mensajeIndicadorCreado(Indicador indicadorNuevo) {
+		new ViewIndicadorCreado(this, new VMIndicadorCreado(indicadorNuevo)).open();
 	}
 	
 	

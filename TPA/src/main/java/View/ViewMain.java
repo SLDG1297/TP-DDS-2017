@@ -5,6 +5,7 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
+
 import Archivo.Indicadores.InstanciadorListaIndicadores;
 import View.Cuentas.VMCargarCuentas;
 import View.Cuentas.ViewCargarCuentas;
@@ -37,10 +38,12 @@ public class ViewMain extends MainWindow<VM_Main> {
 	public static void main(String[] args) throws IOException {
 		
 		new Instanciador_Bolsa_Empresas().instanciar();
-		
+
 		new InstanciadorListaIndicadores().instanciarListaIndicadores();
 		
 		new ViewMain().startApplication(); 
+		
+		// System.out.println(IndicadoresRepository.getInstancia().getIndicador("IndicadorConOperaciones").imprimirFormula());
 		
 	}
 

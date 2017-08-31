@@ -56,12 +56,6 @@ public abstract class Comportamiento extends Condicion {
 	
 		return try1.get().compareTo(try2.get()) == 1;
 	}
-	
-	protected int booleano(){
-		return 0;
-	}
-	
-	
 
 
 }
