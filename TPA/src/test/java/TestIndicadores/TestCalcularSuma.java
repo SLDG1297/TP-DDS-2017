@@ -15,12 +15,14 @@ import org.junit.Before;
 public class TestCalcularSuma extends TemplateTestCalcular{
 	Suma sumaConNatural;
 	Suma sumaConEbitda;
+	Suma sumaConRoe;
 	Suma sumaConSumas;
 	
 	@Before
 	public void iniciarSuma(){
 		sumaConNatural = new Suma(natural);
 		sumaConEbitda = new Suma(natural, ebitda);
+		sumaConRoe = new Suma(natural, roe);
 		sumaConSumas = new Suma(sumaConEbitda, sumaConEbitda);
 	}
 	
@@ -57,6 +59,13 @@ public class TestCalcularSuma extends TemplateTestCalcular{
 		sumaConNatural.addOperando(ebitda);
 		
 		Assert.assertEquals(new BigDecimal(2020), evaluar(sumaConNatural));
+	}
+	
+	@Test
+	public void calcularSumaCuentaConIndicador(){
+		sumaConEbitda.addOperando(roe);
+		
+		Assert.assertEquals(new BigDecimal(-3100), evaluar(sumaConEbitda));
 	}
 	
 	@Test

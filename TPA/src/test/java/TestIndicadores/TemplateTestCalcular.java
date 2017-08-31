@@ -24,6 +24,10 @@ public class TemplateTestCalcular {
 	
 	public static Cuenta ebitda = new Cuenta("EBITDA", 2000);
 	public static Cuenta fcf = new Cuenta("FCF", 0);
+	public static Cuenta xd = new Cuenta("XD", 12500);
+	
+	public static Indicador roe = crearMockDeIndicador();
+	public static Indicador roa = new Indicador("ROA", new Suma(roe, ebitda));
 	
 	public static Periodo periodo;
 	
@@ -32,7 +36,7 @@ public class TemplateTestCalcular {
 	public static Query consulta;
 	
 	@DataPoints
-	public static Expresion[] numerosReales = {natural, uno, cero, entero, realNegativo, realPositivo, ebitda};
+	public static Expresion[] numerosReales = {natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa};
 	
 	public static BigDecimal evaluar(Expresion unaExpresion){
 		return unaExpresion.calcular(consulta);
@@ -42,9 +46,22 @@ public class TemplateTestCalcular {
 		return evaluar(unaExpresion).intValue();
 	}
 	
+	public static Indicador crearMockDeIndicador(){
+		Resta sustraccion = new Resta(xd);
+		sustraccion.addOperando(natural);
+		
+		Multiplicacion producto = new Multiplicacion(sustraccion);
+		producto.addOperando(entero);
+		
+		Division formula = new Division(producto);
+		formula.addOperando(ebitda);
+		
+		return new Indicador("ROE", formula);
+	}
+	
 	@Before
 	public void iniciarExpresiones(){
-		periodo = new Periodo(2001, Arrays.asList(ebitda, fcf));
+		periodo = new Periodo(2001, Arrays.asList(ebitda, fcf, xd));
 		
 		empresa = new Empresa("Rolito", Arrays.asList(periodo));
 		

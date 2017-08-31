@@ -13,4 +13,9 @@ public class TestCalcularPrimitivas extends TemplateTestCalcular{
 	public void sePuedeCalcularUnaCuenta() {
 		Assert.assertEquals(2000, evaluarEntero(ebitda));
 	}
+	
+	@Test
+	public void sePuedeCalcularUnIndicador() {
+		Assert.assertEquals(-3120, evaluarEntero(roe));
+	}
 }
