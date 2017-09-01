@@ -22,7 +22,7 @@ public class TestEmpresa {
 	Cuenta cuenta4 = new Cuenta("XD", 420);
 	Cuenta cuenta5 = new Cuenta("Aserejé", 15000);
 
-	Periodo periodo1 = new Periodo(2006, Arrays.asList(cuenta1, cuenta2));
+	Periodo periodo1 = new Periodo(2006, Arrays.asList(cuenta1, cuenta2, cuenta4));
 	Periodo periodo2 = new Periodo(2007, Arrays.asList(cuenta3, cuenta4));
 	Periodo periodo3 = new Periodo(2007, Arrays.asList(cuenta3));
 	Periodo periodo4 = new Periodo(2008, Arrays.asList(cuenta5, cuenta3));
@@ -57,6 +57,11 @@ public class TestEmpresa {
 	@Test
 	public void sePuedeEncontrarUnPeriodo() {
 		Assert.assertEquals(periodo1, empresa.buscarPeriodo(2006));
+	}
+	
+	@Test
+	public void sePuedeEncontrarLaMismaCuentaEnDosPeriodosDistintos() {
+		Assert.assertEquals(empresa.buscarPeriodo(2006).buscarCuenta("XD").getNombre(), empresa.buscarPeriodo(2007).buscarCuenta("XD").getNombre());
 	}
 
 	@Test(expected = NoExisteElPeriodoException.class)

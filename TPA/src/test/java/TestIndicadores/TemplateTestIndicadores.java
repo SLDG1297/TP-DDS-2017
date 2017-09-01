@@ -25,15 +25,17 @@ public class TemplateTestIndicadores {
 	public static Cuenta ebitda = new Cuenta("EBITDA", 2000);
 	public static Cuenta fcf = new Cuenta("FCF", 0);
 	public static Cuenta xd = new Cuenta("XD", 12500);
+	public static Cuenta otroxd = new Cuenta("XD", 12000);
 	
 	public static Indicador roe = crearMockDeIndicador();
 	public static Indicador roa = new Indicador("ROA", new Suma(roe, ebitda));
 	
-	public static Periodo periodo;
+	public static Periodo periodo2001 = new Periodo(2001, Arrays.asList(ebitda, fcf, xd));
+	public static Periodo periodo2002 = new Periodo(2002, Arrays.asList(otroxd));
 	
-	public static Empresa empresa;
+	public static Empresa empresa = new Empresa("Rolito", Arrays.asList(periodo2001, periodo2002));
 	
-	public static Query consulta;
+	public static Query consulta = new Query(empresa, periodo2001.getAnio());
 	
 	@DataPoints
 	public static Expresion[] numerosReales = {natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa};
@@ -57,14 +59,5 @@ public class TemplateTestIndicadores {
 		formula.addOperando(ebitda);
 		
 		return new Indicador("ROE", formula);
-	}
-	
-	@Before
-	public void iniciarExpresiones(){
-		periodo = new Periodo(2001, Arrays.asList(ebitda, fcf, xd));
-		
-		empresa = new Empresa("Rolito", Arrays.asList(periodo));
-		
-		consulta = new Query(empresa, periodo.getAnio());
 	}
 }
