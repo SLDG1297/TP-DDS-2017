@@ -1,5 +1,7 @@
 package TestIndicadores;
 
+import static Factories.FactoryIndicador.crearIndicador;
+
 import org.junit.Test;
 
 import Excepciones.Indicadores.IndicadorSinFormulaException;
@@ -8,7 +10,7 @@ import Modelo.Indicadores.*;
 import org.junit.Assert;
 
 public class TestIndicador extends TemplateTestIndicadores {
-	Indicador van = new Indicador("VAN", roe);
+	Indicador van = crearIndicador("VAN", roe);
 
 	@Test
 	public void sePuedeObtenerLaCadenaConLaFormulaDelIndicador() {
@@ -17,11 +19,11 @@ public class TestIndicador extends TemplateTestIndicadores {
 
 	@Test(expected = IndicadorSinNombreException.class)
 	public void noSePuedeInstanciarIndicadorSinNombre() {
-		new Indicador("", cero);
+		crearIndicador("", cero);
 	}
 
 	@Test(expected = IndicadorSinFormulaException.class)
 	public void noSePuedeInstanciarIndicadorSinFormula() {
-		new Indicador("No Tengo nada", null);
+		crearIndicador("No Tengo nada", null);
 	}
 }

@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Arrays;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,61 +14,66 @@ import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Periodo;
 
+import static Factories.FactoryCuenta.*;
+import static Factories.FactoryPeriodo.*;
+
 public class TestPeriodo {
-	Cuenta cuenta1 = new Cuenta("Rolito", 500);
-	Cuenta cuenta2 = new Cuenta("Axxxel", 700);
-	Cuenta cuenta3 = new Cuenta("Skybell", 800);
-	
+	Cuenta cuenta1, cuenta2, cuenta3;
+
 	Periodo periodo;
-	
+
 	@Before
-	public void iniciarPeriodo(){
-		List<Cuenta> cuentas = new LinkedList<Cuenta>();
-		cuentas.addAll(Arrays.asList(cuenta1, cuenta2));
-		
-		periodo = new Periodo(2000, cuentas);
+	public void iniciarCuentas() {
+		cuenta1 = crearCuenta("Rolito", 500);
+		cuenta2 = crearCuenta("Axxxel", 700);
+		cuenta3 = crearCuenta("Skybell", 800);
 	}
-	
+
+	@Before
+	public void iniciarPeriodo() {
+		periodo = crearPeriodo(2000, cuenta1, cuenta2);
+	}
+
 	@Test(expected = PeriodoSinCuentasException.class)
-	public void noSeDeberiaPoderCrearUnPeriodoSinCuentas(){
-		periodo.setCuentas(null);
+	public void noSeDeberiaPoderCrearUnPeriodoSinCuentas() {
+		crearPeriodo(2000);
 	}
-	
+
 	@Test
-	public void sePuedenEncontrarTodasLasCuentas(){
+	public void sePuedenEncontrarTodasLasCuentas() {
 		Cuenta rolito = periodo.buscarCuenta("Rolito");
 		Cuenta axxxel = periodo.buscarCuenta("Axxxel");
-		
+
 		Assert.assertEquals(cuenta1, rolito);
 		Assert.assertEquals(cuenta2, axxxel);
 	}
-	
+
 	@Test(expected = NoTieneLaCuentaException.class)
-	public void noDeberiaEncontrarseUnaCuentaQueNoEstaEnElPeriodo(){
+	public void noDeberiaEncontrarseUnaCuentaQueNoEstaEnElPeriodo() {
 		periodo.buscarCuenta("PuseCualquierCosa");
 	}
-	
+
 	@Test
-	public void sePuedeAgregarUnaCuenta(){
+	public void sePuedeAgregarUnaCuenta() {
 		periodo.agregarCuenta(cuenta3);
-		
+
 		Assert.assertEquals(Arrays.asList(cuenta1, cuenta2, cuenta3), periodo.getCuentas());
 	}
-	
+
 	@Test(expected = YaExisteLaCuentaException.class)
-	public void noSeDeberiaAgregarUnaCuentaQueYaExsite(){
+	public void noSeDeberiaAgregarUnaCuentaQueYaExsite() {
 		periodo.agregarCuenta(cuenta1);
 	}
-	
+
 	@Test
-	public void sePuedeBuscarUnaCuenta(){
+	public void sePuedeBuscarUnaCuenta() {
 		Cuenta cuentaBuscada = periodo.buscarCuenta("Rolito");
-		
+
 		Assert.assertEquals(cuenta1, cuentaBuscada);
 	}
-	
-	@Test (expected = NoTieneLaCuentaException.class)
-	public void noSeDeberiaEncontrarUnaCuentaQueNoExiste(){
+
+	@Test(expected = NoTieneLaCuentaException.class)
+	public void noSeDeberiaEncontrarUnaCuentaQueNoExiste() {
 		periodo.buscarCuenta("NoDeberíaHaberUnaEmpresaAsí");
 	}
 

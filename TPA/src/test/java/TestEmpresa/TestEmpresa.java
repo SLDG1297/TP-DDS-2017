@@ -15,39 +15,48 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 
-public class TestEmpresa {
-	Cuenta cuenta1 = new Cuenta("XD", 680);
-	Cuenta cuenta2 = new Cuenta("DX", 86);
-	Cuenta cuenta3 = new Cuenta("Holis", 1000);
-	Cuenta cuenta4 = new Cuenta("XD", 420);
-	Cuenta cuenta5 = new Cuenta("Aserejé", 15000);
+import static Factories.FactoryCuenta.*;
+import static Factories.FactoryPeriodo.*;
+import static Factories.FactoryEmpresa.*;
 
-	Periodo periodo1 = new Periodo(2006, Arrays.asList(cuenta1, cuenta2, cuenta4));
-	Periodo periodo2 = new Periodo(2007, Arrays.asList(cuenta3, cuenta4));
-	Periodo periodo3 = new Periodo(2007, Arrays.asList(cuenta3));
-	Periodo periodo4 = new Periodo(2008, Arrays.asList(cuenta5, cuenta3));
+public class TestEmpresa {
+	Cuenta cuenta1, cuenta2, cuenta3, cuenta4, cuenta5, cuenta6;
+
+	Periodo periodo1, periodo2, periodo3, periodo4;
 
 	Empresa empresa;
+	
+	@Before
+	public void iniciarCuentas() {
+		cuenta1 = crearCuenta("XD", 680);
+		cuenta2 = crearCuenta("DX", 86);
+		cuenta3 = crearCuenta("Holis", 1000);
+		cuenta4 = crearCuenta("XD", 420);
+		cuenta5 = crearCuenta("Aserejé", 15000);
+	}
+	
+	@Before
+	public void iniciarPeriodos() {
+		periodo1 = crearPeriodo(2006, cuenta1, cuenta2, cuenta4);
+		periodo2 = crearPeriodo(2007, cuenta3, cuenta4);
+		periodo3 = crearPeriodo(2007, cuenta3);
+		periodo4 = crearPeriodo(2008, cuenta5, cuenta3);
+	}
 
 	@Before
 	public void iniciarEmpresa() {
-		List<Periodo> periodos = new LinkedList<Periodo>();
-		periodos.addAll(Arrays.asList(periodo1, periodo2));
-		
-		empresa = new Empresa("Rolito INC.", periodos);
+		empresa = crearEmpresa("Rolito INC.", periodo1, periodo2);
 	}
 
 	@Test(expected = EmpresaSinNombreException.class)
 	public void noSeDeberianTenerEmpresasSinNombre() {
-		new Empresa("", Arrays.asList(periodo1));
+		crearEmpresa("", periodo1);
 	}
 
 	@Test(expected = EmpresaSinPeriodoException.class)
 	public void noSeDeberianTenerEmpresasSinPeriodos() {
-		new Empresa("No hay nada", Arrays.asList());
+		crearEmpresa("No hay nada");
 	}
-
-	// TODO: No se le puede añadir cuentas y períodos a la empresa. Por qué no son mutables?
 
 	@Test
 	public void sePuedenObtenerLosAniosDeLosPeriodos() {

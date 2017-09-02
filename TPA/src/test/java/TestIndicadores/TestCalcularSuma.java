@@ -3,6 +3,9 @@ package TestIndicadores;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 
+import static Factories.FactoryNumero.*;
+import static Factories.FactoryOperaciones.*;
+
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Suma;
@@ -13,17 +16,14 @@ import org.junit.Assert;
 import org.junit.Before;
 
 public class TestCalcularSuma extends TemplateTestIndicadores{
-	Suma sumaConNatural;
-	Suma sumaConEbitda;
-	Suma sumaConRoe;
-	Suma sumaConSumas;
+	Suma sumaConNatural, sumaConEbitda, sumaConRoe, sumaConSumas;
 	
 	@Before
 	public void iniciarSuma(){
-		sumaConNatural = new Suma(natural);
-		sumaConEbitda = new Suma(natural, ebitda);
-		sumaConRoe = new Suma(natural, roe);
-		sumaConSumas = new Suma(sumaConEbitda, sumaConEbitda);
+		sumaConNatural = sumar(natural);
+		sumaConEbitda = sumar(natural, ebitda);
+		sumaConRoe = sumar(natural, roe);
+		sumaConSumas = sumar(sumaConEbitda, sumaConEbitda);
 	}
 	
 	@Test
@@ -88,8 +88,8 @@ public class TestCalcularSuma extends TemplateTestIndicadores{
 	@Theory
 	public void laSumaEsConmutativa(Expresion operandoIzquierdo, Expresion operandoDerecho)
 	{
-		int valor1 = evaluarEntero(new Suma(operandoIzquierdo, operandoDerecho));
-		int valor2 = evaluarEntero(new Suma(operandoDerecho, operandoIzquierdo));
+		int valor1 = evaluarEntero(sumar(operandoIzquierdo, operandoDerecho));
+		int valor2 = evaluarEntero(sumar(operandoDerecho, operandoIzquierdo));
 		
 		Assert.assertEquals(valor1, valor2);
 	}

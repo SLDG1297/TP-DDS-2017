@@ -1,9 +1,15 @@
 package TestIndicadores;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
+import static Factories.FactoryCuenta.crearCuenta;
+import static Factories.FactoryEmpresa.crearEmpresa;
+import static Factories.FactoryIndicador.crearIndicador;
+import static Factories.FactoryNumero.crearNumero;
+import static Factories.FactoryOperaciones.*;
+import static Factories.FactoryPeriodo.crearPeriodo;
+import static Factories.FactoryQueryIndicador.consultar;
 
-import org.junit.Before;
+import java.math.BigDecimal;
+
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
@@ -11,53 +17,43 @@ import org.junit.runner.RunWith;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
-import Modelo.Indicadores.*;
+import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Indicador;
+import Modelo.Indicadores.Numero;
+import Modelo.Indicadores.Query;
 
 @RunWith(Theories.class)
 public class TemplateTestIndicadores {
-	public static Numero natural = new Numero(new BigDecimal(20));
-	public static Numero uno = new Numero(new BigDecimal(1));
-	public static Numero cero = new Numero(new BigDecimal(0));
-	public static Numero entero = new Numero(new BigDecimal(-500));
-	public static Numero realPositivo = new Numero(new BigDecimal(500.35));
-	public static Numero realNegativo = new Numero(new BigDecimal(-200.13));
-	
-	public static Cuenta ebitda = new Cuenta("EBITDA", 2000);
-	public static Cuenta fcf = new Cuenta("FCF", 0);
-	public static Cuenta xd = new Cuenta("XD", 12500);
-	public static Cuenta otroxd = new Cuenta("XD", 12000);
-	
-	public static Indicador roe = crearMockDeIndicador();
-	public static Indicador roa = new Indicador("ROA", new Suma(roe, ebitda));
-	
-	public static Periodo periodo2001 = new Periodo(2001, Arrays.asList(ebitda, fcf, xd));
-	public static Periodo periodo2002 = new Periodo(2002, Arrays.asList(otroxd));
-	
-	public static Empresa empresa = new Empresa("Rolito", Arrays.asList(periodo2001, periodo2002));
-	
-	public static Query consulta = new Query(empresa, periodo2001.getAnio());
-	
+	public static Numero natural = crearNumero(20);
+	public static Numero uno = crearNumero(1);
+	public static Numero cero = crearNumero(0);
+	public static Numero entero = crearNumero(-500);
+	public static Numero realPositivo = crearNumero(500.35);
+	public static Numero realNegativo = crearNumero(-200.13);
+
+	public static Cuenta ebitda = crearCuenta("EBITDA", 2000);
+	public static Cuenta fcf = crearCuenta("FCF", 0);
+	public static Cuenta xd = crearCuenta("XD", 12500);
+	public static Cuenta otroxd = crearCuenta("XD", 12000);
+
+	public static Indicador roe = crearIndicador("ROE", dividir(multiplicar(restar(xd, natural), entero), ebitda));
+	public static Indicador roa = crearIndicador("ROA", sumar(roe, ebitda));
+
+	public static Periodo periodo2001 = crearPeriodo(2001, ebitda, fcf, xd);
+	public static Periodo periodo2002 = crearPeriodo(2002, otroxd);
+
+	public static Empresa empresa = crearEmpresa("Rolito", periodo2001, periodo2002);
+
+	public static Query consulta = consultar(empresa, periodo2001);
+
 	@DataPoints
-	public static Expresion[] numerosReales = {natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa};
-	
-	public static BigDecimal evaluar(Expresion unaExpresion){
+	public static Expresion[] numerosReales = { natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa };
+
+	public static BigDecimal evaluar(Expresion unaExpresion) {
 		return unaExpresion.calcular(consulta);
 	}
-	
-	public static int evaluarEntero(Expresion unaExpresion){
+
+	public static int evaluarEntero(Expresion unaExpresion) {
 		return evaluar(unaExpresion).intValue();
-	}
-	
-	public static Indicador crearMockDeIndicador(){
-		Resta sustraccion = new Resta(xd);
-		sustraccion.addOperando(natural);
-		
-		Multiplicacion producto = new Multiplicacion(sustraccion);
-		producto.addOperando(entero);
-		
-		Division formula = new Division(producto);
-		formula.addOperando(ebitda);
-		
-		return new Indicador("ROE", formula);
 	}
 }

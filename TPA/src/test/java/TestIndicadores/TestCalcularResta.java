@@ -8,36 +8,37 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 
+import static Factories.FactoryOperaciones.restar;
+
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Resta;
 
 public class TestCalcularResta extends TemplateTestIndicadores{
-	Resta restaExpectante;
-	Resta restaConNatural;
+	Resta restaExpectante, restaConNatural;
 	
 	@Before
 	public void iniciarResta(){
-		restaConNatural = new Resta(natural);
+		restaConNatural = restar(natural);
 	}
 	
 	@Test
 	public void sePuedenRestarVariosOperandos(){
-		restaConNatural.addOperando(new Resta(cero, uno));
+		restaConNatural.addOperando(restar(cero, uno));
 		
 		Assert.assertEquals(new BigDecimal(21), evaluar(restaConNatural));
 	}
 	
 	@Theory
 	public void restarPorCeroDaSiMismo(Expresion unValor){
-		restaExpectante = new Resta(unValor, cero);
+		restaExpectante = restar(unValor, cero);
 		
 		Assert.assertEquals(evaluar(unValor), evaluar(restaExpectante));
 	}
 	
 	@Theory
 	public void restarUnNumeroPorSiMismoDaElNeutro(Expresion unValor){
-		restaExpectante = new Resta(unValor, unValor);
+		restaExpectante = restar(unValor, unValor);
 		
 		Assert.assertTrue(evaluarEntero(restaExpectante) == evaluarEntero(cero));
 	}
@@ -55,8 +56,8 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	public void laRestaNoEsConmutativaPorElOrdenEnQueSeAniadenOperandos(Expresion operandoIzquierdo, Expresion operandoDerecho){
 		Assume.assumeFalse(operandoIzquierdo.equals(operandoDerecho));
 		
-		int valor1 = evaluarEntero(new Resta(operandoIzquierdo, operandoDerecho));
-		int valor2 = evaluarEntero(new Resta(operandoDerecho, operandoIzquierdo));
+		int valor1 = evaluarEntero(restar(operandoIzquierdo, operandoDerecho));
+		int valor2 = evaluarEntero(restar(operandoDerecho, operandoIzquierdo));
 		
 		Assert.assertNotEquals(valor1, valor2);
 	}
@@ -65,7 +66,7 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	public void noSePuedeRestarSiFaltaElOperandoDerecho(Expresion unValor){
 		try
 		{
-			restaExpectante = new Resta(unValor);
+			restaExpectante = restar(unValor);
 			evaluar(restaExpectante);
 		}
 		catch (FaltaOperandoDerechoException excepcion)

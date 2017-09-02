@@ -2,6 +2,8 @@ package TestIndicadores;
 
 import java.math.BigDecimal;
 
+import static Factories.FactoryOperaciones.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
@@ -11,33 +13,33 @@ import Modelo.Indicadores.*;
 public class TestCalcularCompuestas extends TemplateTestIndicadores{
 	@Test
 	public void sePuedeHacerUnCalculoConTodasLasOperacionesYValores(){
-		Suma adicion = new Suma(natural, entero);
+		Suma adicion = sumar(natural, entero);
 		
-		Multiplicacion producto = new Multiplicacion(adicion, roe);
+		Multiplicacion producto = multiplicar(adicion, roe);
 		
-		Parentesis parentesis = new Parentesis(producto);
+		Parentesis parentesis = parentesis(producto);
 		
-		Resta sustraccion = new Resta(parentesis, ebitda);
+		Resta sustraccion = restar(parentesis, ebitda);
 		
-		Division resultado = new Division(sustraccion, natural);
+		Division resultado = dividir(sustraccion, natural);
 		
 		Assert.assertEquals(new BigDecimal(74780), evaluar(resultado));
 	}
 	
 	@Theory
 	public void seCumpleLaPropiedadDistributivaDeLaMultiplicacion(Expresion a, Expresion b){
-		Suma sinDistribuir = new Suma(new Multiplicacion(a, b), new Multiplicacion(a, b));
+		Suma sinDistribuir = sumar(multiplicar(a, b), multiplicar(a, b));
 		
-		Multiplicacion conDistribucion = new Multiplicacion(a, new Parentesis(new Suma(b, b)));
+		Multiplicacion conDistribucion = multiplicar(a, parentesis(sumar(b, b)));
 		
 		Assert.assertEquals(evaluar(sinDistribuir), evaluar(conDistribucion));
 	}
 	
 	@Test
 	public void elNumeradorPuedeDistribuirseRespectoDeLaSuma(){
-		Division sinDistribucion = new Division(new Suma(natural, xd), natural);
+		Division sinDistribucion = dividir(sumar(natural, xd), natural);
 		
-		Suma conDistribucion = new Suma(new Division(natural, natural), new Division(xd, natural));
+		Suma conDistribucion = sumar(dividir(natural, natural), dividir(xd, natural));
 		
 		Assert.assertEquals(evaluar(sinDistribucion), evaluar(conDistribucion));
 	}

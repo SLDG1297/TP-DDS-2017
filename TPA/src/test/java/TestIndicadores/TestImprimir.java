@@ -1,5 +1,7 @@
 package TestIndicadores;
 
+import static Factories.FactoryOperaciones.*;
+
 import org.junit.Test;
 
 import Modelo.Indicadores.*;
@@ -26,31 +28,31 @@ public class TestImprimir extends TemplateTestIndicadores {
 
 	@Test
 	public void sePuedeImprimirSumaParcialConNumeroNatural() {
-		impresionParcial("1 + ", new Suma(uno));
+		impresionParcial("1 + ", sumar(uno));
 	}
 	
 	@Test
 	public void sePuedeImprimirRestaParcialConNumeroEntero() {
-		impresionParcial("-500 - ", new Resta(entero));
+		impresionParcial("-500 - ", restar(entero));
 	}
 	
 	@Test
 	public void sePuedeImprimirProductoParcialConCuenta() {
-		impresionParcial("EBITDA * ", new Multiplicacion(ebitda));
+		impresionParcial("EBITDA * ", multiplicar(ebitda));
 	}
 	
 	@Test
 	public void sePuedeImprimirParentesisParcialConIndicador() {
-		impresionParcial("( ( ROE = XD - 20 * -500 / EBITDA ) )", new Parentesis(roe));
+		impresionParcial("( ( ROE = XD - 20 * -500 / EBITDA ) )", parentesis(roe));
 	}
 	
 	@Test
 	public void sePuedeImprmirExpresionesMezcladas() {
-		impresionParcial("1 - 0 + ( -500 * EBITDA / ( ROE = XD - 20 * -500 / EBITDA ) )", new Suma(new Resta(uno, cero), new Parentesis(new Multiplicacion(entero, new Division(ebitda, roe)))));
+		impresionParcial("1 - 0 + ( -500 * EBITDA / ( ROE = XD - 20 * -500 / EBITDA ) )", sumar(restar(uno, cero), parentesis(multiplicar(entero, dividir(ebitda, roe)))));
 	}
 	
 	@Test
 	public void sePuedenImprmirMuchosParentesis() {
-		impresionParcial("( ( ( ( ROA = ( ROE = XD - 20 * -500 / EBITDA ) + EBITDA ) ) ) )", new Parentesis(new Parentesis(new Parentesis(roa))));
+		impresionParcial("( ( ( ( ROA = ( ROE = XD - 20 * -500 / EBITDA ) + EBITDA ) ) ) )", parentesis(parentesis(parentesis(roa))));
 	}
 }
