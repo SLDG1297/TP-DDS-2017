@@ -1,6 +1,13 @@
 package TestMetodologias.TestComparadores;
 
-import java.util.Arrays;
+import static Factories.FactoryCuenta.crearCuenta;
+import static Factories.FactoryEmpresa.crearEmpresa;
+import static Factories.FactoryIndicador.crearIndicador;
+import static Factories.FactoryNumero.crearNumero;
+import static Factories.FactoryOperaciones.*;
+import static Factories.FactoryPeriodo.crearPeriodo;
+import static Factories.FactoryCondiciones.*;
+import static Factories.FactoryMetodologia.*;
 
 import org.junit.Before;
 
@@ -8,11 +15,13 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
+import Modelo.Metodologias.Metodologia;
+import Modelo.Metodologias.Condiciones.Condiciones;
 
 public class TemplateTestComparadores {
 	static Cuenta xd2006a, xd2007a, xd2008a, dx2007a, dx2008a, ja2008a;
 	static Cuenta xd2007b, xd2008b, dx2008b, ja2008b;
-	static Cuenta xd2008c, dx2008c, ja2008c;
+	static Cuenta ja2008c;
 	
 	static Periodo periodo2006a, periodo2007a, periodo2008a;
 	static Periodo periodo2006b, periodo2007b, periodo2008b;
@@ -22,30 +31,73 @@ public class TemplateTestComparadores {
 	
 	static Indicador xxxd, dxxx, jajaja;
 	
+	static Condiciones mayor, promedio, sumatoria, estaNoLaCumpleNadie, estaLaCumplenTodos;
+	
+	static Metodologia autosuperacion, imposible, seguro;
+	
 	@Before
-	public void iniciarEmpresaA() {
-		xd2006a = new Cuenta("XD", 100);
-		xd2007a = new Cuenta("XD", 10);
-		xd2008a = new Cuenta("XD", 1000);
-		dx2007a = new Cuenta("DX", 500);
-		dx2008a = new Cuenta("DX", 1000);
-		ja2008a = new Cuenta("JA", 10000);
+	public void iniciarTodo() {
+		iniciarEmpresaA();
+		iniciarEmpresaB();
+		iniciarEmpresaC();
+		iniciarIndicadores();
+		iniciarCondiciones();
+		iniciarMetodologias();
+	}
+	
+	public static void iniciarEmpresaA() {
+		xd2006a = crearCuenta("XD", 1000);
+		xd2007a = crearCuenta("XD", 1500);
+		xd2008a = crearCuenta("XD", 2000);
+		dx2007a = crearCuenta("DX", 500);
+		dx2008a = crearCuenta("DX", 1000);
+		ja2008a = crearCuenta("JA", 10000);
 		
-		periodo2006a = new Periodo(2006, Arrays.asList(xd2006a));
-		periodo2007a = new Periodo(2007, Arrays.asList(xd2007a, dx2007a));
-		periodo2008a = new Periodo(2008, Arrays.asList(xd2008a, dx2008a, ja2008a));
+		periodo2006a = crearPeriodo(2006, xd2006a);
+		periodo2007a = crearPeriodo(2007, xd2007a, dx2007a);
+		periodo2008a = crearPeriodo(2008, xd2008a, dx2008a, ja2008a);
 		
-		a = new Empresa("A", Arrays.asList(periodo2006a, periodo2007a, periodo2008a));
+		a = crearEmpresa("A", periodo2006a, periodo2007a, periodo2008a);
 	}
 
-	@Before
-	public void iniciarEmpresaB() {
-		xd2007b = new Cuenta("XD", 100);
-		xd2008b = new Cuenta("XD", 800);
-		dx2008b = new Cuenta("DX", 600);
-		ja2008b = new Cuenta("JA", 500);
+	public static void iniciarEmpresaB() {
+		xd2007b = crearCuenta("XD", 10);
+		xd2008b = crearCuenta("XD", 80);
+		dx2008b = crearCuenta("DX", 60);
+		ja2008b = crearCuenta("JA", 50);
 		
+		periodo2007b = crearPeriodo(2007, xd2007b);
+		periodo2008b = crearPeriodo(2008, xd2008b, dx2008b, ja2008b);
 		
+		b = crearEmpresa("B", periodo2007b, periodo2008b);
+	}
+	
+	public static void iniciarEmpresaC() {
+		ja2008c = crearCuenta("JA", 2000);
+		
+		periodo2008c = crearPeriodo(2008, ja2008c);
+		
+		c = crearEmpresa("C", periodo2008c);
+	}
+	
+	public static void iniciarIndicadores() {
+		xxxd = crearIndicador("XXXD", multiplicar(crearNumero(2), xd2006a));
+		dxxx = crearIndicador("DXXX", multiplicar(xd2007a, dx2007a));
+		jajaja = crearIndicador("JAJAJA", sumar(sumar(xd2008a, dx2008a), ja2008a));
+	}
+	
+	public static void iniciarCondiciones() {
+		mayor = crearMayorAEnPeriodos(xxxd, 100, 1);
+		promedio = crearPromedioMayorA(xxxd, 100);
+		sumatoria = crearSumatoriaMayorA(xxxd, 100);
+		estaNoLaCumpleNadie = crearMayorAEnPeriodos(xxxd, 10000000, 1);
+		estaLaCumplenTodos = crearMayorAEnPeriodos(xxxd, 1, 1);
+	}
+	
+	public static void iniciarMetodologias() {
+		autosuperacion = crearMetodologia("Autosuperacion", mayor, promedio, sumatoria);
+		imposible = crearMetodologia("Imposible", estaNoLaCumpleNadie);
+		seguro = crearMetodologia("Seguro", estaLaCumplenTodos);
 	}
 }
 

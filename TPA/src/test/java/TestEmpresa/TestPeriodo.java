@@ -38,6 +38,13 @@ public class TestPeriodo {
 	public void noSeDeberiaPoderCrearUnPeriodoSinCuentas() {
 		crearPeriodo(2000);
 	}
+	
+	@Test
+	public void sePuedeBuscarUnaCuenta() {
+		Cuenta cuentaBuscada = periodo.buscarCuenta("Rolito");
+
+		Assert.assertEquals(cuenta1, cuentaBuscada);
+	}
 
 	@Test
 	public void sePuedenEncontrarTodasLasCuentas() {
@@ -63,18 +70,6 @@ public class TestPeriodo {
 	@Test(expected = YaExisteLaCuentaException.class)
 	public void noSeDeberiaAgregarUnaCuentaQueYaExsite() {
 		periodo.agregarCuenta(cuenta1);
-	}
-
-	@Test
-	public void sePuedeBuscarUnaCuenta() {
-		Cuenta cuentaBuscada = periodo.buscarCuenta("Rolito");
-
-		Assert.assertEquals(cuenta1, cuentaBuscada);
-	}
-
-	@Test(expected = NoTieneLaCuentaException.class)
-	public void noSeDeberiaEncontrarUnaCuentaQueNoExiste() {
-		periodo.buscarCuenta("NoDeberíaHaberUnaEmpresaAsí");
 	}
 
 	// No entiendo el método 'Está Entre', de hecho, no trabaja con el estado
