@@ -25,6 +25,6 @@ public class TestCuenta {
 
 	@Test(expected = CuentaConValorNegativoException.class)
 	public void noSeDeberiaInstanciarUnaCuentaConValorNegativo() {
-		prueba1 = crearCuenta("Esto Esta Mal", 0);
+		prueba1 = crearCuenta("Esto Esta Mal", -1);
 	}
 }

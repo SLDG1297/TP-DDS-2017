@@ -40,14 +40,13 @@ public class TestCalcularParentesis extends TemplateTestIndicadores {
 		Assert.assertEquals(evaluar(parentesisIzquierdo), evaluar(parentesisDerecho));
 	}
 	
-	@Theory
+	@Theory @Deprecated // No sé cómo arreglarlo...
 	public void laDivisionNoEsAsociativa(Expresion a, Expresion b, Expresion c) {
-		Assume.assumeFalse(a.equals(uno) || b.equals(uno) || c.equals(uno));
-		Assume.assumeFalse(a.equals(cero) || b.equals(cero)|| c.equals(cero));
+		Assume.assumeFalse(a.equals(uno) || b.equals(uno) || c.equals(uno) || a.equals(cero) || b.equals(cero)|| c.equals(cero));
 		
 		BigDecimal parentesisIzquierdo = evaluar(dividir((parentesis(dividir(a, b))), c));
 		BigDecimal parentesisDerecho = evaluar(dividir(a, parentesis(dividir(b, c))));
 		
-		// Hay un problema con la división. Hay que setear la precisión de redondeo.
+		Assert.assertNotEquals(parentesisIzquierdo, parentesisDerecho);
 	}
 }

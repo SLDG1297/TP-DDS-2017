@@ -35,6 +35,6 @@ public class TestComparadorDual extends TemplateTestComparadores {
 	
 	@Test
 	public void noSePuedeCompararEmpresaCConAutosuperacion() {
-		crearComparadorDual(a, c, autosuperacion).comparar();
+		assertNotEquals(ganar(c).getNombre(), crearComparadorDual(a, c, autosuperacion).comparar().getNombre());
 	}
 }

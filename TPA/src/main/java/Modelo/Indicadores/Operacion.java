@@ -18,7 +18,12 @@ public abstract class Operacion implements Expresion, Deserializa {
 	}
 	
 	public BigDecimal calcular(Query query){
+		this.puedeRealizarOperacion(query);
 		return this.realizarOperacion(query);
+	}
+	
+	public void puedeRealizarOperacion(Query query) {
+		if(this.valorB == null) throw new FaltaOperandoDerechoException();
 	}
 	
 	public abstract BigDecimal realizarOperacion(Query query);

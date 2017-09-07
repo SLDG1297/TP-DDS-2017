@@ -6,11 +6,15 @@ import static Factories.FactoryIndicador.crearIndicador;
 import static Factories.FactoryNumero.crearNumero;
 import static Factories.FactoryOperaciones.*;
 import static Factories.FactoryPeriodo.crearPeriodo;
+
+import java.util.Arrays;
+
 import static Factories.FactoryCondiciones.*;
 import static Factories.FactoryMetodologia.*;
 
 import org.junit.Before;
 
+import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
@@ -29,11 +33,13 @@ public class TemplateTestComparadores {
 	
 	static Empresa a, b, c;
 	
-	static Indicador xxxd, dxxx, jajaja;
+	static BolsaDeEmpresas bolsa;
 	
-	static Condiciones mayor, promedio, sumatoria, estaNoLaCumpleNadie, estaLaCumplenTodos;
+	static Indicador xxxd, dxxx, jajaja, estaSiOSi;
 	
-	static Metodologia autosuperacion, imposible, seguro;
+	static Condiciones mayor, promedio, sumatoria, estaNoLaCumpleNadie, estaLaCumplenTodos, unaSeguraParaTodos, unaImposibleParaTodos, unaTriste;
+	
+	static Metodologia autosuperacion, imposible, seguro, seguroParaTodos, imposibleParaTodos, muyTriste;
 	
 	@Before
 	public void iniciarTodo() {
@@ -43,6 +49,7 @@ public class TemplateTestComparadores {
 		iniciarIndicadores();
 		iniciarCondiciones();
 		iniciarMetodologias();
+		iniciarRepositorio();
 	}
 	
 	public static void iniciarEmpresaA() {
@@ -84,6 +91,7 @@ public class TemplateTestComparadores {
 		xxxd = crearIndicador("XXXD", multiplicar(crearNumero(2), xd2006a));
 		dxxx = crearIndicador("DXXX", multiplicar(xd2007a, dx2007a));
 		jajaja = crearIndicador("JAJAJA", sumar(sumar(xd2008a, dx2008a), ja2008a));
+		estaSiOSi = crearIndicador("SiOSi", sumar(crearNumero(1), crearNumero(0)));
 	}
 	
 	public static void iniciarCondiciones() {
@@ -92,12 +100,24 @@ public class TemplateTestComparadores {
 		sumatoria = crearSumatoriaMayorA(xxxd, 100);
 		estaNoLaCumpleNadie = crearMayorAEnPeriodos(xxxd, 10000000, 1);
 		estaLaCumplenTodos = crearMayorAEnPeriodos(xxxd, 1, 1);
+		unaSeguraParaTodos = crearMayorAEnPeriodos(estaSiOSi, 1, 1);
+		unaImposibleParaTodos = crearMayorAEnPeriodos(jajaja, 10000000, 1);
+		unaTriste = crearSumatoriaMenorA(dxxx, 2000000);
 	}
 	
 	public static void iniciarMetodologias() {
 		autosuperacion = crearMetodologia("Autosuperacion", mayor, promedio, sumatoria);
 		imposible = crearMetodologia("Imposible", estaNoLaCumpleNadie);
 		seguro = crearMetodologia("Seguro", estaLaCumplenTodos);
+		seguroParaTodos = crearMetodologia("Seguro Para Todos", unaSeguraParaTodos);
+		imposibleParaTodos = crearMetodologia("Imposible Para Todos", unaImposibleParaTodos);
+		muyTriste = crearMetodologia("Tristisimo", unaTriste);
 	}
+
+	public static void iniciarRepositorio() {
+		bolsa = BolsaDeEmpresas.getInstancia();
+		bolsa.setEmpresas(Arrays.asList(a, b, c));
+	}
+	
 }
 

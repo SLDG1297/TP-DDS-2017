@@ -71,7 +71,7 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 		}
 		catch (FaltaOperandoDerechoException excepcion)
 		{
-			Assert.assertEquals(new FaltaOperandoDerechoException(), excepcion);
+			Assert.assertEquals(new FaltaOperandoDerechoException().getClass(), excepcion.getClass());
 		}
 	}
 }

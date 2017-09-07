@@ -18,6 +18,6 @@ public class TestComparadorUnario extends TemplateTestComparadores {
 	
 	@Test
 	public void empresaCNoPuedeAutosuperarse() {
-		crearComparadorUnario(c, autosuperacion).evaluar();
+		assertFalse(crearComparadorUnario(c, autosuperacion).evaluar());
 	}
 }

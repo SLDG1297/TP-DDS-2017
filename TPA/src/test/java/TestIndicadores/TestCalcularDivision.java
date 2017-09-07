@@ -19,6 +19,7 @@ public class TestCalcularDivision extends TemplateTestIndicadores {
 	@Test(expected = NoSePuedeDividirPorCeroException.class)
 	public void noSePuedeDividirPorCero() {
 		divisionExpectante = dividir(natural, cero);
+		evaluar(divisionExpectante);
 	}
 
 	@Test
