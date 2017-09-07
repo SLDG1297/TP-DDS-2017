@@ -1,15 +1,36 @@
 package Modelo.Empresa;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Excepciones.Empresas.PeriodoSinCuentasException;
 import Excepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Empresa.Cuenta;
 
+@Entity
 public class Periodo {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "Periodo_Id")
+	private long id;
+	
+	@Column(name = "Anio")
 	Integer anio;
+	
+	@OneToMany
 	List<Cuenta> cuentas = new ArrayList<Cuenta>();
+	
+	@SuppressWarnings("unused")
+	private Periodo(){};
 	
 	public Periodo(Integer nuevoAnio, List<Cuenta> nuevasCuentas) {
 		this.setAnio(nuevoAnio);
