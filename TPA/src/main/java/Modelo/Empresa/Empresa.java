@@ -21,9 +21,11 @@ import Excepciones.Empresas.NoExisteElPeriodoException;
 public class Empresa {
 	
 	@Id
+	@Column(name = "Nombre")
 	private String nombre;
 	
 	@OneToMany
+	@JoinColumn(name = "Nombre_empresa", referencedColumnName = "Nombre")
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	@SuppressWarnings("unused")

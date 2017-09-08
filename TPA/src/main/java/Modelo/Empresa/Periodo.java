@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import Excepciones.Indicadores.NoTieneLaCuentaException;
@@ -27,6 +28,7 @@ public class Periodo {
 	Integer anio;
 	
 	@OneToMany
+	@JoinColumn(name = "Id_Periodo", referencedColumnName = "Periodo_Id")
 	List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
 	@SuppressWarnings("unused")
