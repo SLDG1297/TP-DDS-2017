@@ -2,8 +2,10 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
+import javax.persistence.Entity;
 
+import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
+@Entity
 public class Division extends Operacion {
 
 	public Division(Expresiones valorA) {

@@ -1,5 +1,6 @@
 package Modelo.Indicadores;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ public abstract class Expresiones implements Expresion {
 	
 	@Id
 	@GeneratedValue
+	@Column(name = "Expresion_Id")
 	private long id;
 	
 	public Expresiones(){};

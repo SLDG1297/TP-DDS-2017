@@ -2,6 +2,7 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
@@ -16,8 +17,11 @@ import Excepciones.Indicadores.FaltaOperandoDerechoException;
 //@DiscriminatorValue( "null" )
 public abstract class Operacion extends Expresiones {
 	@OneToOne
+	@Column(name = "Operacion_ValorA")
 	Expresiones valorA;
+	
 	@OneToOne
+	@Column(name = "Operacion_ValorA")
 	Expresiones valorB;
 	
 	public Operacion(Expresiones valorA) {

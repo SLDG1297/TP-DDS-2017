@@ -2,11 +2,12 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
 public class Cuenta_Indicadores extends Expresiones{
-	
+	@Column(name = "Cuenta_Indi_Id")
 	String nombre;
 	//No olvidarse de cambiar en la UI para que en el proceso de crear indicadores se use esta clase y no la de la del paquete empresas
 	

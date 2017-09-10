@@ -23,7 +23,7 @@ public class Periodo {
 	@Column(name = "Periodo_Id")
 	private long id;
 	
-	@Column(name = "Anio")
+	@Column(name = "Periodo_Anio")
 	Integer anio;
 	
 	@OneToMany

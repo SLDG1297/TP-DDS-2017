@@ -2,6 +2,8 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+@Entity
 public class Resta extends Operacion {
 	public Resta(Expresiones valorA) {
 		super(valorA);

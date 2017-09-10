@@ -23,9 +23,9 @@ public class Cuenta implements Expresion, Deserializa {
 	@GeneratedValue
 	private Long Id;
 	
-	@Column(name = "Nombre")
+	@Column(name = "Cuenta_Nombre")
 	String nombre;
-	@Column(name = "Valor")
+	@Column(name = "Cuenta_Valor")
 	Integer valor;
 	
 	@SuppressWarnings("unused")

@@ -1,6 +1,8 @@
 package Modelo.Indicadores;
 
 import java.math.BigDecimal;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -11,9 +13,12 @@ import Excepciones.Indicadores.IndicadorSinNombreException;
 
 @Entity
 public class Indicador extends Expresiones{
-
+	
+	@Column(name = "Indicador_Nombre")
 	private String nombre;
+	
 	@OneToOne
+	@Column(name = "Indicador_Formula")
 	private Expresiones formula;
 
 	public Indicador(String nombre, Expresiones formula) {

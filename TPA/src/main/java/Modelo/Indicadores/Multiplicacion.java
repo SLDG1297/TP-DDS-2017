@@ -2,6 +2,8 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+@Entity
 public class Multiplicacion extends Operacion {
 	public Multiplicacion(Expresiones valorA) {
 		super(valorA);

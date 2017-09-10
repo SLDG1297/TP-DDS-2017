@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -18,11 +19,15 @@ import Excepciones.Empresas.NoExisteElPeriodoException;
 public class Empresa {
 	
 	@Id
-	@Column(name = "Nombre")
+	@GeneratedValue
+	@Column(name = "Empresa_Id")
+	private long id;
+	
+	@Column(name = "Empresa_Nombre")
 	private String nombre;
 	
 	@OneToMany
-	@JoinColumn(name = "Nombre_empresa", referencedColumnName = "Nombre")
+	@JoinColumn(name = "Empresa_Id", referencedColumnName = "Empresa_Nombre")
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	@SuppressWarnings("unused")
