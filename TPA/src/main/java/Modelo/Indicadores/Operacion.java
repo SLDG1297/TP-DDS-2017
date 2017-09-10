@@ -13,9 +13,8 @@ import javax.persistence.OneToOne;
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//@DiscriminatorValue( "null" )
 public abstract class Operacion extends Expresiones {
+	
 	@OneToOne
 	@Column(name = "Operacion_ValorA")
 	Expresiones valorA;
