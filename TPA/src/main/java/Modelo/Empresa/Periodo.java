@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
 import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Excepciones.Empresas.PeriodoSinCuentasException;
 import Excepciones.Empresas.YaExisteLaCuentaException;

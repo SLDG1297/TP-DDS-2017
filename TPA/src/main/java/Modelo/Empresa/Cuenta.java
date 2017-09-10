@@ -11,6 +11,7 @@ import org.uqbar.commons.utils.Observable;
 import Excepciones.Empresas.CuentaConValorNegativoException;
 import Excepciones.Empresas.CuentaSinNombreException;
 import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Query;
 import javax.persistence.Id;
 
@@ -61,7 +62,7 @@ public class Cuenta implements Expresion, Deserializa {
 		return new BigDecimal(query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta(this.nombre).getValor());
 	}
 	
-	public void addOperando(Expresion operando){
+	public void addOperando(Expresiones operando){
 		
 	}
 	

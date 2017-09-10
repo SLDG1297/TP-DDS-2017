@@ -5,7 +5,7 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.windows.WindowOwner;
 
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 
 public class ViewAgregarNumero extends ViewAgregar {
 	
@@ -30,7 +30,7 @@ public class ViewAgregarNumero extends ViewAgregar {
 		return this.getModelObject().devolverStringDeNumero();
 	}
 	
-	public Expresion operacion(){
+	public Expresiones operacion(){
 		return this.getModelObject().devolverNumero();
 	}
 }

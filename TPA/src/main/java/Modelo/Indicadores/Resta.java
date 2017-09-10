@@ -3,11 +3,11 @@ package Modelo.Indicadores;
 import java.math.BigDecimal;
 
 public class Resta extends Operacion {
-	public Resta(Expresion valorA) {
+	public Resta(Expresiones valorA) {
 		super(valorA);
 	}
 
-	public Resta(Expresion valorA, Expresion valorB) {
+	public Resta(Expresiones valorA, Expresiones valorB) {
 		super(valorA, valorB);
 	}
 

@@ -1,21 +1,23 @@
 package Modelo.Indicadores;
 
 import java.math.BigDecimal;
+import javax.persistence.Entity;
 
-import Modelo.Empresa.Deserializa;
-
+@Entity
 public class Numero extends Expresiones{
 	private BigDecimal numero;
 	
 	public Numero(BigDecimal num){
 		this.numero = num;
 	}
+	
+	public Numero(){};
 
 	public BigDecimal calcular(Query query) {
 		return numero;
 	}
 	
-	public void addOperando(Expresion operando){
+	public void addOperando(Expresiones operando){
 	}
 	
 	public String imprimirFormula() {

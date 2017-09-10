@@ -2,20 +2,34 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Modelo.Empresa.Deserializa;
 
+@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorValue( "null" )
 public abstract class Operacion extends Expresiones {
-	Expresion valorA, valorB;
+	@OneToOne
+	Expresiones valorA;
+	@OneToOne
+	Expresiones valorB;
 	
-	public Operacion(Expresion valorA) {
+	public Operacion(Expresiones valorA) {
 	    this.valorA = valorA;
 	}
 	
-	public Operacion(Expresion valorA, Expresion valorB){
+	public Operacion(Expresiones valorA, Expresiones valorB){
 		this.valorA = valorA;
 		this.valorB = valorB;
 	}
+	
+	public Operacion(){};
 	
 	public BigDecimal calcular(Query query){
 		this.puedeRealizarOperacion(query);
@@ -28,7 +42,7 @@ public abstract class Operacion extends Expresiones {
 	
 	public abstract BigDecimal realizarOperacion(Query query);
 
-	public void addOperando(Expresion operando){
+	public void addOperando(Expresiones operando){
 		  this.valorB = operando;
 	}
 

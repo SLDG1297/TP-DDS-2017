@@ -6,11 +6,11 @@ import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 
 public class Division extends Operacion {
 
-	public Division(Expresion valorA) {
+	public Division(Expresiones valorA) {
 		super(valorA);
 	}
 
-	public Division(Expresion valorA, Expresion valorB) {
+	public Division(Expresiones valorA, Expresiones valorB) {
 		super(valorA, valorB);
 	}
 	

@@ -3,11 +3,11 @@ package Modelo.Indicadores;
 import java.math.BigDecimal;
 
 public class Multiplicacion extends Operacion {
-	public Multiplicacion(Expresion valorA) {
+	public Multiplicacion(Expresiones valorA) {
 		super(valorA);
 	}
 
-	public Multiplicacion(Expresion valorA, Expresion valorB) {
+	public Multiplicacion(Expresiones valorA, Expresiones valorB) {
 		super(valorA, valorB);
 	}
 

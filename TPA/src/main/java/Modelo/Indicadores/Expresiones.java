@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 
 
@@ -14,8 +15,6 @@ public abstract class Expresiones implements Expresion {
 	@Id
 	@GeneratedValue
 	private long id;
-	
-	private String h;
 	
 	public Expresiones(){};
 

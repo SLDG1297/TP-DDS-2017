@@ -1,8 +1,8 @@
 package View.Indicadores;
 
 import org.uqbar.commons.utils.Observable;
-import Modelo.Empresa.Cuenta;
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Cuenta_Indicadores;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.IndicadorBuilder;
 
 
@@ -37,9 +37,9 @@ public class VMAgregarCuenta extends VMAgregar{
 		this.cuentaElegida = cuentaElegida;
 	}
 
-	public Expresion devolverCuenta() {
+	public Expresiones devolverCuenta() {
 
-		Cuenta cuenta = new Cuenta(cuentaElegida);
+		Cuenta_Indicadores cuenta = new Cuenta_Indicadores(cuentaElegida);
 		return cuenta;
 	}
 

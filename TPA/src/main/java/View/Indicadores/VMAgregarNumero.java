@@ -2,7 +2,7 @@ package View.Indicadores;
 
 import java.math.BigDecimal;
 import org.uqbar.commons.utils.Observable;
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.IndicadorBuilder;
 import Modelo.Indicadores.Numero;
 
@@ -39,7 +39,7 @@ public class VMAgregarNumero extends VMAgregar {
 		this.numeroElegido = numeroElegido;
 	}
 	
-	public Expresion devolverNumero() {
+	public Expresiones devolverNumero() {
 		
 		return new Numero(numeroElegido);
 		
