@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import Modelo.Empresa.Deserializa;
 
-public class Numero implements Expresion, Deserializa{
+public class Numero extends Expresiones{
 	private BigDecimal numero;
 	
 	public Numero(BigDecimal num){

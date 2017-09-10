@@ -6,7 +6,7 @@ import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;
 import Modelo.Empresa.Deserializa;
 
-public class Indicador implements Expresion, Deserializa{
+public class Indicador extends Expresiones{
 
 	private String nombre;
 	private Expresion formula;

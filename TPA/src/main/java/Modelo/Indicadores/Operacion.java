@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 import Modelo.Empresa.Deserializa;
 
-public abstract class Operacion implements Expresion, Deserializa {
+public abstract class Operacion extends Expresiones {
 	Expresion valorA, valorB;
 	
 	public Operacion(Expresion valorA) {
