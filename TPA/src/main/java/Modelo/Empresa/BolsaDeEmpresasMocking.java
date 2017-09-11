@@ -1,22 +1,66 @@
 package Modelo.Empresa;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class BolsaDeEmpresasMocking extends BolsaDeEmpresas {
-	    // Con unas empresas para probar las vistas.
-	    
-	    private static List<Cuenta> listaC1 = Arrays.asList(new Cuenta("EBITDA",2000),new Cuenta("Free Cash Flow",3000),new Cuenta("FDS",4000));
-		private static List<Cuenta> listaC2 = Arrays.asList(new Cuenta("FDS",1000),new Cuenta("EBITDA",1500));
-		private static List<Cuenta> listaC3 = Arrays.asList(new Cuenta("Free Cash Flow",2000));
-		private static List<Periodo> periodo1 = Arrays.asList(new Periodo(1990, listaC1));
-	    private static List<Periodo> periodo2 = Arrays.asList(new Periodo(2001, listaC2),new Periodo(2014, listaC3),new Periodo(2016, listaC1));
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import javax.security.auth.login.Configuration;
+
+import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
+
+import Excepciones.Empresas.NoExisteLaEmpresaException;
+
+public class BolsaDeEmpresasMocking extends BolsaDeEmpresas implements WithGlobalEntityManager {
+	
+private static BolsaDeEmpresas bolsa = null;
+	
+	private List<Empresa> empresas = new ArrayList<Empresa>();
+	
+	public List<Empresa> getEmpresas() {
+		return empresas;
+	}
+
+	public void setEmpresas(List<Empresa> empresasNuevas) {
+		empresas = empresasNuevas;
+	}
+
+	public Empresa buscarEmpresa(String unNombre) {
+		return bolsa.getEmpresas().stream().filter( e -> e.getNombre().equals(unNombre)).findFirst().orElseThrow(() -> new NoExisteLaEmpresaException());
+	}
+	
+	public List<String> getNombresDeEmpresas() {
+		return bolsa.getEmpresas().stream().map((Empresa e) -> e.getNombre()).collect(Collectors.toList());		
+	}
+	
+    public static BolsaDeEmpresas getInstancia() {
 		
-	    private static List<Empresa> empresas = Arrays.asList(new Empresa("Jorgito",periodo1), new Empresa("Guaymallén",periodo2), new Empresa("Aguila",periodo1));
-		
-		@Override
-		public List<Empresa> getEmpresas() {
-			return empresas;
+		if(bolsa == null){
+			bolsa = new BolsaDeEmpresas();
 		}
 		
+		return bolsa;
+	}
+		
+    public Empresa find(String nombre){
+    	
+    	Query q = this.entityManager().createQuery("FROM Empresa e WHERE c.nombre = :nombre");
+    	q.setParameter("nombre", nombre);
+    	return (Empresa) q.getSingleResult();
+    	
+    	/* Seguir investigando, hasta la linea 58 funciona
+    	CriteriaBuilder constructor = this.entityManager(). getCriteriaBuilder ();
+    	CriteriaQuery <Integer> criteria = constructor.createQuery (Integer.class);
+    	Root <Periodo> personRoot = criteria.from (Periodo.class);
+    	criteria.select (personRoot.get (Person_.age));
+    	criteria.where (builder.equal (personRoot.get (Person_.eyeColor), "brown"));
+    	Lista <Entero> ages = em.createQuery (criteria) .getResultList ();
+    	*/
+    
+    }
 }
