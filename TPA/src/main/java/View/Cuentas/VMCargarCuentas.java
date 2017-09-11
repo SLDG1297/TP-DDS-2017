@@ -3,7 +3,7 @@ import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
 import Modelo.Empresa.Empresa;
-import Modelo.Empresa.BolsaDeEmpresas;
+import Modelo.Empresa.EmpresasManager;
 
 @Observable
 public class VMCargarCuentas {
@@ -13,7 +13,7 @@ public class VMCargarCuentas {
 	public String nombreEmpresa;
 	//Empresa seleccionada en el selector 
 	public Empresa empresa;
-	public BolsaDeEmpresas bolsaEmpresas;
+	public EmpresasManager bolsaEmpresas;
 	//Para bindear items del selector de periodos de la empresa elegida
 	public Integer periodoElegido;
 	public List<Integer> listaDePeriodosDeEmpresa;
@@ -21,7 +21,7 @@ public class VMCargarCuentas {
 	//Constructor
 	public VMCargarCuentas() {
 		super();
-		bolsaEmpresas = BolsaDeEmpresas.getInstancia();
+		bolsaEmpresas = EmpresasManager.getInstancia();
 		listaDeNombresDeEmpresas = this.buscarNombresDeEmpresas();
 	}
 
@@ -45,11 +45,11 @@ public class VMCargarCuentas {
 	}
 
 
-	public BolsaDeEmpresas getBolsaEmpresas() {
+	public EmpresasManager getBolsaEmpresas() {
 		return bolsaEmpresas;
 	}
 
-	public void setBolsaEmpresas(BolsaDeEmpresas bolsaEmpresas) {
+	public void setBolsaEmpresas(EmpresasManager bolsaEmpresas) {
 		this.bolsaEmpresas = bolsaEmpresas;
 	}
 

@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
-import Modelo.Empresa.BolsaDeEmpresas;
+import Modelo.Empresa.EmpresasManager;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiasRepository;
@@ -28,13 +28,13 @@ public class VMEvaluacion {
 	public VMEvaluacion (){
 		
 		super();
-		listaDeEmpresas = BolsaDeEmpresas.getInstancia().getNombresDeEmpresas();
+		listaDeEmpresas = EmpresasManager.getInstancia().getNombresDeEmpresas();
 		listaDeMetodologias = MetodologiasRepository.getInstancia().nombresDeMetodologias();
 		
 	}
 		
 	public void buscarEmpresa() {
-		setEmpresaElegida(BolsaDeEmpresas.getInstancia().buscarEmpresa(getNombreEmpresaElegida()));
+		setEmpresaElegida(EmpresasManager.getInstancia().buscarEmpresa(getNombreEmpresaElegida()));
 	}
 	
 	public void buscarMetodologia(){
@@ -116,7 +116,7 @@ public class VMEvaluacion {
 	
 	
 	public void buscarEmpresaB() {
-		setEmpresaB(BolsaDeEmpresas.getInstancia().buscarEmpresa(getNombreEmpresaB()));
+		setEmpresaB(EmpresasManager.getInstancia().buscarEmpresa(getNombreEmpresaB()));
 	}
 	
 	public void generarListaSinPrimerEmpresaElegida() {
