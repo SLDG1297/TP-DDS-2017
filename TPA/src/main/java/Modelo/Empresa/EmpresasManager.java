@@ -16,7 +16,7 @@ import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 
 import Excepciones.Empresas.NoExisteLaEmpresaException;
 
-public class BolsaDeEmpresasMocking extends BolsaDeEmpresas implements WithGlobalEntityManager {
+public class EmpresasManager extends BolsaDeEmpresas implements WithGlobalEntityManager {
 	
 private static BolsaDeEmpresas bolsa = null;
 	
@@ -47,7 +47,12 @@ private static BolsaDeEmpresas bolsa = null;
 		return bolsa;
 	}
 		
-    public Empresa find(String nombre){
+    public List<String> traerNombresDeEmpresas(){
+		return this.entityManager().createQuery("SELECT Empresa_Nombre FROM Empresa" ).getResultList();
+    }
+    
+    
+    public Empresa findByName(String nombre){
     	
     	Query q = this.entityManager().createQuery("FROM Empresa e WHERE c.nombre = :nombre");
     	q.setParameter("nombre", nombre);
