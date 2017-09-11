@@ -3,7 +3,8 @@ package TestMetodologias.TestCondiciones;
 import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
-import Modelo.Empresa.EmpresasManager;
+
+import DB.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
@@ -17,7 +18,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 		
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(20000), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -28,7 +29,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 		
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(1), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rip SA");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rip SA");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
@@ -38,7 +39,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 		
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(1), 15);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
@@ -47,7 +48,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 	public void cumpleSiElValor_DelIndicadorQueSoloTieneUnNumero_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(3);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(20000), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -56,7 +57,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 	public void noCumpleSiElValor_DelIndicadorQueSoloTieneUnNumero_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(3);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(1), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
@@ -65,7 +66,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 	public void cumpleSiElValor_DelIndicadorQueTieneOtroIndicadorDentro_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(2);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(20000), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -74,7 +75,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 	public void noCumpleSiElValor_DelIndicadorQueTieneOtroIndicadorDentro_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(2);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(1), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
@@ -83,7 +84,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 	public void cumpleSiElValor_DelIndicadorQueTieneOperacionesrDentro_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(5);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(80000), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -92,7 +93,7 @@ public class TestMenorAValorEnPeriodos extends TestCondiciones {
 	public void noCumpleSiElValor_DelIndicadorQueTieneOperacionesrDentro_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(5);
 		Condicion condicion = new CondicionFactory().crearMenorAEnPeriodos(indicador, new BigDecimal(1), 1);
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}

@@ -12,18 +12,20 @@ import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Query;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Observable
+@Table(name = "cuentas")
 public class Cuenta implements Expresion, Deserializa {
 	
 	@Id
 	@GeneratedValue
 	private Long Id;
 	
-	@Column(name = "Cuenta_Nombre")
+	@Column(name = "cuenta_nombre")
 	String nombre;
-	@Column(name = "Cuenta_Valor")
+	@Column(name = "cuenta_valor")
 	Integer valor;
 	
 	@SuppressWarnings("unused")

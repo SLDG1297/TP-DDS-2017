@@ -10,17 +10,20 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 
 @Entity
+@Table(name = "operaciones")
 public abstract class Operacion extends Expresiones {
 	
+	@Column(name = "operacion_valor_a")
 	@OneToOne
-	@Column(name = "Operacion_ValorA")
 	Expresiones valorA;
 	
+	@Column(name = "operacion_valor_b")
 	@OneToOne
-	@Column(name = "Operacion_ValorA")
 	Expresiones valorB;
 	
 	public Operacion(Expresiones valorA) {

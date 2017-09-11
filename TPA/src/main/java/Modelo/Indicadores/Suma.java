@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 //@DiscriminatorValue("gdfgSuma")
+@Table(name = "sumas")
 public class Suma extends Operacion {
 
 	public Suma(Expresiones valorA) {

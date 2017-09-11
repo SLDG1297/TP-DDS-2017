@@ -7,18 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;
 
 @Entity
+@Table(name = "indicadores")
 public class Indicador extends Expresiones{
 	
-	@Column(name = "Indicador_Nombre")
+	@Column(name = "indicador_nombre")
 	private String nombre;
 	
 	@OneToOne
-	@Column(name = "Indicador_Formula")
+	@Column(name = "indicador_formula")
 	private Expresiones formula;
 
 	public Indicador(String nombre, Expresiones formula) {

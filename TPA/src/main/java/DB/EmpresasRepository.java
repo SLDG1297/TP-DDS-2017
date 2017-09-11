@@ -1,4 +1,4 @@
-package Modelo.Empresa;
+package DB;
 
 import java.util.List;
 
@@ -8,11 +8,11 @@ import javax.persistence.EntityTransaction;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 
-import DB.DBManager;
+import Modelo.Empresa.Empresa;
 
-public class EmpresasManager /*implements WithGlobalEntityManager*/ extends DBManager {
+public class EmpresasRepository extends DBManager {
 	
-	private static EmpresasManager bolsa = null;
+	private static EmpresasRepository bolsa = null;
 	
 	public List<Empresa> getEmpresas() {
 		return (List<Empresa>) entityManager().createQuery("FROM Empresa" ).getResultList();
@@ -40,10 +40,10 @@ public class EmpresasManager /*implements WithGlobalEntityManager*/ extends DBMa
 		return (List<String>) entityManager().createQuery("SELECT Empresa_Nombre FROM Empresa" ).getResultList();	
 	}
 	
-    public static EmpresasManager getInstancia() {
+    public static EmpresasRepository getInstancia() {
 		
 		if(bolsa == null){
-			bolsa = new EmpresasManager();
+			bolsa = new EmpresasRepository();
 		}
 		
 		return bolsa;

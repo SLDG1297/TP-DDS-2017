@@ -3,9 +3,11 @@ package Modelo.Indicadores;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 @Entity
+@Table(name = "divisiones")
 public class Division extends Operacion {
 
 	public Division(Expresiones valorA) {

@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.uqbar.commons.utils.Observable;
 import Excepciones.Empresas.EmpresaSinNombreException;
 import Excepciones.Empresas.EmpresaSinPeriodoException;
@@ -16,18 +18,19 @@ import Excepciones.Empresas.NoExisteElPeriodoException;
 
 @Entity
 @Observable
+@Table(name = "empresas")
 public class Empresa {
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "Empresa_Id")
+	@Column(name = "empresa_id")
 	private long id;
 	
-	@Column(name = "Empresa_Nombre")
+	@Column(name = "empresa_nombre")
 	private String nombre;
 	
 	@OneToMany
-	@JoinColumn(name = "Empresa_Id", referencedColumnName = "Empresa_Nombre")
+	@JoinColumn(name = "empresa_fk_id", referencedColumnName = "empresa_id")
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	@SuppressWarnings("unused")

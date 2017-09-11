@@ -2,7 +2,8 @@ package Modelo.Metodologias.Comparadores;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import Modelo.Empresa.EmpresasManager;
+
+import DB.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Resultados.ResultadoAdapterView;
@@ -16,12 +17,12 @@ public class ComparadorGlobal {
 	public ComparadorGlobal(Metodologia metodologia){
 		
 		this.metodologia = metodologia;
-		listaEmpresas = EmpresasManager.getInstancia().getEmpresas();
+		listaEmpresas = EmpresasRepository.getInstancia().getEmpresas();
 		
 	}
 	
 	public List<ResultadoAdapterView> comparar(){
-		List<Empresa> listaEmpresas = EmpresasManager.getInstancia().getEmpresas();
+		List<Empresa> listaEmpresas = EmpresasRepository.getInstancia().getEmpresas();
 		return listaEmpresas.stream().map(emp -> new ResultadoAdapterView(emp.getNombre(), metodologia, generarResultadoUnario(emp))).collect(Collectors.toList());
 		
 		

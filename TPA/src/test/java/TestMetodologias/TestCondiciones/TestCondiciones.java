@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
 import Archivo.Indicadores.InstanciadorListaIndicadores;
-import Modelo.Empresa.EmpresasManager;
+import DB.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 
 
@@ -30,7 +30,7 @@ public abstract class TestCondiciones {
 	
 	@Test
 	public void estaEntreDebeRetornar_UnaListaVacia_SiNotieneLaCantidadDePeriodosNecesariosParaEvaluar(){
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		Assert.assertTrue(empresa.getPeriodos().stream().filter(periodo -> periodo.estaEntre(20, empresa.getPeriodos(), periodo)).collect(Collectors.toList()).size() == 0);
 	}
 	

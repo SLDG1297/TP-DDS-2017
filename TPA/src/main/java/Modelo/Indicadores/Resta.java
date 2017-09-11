@@ -3,8 +3,12 @@ package Modelo.Indicadores;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
+
 @Entity
+@Table(name = "restas")
 public class Resta extends Operacion {
+
 	public Resta(Expresiones valorA) {
 		super(valorA);
 	}

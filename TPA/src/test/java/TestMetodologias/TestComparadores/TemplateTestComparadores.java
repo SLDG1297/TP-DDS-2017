@@ -14,7 +14,7 @@ import static Factories.FactoryMetodologia.*;
 
 import org.junit.Before;
 
-import Modelo.Empresa.EmpresasManager;
+import DB.EmpresasRepository;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
@@ -33,7 +33,7 @@ public class TemplateTestComparadores {
 	
 	static Empresa a, b, c;
 	
-	static EmpresasManager bolsa;
+	static EmpresasRepository bolsa;
 	
 	static Indicador xxxd, dxxx, jajaja, estaSiOSi;
 	
@@ -115,7 +115,7 @@ public class TemplateTestComparadores {
 	}
 
 	public static void iniciarRepositorio() {
-		bolsa = EmpresasManager.getInstancia();
+		bolsa = EmpresasRepository.getInstancia();
 		bolsa.insertarListaDeEmpresas(Arrays.asList(a, b, c));
 	}
 	

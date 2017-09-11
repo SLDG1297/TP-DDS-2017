@@ -4,10 +4,13 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "numeros")
 public class Numero extends Expresiones{
-	@Column(name="Numero_Valor")
+	
+	@Column(name="numero_valor")
 	private BigDecimal numero;
 	
 	public Numero(BigDecimal num){

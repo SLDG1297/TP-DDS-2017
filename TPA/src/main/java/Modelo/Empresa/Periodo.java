@@ -10,24 +10,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Excepciones.Empresas.PeriodoSinCuentasException;
 import Excepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Empresa.Cuenta;
 
 @Entity
+@Table(name = "periodos")
 public class Periodo {
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "Periodo_Id")
+	@Column(name = "periodo_id")
 	private long id;
 	
-	@Column(name = "Periodo_Anio")
+	@Column(name = "periodo_anio")
 	Integer anio;
 	
 	@OneToMany
-	@JoinColumn(name = "Id_Periodo", referencedColumnName = "Periodo_Id")
+	@JoinColumn(name = "periodo_fk_id", referencedColumnName = "periodo_id")
 	List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
 	@SuppressWarnings("unused")

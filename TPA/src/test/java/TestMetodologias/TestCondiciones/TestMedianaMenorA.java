@@ -3,7 +3,8 @@ package TestMetodologias.TestCondiciones;
 import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
-import Modelo.Empresa.EmpresasManager;
+
+import DB.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadoresRepository;
@@ -18,7 +19,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 		
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(200000));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -29,7 +30,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 		
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(4);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(1));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rip SA");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rip SA");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
@@ -39,7 +40,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 	public void cumpleSiLaSumatoria_DelIndicadorQueSoloTieneUnNumero_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(3);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(20000));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -48,7 +49,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 	public void noCumpleSiLaSumatoria_DelIndicadorQueSoloTieneUnNumero_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(3);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(1));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
@@ -57,7 +58,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 	public void cumpleSiElPromedio_DelIndicadorQueTieneOtroIndicadorDentro_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(2);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(20000));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -66,7 +67,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 	public void noCumpleSiLaSumatoria_DelIndicadorQueTieneOtroIndicadorDentro_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(2);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(1));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 	}
@@ -75,7 +76,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 	public void cumpleSiLaSumatoria_DelIndicadorQueTieneOperacionesrDentro_EsMenorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(5);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(80000));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertTrue(condicion.cumple(empresa));
 	}
@@ -84,7 +85,7 @@ public class TestMedianaMenorA extends TestCondiciones {
 	public void noCumpleSiLaSumatoria_DelIndicadorQueTieneOperacionesrDentro_EsMayorAlQuePusoElUsuario(){
 		Indicador indicador = IndicadoresRepository.getInstancia().getIndicadores().get(5);
 		Condicion condicion = new CondicionFactory().crearMedianaMenorA(indicador, new BigDecimal(1));
-		Empresa empresa = EmpresasManager.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
 		
 		Assert.assertFalse(condicion.cumple(empresa));
 		}
