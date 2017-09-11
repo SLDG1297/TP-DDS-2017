@@ -5,9 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-
 import org.uqbar.commons.utils.Observable;
-
 import Excepciones.Empresas.CuentaConValorNegativoException;
 import Excepciones.Empresas.CuentaSinNombreException;
 import Modelo.Indicadores.Expresion;
