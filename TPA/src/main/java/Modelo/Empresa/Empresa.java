@@ -33,7 +33,6 @@ public class Empresa {
 	
 	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "empresa_fk_id", referencedColumnName = "empresa_id")
-	
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	@SuppressWarnings("unused")

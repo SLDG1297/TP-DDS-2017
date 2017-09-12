@@ -15,7 +15,9 @@ public class EmpresasRepository extends DBManager {
 	private static EmpresasRepository bolsa = null;
 	
 	public List<Empresa> getEmpresas() {
-		return (List<Empresa>) createQuery("from Empresa" ).getResultList();
+
+		return (List<Empresa>) createQuery("from Empresa").getResultList();
+
 	}
 
 	public void insertarListaDeEmpresas(List<Empresa> empresas) {
