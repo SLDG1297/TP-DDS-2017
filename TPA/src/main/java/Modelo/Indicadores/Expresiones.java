@@ -17,11 +17,10 @@ public abstract class Expresiones implements Expresion {
 	@GeneratedValue
 	@Column(name = "expresion_id")
 	private long id;
-
-	public Expresiones() {
-	};
-
-	public long getId() {
+	
+	public Expresiones(){};
+	
+	public long getId(){
 		return id;
 	}
 

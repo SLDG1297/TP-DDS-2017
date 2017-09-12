@@ -1,11 +1,7 @@
 package View.Indicadores;
 
 import java.util.List;
-
-import java.util.stream.Collectors;
-
 import org.uqbar.commons.utils.Observable;
-
 import DB.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadorBuilder;

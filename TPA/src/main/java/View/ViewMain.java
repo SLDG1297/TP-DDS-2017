@@ -12,7 +12,6 @@ import View.Indicadores.ViewGestionDeIndicadores;
 import View.Metodologias.VMGestionDeMetodologias;
 import View.Metodologias.ViewGestionDeMetodologias;
 
-
 public class ViewMain extends MainWindow<VM_Main> {
 	
 		

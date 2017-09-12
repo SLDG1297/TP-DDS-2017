@@ -1,13 +1,6 @@
 package DB;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
-
 import Modelo.Empresa.Empresa;
 
 public class EmpresasRepository extends DBManager {
@@ -15,7 +8,9 @@ public class EmpresasRepository extends DBManager {
 	private static EmpresasRepository bolsa = null;
 	
 	public List<Empresa> getEmpresas() {
+
 		return (List<Empresa>) createQuery("from Empresa").getResultList();
+
 	}
 
 	public void insertarListaDeEmpresas(List<Empresa> empresas) {
