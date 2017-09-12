@@ -7,8 +7,8 @@ import org.uqbar.commons.utils.Observable;
 
 import Archivo.EscritorDeAchivos;
 import Archivo.SerializadorJson;
+import DB.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 
 @Observable
 public class VMEliminarIndicador {
@@ -24,7 +24,7 @@ public class VMEliminarIndicador {
 	}
 	
 	private List<String> buscarNombresDeIndicadores() {
-		return IndicadoresRepository.getInstancia().getIndicadores().stream().map(i -> i.getNombre()).collect(Collectors.toList());
+		return IndicadoresRepository.getInstancia().getNombresIndicadores();
 	}
 	
 	public void buscarIndicadorSeleccionado(){
@@ -42,8 +42,8 @@ public class VMEliminarIndicador {
 				this.eliminar(lista.get(i));
 			}
 		}
-		String indicadores = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
-		new EscritorDeAchivos().escribir("repositorioIndicadores.csv", indicadores);
+		//String indicadores = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
+		//new EscritorDeAchivos().escribir("repositorioIndicadores.csv", indicadores);
 		
 	}
 

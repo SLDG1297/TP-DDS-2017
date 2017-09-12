@@ -8,6 +8,7 @@ import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 import View.Metodologias.VMSeleccionCondicion;
 
 public abstract class ViewSeleccionCondicion extends Window<VMSeleccionCondicion> {
@@ -33,7 +34,7 @@ public abstract class ViewSeleccionCondicion extends Window<VMSeleccionCondicion
 		new Label(panel); //Espacio
 		
 		//Selector del indicador a elegir para aplicarle una condicion
-		Selector<Expresion> selector = new Selector<Expresion>(panel);
+		Selector<Expresiones> selector = new Selector<Expresiones>(panel);
 		selector.bindValueToProperty("nombreDeIndicadorElegido");
 		selector.bindItemsToProperty("nombresDeIndicadoresExistentes");
 		

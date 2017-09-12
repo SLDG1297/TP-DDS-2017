@@ -2,6 +2,7 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -19,7 +20,7 @@ public class Indicador extends Expresiones{
 	@Column(name = "indicador_nombre")
 	private String nombre;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	//@Column(name = "indicador_formula")
 	private Expresiones formula;
 

@@ -2,6 +2,7 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -19,11 +20,11 @@ import Excepciones.Indicadores.FaltaOperandoDerechoException;
 public abstract class Operacion extends Expresiones {
 	
 	//@Column(name = "operacion_valor_a")
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	Expresiones valorA;
 	
 	//@Column(name = "operacion_valor_b")
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	Expresiones valorB;
 	
 	public Operacion(Expresiones valorA) {

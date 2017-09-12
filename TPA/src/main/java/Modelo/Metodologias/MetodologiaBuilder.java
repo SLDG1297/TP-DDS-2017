@@ -20,7 +20,7 @@ public class MetodologiaBuilder {
 		this.condiciones = condiciones;
 	}
 
-	private MetodologiasRepository repositorio = MetodologiasRepository.getInstancia();
+	
 	private List<Condiciones> condiciones = new ArrayList<Condiciones>();
 	
 	public Indicador getIndicadorSeleccionado() {
@@ -49,7 +49,7 @@ public class MetodologiaBuilder {
 	
 	public Metodologia crearMetodologia(){ 
 		Metodologia miNuevaMetodologia = new Metodologia(nombreMetodologia,condiciones);
-		repositorio.agregarMetodologia(miNuevaMetodologia);
+		MetodologiasRepository.getInstancia().agregarMetodologia(miNuevaMetodologia);
 		return miNuevaMetodologia;
 	}
 	

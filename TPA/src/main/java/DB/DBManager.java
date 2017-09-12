@@ -74,6 +74,10 @@ public abstract class DBManager {
     public static void persist(Object o){
        entityManager().persist(o);
     }
+    
+    public static void remove(Object o){
+        entityManager().remove(o);
+     }
 
 	public static void withTransaction(Runnable action) {
 		withTransaction(() -> {

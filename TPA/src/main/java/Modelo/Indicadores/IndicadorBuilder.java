@@ -1,5 +1,7 @@
 package Modelo.Indicadores;
 
+import DB.IndicadoresRepository;
+
 public class IndicadorBuilder {
 
 	String nombreIndicador;

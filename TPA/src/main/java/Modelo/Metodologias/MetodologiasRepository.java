@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import Modelo.Indicadores.IndicadoresRepository;
+
+import DB.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.CondicionFactory;
 import Modelo.Metodologias.Condiciones.SiempreCreciente;
 import Excepciones.Metodologias.NoExisteLaMetodologiaException;
@@ -21,14 +22,13 @@ public class MetodologiasRepository {
 		if (instancia == null) {
 			instancia = new MetodologiasRepository();
 
-			instancia.agregarMetodologia(new Metodologia("MayorA_500_En1_Periodo", new CondicionFactory().crearMayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(0), new BigDecimal(500), 1)));
-			instancia.agregarMetodologia(new Metodologia("MayorA_20_En1_Periodo", new CondicionFactory().crearMayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(0), new BigDecimal(20), 1)));
-			instancia.agregarMetodologia(new Metodologia("MayorA_500_En3Periodo_Cuenta", new CondicionFactory().crearMayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(4), new BigDecimal(500), 3)));
-			instancia.agregarMetodologia(new Metodologia("MenorA_500_En4Periodo_Cuenta", new CondicionFactory().crearMenorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicadores().get(4), new BigDecimal(500), 4)));
-			instancia.agregarMetodologia(new Metodologia("PromedioMayorA_750_Cuenta", new CondicionFactory().crearPromedioMayorA(IndicadoresRepository.getInstancia().getIndicadores().get(4), new BigDecimal(750))));
-			instancia.agregarMetodologia(new Metodologia("SumatoriaMenorA_2000_Cuenta", new CondicionFactory().crearSumatoriaMenorA(IndicadoresRepository.getInstancia().getIndicadores().get(4), new BigDecimal(2000))));
-			instancia.agregarMetodologia(new Metodologia("SiempreCreciente_En5Periodos_Cuenta", new SiempreCreciente(IndicadoresRepository.getInstancia().getIndicadores().get(4), 5)));
-
+			instancia.agregarMetodologia(new Metodologia("MayorA_500_En1_Periodo", new CondicionFactory().crearMayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicador("prueba"), new BigDecimal(500), 1)));
+			instancia.agregarMetodologia(new Metodologia("MayorA_20_En1_Periodo", new CondicionFactory().crearMayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicador("prueba"), new BigDecimal(20), 1)));
+			instancia.agregarMetodologia(new Metodologia("MayorA_500_En3Periodo_Cuenta", new CondicionFactory().crearMayorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicador("prueba5"), new BigDecimal(500), 3)));
+			instancia.agregarMetodologia(new Metodologia("MenorA_500_En4Periodo_Cuenta", new CondicionFactory().crearMenorAEnPeriodos(IndicadoresRepository.getInstancia().getIndicador("prueba5"), new BigDecimal(500), 4)));
+			instancia.agregarMetodologia(new Metodologia("PromedioMayorA_750_Cuenta", new CondicionFactory().crearPromedioMayorA(IndicadoresRepository.getInstancia().getIndicador("prueba5"), new BigDecimal(750))));
+			instancia.agregarMetodologia(new Metodologia("SumatoriaMenorA_2000_Cuenta", new CondicionFactory().crearSumatoriaMenorA(IndicadoresRepository.getInstancia().getIndicador("prueba5"), new BigDecimal(2000))));
+			instancia.agregarMetodologia(new Metodologia("SiempreCreciente_En5Periodos_Cuenta", new SiempreCreciente(IndicadoresRepository.getInstancia().getIndicador("prueba5"), 5)));
 
 		}
 		return instancia;

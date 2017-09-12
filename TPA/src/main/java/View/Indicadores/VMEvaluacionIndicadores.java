@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import org.uqbar.commons.utils.Observable;
 
 import DB.EmpresasRepository;
+import DB.IndicadoresRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Query;
 
 @Observable
@@ -41,7 +41,7 @@ public class VMEvaluacionIndicadores {
 		}
 
 		private List<String> buscarNombresDeIndicadores() {
-			return IndicadoresRepository.getInstancia().getIndicadores().stream().map(i -> i.getNombre()).collect(Collectors.toList());
+			return IndicadoresRepository.getInstancia().getNombresIndicadores();
 		}
 
 		public Integer getPeriodoElegido() {
