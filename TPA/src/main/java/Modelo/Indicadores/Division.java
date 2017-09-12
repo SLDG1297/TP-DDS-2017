@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 @Entity
-@Table(name = "divisiones")
+@Table(name = "division")
 public class Division extends Operacion {
 
 	public Division(Expresiones valorA) {

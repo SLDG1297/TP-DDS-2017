@@ -15,7 +15,7 @@ public class EmpresasRepository extends DBManager {
 	private static EmpresasRepository bolsa = null;
 	
 	public List<Empresa> getEmpresas() {
-		return (List<Empresa>) entityManager().createQuery("FROM Empresa" ).getResultList();
+		return (List<Empresa>) entityManager().createQuery("FROM empresa" ).getResultList();
 	}
 
 	public void insertarListaDeEmpresas(List<Empresa> empresas) {
@@ -33,11 +33,11 @@ public class EmpresasRepository extends DBManager {
 	}
 
 	public Empresa buscarEmpresa(String nombre) {
-		return (Empresa) entityManager().createQuery("FROM Empresa e WHERE c.nombre = :nombre").setParameter("nombre", nombre).getSingleResult();
+		return (Empresa) entityManager().createQuery("FROM empresa e WHERE e.empresa_nombre = :nombre").setParameter("nombre", nombre).getSingleResult();
 	}
 	
 	public List<String> getNombresDeEmpresas() {
-		return (List<String>) entityManager().createQuery("SELECT Empresa_Nombre FROM Empresa" ).getResultList();	
+		return (List<String>) entityManager().createQuery("SELECT empresa_nombre FROM empresa" ).getResultList();	
 	}
 	
     public static EmpresasRepository getInstancia() {

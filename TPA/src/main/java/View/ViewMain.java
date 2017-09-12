@@ -39,7 +39,7 @@ public class ViewMain extends MainWindow<VM_Main> {
 		
 		new Instanciador_Bolsa_Empresas().instanciar();
 
-		new InstanciadorListaIndicadores().instanciarListaIndicadores();
+		//new InstanciadorListaIndicadores().instanciarListaIndicadores();
 		
 		new ViewMain().startApplication(); 
 		

@@ -10,8 +10,8 @@ import javax.persistence.Table;
 
 
 
-@Entity(name = "expresion")
-@Table(name = "expresiones")
+@Entity
+@Table(name = "expresion")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Expresiones implements Expresion {
 	

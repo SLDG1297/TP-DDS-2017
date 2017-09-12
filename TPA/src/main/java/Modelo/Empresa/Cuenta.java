@@ -16,11 +16,12 @@ import javax.persistence.Table;
 
 @Entity
 @Observable
-@Table(name = "cuentas")
+@Table(name = "cuenta")
 public class Cuenta implements Expresion, Deserializa {
 	
 	@Id
 	@GeneratedValue
+	@Column(name = "cuenta_id")
 	private Long Id;
 	
 	@Column(name = "cuenta_nombre")

@@ -13,14 +13,14 @@ import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;
 
 @Entity
-@Table(name = "indicadores")
+@Table(name = "indicador")
 public class Indicador extends Expresiones{
 	
 	@Column(name = "indicador_nombre")
 	private String nombre;
 	
 	@OneToOne
-	@Column(name = "indicador_formula")
+	//@Column(name = "indicador_formula")
 	private Expresiones formula;
 
 	public Indicador(String nombre, Expresiones formula) {

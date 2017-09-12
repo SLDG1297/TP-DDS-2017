@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cuentas_indicadores")
+@Table(name = "cuenta_indicadore")
 public class Cuenta_Indicadores extends Expresiones{
 	@Column(name = "cuenta_indi_id")
 	String nombre;

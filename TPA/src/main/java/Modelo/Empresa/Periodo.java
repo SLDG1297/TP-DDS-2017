@@ -18,7 +18,7 @@ import Excepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Empresa.Cuenta;
 
 @Entity
-@Table(name = "periodos")
+@Table(name = "periodo")
 public class Periodo {
 	
 	@Id

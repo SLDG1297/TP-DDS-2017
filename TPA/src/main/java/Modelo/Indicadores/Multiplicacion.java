@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "multiplicaciones")
+@Table(name = "multiplicacion")
 public class Multiplicacion extends Operacion {
 	
 	public Multiplicacion(Expresiones valorA) {

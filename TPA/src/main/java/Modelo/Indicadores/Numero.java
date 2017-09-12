@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "numeros")
+@Table(name = "numero")
 public class Numero extends Expresiones{
 	
 	@Column(name="numero_valor")

@@ -15,14 +15,14 @@ import javax.persistence.Table;
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 
 @Entity
-@Table(name = "operaciones")
+@Table(name = "operacion")
 public abstract class Operacion extends Expresiones {
 	
-	@Column(name = "operacion_valor_a")
+	//@Column(name = "operacion_valor_a")
 	@OneToOne
 	Expresiones valorA;
 	
-	@Column(name = "operacion_valor_b")
+	//@Column(name = "operacion_valor_b")
 	@OneToOne
 	Expresiones valorB;
 	

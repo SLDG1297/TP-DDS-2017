@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 //@DiscriminatorValue("gdfgSuma")
-@Table(name = "sumas")
+@Table(name = "suma")
 public class Suma extends Operacion {
 
 	public Suma(Expresiones valorA) {
