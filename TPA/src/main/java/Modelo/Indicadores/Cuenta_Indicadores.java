@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cuenta_indicadore")
+@Table(name = "cuenta_indicadores")
 public class Cuenta_Indicadores extends Expresiones{
 	@Column(name = "cuenta_indi_id")
 	String nombre;
@@ -22,16 +22,17 @@ public class Cuenta_Indicadores extends Expresiones{
 	//Estan vacios ya que es solo para la creacion de los indicadores, al momento de evaluar se usa la clase cuenta de el paquete empresa que tiene los valores
 	@Override
 	public BigDecimal calcular(Query query) {
-		return null;
+		return new BigDecimal(query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta(this.nombre).getValor());
 	}
 
 	@Override
 	public void addOperando(Expresiones operando) {
+		
 	}
 
 	@Override
 	public String imprimirFormula() {
-		return null;
+		return nombre;
 	}
 
 }
