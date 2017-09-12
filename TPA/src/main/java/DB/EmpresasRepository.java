@@ -1,13 +1,6 @@
 package DB;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-
-import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
-import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
-
 import Modelo.Empresa.Empresa;
 
 public class EmpresasRepository extends DBManager {

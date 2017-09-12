@@ -4,11 +4,8 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
-import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
-import Modelo.Indicadores.Expresion;
 import Modelo.Metodologias.Metodologia;
 
 public class ViewEliminarMetodologias extends Window<VMEliminarMetodologias> {

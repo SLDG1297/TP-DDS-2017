@@ -1,8 +1,6 @@
 package Modelo.Metodologias.Resultados;
 
 import org.uqbar.commons.utils.Observable;
-
-import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 
 @Observable

@@ -3,8 +3,6 @@ package Modelo.Metodologias.Condiciones;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 

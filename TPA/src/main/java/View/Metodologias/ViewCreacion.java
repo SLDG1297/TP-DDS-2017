@@ -4,7 +4,6 @@ import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
-import Modelo.Metodologias.MetodologiaBuilder;
 
 public class ViewCreacion extends ViewSeleccionCondicion {
 	

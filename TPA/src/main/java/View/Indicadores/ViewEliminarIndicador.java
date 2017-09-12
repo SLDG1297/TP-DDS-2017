@@ -6,7 +6,6 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
 import Modelo.Indicadores.Indicador;
 
 public class ViewEliminarIndicador extends Window<VMEliminarIndicador>{

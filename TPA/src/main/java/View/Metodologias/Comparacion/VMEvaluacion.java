@@ -1,11 +1,8 @@
 package View.Metodologias.Comparacion;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-
 import org.uqbar.commons.utils.Observable;
-
 import DB.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;

@@ -4,7 +4,6 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.WindowOwner;
-
 import Modelo.Metodologias.Comparadores.ComparadorUnario;
 
 public class ViewEvaluacionUnitaria extends ViewEvaluacion  {

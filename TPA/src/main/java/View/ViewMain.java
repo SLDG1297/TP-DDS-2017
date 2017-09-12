@@ -5,15 +5,12 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
-
-import Archivo.Indicadores.InstanciadorListaIndicadores;
 import View.Cuentas.VMCargarCuentas;
 import View.Cuentas.ViewCargarCuentas;
 import View.Indicadores.VMGestionDeIndicadores;
 import View.Indicadores.ViewGestionDeIndicadores;
 import View.Metodologias.VMGestionDeMetodologias;
 import View.Metodologias.ViewGestionDeMetodologias;
-
 
 public class ViewMain extends MainWindow<VM_Main> {
 	

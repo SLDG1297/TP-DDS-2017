@@ -4,7 +4,6 @@ import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
 import Modelo.Metodologias.MetodologiaBuilder;
 import View.Metodologias.Comparacion.VMEvaluacionMetodologias;
 import View.Metodologias.Comparacion.ViewEvaluacionMetodologias;

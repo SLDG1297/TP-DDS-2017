@@ -1,7 +1,6 @@
 package View.Metodologias;
 
 import java.awt.Color;
-
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Window;

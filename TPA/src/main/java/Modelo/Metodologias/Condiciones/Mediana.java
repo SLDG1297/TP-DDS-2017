@@ -2,7 +2,6 @@ package Modelo.Metodologias.Condiciones;
 
 import java.math.BigDecimal;
 import java.util.List;
-import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Condicion;
