@@ -3,6 +3,8 @@ package Modelo.Empresa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,8 +31,9 @@ public class Empresa {
 	@Column(name = "empresa_nombre")
 	private String nombre;
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "empresa_fk_id", referencedColumnName = "empresa_id")
+	
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 	
 	@SuppressWarnings("unused")

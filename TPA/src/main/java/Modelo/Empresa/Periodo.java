@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Periodo {
 	@Column(name = "periodo_anio")
 	Integer anio;
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "periodo_fk_id", referencedColumnName = "periodo_id")
 	List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	

@@ -20,16 +20,10 @@ public class EmpresasRepository extends DBManager {
 
 	public void insertarListaDeEmpresas(List<Empresa> empresas) {
 	  	beginTransaction();
-	  	/*EntityManager em = PerThreadEntityManagers.getEntityManager();
-		EntityManager em = this.entityManager();
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();*/
     	for (Empresa e : empresas){
     		persist(e);
-    		//em.persist(e);
     	}
     	commit();
-    	//tx.commit();
 	}
 
 	public Empresa buscarEmpresa(String nombre) {
