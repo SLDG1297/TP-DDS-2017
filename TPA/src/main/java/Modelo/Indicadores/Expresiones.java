@@ -21,5 +21,10 @@ public abstract class Expresiones implements Expresion {
 	private long id;
 	
 	public Expresiones(){};
+	
+	public long getId(){
+		
+		return id;
+	}
 
 }

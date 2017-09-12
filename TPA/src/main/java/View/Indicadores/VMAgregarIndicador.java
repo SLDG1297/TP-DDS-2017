@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
+import DB.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadorBuilder;
-import Modelo.Indicadores.IndicadoresRepository;
 
 @Observable
 public class VMAgregarIndicador extends VMAgregar  {

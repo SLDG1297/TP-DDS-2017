@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import Modelo.Indicadores.IndicadoresRepository;
+
+import DB.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.CondicionFactory;
 import Modelo.Metodologias.Condiciones.SiempreCreciente;
 import Excepciones.Metodologias.NoExisteLaMetodologiaException;

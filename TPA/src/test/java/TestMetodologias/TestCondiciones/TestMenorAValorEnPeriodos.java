@@ -5,9 +5,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import DB.EmpresasRepository;
+import DB.IndicadoresRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.Condicion;
 import Modelo.Metodologias.Condiciones.CondicionFactory;
 

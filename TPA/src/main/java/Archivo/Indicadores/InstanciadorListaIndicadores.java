@@ -12,8 +12,8 @@ import com.google.gson.reflect.TypeToken;
 
 import Archivo.AdaptadorJson;
 import Archivo.LectorDeArchivos;
+import DB.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 
 public class InstanciadorListaIndicadores {
 	

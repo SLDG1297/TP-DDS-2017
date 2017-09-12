@@ -1,8 +1,8 @@
 package Modelo.Metodologias.Condiciones;
 
+import DB.IndicadoresRepository;
 import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
-import Modelo.Indicadores.IndicadoresRepository;
 
 public class Indicador implements Condiciones, Deserializa{
 

@@ -7,8 +7,8 @@ import org.uqbar.commons.utils.Observable;
 
 import Archivo.EscritorDeAchivos;
 import Archivo.SerializadorJson;
+import DB.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 
 @Observable
 public class VMEliminarIndicador {

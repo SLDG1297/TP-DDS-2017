@@ -6,6 +6,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import DB.IndicadoresRepository;
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
 import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Cuenta;
@@ -14,7 +16,6 @@ import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Numero;
 import Modelo.Indicadores.Parentesis;

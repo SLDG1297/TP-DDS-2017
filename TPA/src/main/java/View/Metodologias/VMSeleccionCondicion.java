@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
 
+import DB.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.MetodologiaBuilder;
 
 @Observable
