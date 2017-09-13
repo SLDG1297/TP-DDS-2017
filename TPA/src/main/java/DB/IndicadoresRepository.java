@@ -43,8 +43,7 @@ public class IndicadoresRepository extends DBManager {
 
 	public void eliminarIndicador(Indicador indicador) {
 		beginTransaction();
-		//remove(indicador);
-		createQuery("delete from Indicador i where i.id = :id").setParameter("id", indicador.getId()).executeUpdate();
+		remove(indicador);
 		commit();
 	}
 	

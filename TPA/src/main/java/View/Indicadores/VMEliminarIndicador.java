@@ -36,26 +36,8 @@ public class VMEliminarIndicador {
 	}
 	
 	public void eliminarIndicador(){
-		List<Indicador> lista = IndicadoresRepository.getInstancia().getIndicadores();
-		for(int i=lista.size()-1; i>=0; i--){
-			if (this.contieneIndicador(lista.get(i)) == true){ //Le pregunta a cada indicador del repositorio si tiene en su formula o si es el indicador a eliminar
-				this.eliminar(lista.get(i));
-			}
-		}
-		//String indicadores = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
-		//new EscritorDeAchivos().escribir("repositorioIndicadores.csv", indicadores);
-		
+		IndicadoresRepository.getInstancia().eliminarIndicador(indicadorSeleccionado);
 	}
-
-public boolean contieneIndicador(Indicador indicador){
-		return this.mostrarIndicadoresDeFormula(indicador).contains(indicadorSeleccionado.getNombre());
-	}
-
-public List<String> mostrarIndicadoresDeFormula(Indicador indicador){
-		String[] array = indicador.imprimirFormula().split(","); //Separa toma cada nombre de indicador que esta separado por una coma y una guarda en un array
-		return Arrays.asList(array); //transforma el array en un lista
-		
-}
 
 	public String getNombreIndicador() {
 		return nombreIndicador;
