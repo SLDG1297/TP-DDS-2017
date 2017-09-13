@@ -26,6 +26,7 @@ public class EmpresasRepository extends DBManager {
 		return (Empresa) createQuery("from Empresa e where e.nombre = :nombre").setParameter("nombre", nombre).getSingleResult();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<String> getNombresDeEmpresas() {
 		return (List<String>) createQuery("select e.nombre from Empresa e").getResultList();	
 	}

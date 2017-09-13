@@ -6,12 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import DB.ObjetoDeRepositorio;
 import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;
 
 @Entity
 @Table(name = "indicador")
-public class Indicador extends Expresiones{
+public class Indicador extends Expresiones implements ObjetoDeRepositorio {
 	
 	@Column(name = "indicador_nombre")
 	private String nombre;

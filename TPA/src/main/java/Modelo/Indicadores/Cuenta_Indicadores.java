@@ -6,8 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.uqbar.commons.utils.Observable;
-
 @Entity
 @Table(name = "cuenta_indicadores")
 public class Cuenta_Indicadores extends Expresiones{

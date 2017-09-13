@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Instanciador_Bolsa_Empresas {
 	
 	public void instanciar() throws IOException {
-	    EmpresasRepository.getInstancia().insertarListaDeEmpresas(obtenerEmpresas());
+	    EmpresasRepository.getInstancia().insertarListaDeEmpresas(this.obtenerEmpresas());
 	    this.vaciarCsv();
 	}
 

@@ -10,6 +10,7 @@ public class IndicadoresRepository extends DBManager {
 	private static IndicadoresRepository instancia = null;
 
 	public List<Indicador> getIndicadores() {
+		@SuppressWarnings("unchecked")
 		List<Indicador> listaIndicadores = (List<Indicador>) createQuery("from Indicador").getResultList();
 		if (listaIndicadores.size() == 0)
 			throw new NoHayIndicadoresEnElRepositorioException();
@@ -36,6 +37,7 @@ public class IndicadoresRepository extends DBManager {
 		commit();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<String> getNombresIndicadores() {
 		return (List<String>) createQuery("select i.nombre from Indicador i").getResultList();
 	}
