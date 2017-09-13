@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
-import Archivo.Indicadores.InstanciadorListaIndicadores;
 import DB.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 
@@ -18,7 +17,6 @@ public abstract class TestCondiciones {
 	@Before
 	public void x() throws IOException{
 	new Instanciador_Bolsa_Empresas().instanciar();
-	new InstanciadorListaIndicadores().instanciarListaIndicadores();
 	}
 	
 	@Test

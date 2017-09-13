@@ -7,6 +7,7 @@ public class EmpresasRepository extends DBManager {
 	
 	private static EmpresasRepository bolsa = null;
 	
+	@SuppressWarnings("unchecked")
 	public List<Empresa> getEmpresas() {
 
 		return (List<Empresa>) createQuery("from Empresa").getResultList();
