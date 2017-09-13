@@ -11,12 +11,26 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;
 import Modelo.Metodologias.Try;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "CONDICION")
 public abstract class Condicion implements Condiciones, Deserializa{
 
+	@Id
+	@GeneratedValue
+	private long id_condicion;
+
+	@ManyToOne
 	protected Indicador indicador;
+
+	@ManyToOne
 	protected Empresa empresa;
 
-	
+	public Condicion() {
+	}
+
 	public Condicion(Indicador indicador) {
 		this.indicador = indicador;
 	}

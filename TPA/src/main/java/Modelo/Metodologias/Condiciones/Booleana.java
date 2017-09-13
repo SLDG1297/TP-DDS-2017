@@ -7,6 +7,13 @@ import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "BOOLEANA")
 public class Booleana extends Condicion {
 
 	protected BigDecimal valor;
@@ -22,6 +29,9 @@ public class Booleana extends Condicion {
 		this.cadena = cadena;
 	}
 
+	public Booleana() {
+	}
+
 	@Override
 	public List<Periodo> inicio(List<Periodo> lista) {
 		return lista.stream().filter(periodo -> periodo.estaEntre(anios, lista, periodo)).collect(Collectors.toList());
@@ -34,7 +44,7 @@ public class Booleana extends Condicion {
 	
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es " + cadena + " a " + valor.toString() + " en " + String.valueOf(anios) + " años";
+		return "El indicador " + indicador.getNombre() + " es " + cadena + " a " + valor.toString() + " en " + String.valueOf(anios) + " aï¿½os";
 	}
 	
 	

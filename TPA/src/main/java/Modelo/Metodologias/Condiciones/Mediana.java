@@ -6,6 +6,10 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Condicion;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "MEDIANA")
 public class Mediana extends Condicion {
 
 	protected BigDecimal valor;
@@ -17,6 +21,9 @@ public class Mediana extends Condicion {
 		this.valor = valor;
 		this.booleano = booleano;
 		this.cadena = cadena;
+	}
+
+	public Mediana() {
 	}
 
 	@Override

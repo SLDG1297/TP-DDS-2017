@@ -17,7 +17,6 @@ public class Indicador extends Expresiones{
 	private String nombre;
 	
 	@OneToOne(cascade = {CascadeType.ALL})
-	//@Column(name = "indicador_formula")
 	private Expresiones formula;
 
 	public Indicador(String nombre, Expresiones formula) {

@@ -7,9 +7,22 @@ import java.util.stream.Collectors;
 import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Empresa.Empresa;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "METODOLOGIA")
 public class Metodologia {
 
+	@Id
+	@GeneratedValue
+	@Column(name = "Metolodogia_id")
+	private long id_metodologia;
+
+	@Column(name = "Nombre")
 	private String nombre;
+
+	@ManyToMany
+//	@JoinTable(name = "Metodologia por condicion")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
 	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista
@@ -23,7 +36,10 @@ public class Metodologia {
 		this.nombre = nombre;
 		this.listaCondiciones = condiciones;
 	}
-	
+
+	public Metodologia() {
+	}
+
 	public void addCondicion(Condiciones condicion){
 		listaCondiciones.add(condicion);
 	}

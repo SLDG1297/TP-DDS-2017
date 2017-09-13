@@ -8,7 +8,16 @@ import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "COMPORTAMIENTO")
 public abstract class Comportamiento extends Condicion {
+
+	@Id
+	@GeneratedValue
+	private long id_comportamiento;
 
 	protected int anios;
 
@@ -16,7 +25,10 @@ public abstract class Comportamiento extends Condicion {
 		super(indicador);
 		this.anios = anios;
 	}
-	
+
+	public Comportamiento() {
+	}
+
 	@Override
 	protected List<Periodo> inicio(List<Periodo> lista) {
 		return lista.stream().filter(periodo -> periodo.estaEntre(anios, lista, periodo)).collect(Collectors.toList());

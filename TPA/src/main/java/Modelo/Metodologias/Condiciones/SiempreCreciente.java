@@ -6,10 +6,24 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Comportamiento;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "SIEMPRE_CRECIENTE")
 public class SiempreCreciente extends Comportamiento {
+
+	@Id
+	@GeneratedValue
+	private long id_siempre_creciente;
 
 	public SiempreCreciente(Indicador indicador, int anios) {
 		super(indicador, anios);
+	}
+
+	public SiempreCreciente() {
 	}
 
 	@Override
@@ -26,7 +40,7 @@ public class SiempreCreciente extends Comportamiento {
 	
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es siempre creciente en " + String.valueOf(anios) + " años";
+		return "El indicador " + indicador.getNombre() + " es siempre creciente en " + String.valueOf(anios) + " aï¿½os";
 	}
 
 }

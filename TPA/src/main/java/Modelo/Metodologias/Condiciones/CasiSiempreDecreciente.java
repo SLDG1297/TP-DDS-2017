@@ -6,10 +6,24 @@ import java.util.stream.Collectors;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "CASI_SIEMPRE_DECRECIENTE")
 public class CasiSiempreDecreciente extends Comportamiento {
+
+	@Id
+	@GeneratedValue
+	private long id_casi_siempre_decreciente;
 
 	public CasiSiempreDecreciente(Indicador indicador, int anios) {
 		super(indicador, anios);
+	}
+
+	public CasiSiempreDecreciente() {
 	}
 
 	@Override
@@ -26,7 +40,7 @@ public class CasiSiempreDecreciente extends Comportamiento {
 
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es casi siempre decreciente en " + String.valueOf(anios) + " años";
+		return "El indicador " + indicador.getNombre() + " es casi siempre decreciente en " + String.valueOf(anios) + " aï¿½os";
 	}
 	
 }

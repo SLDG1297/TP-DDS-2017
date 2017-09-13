@@ -6,6 +6,13 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Condicion;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "SUMATORIA")
 public class Sumatoria extends Condicion {
 
 	protected BigDecimal valor;
@@ -17,6 +24,9 @@ public class Sumatoria extends Condicion {
 		this.valor = valor;
 		this.booleano = booleano;
 		this.cadena = cadena;
+	}
+
+	public Sumatoria() {
 	}
 
 	@Override
