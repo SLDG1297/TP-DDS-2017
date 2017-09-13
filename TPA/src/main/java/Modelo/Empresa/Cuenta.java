@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Observable
 @Table(name = "cuenta")
-public class Cuenta extends Expresiones implements Expresion, Deserializa {
+public class Cuenta{
 	
 	@Id
 	@GeneratedValue
@@ -59,16 +59,5 @@ public class Cuenta extends Expresiones implements Expresion, Deserializa {
 		this.valor = valor;
 	}
 
-	public BigDecimal calcular(Query query) {
-		return new BigDecimal(query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta(this.nombre).getValor());
-	}
-	
-	public void addOperando(Expresiones operando){
-		
-	}
-	
-	public String imprimirFormula() {
-		return nombre;
-	}
 
 }
