@@ -9,6 +9,9 @@ import javax.persistence.Table;
 @Table(name = "multiplicacion")
 public class Multiplicacion extends Operacion {
 	
+	@SuppressWarnings("unused")
+	private Multiplicacion(){};
+	
 	public Multiplicacion(Expresiones valorA) {
 		super(valorA);
 	}
