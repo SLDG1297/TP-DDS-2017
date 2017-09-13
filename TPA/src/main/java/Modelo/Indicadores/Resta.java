@@ -8,6 +8,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "resta")
 public class Resta extends Operacion {
+	
+	@SuppressWarnings("unused")
+	private Resta(){};
 
 	public Resta(Expresiones valorA) {
 		super(valorA);

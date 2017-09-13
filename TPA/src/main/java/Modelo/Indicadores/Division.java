@@ -9,6 +9,9 @@ import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 @Entity
 @Table(name = "division")
 public class Division extends Operacion {
+	
+	@SuppressWarnings("unused")
+	private Division(){};
 
 	public Division(Expresiones valorA) {
 		super(valorA);
