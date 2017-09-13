@@ -6,8 +6,15 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Condicion;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Promedio extends Condicion {
-	
+
+	@Id
+	@GeneratedValue
+	private long id_promedio;
+
 		private BigDecimal valor;
 		private int booleano;
 		private String cadena;

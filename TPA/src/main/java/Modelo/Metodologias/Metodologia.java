@@ -21,7 +21,7 @@ public class Metodologia {
 	@Column(name = "Nombre")
 	private String nombre;
 
-	@ManyToMany
+	@OneToMany
 //	@JoinTable(name = "Metodologia por condicion")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	

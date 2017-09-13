@@ -15,6 +15,10 @@ import javax.persistence.Table;
 @Table(name = "SUMATORIA")
 public class Sumatoria extends Condicion {
 
+	@Id
+	@GeneratedValue
+	private long id_sumatoria;
+
 	protected BigDecimal valor;
 	private int booleano;
 	private String cadena;

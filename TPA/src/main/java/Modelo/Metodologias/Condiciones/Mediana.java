@@ -12,6 +12,10 @@ import javax.persistence.*;
 @Table(name = "MEDIANA")
 public class Mediana extends Condicion {
 
+	@Id
+	@GeneratedValue
+	private long id_mediana;
+
 	protected BigDecimal valor;
 	private int booleano;
 	private String cadena;

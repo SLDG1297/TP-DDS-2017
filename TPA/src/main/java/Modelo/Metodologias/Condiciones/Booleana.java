@@ -16,6 +16,10 @@ import javax.persistence.Table;
 @Table(name = "BOOLEANA")
 public class Booleana extends Condicion {
 
+	@Id
+	@GeneratedValue
+	private long id_booleana;
+
 	protected BigDecimal valor;
 	protected int anios;
 	private int booleano;

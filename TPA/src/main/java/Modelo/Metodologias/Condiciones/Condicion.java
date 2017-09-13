@@ -14,7 +14,7 @@ import Modelo.Metodologias.Try;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "CONDICION")
 public abstract class Condicion implements Condiciones, Deserializa{
 
@@ -22,7 +22,7 @@ public abstract class Condicion implements Condiciones, Deserializa{
 	@GeneratedValue
 	private long id_condicion;
 
-	@ManyToOne
+	@OneToOne
 	protected Indicador indicador;
 
 	@ManyToOne
