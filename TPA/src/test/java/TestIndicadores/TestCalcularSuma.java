@@ -3,11 +3,10 @@ package TestIndicadores;
 import org.junit.Test;
 import org.junit.experimental.theories.Theory;
 
-import static Factories.FactoryNumero.*;
 import static Factories.FactoryOperaciones.*;
 
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Suma;
 
 import java.math.BigDecimal;
@@ -86,7 +85,7 @@ public class TestCalcularSuma extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void laSumaEsConmutativa(Expresion operandoIzquierdo, Expresion operandoDerecho)
+	public void laSumaEsConmutativa(Expresiones operandoIzquierdo, Expresiones operandoDerecho)
 	{
 		int valor1 = evaluarEntero(sumar(operandoIzquierdo, operandoDerecho));
 		int valor2 = evaluarEntero(sumar(operandoDerecho, operandoIzquierdo));

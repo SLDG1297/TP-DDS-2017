@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Observable
 @Table(name = "cuenta")
-public class Cuenta implements Expresion, Deserializa {
+public class Cuenta extends Expresiones implements Expresion, Deserializa {
 	
 	@Id
 	@GeneratedValue

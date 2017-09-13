@@ -9,12 +9,11 @@ import org.junit.Test;
 
 import DB.IndicadoresRepository;
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Division;
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Numero;
@@ -157,7 +156,7 @@ public class TestCalcular {
 	public void verificarConsistenciaDeIndicadores() {
 		//Indicadores predefinidos
 
-		Expresion x = new Suma(new Numero(new BigDecimal(8)),new Numero(new BigDecimal(4)));
+		Expresiones x = new Suma(new Numero(new BigDecimal(8)),new Numero(new BigDecimal(4)));
 		
 		//Indicador1 = EDITBA + 4.5
 		Indicador indicador1 = new Indicador("Indicador1", x);
@@ -179,7 +178,7 @@ public class TestCalcular {
 	@Test
 	public void verificarConsistenciaDeRepositorioDeIndicadores() {
 		
-		Expresion x = new Suma(new Numero(new BigDecimal(8)),new Numero(new BigDecimal(4)));
+		Expresiones x = new Suma(new Numero(new BigDecimal(8)),new Numero(new BigDecimal(4)));
 		
 		Indicador indicador1 = new Indicador("Indicador4", x);
 		

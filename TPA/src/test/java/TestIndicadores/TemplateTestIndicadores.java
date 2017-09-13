@@ -18,6 +18,7 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Numero;
 import Modelo.Indicadores.Query;
@@ -47,7 +48,7 @@ public class TemplateTestIndicadores {
 	public static Query consulta = consultar(empresa, periodo2001);
 
 	@DataPoints
-	public static Expresion[] numerosReales = { natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa };
+	public static Expresiones[] numerosReales = { natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa };
 
 	public static BigDecimal evaluar(Expresion unaExpresion) {
 		return unaExpresion.calcular(consulta);
