@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.uqbar.commons.utils.Observable;
 
-import DB.Repositorios.EmpresasRepository;
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.MetodologiasRepository;
@@ -26,13 +26,13 @@ public class VMEvaluacion {
 	public VMEvaluacion (){
 		
 		super();
-		listaDeEmpresas = EmpresasRepository.getInstancia().getNombresDeEmpresas();
+		listaDeEmpresas = RepositorioEmpresas.getInstancia().darListaNombres();
 		listaDeMetodologias = MetodologiasRepository.getInstancia().nombresDeMetodologias();
 		
 	}
 		
 	public void buscarEmpresa() {
-		setEmpresaElegida(EmpresasRepository.getInstancia().buscarEmpresa(getNombreEmpresaElegida()));
+		setEmpresaElegida(RepositorioEmpresas.getInstancia().buscarObjeto(getNombreEmpresaElegida()));
 	}
 	
 	public void buscarMetodologia(){
@@ -114,7 +114,7 @@ public class VMEvaluacion {
 	
 	
 	public void buscarEmpresaB() {
-		setEmpresaB(EmpresasRepository.getInstancia().buscarEmpresa(getNombreEmpresaB()));
+		setEmpresaB(RepositorioEmpresas.getInstancia().buscarObjeto(getNombreEmpresaB()));
 	}
 	
 	public void generarListaSinPrimerEmpresaElegida() {

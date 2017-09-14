@@ -1,12 +1,12 @@
 package TestArchivo;
 
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import Archivo.LectorDeArchivos;
+import Archivo.LectorDeArchivos;*/
 @Deprecated
 public class TestLectorDeArchivos {
 	/*

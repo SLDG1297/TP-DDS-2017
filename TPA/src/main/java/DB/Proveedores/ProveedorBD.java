@@ -8,10 +8,14 @@ import DB.TipoDeRepositorio;
 
 public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implements Proveedor<T> {
 
+	public ProveedorBD() {
+		super();
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public T darObjeto(String unNombre, String unTipo) {
-		return (T) createQuery("from " + unNombre + " objeto where objeto.nombre = :nombre").setParameter("nombre", unTipo).getSingleResult();
+		return (T) createQuery("from " + unTipo + " objeto where objeto.nombre = :nombre").setParameter("nombre", unNombre).getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")

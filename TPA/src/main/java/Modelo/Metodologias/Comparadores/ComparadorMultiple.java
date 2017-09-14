@@ -20,7 +20,7 @@ public class ComparadorMultiple {
 	}
 	
 	public List<ResultadoAdapterView> comparar(){
-		List<Empresa> listaEmpresas =  RepositorioEmpresas.getInstancia().buscarListaDeObjetos("BD");
+		List<Empresa> listaEmpresas =  RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		return listaEmpresas.stream().map(emp -> generarResultadoViewAdapter(emp)).collect(Collectors.toList());
 		
 		/*List<ResultadoAdapterView> listaResultadosAdapter = new ArrayList<ResultadoAdapterView>();

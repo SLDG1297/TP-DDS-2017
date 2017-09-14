@@ -17,12 +17,12 @@ public class ComparadorGlobal {
 	public ComparadorGlobal(Metodologia metodologia){
 		
 		this.metodologia = metodologia;
-		listaEmpresas = RepositorioEmpresas.getInstancia().buscarListaDeObjetos("BD");
+		listaEmpresas = RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		
 	}
 	
 	public List<ResultadoAdapterView> comparar(){
-		List<Empresa> listaEmpresas = RepositorioEmpresas.getInstancia().buscarListaDeObjetos("BD");
+		List<Empresa> listaEmpresas = RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		return listaEmpresas.stream().map(emp -> new ResultadoAdapterView(emp.getNombre(), metodologia, generarResultadoUnario(emp))).collect(Collectors.toList());
 		
 		

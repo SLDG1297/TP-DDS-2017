@@ -80,12 +80,12 @@ public class VMCargarCuentas {
 	//Sirve para actualizar el VM con la empresa seleccionada a partir de su nombre y además 
 	//obtener la lista de periodos correspondientes a esa empresa
 	public void buscarEmpresaYSusPeriodos() {
-		empresa = bolsaEmpresas.buscarObjeto(nombreEmpresa, "BD");
+		empresa = bolsaEmpresas.buscarObjeto(nombreEmpresa);
 		this.listaDePeriodosDeEmpresa = this.buscarPeriodosDeEmpresa();
 	}
     
 	public List<String> buscarNombresDeEmpresas() {
-		return bolsaEmpresas.darListaNombres("BD");
+		return bolsaEmpresas.darListaNombres();
 	}
 	
 	public List<Integer> buscarPeriodosDeEmpresa(){

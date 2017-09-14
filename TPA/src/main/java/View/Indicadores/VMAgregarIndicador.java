@@ -18,7 +18,7 @@ public class VMAgregarIndicador extends VMAgregar  {
 	
 	public VMAgregarIndicador(IndicadorBuilder indicadorBuilder) {
 		super(indicadorBuilder);
-		nombresDeIndicadoresExistentes = RepositorioIndicadores.getInstancia().darListaNombres("DB");
+		nombresDeIndicadoresExistentes = RepositorioIndicadores.getInstancia().darListaNombres();
 		miIndicadorBuilder = indicadorBuilder;
 		miCadena = miIndicadorBuilder.imprimirFormula();
 	}
@@ -48,7 +48,7 @@ public class VMAgregarIndicador extends VMAgregar  {
 	}
 	
 	public Indicador devolverIndicador() {
-		return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido, "BD");	
+		return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido);	
 	}
 	
 	public String getMiCadena() {

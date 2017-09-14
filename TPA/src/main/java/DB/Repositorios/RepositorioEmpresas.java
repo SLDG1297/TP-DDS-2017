@@ -5,7 +5,7 @@ import Modelo.Empresa.Empresa;
 
 public class RepositorioEmpresas extends Repositorio<Empresa> {
 	public static RepositorioEmpresas instancia = null;
-
+	
 	@Override
 	public String getTipo() {
 		return Empresa.class.getSimpleName();
@@ -16,5 +16,5 @@ public class RepositorioEmpresas extends Repositorio<Empresa> {
 		
 		return instancia;
 	}
-
+	
 }

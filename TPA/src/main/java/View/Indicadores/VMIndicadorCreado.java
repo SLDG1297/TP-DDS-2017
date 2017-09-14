@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.uqbar.commons.utils.Observable;
 
-import DB.Repositorios.IndicadoresRepository;
+import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Indicadores.Indicador;
 
 @Observable
@@ -14,7 +14,7 @@ public class VMIndicadorCreado {
 
 	public VMIndicadorCreado(Indicador indicadorNuevo) {
 
-		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().getIndicadores().stream().map(i -> i.getNombre()).collect(Collectors.toList());
+		nombresDeIndicadoresExistentes = RepositorioIndicadores.getInstancia().buscarListaDeObjetos().stream().map(i -> i.getNombre()).collect(Collectors.toList());
 
 		indicadorCreado = indicadorNuevo;
 		

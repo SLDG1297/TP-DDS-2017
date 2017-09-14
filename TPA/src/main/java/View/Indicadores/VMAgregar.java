@@ -57,7 +57,7 @@ public abstract class VMAgregar {
 		}
 		
 		public Indicador devolverIndicador() {
-			return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido, "BD");	
+			return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido);	
 		}
 		
 		public BigDecimal getNumeroElegido() {

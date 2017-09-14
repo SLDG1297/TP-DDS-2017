@@ -1,12 +1,8 @@
 package View.Indicadores;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.uqbar.commons.utils.Observable;
 
-import Archivo.EscritorDeAchivos;
-import Archivo.SerializadorJson;
 import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Indicadores.Indicador;
 
@@ -24,19 +20,19 @@ public class VMEliminarIndicador {
 	}
 	
 	private List<String> buscarNombresDeIndicadores() {
-		return RepositorioIndicadores.getInstancia().darListaNombres("BD");
+		return RepositorioIndicadores.getInstancia().darListaNombres();
 	}
 	
 	public void buscarIndicadorSeleccionado(){
-		indicadorSeleccionado = RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador, "BD");
+		indicadorSeleccionado = RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
 	}
 	
 	public void eliminar(Indicador indicador){
-		IndicadoresRepository.getInstancia().eliminarIndicador(indicador); 
+		RepositorioIndicadores.getInstancia().eliminarObjeto(indicador); 
 	}
 	
 	public void eliminarIndicador(){
-		IndicadoresRepository.getInstancia().eliminarIndicador(indicadorSeleccionado);
+		RepositorioIndicadores.getInstancia().eliminarObjeto(indicadorSeleccionado);
 	}
 
 	public String getNombreIndicador() {

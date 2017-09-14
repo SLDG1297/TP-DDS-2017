@@ -23,7 +23,7 @@ public class IndicadorBuilder {
 	public Indicador crearIndicador(Expresiones expresion){ 
 		Indicador indicadorCreado;
 		indicadorCreado = new Indicador(nombreIndicador, expresion);
-		RepositorioIndicadores.getInstancia().agregarObjeto(indicadorCreado, "DB");
+		RepositorioIndicadores.getInstancia().agregarObjeto(indicadorCreado);
 		
 		return indicadorCreado;
 	}

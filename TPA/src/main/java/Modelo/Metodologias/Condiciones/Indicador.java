@@ -14,7 +14,7 @@ public class Indicador implements Condiciones, Deserializa{
 
 	@Override
 	public boolean cumple(Empresa empresa) {
-		return RepositorioIndicadores.getInstancia().buscarListaDeObjetos("BD").contains(indicador);
+		return RepositorioIndicadores.getInstancia().buscarListaDeObjetos().contains(indicador);
 	}
 	
 	@Override

@@ -9,6 +9,11 @@ import DB.TipoDeRepositorio;
 import Excepciones.Empresas.NoExisteEnElRepositorioException;
 
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
+	
+	public ProveedorMock(List<T> lista) {
+		this.setLista(lista);
+	}
+
 	private List<T> lista = new ArrayList<T>();
 	
 	public List<T> getLista() {

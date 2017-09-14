@@ -5,10 +5,7 @@ import org.junit.experimental.theories.Theory;
 import static Factories.FactoryOperaciones.*;
 import Modelo.Indicadores.*;
 
-import java.math.BigDecimal;
-
 import org.junit.Assert;
-import org.junit.Assume;
 import org.junit.Test;
 
 public class TestCalcularParentesis extends TemplateTestIndicadores {

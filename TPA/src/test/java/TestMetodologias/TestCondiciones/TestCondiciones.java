@@ -7,8 +7,10 @@ import java.util.stream.Collectors;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import Archivo.Empresa.Instanciador_Bolsa_Empresas;
-import DB.Repositorios.EmpresasRepository;
+
+import Archivo.Empresa.Instanciador;
+import DB.Proveedores.ProveedorMock;
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 
 
@@ -16,7 +18,7 @@ public abstract class TestCondiciones {
 	
 	@Before
 	public void x() throws IOException{
-	new Instanciador_Bolsa_Empresas().instanciar();
+		RepositorioEmpresas.getInstancia().setProveedor(new ProveedorMock<Empresa>(Instanciador.obtenerEmpresas("repositorioMetodologiasMock.csv")));
 	}
 	
 	@Test
@@ -28,7 +30,7 @@ public abstract class TestCondiciones {
 	
 	@Test
 	public void estaEntreDebeRetornar_UnaListaVacia_SiNotieneLaCantidadDePeriodosNecesariosParaEvaluar(){
-		Empresa empresa = EmpresasRepository.getInstancia().buscarEmpresa("Rolito");
+		Empresa empresa = RepositorioEmpresas.getInstancia().buscarObjeto("Rolito");
 		Assert.assertTrue(empresa.getPeriodos().stream().filter(periodo -> periodo.estaEntre(20, empresa.getPeriodos(), periodo)).collect(Collectors.toList()).size() == 0);
 	}
 	
