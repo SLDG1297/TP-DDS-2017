@@ -2,7 +2,7 @@ package View.Cuentas;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
-import DB.EmpresasRepository;
+import DB.Repositorios.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 
 @Observable

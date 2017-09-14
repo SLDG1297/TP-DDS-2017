@@ -3,8 +3,8 @@ package TestMetodologias.TestCondiciones;
 import org.junit.Assert;
 import org.junit.Test;
 
-import DB.EmpresasRepository;
-import DB.IndicadoresRepository;
+import DB.Repositorios.EmpresasRepository;
+import DB.Repositorios.IndicadoresRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Condiciones.Condicion;

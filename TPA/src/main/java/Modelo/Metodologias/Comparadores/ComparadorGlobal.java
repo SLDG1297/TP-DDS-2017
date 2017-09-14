@@ -3,7 +3,7 @@ package Modelo.Metodologias.Comparadores;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import DB.EmpresasRepository;
+import DB.Repositorios.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Resultados.ResultadoAdapterView;

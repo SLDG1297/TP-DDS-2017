@@ -1,8 +1,10 @@
-package DB;
+package DB.Repositorios;
 
 import java.util.List;
+
+import DB.DBManager;
+import DB.Repositorios.IndicadoresRepository;
 import Excepciones.Indicadores.NoHayIndicadoresEnElRepositorioException;
-import DB.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
 
 public class IndicadoresRepository extends DBManager {

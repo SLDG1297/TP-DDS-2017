@@ -1,6 +1,8 @@
-package DB;
+package DB.Repositorios;
 
 import java.util.List;
+
+import DB.DBManager;
 import Modelo.Empresa.Empresa;
 
 public class EmpresasRepository extends DBManager {

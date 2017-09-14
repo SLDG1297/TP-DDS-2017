@@ -3,7 +3,7 @@ package Archivo.Empresa;
 import java.util.List;
 import Archivo.FileCleaner;
 import Archivo.LectorDeArchivos;
-import DB.EmpresasRepository;
+import DB.Repositorios.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 
 import java.io.FileInputStream;

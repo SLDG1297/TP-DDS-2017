@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
-import DB.IndicadoresRepository;
+import DB.Repositorios.IndicadoresRepository;
 import Modelo.Indicadores.Cuenta_Indicadores;
 import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;

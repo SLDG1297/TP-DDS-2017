@@ -8,7 +8,7 @@ import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 import Archivo.EscritorDeAchivos;
 import Archivo.SerializadorJson;
-import DB.IndicadoresRepository;
+import DB.Repositorios.IndicadoresRepository;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;

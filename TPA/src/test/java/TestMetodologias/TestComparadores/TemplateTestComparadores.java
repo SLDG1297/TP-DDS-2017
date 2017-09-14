@@ -1,6 +1,6 @@
 package TestMetodologias.TestComparadores;
 
-import static Factories.FactoryCuenta.crearCuenta;
+import static Factories.FactoryCuenta.*;
 import static Factories.FactoryEmpresa.crearEmpresa;
 import static Factories.FactoryIndicador.crearIndicador;
 import static Factories.FactoryNumero.crearNumero;
@@ -14,15 +14,18 @@ import static Factories.FactoryMetodologia.*;
 
 import org.junit.Before;
 
-import DB.EmpresasRepository;
+import DB.Repositorios.EmpresasRepository;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
+import Modelo.Indicadores.Cuenta_Indicadores;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Condiciones.Condiciones;
 
 public class TemplateTestComparadores {
+	static Cuenta_Indicadores xd, dx, ja;
+	
 	static Cuenta xd2006a, xd2007a, xd2008a, dx2007a, dx2008a, ja2008a;
 	static Cuenta xd2007b, xd2008b, dx2008b, ja2008b;
 	static Cuenta ja2008c;
@@ -32,7 +35,7 @@ public class TemplateTestComparadores {
 	static Periodo periodo2008c;
 	
 	static Empresa a, b, c;
-	
+
 	static EmpresasRepository bolsa;
 	
 	static Indicador xxxd, dxxx, jajaja, estaSiOSi;
@@ -43,6 +46,7 @@ public class TemplateTestComparadores {
 	
 	@Before
 	public void iniciarTodo() {
+		iniciarCuentas();
 		iniciarEmpresaA();
 		iniciarEmpresaB();
 		iniciarEmpresaC();
@@ -52,13 +56,19 @@ public class TemplateTestComparadores {
 		iniciarRepositorio();
 	}
 	
+	public static void iniciarCuentas() {
+		xd = crearCuenta("XD");
+		dx = crearCuenta("DX");
+		ja = crearCuenta("JA");
+	}
+	
 	public static void iniciarEmpresaA() {
-		xd2006a = crearCuenta("XD", 1000);
-		xd2007a = crearCuenta("XD", 1500);
-		xd2008a = crearCuenta("XD", 2000);
-		dx2007a = crearCuenta("DX", 500);
-		dx2008a = crearCuenta("DX", 1000);
-		ja2008a = crearCuenta("JA", 10000);
+		xd2006a = crearCuentaConValor("XD", 1000);
+		xd2007a = crearCuentaConValor("XD", 1500);
+		xd2008a = crearCuentaConValor("XD", 2000);
+		dx2007a = crearCuentaConValor("DX", 500);
+		dx2008a = crearCuentaConValor("DX", 1000);
+		ja2008a = crearCuentaConValor("JA", 10000);
 		
 		periodo2006a = crearPeriodo(2006, xd2006a);
 		periodo2007a = crearPeriodo(2007, xd2007a, dx2007a);
@@ -68,10 +78,10 @@ public class TemplateTestComparadores {
 	}
 
 	public static void iniciarEmpresaB() {
-		xd2007b = crearCuenta("XD", 10);
-		xd2008b = crearCuenta("XD", 80);
-		dx2008b = crearCuenta("DX", 60);
-		ja2008b = crearCuenta("JA", 50);
+		xd2007b = crearCuentaConValor("XD", 10);
+		xd2008b = crearCuentaConValor("XD", 80);
+		dx2008b = crearCuentaConValor("DX", 60);
+		ja2008b = crearCuentaConValor("JA", 50);
 		
 		periodo2007b = crearPeriodo(2007, xd2007b);
 		periodo2008b = crearPeriodo(2008, xd2008b, dx2008b, ja2008b);
@@ -80,7 +90,7 @@ public class TemplateTestComparadores {
 	}
 	
 	public static void iniciarEmpresaC() {
-		ja2008c = crearCuenta("JA", 2000);
+		ja2008c = crearCuentaConValor("JA", 2000);
 		
 		periodo2008c = crearPeriodo(2008, ja2008c);
 		
@@ -88,9 +98,9 @@ public class TemplateTestComparadores {
 	}
 	
 	public static void iniciarIndicadores() {
-		xxxd = crearIndicador("XXXD", multiplicar(crearNumero(2), xd2006a));
-		dxxx = crearIndicador("DXXX", multiplicar(xd2007a, dx2007a));
-		jajaja = crearIndicador("JAJAJA", sumar(sumar(xd2008a, dx2008a), ja2008a));
+		xxxd = crearIndicador("XXXD", multiplicar(crearNumero(2), xd));
+		dxxx = crearIndicador("DXXX", multiplicar(xd, dx));
+		jajaja = crearIndicador("JAJAJA", sumar(sumar(xd, dx), ja));
 		estaSiOSi = crearIndicador("SiOSi", sumar(crearNumero(1), crearNumero(0)));
 	}
 	
@@ -115,8 +125,7 @@ public class TemplateTestComparadores {
 	}
 
 	public static void iniciarRepositorio() {
-		bolsa = EmpresasRepository.getInstancia();
-		bolsa.insertarListaDeEmpresas(Arrays.asList(a, b, c));
+		bolsa.getInstancia().insertarListaDeEmpresas(Arrays.asList(a, b, c));
 	}
 	
 }

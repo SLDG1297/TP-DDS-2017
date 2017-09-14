@@ -2,18 +2,18 @@ package DB;
 
 import java.util.List;
 
-public interface Proveedor {
+public interface Proveedor<T extends TipoDeRepositorio> {
 
-	List<ObjetoDeRepositorio> darLista(String unTipoDeStock);
+	T darObjeto(String unNombre, String unTipo);
 
-	ObjetoDeRepositorio darObjeto(String unNombre, String unTipo);
-
-	void agregar(ObjetoDeRepositorio unObjeto);
-
-	void agregarLista(List<ObjetoDeRepositorio> listaObjetos);
-	
-	void eliminar(ObjetoDeRepositorio unObjeto);
+	List<T> darLista(String unTipo);
 
 	List<String> darListaNombres(String unTipo);
 
+	void agregar(T unObjeto);
+
+	void agregarLista(List<T> listaObjetos);
+
+	void eliminar(T unObjeto);
+	
 }

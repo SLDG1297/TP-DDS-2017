@@ -13,18 +13,18 @@ public class TestCuenta {
 
 	@Test
 	public void sePuedeInstanciarUnaCuentaConValorCero() {
-		prueba1 = crearCuenta("FCF", 0);
+		prueba1 = crearCuentaConValor("FCF", 0);
 
 		Assert.assertEquals(new Integer(0), prueba1.getValor());
 	}
 
 	@Test(expected = CuentaSinNombreException.class)
 	public void noSeDeberiaInstanciarUnaCuentaSinNombre() {
-		prueba1 = crearCuenta("", 0);
+		prueba1 = crearCuentaConValor("", 0);
 	}
 
 	@Test(expected = CuentaConValorNegativoException.class)
 	public void noSeDeberiaInstanciarUnaCuentaConValorNegativo() {
-		prueba1 = crearCuenta("Esto Esta Mal", -1);
+		prueba1 = crearCuentaConValor("Esto Esta Mal", -1);
 	}
 }

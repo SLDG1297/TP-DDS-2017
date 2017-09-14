@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
-import DB.EmpresasRepository;
-import DB.IndicadoresRepository;
+import DB.Repositorios.EmpresasRepository;
+import DB.Repositorios.IndicadoresRepository;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;

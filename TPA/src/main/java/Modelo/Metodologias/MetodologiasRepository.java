@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import DB.IndicadoresRepository;
+import DB.Repositorios.IndicadoresRepository;
 import Modelo.Metodologias.Condiciones.CondicionFactory;
 import Modelo.Metodologias.Condiciones.SiempreCreciente;
 import Excepciones.Metodologias.NoExisteLaMetodologiaException;

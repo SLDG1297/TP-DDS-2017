@@ -1,6 +1,6 @@
 package Modelo.Indicadores;
 
-import DB.IndicadoresRepository;
+import DB.Repositorios.IndicadoresRepository;
 
 public class IndicadorBuilder {
 

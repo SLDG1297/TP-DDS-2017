@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-//@DiscriminatorValue("gdfgSuma")
 @Table(name = "suma")
 public class Suma extends Operacion {
 

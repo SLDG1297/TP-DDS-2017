@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
-import DB.EmpresasRepository;
+import DB.Repositorios.EmpresasRepository;
 import Modelo.Empresa.Empresa;
 
 

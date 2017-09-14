@@ -1,37 +1,55 @@
 package DB;
 
+import java.util.HashMap;
 import java.util.List;
 
-public class Repositorio {
-	private static Repositorio instancia = null;
+import DB.Excepciones.NoExisteProveedorException;
+import DB.Proveedores.ProveedorBD;
+import DB.Proveedores.ProveedorMock;
+
+public abstract class Repositorio<T extends TipoDeRepositorio> {
+	public HashMap<String, Proveedor<T>> proveedores = new HashMap<String, Proveedor<T>>();
 	
-	public static Repositorio getInstancia() {
-		if(instancia == null) instancia = new Repositorio();
-		
-		return instancia;
+	public abstract String getTipo();
+	
+	public T buscarObjeto(String unNombre, String tipoProveedor) {
+		return this.getProveedor(tipoProveedor).darObjeto(unNombre, this.getTipo());
 	}
 	
-	public ObjetoDeRepositorio buscarObjeto(String unNombre, String unTipo, Proveedor unProveedor) {
-		return unProveedor.darObjeto(unNombre, unTipo);
+	public List<T> buscarListaDeObjetos(String tipoProveedor) {
+		return this.getProveedor(tipoProveedor).darLista(this.getTipo());
 	}
 	
-	public List<ObjetoDeRepositorio> buscarListaDeObjetos(String unTipo, Proveedor unProveedor) {
-		return unProveedor.darLista(unTipo);
+	public List<String> darListaNombres(String tipoProveedor) {
+		return this.getProveedor(tipoProveedor).darListaNombres(this.getTipo());
 	}
 	
-	public void agregarObjeto(ObjetoDeRepositorio unObjeto, Proveedor unProveedor) {
-		unProveedor.agregar(unObjeto);
+	public void agregarObjeto(T unObjeto, String tipoProveedor) {
+		this.getProveedor(tipoProveedor).agregar(unObjeto);
 	}
 	
-	public void agregarListaDeObjetos(List<ObjetoDeRepositorio> listaObjetos, Proveedor unProveedor) {
-		unProveedor.agregarLista(listaObjetos);
+	public void agregarListaDeObjetos(List<T> listaObjetos, String tipoProveedor) {
+		this.getProveedor(tipoProveedor).agregarLista(listaObjetos);
 	}
 	
-	public void eliminarObjeto(ObjetoDeRepositorio unObjeto, Proveedor unProveedor) {
+	public void eliminarObjeto(T unObjeto, Proveedor<T> unProveedor) {
 		unProveedor.eliminar(unObjeto);
 	}
 	
-	public List<String> getListaNombres(String unTipo, Proveedor unProveedor) {
-		return unProveedor.darListaNombres(unTipo);
+	public Proveedor<T> getProveedor(String tipoProveedor) {
+		if(!proveedores.containsKey(tipoProveedor)) this.iniciarProveedor(tipoProveedor);
+		
+		return proveedores.get(tipoProveedor);
+	}
+	
+	public void iniciarProveedor(String tipoProveedor) {
+		switch(tipoProveedor)
+		{
+			case "BD":		proveedores.put(tipoProveedor, new ProveedorBD<T>());
+			break;
+			case "Mock":	proveedores.put(tipoProveedor, new ProveedorMock<T>());
+			break;
+			default:		throw new NoExisteProveedorException();
+		}
 	}
 }

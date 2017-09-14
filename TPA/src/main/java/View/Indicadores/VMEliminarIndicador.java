@@ -7,7 +7,7 @@ import org.uqbar.commons.utils.Observable;
 
 import Archivo.EscritorDeAchivos;
 import Archivo.SerializadorJson;
-import DB.IndicadoresRepository;
+import DB.Repositorios.IndicadoresRepository;
 import Modelo.Indicadores.Indicador;
 
 @Observable

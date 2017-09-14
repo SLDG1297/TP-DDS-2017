@@ -1,6 +1,6 @@
 package Modelo.Metodologias.Condiciones;
 
-import DB.IndicadoresRepository;
+import DB.Repositorios.IndicadoresRepository;
 import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
 

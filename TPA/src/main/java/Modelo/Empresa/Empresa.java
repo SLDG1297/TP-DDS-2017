@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 import org.uqbar.commons.utils.Observable;
 
-import DB.ObjetoDeRepositorio;
+import DB.TipoDeRepositorio;
 import Excepciones.Empresas.EmpresaSinNombreException;
 import Excepciones.Empresas.EmpresaSinPeriodoException;
 import Excepciones.Empresas.NoExisteElPeriodoException;
@@ -23,7 +23,7 @@ import Excepciones.Empresas.NoExisteElPeriodoException;
 @Entity
 @Observable
 @Table(name = "empresa")
-public class Empresa implements ObjetoDeRepositorio {
+public class Empresa implements TipoDeRepositorio {
 	
 	@Id
 	@GeneratedValue

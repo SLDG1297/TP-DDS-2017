@@ -22,9 +22,9 @@ public class TestPeriodo {
 
 	@Before
 	public void iniciarCuentas() {
-		cuenta1 = crearCuenta("Rolito", 500);
-		cuenta2 = crearCuenta("Axxxel", 700);
-		cuenta3 = crearCuenta("Skybell", 800);
+		cuenta1 = crearCuentaConValor("Rolito", 500);
+		cuenta2 = crearCuentaConValor("Axxxel", 700);
+		cuenta3 = crearCuentaConValor("Skybell", 800);
 	}
 
 	@Before
