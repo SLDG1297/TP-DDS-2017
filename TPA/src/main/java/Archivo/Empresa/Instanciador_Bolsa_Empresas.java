@@ -3,7 +3,7 @@ package Archivo.Empresa;
 import java.util.List;
 import Archivo.FileCleaner;
 import Archivo.LectorDeArchivos;
-import DB.Repositorios.EmpresasRepository;
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 
 import java.io.FileInputStream;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Instanciador_Bolsa_Empresas {
 	
 	public void instanciar() throws IOException {
-	    EmpresasRepository.getInstancia().insertarListaDeEmpresas(this.obtenerEmpresas());
+	    RepositorioEmpresas.getInstancia().agregarListaDeObjetos(this.obtenerEmpresas(), "BD");
 	    this.vaciarCsv();
 	}
 

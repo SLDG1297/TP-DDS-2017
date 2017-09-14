@@ -3,7 +3,7 @@ package Modelo.Metodologias.Comparadores;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import DB.Repositorios.EmpresasRepository;
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Resultados.ResultadoAdapterView;
@@ -17,12 +17,12 @@ public class ComparadorGlobal {
 	public ComparadorGlobal(Metodologia metodologia){
 		
 		this.metodologia = metodologia;
-		listaEmpresas = EmpresasRepository.getInstancia().getEmpresas();
+		listaEmpresas = RepositorioEmpresas.getInstancia().buscarListaDeObjetos("BD");
 		
 	}
 	
 	public List<ResultadoAdapterView> comparar(){
-		List<Empresa> listaEmpresas = EmpresasRepository.getInstancia().getEmpresas();
+		List<Empresa> listaEmpresas = RepositorioEmpresas.getInstancia().buscarListaDeObjetos("BD");
 		return listaEmpresas.stream().map(emp -> new ResultadoAdapterView(emp.getNombre(), metodologia, generarResultadoUnario(emp))).collect(Collectors.toList());
 		
 		
