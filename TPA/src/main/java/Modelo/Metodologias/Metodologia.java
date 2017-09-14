@@ -22,7 +22,6 @@ public class Metodologia {
 	private String nombre;
 
 	@OneToMany
-//	@JoinTable(name = "Metodologia por condicion")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
 	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista

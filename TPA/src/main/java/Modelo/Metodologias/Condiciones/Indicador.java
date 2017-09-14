@@ -4,7 +4,7 @@ import DB.IndicadoresRepository;
 import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
 
-public class Indicador implements Condiciones, Deserializa{
+public class Indicador extends Condiciones implements Deserializa{
 
 	private Modelo.Indicadores.Indicador indicador;
 

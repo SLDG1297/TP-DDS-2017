@@ -9,7 +9,7 @@ import Modelo.Metodologias.Try;
 import javax.persistence.*;
 
 @Entity
-@DiscriminatorValue(value="comportamiento")
+@DiscriminatorValue(value="casi_siempre_decreciente")
 public class CasiSiempreDecreciente extends Comportamiento {
 
 	public CasiSiempreDecreciente(Indicador indicador, int anios) {

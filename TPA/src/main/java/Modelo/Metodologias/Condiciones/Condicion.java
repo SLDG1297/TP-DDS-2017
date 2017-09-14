@@ -18,11 +18,7 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "Discriminador", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("dummy")
 @Table(name = "CONDICION")
-public abstract class Condicion implements Condiciones, Deserializa{
-
-	@Id
-	@GeneratedValue
-	private long id_condicion;
+public abstract class Condicion extends Condiciones implements Deserializa {
 
 	@OneToOne
 	protected Indicador indicador;
