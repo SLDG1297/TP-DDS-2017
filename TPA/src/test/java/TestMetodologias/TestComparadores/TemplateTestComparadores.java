@@ -6,9 +6,6 @@ import static Factories.FactoryIndicador.crearIndicador;
 import static Factories.FactoryNumero.crearNumero;
 import static Factories.FactoryOperaciones.*;
 import static Factories.FactoryPeriodo.crearPeriodo;
-
-import java.util.Arrays;
-
 import static Factories.FactoryCondiciones.*;
 import static Factories.FactoryMetodologia.*;
 
@@ -124,7 +121,7 @@ public class TemplateTestComparadores {
 	}
 
 	public static void iniciarRepositorio() {
-		RepositorioEmpresas.getInstancia().setProveedor(new ProveedorMock<Empresa>(Arrays.asList(a, b, c)));
+		RepositorioEmpresas.getInstancia().setProveedor(new ProveedorMock<Empresa>(a, b, c));
 	}
 	
 }

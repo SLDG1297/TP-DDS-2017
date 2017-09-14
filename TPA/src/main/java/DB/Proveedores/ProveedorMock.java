@@ -1,6 +1,7 @@
 package DB.Proveedores;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,11 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 	
 	public ProveedorMock(List<T> lista) {
 		this.setLista(lista);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ProveedorMock(T... lista) {
+		this.setLista(Arrays.asList(lista));
 	}
 
 	private List<T> lista = new ArrayList<T>();

@@ -16,7 +16,7 @@ public class CSVParser {
 	
 	private String separador;
 	
-	CSVParser(String miSeparador) {
+	public CSVParser(String miSeparador) {
 		separador = miSeparador;
 	}
 		
