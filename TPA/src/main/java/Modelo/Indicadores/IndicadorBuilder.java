@@ -1,6 +1,6 @@
 package Modelo.Indicadores;
 
-import DB.IndicadoresRepository;
+import DB.Repositorios.RepositorioIndicadores;
 
 public class IndicadorBuilder {
 
@@ -23,7 +23,7 @@ public class IndicadorBuilder {
 	public Indicador crearIndicador(Expresiones expresion){ 
 		Indicador indicadorCreado;
 		indicadorCreado = new Indicador(nombreIndicador, expresion);
-		IndicadoresRepository.getInstancia().agregarIndicador(indicadorCreado);
+		RepositorioIndicadores.getInstancia().agregarObjeto(indicadorCreado);
 		
 		return indicadorCreado;
 	}

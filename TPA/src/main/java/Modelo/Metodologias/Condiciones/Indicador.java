@@ -1,6 +1,6 @@
 package Modelo.Metodologias.Condiciones;
 
-import DB.IndicadoresRepository;
+import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
 
@@ -14,7 +14,7 @@ public class Indicador extends Condiciones implements Deserializa{
 
 	@Override
 	public boolean cumple(Empresa empresa) {
-		return IndicadoresRepository.getInstancia().getIndicadores().contains(indicador);
+		return RepositorioIndicadores.getInstancia().buscarListaDeObjetos().contains(indicador);
 	}
 	
 	@Override

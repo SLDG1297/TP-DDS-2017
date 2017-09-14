@@ -2,7 +2,7 @@ package View.Cuentas;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
-import DB.EmpresasRepository;
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 
 @Observable
@@ -13,7 +13,7 @@ public class VMCargarCuentas {
 	public String nombreEmpresa;
 	//Empresa seleccionada en el selector 
 	public Empresa empresa;
-	public EmpresasRepository bolsaEmpresas;
+	public RepositorioEmpresas bolsaEmpresas;
 	//Para bindear items del selector de periodos de la empresa elegida
 	public Integer periodoElegido;
 	public List<Integer> listaDePeriodosDeEmpresa;
@@ -21,7 +21,7 @@ public class VMCargarCuentas {
 	//Constructor
 	public VMCargarCuentas() {
 		super();
-		bolsaEmpresas = EmpresasRepository.getInstancia();
+		bolsaEmpresas = RepositorioEmpresas.getInstancia();
 		listaDeNombresDeEmpresas = this.buscarNombresDeEmpresas();
 	}
 
@@ -45,11 +45,11 @@ public class VMCargarCuentas {
 	}
 
 
-	public EmpresasRepository getBolsaEmpresas() {
+	public RepositorioEmpresas getBolsaEmpresas() {
 		return bolsaEmpresas;
 	}
 
-	public void setBolsaEmpresas(EmpresasRepository bolsaEmpresas) {
+	public void setBolsaEmpresas(RepositorioEmpresas bolsaEmpresas) {
 		this.bolsaEmpresas = bolsaEmpresas;
 	}
 
@@ -80,12 +80,12 @@ public class VMCargarCuentas {
 	//Sirve para actualizar el VM con la empresa seleccionada a partir de su nombre y además 
 	//obtener la lista de periodos correspondientes a esa empresa
 	public void buscarEmpresaYSusPeriodos() {
-		empresa = this.bolsaEmpresas.buscarEmpresa(nombreEmpresa);
+		empresa = bolsaEmpresas.buscarObjeto(nombreEmpresa);
 		this.listaDePeriodosDeEmpresa = this.buscarPeriodosDeEmpresa();
 	}
     
 	public List<String> buscarNombresDeEmpresas() {
-		return this.bolsaEmpresas.getNombresDeEmpresas();
+		return bolsaEmpresas.darListaNombres();
 	}
 	
 	public List<Integer> buscarPeriodosDeEmpresa(){

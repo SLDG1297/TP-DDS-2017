@@ -2,7 +2,8 @@ package View.Indicadores;
 
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
-import DB.IndicadoresRepository;
+
+import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadorBuilder;
 
@@ -17,7 +18,7 @@ public class VMAgregarIndicador extends VMAgregar  {
 	
 	public VMAgregarIndicador(IndicadorBuilder indicadorBuilder) {
 		super(indicadorBuilder);
-		nombresDeIndicadoresExistentes = IndicadoresRepository.getInstancia().getNombresIndicadores();
+		nombresDeIndicadoresExistentes = RepositorioIndicadores.getInstancia().darListaNombres();
 		miIndicadorBuilder = indicadorBuilder;
 		miCadena = miIndicadorBuilder.imprimirFormula();
 	}
@@ -47,7 +48,7 @@ public class VMAgregarIndicador extends VMAgregar  {
 	}
 	
 	public Indicador devolverIndicador() {
-		return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);	
+		return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido);	
 	}
 	
 	public String getMiCadena() {

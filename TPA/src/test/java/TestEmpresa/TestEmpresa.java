@@ -32,10 +32,10 @@ public class TestEmpresa {
 	}
 	
 	public static void iniciarCuentas() {
-		cuenta1 = crearCuenta("XD", 680);
-		cuenta2 = crearCuenta("DX", 86);
-		cuenta3 = crearCuenta("Holis", 1000);
-		cuenta4 = crearCuenta("XD", 420);
+		cuenta1 = crearCuentaConValor("XD", 680);
+		cuenta2 = crearCuentaConValor("DX", 86);
+		cuenta3 = crearCuentaConValor("Holis", 1000);
+		cuenta4 = crearCuentaConValor("XD", 420);
 	}
 	
 	public void iniciarPeriodos() {

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
-import DB.IndicadoresRepository;
+import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Indicadores.Cuenta_Indicadores;
 import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
@@ -57,7 +57,7 @@ public abstract class VMAgregar {
 		}
 		
 		public Indicador devolverIndicador() {
-			return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);	
+			return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido);	
 		}
 		
 		public BigDecimal getNumeroElegido() {

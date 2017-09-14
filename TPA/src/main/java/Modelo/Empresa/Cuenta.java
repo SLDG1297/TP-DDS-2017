@@ -1,23 +1,19 @@
 package Modelo.Empresa;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import org.uqbar.commons.utils.Observable;
 import Excepciones.Empresas.CuentaConValorNegativoException;
 import Excepciones.Empresas.CuentaSinNombreException;
-import Modelo.Indicadores.Expresion;
-import Modelo.Indicadores.Expresiones;
-import Modelo.Indicadores.Query;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Id;
 
 @Entity
 @Observable
 @Table(name = "cuenta")
-public class Cuenta implements Expresion, Deserializa {
+
+public class Cuenta{
 	
 	@Id
 	@GeneratedValue
@@ -59,16 +55,5 @@ public class Cuenta implements Expresion, Deserializa {
 		this.valor = valor;
 	}
 
-	public BigDecimal calcular(Query query) {
-		return new BigDecimal(query.getEmpresa().buscarPeriodo(query.getPeriodo()).buscarCuenta(this.nombre).getValor());
-	}
-	
-	public void addOperando(Expresiones operando){
-		
-	}
-	
-	public String imprimirFormula() {
-		return nombre;
-	}
 
 }
