@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import DB.Repositorios.RepositorioMetodologias;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Condiciones.Condicion;
 import Modelo.Metodologias.Condiciones.Condiciones;
@@ -49,7 +50,7 @@ public class MetodologiaBuilder {
 	
 	public Metodologia crearMetodologia(){ 
 		Metodologia miNuevaMetodologia = new Metodologia(nombreMetodologia,condiciones);
-		MetodologiasRepository.getInstancia().agregarMetodologia(miNuevaMetodologia);
+		RepositorioMetodologias.getInstancia().agregarObjeto(miNuevaMetodologia);
 		return miNuevaMetodologia;
 	}
 	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import DB.TipoDeRepositorio;
 import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Empresa.Empresa;
 
@@ -11,7 +12,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "METODOLOGIA")
-public class Metodologia {
+public class Metodologia implements TipoDeRepositorio {
 
 	@Id
 	@GeneratedValue

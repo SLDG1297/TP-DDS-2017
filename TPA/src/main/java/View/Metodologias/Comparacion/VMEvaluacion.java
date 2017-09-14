@@ -2,12 +2,13 @@ package View.Metodologias.Comparacion;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import DB.Repositorios.RepositorioMetodologias;
 import org.uqbar.commons.utils.Observable;
 
 import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
-import Modelo.Metodologias.MetodologiasRepository;
 
 @Observable
 public class VMEvaluacion {
@@ -27,7 +28,7 @@ public class VMEvaluacion {
 		
 		super();
 		listaDeEmpresas = RepositorioEmpresas.getInstancia().darListaNombres();
-		listaDeMetodologias = MetodologiasRepository.getInstancia().nombresDeMetodologias();
+		listaDeMetodologias = RepositorioMetodologias.getInstancia().darListaNombres();
 		
 	}
 		
@@ -37,7 +38,7 @@ public class VMEvaluacion {
 	
 	public void buscarMetodologia(){
 		
-		setMetodologiaElegida(MetodologiasRepository.getInstancia().obtenerMetodologia(nombreMetodologiaElegida));
+		setMetodologiaElegida(RepositorioMetodologias.getInstancia().buscarObjeto(nombreMetodologiaElegida));
 	}
 
 	public String getNombreEmpresaB() {
