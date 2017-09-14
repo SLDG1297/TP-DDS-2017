@@ -7,6 +7,7 @@ import static Factories.FactoryNumero.crearNumero;
 import static Factories.FactoryOperaciones.*;
 import static Factories.FactoryPeriodo.crearPeriodo;
 import static Factories.FactoryQueryIndicador.consultar;
+import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 
@@ -23,6 +24,7 @@ import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Numero;
 import Modelo.Indicadores.Query;
+import org.junit.Test;
 
 @RunWith(Theories.class)
 public class TemplateTestIndicadores {
@@ -62,5 +64,10 @@ public class TemplateTestIndicadores {
 
 	public static int evaluarEntero(Expresion unaExpresion) {
 		return evaluar(unaExpresion).intValue();
+	}
+	
+	@Test
+	public void paraQueNoRompa() {
+		assertTrue(true);
 	}
 }
