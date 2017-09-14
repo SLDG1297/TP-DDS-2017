@@ -8,9 +8,9 @@ import DB.Proveedores.ProveedorBD;
 import DB.Proveedores.ProveedorMock;
 
 public abstract class Repositorio<T extends TipoDeRepositorio> {
-	public abstract String getTipo();
+	public HashMap<String, Proveedor<T>> proveedores = new HashMap<String, Proveedor<T>>();
 	
-	public abstract Proveedor<T> getProveedor();
+	public abstract String getTipo();
 	
 	public T buscarObjeto(String unNombre, String tipoProveedor) {
 		return this.getProveedor(tipoProveedor).darObjeto(unNombre, this.getTipo());
@@ -32,7 +32,7 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 		this.getProveedor(tipoProveedor).agregarLista(listaObjetos);
 	}
 	
-	public void eliminarObjeto(T unObjeto, String tipoProveedor) {
+	public void eliminarObjeto(T unObjeto, Proveedor<T> unProveedor) {
 		unProveedor.eliminar(unObjeto);
 	}
 	
