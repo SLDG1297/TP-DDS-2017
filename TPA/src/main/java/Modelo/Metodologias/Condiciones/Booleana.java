@@ -7,18 +7,11 @@ import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "BOOLEANA")
+@DiscriminatorValue(value="booleana")
 public class Booleana extends Condicion {
-
-	@Id
-	@GeneratedValue
-	private long id_booleana;
 
 	protected BigDecimal valor;
 	protected int anios;

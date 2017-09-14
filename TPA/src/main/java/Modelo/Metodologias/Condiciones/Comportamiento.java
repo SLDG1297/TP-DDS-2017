@@ -13,11 +13,9 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "COMPORTAMIENTO")
+@DiscriminatorValue(value="comportamiento")
+@DiscriminatorColumn(name = "Discriminador", discriminatorType = DiscriminatorType.STRING)
 public abstract class Comportamiento extends Condicion {
-
-	@Id
-	@GeneratedValue
-	private long id_comportamiento;
 
 	protected int anios;
 

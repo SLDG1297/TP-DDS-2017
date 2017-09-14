@@ -15,6 +15,8 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "Discriminador", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("dummy")
 @Table(name = "CONDICION")
 public abstract class Condicion implements Condiciones, Deserializa{
 

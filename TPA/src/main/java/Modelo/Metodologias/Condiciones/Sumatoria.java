@@ -6,18 +6,11 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Condicion;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "SUMATORIA")
+@DiscriminatorValue(value="sumatoria")
 public class Sumatoria extends Condicion {
-
-	@Id
-	@GeneratedValue
-	private long id_sumatoria;
 
 	protected BigDecimal valor;
 	private int booleano;

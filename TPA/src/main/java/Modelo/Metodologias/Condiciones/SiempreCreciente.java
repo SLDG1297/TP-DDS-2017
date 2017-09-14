@@ -6,18 +6,11 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Comportamiento;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "SIEMPRE_CRECIENTE")
+@DiscriminatorValue(value="siempre_creciente")
 public class SiempreCreciente extends Comportamiento {
-
-	@Id
-	@GeneratedValue
-	private long id_siempre_creciente;
 
 	public SiempreCreciente(Indicador indicador, int anios) {
 		super(indicador, anios);

@@ -9,12 +9,8 @@ import Modelo.Metodologias.Condiciones.Condicion;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "MEDIANA")
+@DiscriminatorValue(value="mediana")
 public class Mediana extends Condicion {
-
-	@Id
-	@GeneratedValue
-	private long id_mediana;
 
 	protected BigDecimal valor;
 	private int booleano;

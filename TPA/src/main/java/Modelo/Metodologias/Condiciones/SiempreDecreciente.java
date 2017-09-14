@@ -5,18 +5,11 @@ import java.util.List;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "SIEMPRE_DECRECIENTE")
+@DiscriminatorValue(value="siempre_decreciente")
 public class SiempreDecreciente extends Comportamiento {
-
-	@Id
-	@GeneratedValue
-	private long id_siempre_decreciente;
 
 	public SiempreDecreciente(Indicador indicador, int anios) {
 		super(indicador, anios);

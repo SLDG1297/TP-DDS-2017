@@ -6,18 +6,11 @@ import java.util.stream.Collectors;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "CASI_SIEMPRE_DECRECIENTE")
+@DiscriminatorValue(value="comportamiento")
 public class CasiSiempreDecreciente extends Comportamiento {
-
-	@Id
-	@GeneratedValue
-	private long id_casi_siempre_decreciente;
 
 	public CasiSiempreDecreciente(Indicador indicador, int anios) {
 		super(indicador, anios);
