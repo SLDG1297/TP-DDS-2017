@@ -14,16 +14,13 @@ import Modelo.Metodologias.Try;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "Discriminador", discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("dummy")
-@Table(name = "CONDICION")
+@DiscriminatorValue("condicion")
 public abstract class Condicion extends Condiciones implements Deserializa {
 
 	@OneToOne
 	protected Indicador indicador;
 
-	@ManyToOne
+	@Transient
 	protected Empresa empresa;
 
 	public Condicion() {

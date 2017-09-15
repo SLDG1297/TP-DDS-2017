@@ -11,18 +11,19 @@ import Modelo.Empresa.Empresa;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "METODOLOGIA")
+@Table(name = "metodologia")
 public class Metodologia implements TipoDeRepositorio {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "Metolodogia_id")
+	@Column(name = "metolodogia_id")
 	private long id_metodologia;
 
-	@Column(name = "Nombre")
+	@Column(name = "nombre")
 	private String nombre;
 
 	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "metodologia_fk_id")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
 	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista

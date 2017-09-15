@@ -11,10 +11,7 @@ import Modelo.Metodologias.Try;
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Table(name = "COMPORTAMIENTO")
-@DiscriminatorValue(value="comportamiento")
-@DiscriminatorColumn(name = "Discriminador", discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("comportamiento")
 public abstract class Comportamiento extends Condicion {
 
 	protected int anios;
