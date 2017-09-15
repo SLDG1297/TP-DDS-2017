@@ -32,7 +32,7 @@ public class SiempreDecreciente extends Comportamiento {
 
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es siempre decreciente en " + String.valueOf(anios) + " a�os";
+		return "El indicador " + indicador.getNombre() + " es siempre decreciente en " + String.valueOf(anios) + " anios";
 	}
 	
 }

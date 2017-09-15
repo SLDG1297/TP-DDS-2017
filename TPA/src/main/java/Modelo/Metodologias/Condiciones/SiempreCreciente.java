@@ -33,7 +33,7 @@ public class SiempreCreciente extends Comportamiento {
 	
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es siempre creciente en " + String.valueOf(anios) + " a�os";
+		return "El indicador " + indicador.getNombre() + " es siempre creciente en " + String.valueOf(anios) + " anos";
 	}
 
 }

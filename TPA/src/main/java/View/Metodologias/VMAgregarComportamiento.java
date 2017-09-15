@@ -70,11 +70,11 @@ public class VMAgregarComportamiento {
     		nuevaCondicion = new SiempreCreciente(indicadorSeleccionado,periodoElegido);
     	}
     	
-    	if(comportamientoElegido.equals("Siempre creciente")){
+    	if(comportamientoElegido.equals("Casi siempre creciente")){
     		nuevaCondicion = new CasiSiempreCreciente(indicadorSeleccionado,periodoElegido);
     	}
     	
-    	if(comportamientoElegido.equals("Siempre creciente")){
+    	if(comportamientoElegido.equals("Siempre decreciente")){
     		nuevaCondicion = new SiempreDecreciente(indicadorSeleccionado,periodoElegido);
     	}
     	

@@ -8,11 +8,9 @@ import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
 
-@Entity
-@DiscriminatorValue("indicador")
 public class Indicador extends Condiciones implements Deserializa{
 
-	@OneToOne
+
 	private Modelo.Indicadores.Indicador indicador;
 
 	public Indicador(Modelo.Indicadores.Indicador indicador) {

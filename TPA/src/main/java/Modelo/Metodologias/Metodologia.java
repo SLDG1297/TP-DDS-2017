@@ -23,7 +23,7 @@ public class Metodologia implements TipoDeRepositorio {
 	private String nombre;
 
 	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "metodologia_fk_id")
+	@JoinColumn(name = "metodologia_fk_id",  referencedColumnName = "metolodogia_id")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
 	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista

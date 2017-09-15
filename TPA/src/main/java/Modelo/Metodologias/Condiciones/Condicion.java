@@ -17,7 +17,7 @@ import javax.persistence.*;
 @DiscriminatorValue("condicion")
 public abstract class Condicion extends Condiciones implements Deserializa {
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.PERSIST})
 	protected Indicador indicador;
 
 	@Transient
