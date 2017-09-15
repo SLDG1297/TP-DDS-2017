@@ -1,10 +1,8 @@
 package View;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 
 import DB.Repositorios.RepositorioMetodologias;
-import Modelo.Metodologias.Condiciones.CondicionFactory;
 import Modelo.Metodologias.Metodologia;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
@@ -47,10 +45,8 @@ public class ViewMain extends MainWindow<VM_Main> {
 		
 		RepositorioIndicadores.getInstancia().setProveedor(new ProveedorBD<Indicador>());
 
-		// RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
+		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
 
-		// RepositorioMetodologias.getInstancia().agregarObjeto((new Metodologia("MayorA_500_En1_Periodo", new CondicionFactory().crearMayorAEnPeriodos(RepositorioIndicadores.getInstancia().buscarObjeto("prueba"), new BigDecimal(500), 1))));
-		
 		new Instanciador_Bolsa_Empresas().instanciar();
 		
 		new ViewMain().startApplication(); 
