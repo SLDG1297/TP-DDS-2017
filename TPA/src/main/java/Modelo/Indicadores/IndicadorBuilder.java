@@ -1,6 +1,7 @@
 package Modelo.Indicadores;
 
 import DB.Repositorios.RepositorioIndicadores;
+import Excepciones.Indicadores.IndicadorSinNombreException;
 
 public class IndicadorBuilder {
 
@@ -8,6 +9,7 @@ public class IndicadorBuilder {
 	Expresiones operandoAnterior;
 	
 	public void setNombreIndicador(String nombreIndicador) {
+		if(nombreIndicador.isEmpty()) throw new IndicadorSinNombreException();
 		this.nombreIndicador = nombreIndicador;
 		this.operandoAnterior = null;
 	}
