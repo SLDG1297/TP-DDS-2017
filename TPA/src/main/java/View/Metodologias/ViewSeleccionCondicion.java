@@ -60,7 +60,7 @@ public abstract class ViewSeleccionCondicion extends Window<VMSeleccionCondicion
 			
         	this.ponerNombreEnBuilder();
         	this.getModelObject().iniciarBuilder();
-        	new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+        	new ViewAgregarPromedioSumatoriaMediana(this, new VMAgregarPromedioSumatoriaMediana(this.getModelObject().getMiMetodologiaBuilder())).open();
 			
 		});
         
@@ -68,7 +68,7 @@ public abstract class ViewSeleccionCondicion extends Window<VMSeleccionCondicion
 			
         	this.ponerNombreEnBuilder();
 			this.getModelObject().iniciarBuilder();
-			new ViewAgregarBooleana(this, new VMAgregarBooleana(this.getModelObject().getMiMetodologiaBuilder())).open();
+			new ViewAgregarComportamiento(this, new VMAgregarComportamiento(this.getModelObject().getMiMetodologiaBuilder())).open();
 			
 		});
 		

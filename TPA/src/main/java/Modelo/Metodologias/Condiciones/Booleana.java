@@ -41,7 +41,7 @@ public class Booleana extends Condicion {
 	
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es " + cadena + " a " + valor.toString() + " en " + String.valueOf(anios) + " a�os";
+		return "El indicador " + indicador.getNombre() + " es " + cadena + " a " + valor.toString() + " en " + String.valueOf(anios) + " anios";
 	}
 	
 	
