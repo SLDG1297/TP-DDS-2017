@@ -1,9 +1,5 @@
 package Modelo.Metodologias.Condiciones;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-
 import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
