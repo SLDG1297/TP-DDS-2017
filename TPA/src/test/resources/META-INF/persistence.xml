@@ -11,15 +11,7 @@
     	<class>Modelo.Empresa.Empresa</class>
     	<class>Modelo.Empresa.Periodo</class>
     	<class>Modelo.Empresa.Cuenta</class>
-    	<class>Modelo.Indicadores.Expresiones</class>
-    	<class>Modelo.Indicadores.Numero</class>
-    	<class>Modelo.Indicadores.Operacion</class>
-    	<class>Modelo.Indicadores.Cuenta_Indicadores</class>
     	<class>Modelo.Indicadores.Indicador</class>
-    	<class>Modelo.Indicadores.Suma</class>
-    	<class>Modelo.Indicadores.Resta</class>
-    	<class>Modelo.Indicadores.Multiplicacion</class>
-    	<class>Modelo.Indicadores.Division</class>
 		<class>Modelo.Metodologias.Metodologia</class>
 		<class>Modelo.Metodologias.Condiciones.Booleana</class>
 		<class>Modelo.Metodologias.Condiciones.CasiSiempreCreciente</class>
