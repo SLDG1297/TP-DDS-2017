@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import javax.persistence.*;
 
 import DB.Converter.IndicadorConverter;
-import DB.Serializador.SerializadorJson;
 import DB.TipoDeRepositorio;
 import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;

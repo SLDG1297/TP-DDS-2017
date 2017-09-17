@@ -1,62 +1,33 @@
 package DB.Serializador;
 
-import DB.Excepciones.SerializacionException;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
-import java.util.List;
+import java.lang.reflect.Type;
 
 public class SerializadorJson {
-
     private static SerializadorJson ourInstance = new SerializadorJson();
-
-    ObjectMapper mapper;
-
-    private SerializadorJson() {
-        mapper = new ObjectMapper();
-    }
 
     public static SerializadorJson getInstance() {
         return ourInstance;
     }
 
-    public <T> String serializar(T clase) {
-        String json;
-
-        try {
-            json = new ObjectMapper().writeValueAsString(clase);
-        } catch (IOException e) {
-            throw new SerializacionException(e, "No se pudo serializar el objeto %s", clase.toString());
-        }
-
-
-        return json;
+    private SerializadorJson() {
     }
 
-    public <T> T deserializar(String json, Class<T> clase) {
-        T objetoAEntregar;
+    public String serializar(Object object) { //Recibo Object porque quiero que esta clase serialize cualquier objeto
+        Type type = new TypeToken<Object>(){}.getType(); //uso type por si quiero serializar listas
+        Gson gson = new AdaptadorJson().getAdaptador(); //Usamos un adaptador para poder luego deserializar sin probloemas, ya que usamos interfaces
+        return gson.toJson(object, type);
+    }
 
-        try {
-            objetoAEntregar = mapper.readValue(json, clase);
-        } catch (IOException e) {
-            throw new SerializacionException(e, "No se pudo deserializar el json %s", json);
-        }
+    public <T> T deserializar(String object, Class<T> clase) {
+        Type type = new TypeToken<Object>(){}.getType(); //uso type por si quiero serializar listas
+        Gson gson = new AdaptadorJson().getAdaptador(); //Usamos un adaptador para poder luego deserializar sin probloemas, ya que usamos interfaces
+
+        T objetoAEntregar = gson.fromJson(object, clase);
 
         return objetoAEntregar;
-    }
-
-
-    public <T> List<T> deserializar(String json, TypeReference tipo) {
-        List<T> objetosAEntregar;
-
-        try {
-            objetosAEntregar = mapper.readValue(json, tipo);
-        } catch (IOException e) {
-            throw new SerializacionException(e, "No se pudo deserializar el json como lista %s", json);
-        }
-
-        return objetosAEntregar;
     }
 
 }

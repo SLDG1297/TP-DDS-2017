@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Observable
 @Table(name = "cuenta")
 
-public class Cuenta{
+public class Cuenta {
 	
 	@Id
 	@GeneratedValue
