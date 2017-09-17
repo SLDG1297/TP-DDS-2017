@@ -1,12 +1,10 @@
 package Modelo.Indicadores;
 
 import java.math.BigDecimal;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import DB.Converter.IndicadorConverter;
+import DB.Serializador.SerializadorJson;
 import DB.TipoDeRepositorio;
 import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;
@@ -17,8 +15,9 @@ public class Indicador extends Expresiones implements TipoDeRepositorio {
 	
 	@Column(name = "indicador_nombre")
 	private String nombre;
-	
-	@OneToOne(cascade = {CascadeType.ALL})
+
+	@Column
+	@Convert(converter = IndicadorConverter.class)
 	private Expresiones formula;
 
 	public Indicador(String nombre, Expresiones formula) {
