@@ -15,8 +15,8 @@ public class Indicador extends Expresiones implements TipoDeRepositorio {
 	@Column(name = "indicador_nombre")
 	private String nombre;
 
-	@Column
 	@Convert(converter = IndicadorConverter.class)
+	@Column(columnDefinition = "VARCHAR(MAX)")
 	private Expresiones formula;
 
 	public Indicador(String nombre, Expresiones formula) {
