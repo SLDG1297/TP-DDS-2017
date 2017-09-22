@@ -22,7 +22,6 @@ import View.Metodologias.ViewGestionDeMetodologias;
 
 public class ViewMain extends MainWindow<VM_Main> {
 	
-		
 	public ViewMain() {
 		super(new VM_Main());
 	}

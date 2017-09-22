@@ -9,7 +9,7 @@ import Modelo.Metodologias.Metodologia;
 public class RepositorioMetodologias extends Repositorio<Metodologia> {
 	private static RepositorioMetodologias instancia = null;
     
-    public RepositorioMetodologias(NombreRepositorio nombreTabla) {
+    private RepositorioMetodologias(NombreRepositorio nombreTabla) {
 		super(nombreTabla);
 	}
 	

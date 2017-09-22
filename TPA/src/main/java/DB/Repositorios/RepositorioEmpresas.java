@@ -9,7 +9,7 @@ import Modelo.Empresa.Empresa;
 public class RepositorioEmpresas extends Repositorio<Empresa> {
 	private static RepositorioEmpresas instancia = null;
 	
-	public RepositorioEmpresas(NombreRepositorio nombreTabla) {
+	private RepositorioEmpresas(NombreRepositorio nombreTabla) {
 		super(nombreTabla);
 	}
 	

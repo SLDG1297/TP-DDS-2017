@@ -9,7 +9,7 @@ import Modelo.Indicadores.Indicador;
 public class RepositorioIndicadores extends Repositorio<Indicador> {
 	private static RepositorioIndicadores instancia = null;
 	
-	public RepositorioIndicadores(NombreRepositorio nombreTabla) {
+	private RepositorioIndicadores(NombreRepositorio nombreTabla) {
 		super(nombreTabla);
 	}
 	
@@ -18,4 +18,5 @@ public class RepositorioIndicadores extends Repositorio<Indicador> {
 		
 		return instancia;
 	}
+	
 }
