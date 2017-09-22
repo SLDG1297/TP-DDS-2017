@@ -1,18 +1,20 @@
 package DB.Repositorios;
 
+import static DB.NombreRepositorio.*;
+
+import DB.NombreRepositorio;
 import DB.Repositorio;
 import Modelo.Empresa.Empresa;
 
 public class RepositorioEmpresas extends Repositorio<Empresa> {
-	public static RepositorioEmpresas instancia = null;
+	private static RepositorioEmpresas instancia = null;
 	
-	@Override
-	public String getTipo() {
-		return Empresa.class.getSimpleName();
+	public RepositorioEmpresas(NombreRepositorio nombreTabla) {
+		super(nombreTabla);
 	}
 	
 	public static RepositorioEmpresas getInstancia() {
-		if(instancia == null) instancia = new RepositorioEmpresas();
+		if(instancia == null) instancia = new RepositorioEmpresas(EMPRESA);
 		
 		return instancia;
 	}

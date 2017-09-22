@@ -1,21 +1,22 @@
 package DB.Repositorios;
 
+import static DB.NombreRepositorio.*;
+
+import DB.NombreRepositorio;
 import DB.Repositorio;
 import Modelo.Metodologias.Metodologia;
 
 public class RepositorioMetodologias extends Repositorio<Metodologia> {
-    private static RepositorioMetodologias ourInstance = new RepositorioMetodologias();
-
+	private static RepositorioMetodologias instancia = null;
+    
+    public RepositorioMetodologias(NombreRepositorio nombreTabla) {
+		super(nombreTabla);
+	}
+	
     public static RepositorioMetodologias getInstancia() {
-        return ourInstance;
-    }
-
-    private RepositorioMetodologias() {
-    }
-
-    @Override
-    public String getTipo() {
-        return Metodologia.class.getSimpleName();
+    	if(instancia == null) instancia = new RepositorioMetodologias(METODOLOGIA);
+    	
+        return instancia;
     }
 
 }
