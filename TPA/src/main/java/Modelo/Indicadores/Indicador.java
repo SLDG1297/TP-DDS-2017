@@ -15,7 +15,7 @@ public class Indicador extends Expresiones implements TipoDeRepositorio {
 	@Column(name = "indicador_nombre")
 	private String nombre;
 
-	@Column
+	@Column(name = "indicador_formula", columnDefinition = "TEXT")
 	@Convert(converter = IndicadorConverter.class)
 	private Expresiones formula;
 
