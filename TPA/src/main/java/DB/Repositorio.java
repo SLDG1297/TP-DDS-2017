@@ -3,9 +3,16 @@ package DB;
 import java.util.List;
 
 public abstract class Repositorio<T extends TipoDeRepositorio> {
-	public Proveedor<T> proveedor = null;
+	protected NombreRepositorio tabla;
+	private Proveedor<T> proveedor = null;
 	
-	public abstract String getTipo();
+	public Repositorio(NombreRepositorio nombreTabla) {
+		this.tabla = nombreTabla;
+	}
+	
+	public String getTabla() {
+		return this.tabla.darNombreRepositorio();
+	};
 	
 	public void setProveedor(Proveedor<T> unProveedor) {
 		this.proveedor = unProveedor;
@@ -16,15 +23,15 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 	}
 	
 	public T buscarObjeto(String unNombre) {
-		return this.getProveedor().darObjeto(unNombre, this.getTipo());
+		return this.getProveedor().darObjeto(unNombre, this.getTabla());
 	}
 	
 	public List<T> buscarListaDeObjetos() {
-		return this.getProveedor().darLista(this.getTipo());
+		return this.getProveedor().darLista(this.getTabla());
 	}
 	
 	public List<String> darListaNombres() {
-		return this.getProveedor().darListaNombres(this.getTipo());
+		return this.getProveedor().darListaNombres(this.getTabla());
 	}
 	
 	public void agregarObjeto(T unObjeto) {
