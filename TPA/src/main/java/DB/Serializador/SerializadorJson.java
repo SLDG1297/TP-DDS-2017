@@ -22,7 +22,8 @@ public class SerializadorJson {
     }
 
     public <T> T deserializar(String object, Class<T> clase) {
-        Type type = new TypeToken<Object>(){}.getType(); //uso type por si quiero serializar listas
+        @SuppressWarnings("unused")
+		Type type = new TypeToken<Object>(){}.getType(); //uso type por si quiero serializar listas
         Gson gson = new AdaptadorJson().getAdaptador(); //Usamos un adaptador para poder luego deserializar sin probloemas, ya que usamos interfaces
 
         T objetoAEntregar = gson.fromJson(object, clase);

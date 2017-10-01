@@ -1,5 +1,7 @@
 package DB.Excepciones;
 
+import java.util.Arrays;
+
 public class SerializacionException extends RuntimeException {
 
     public SerializacionException() {
@@ -10,7 +12,7 @@ public class SerializacionException extends RuntimeException {
     }
 
     public SerializacionException(Throwable cause, String message, String... adicional) {
-        super(String.format(message, adicional), cause);
+        super(String.format(message, Arrays.asList(adicional)), cause);
     }
 
     public SerializacionException(Throwable cause) {
