@@ -4,8 +4,6 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-import java.util.Map;
-
 public class LoginController {
 
     public ModelAndView show(Request request, Response response) {

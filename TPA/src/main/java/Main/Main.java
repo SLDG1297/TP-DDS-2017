@@ -2,14 +2,13 @@ package Main;
 
 import java.io.IOException;
 
+import Archivo.Empresa.Instanciador_Bolsa_Empresas;
+import DB.Proveedores.ProveedorBD;
+import DB.Repositorios.RepositorioIndicadores;
 import DB.Repositorios.RepositorioMetodologias;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
-import Archivo.Empresa.Instanciador_Bolsa_Empresas;
-import DB.Proveedores.ProveedorBD;
-import DB.Repositorios.RepositorioEmpresas;
-import DB.Repositorios.RepositorioIndicadores;
 
 public class Main {
 	
@@ -19,8 +18,8 @@ public class Main {
 		WebMain.iniciarInterfazWeb();
 	}
 
-	public static void iniciarModelo()  throws IOException {
-		RepositorioEmpresas.getInstancia().setProveedor(new ProveedorBD<Empresa>());
+	public static void iniciarModelo() throws IOException {
+		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Empresa>());
 		
 		RepositorioIndicadores.getInstancia().setProveedor(new ProveedorBD<Indicador>());
 
