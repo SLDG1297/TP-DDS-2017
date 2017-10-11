@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.*;
+
 import Modelo.Empresa.Deserializa;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;
 import Modelo.Metodologias.Try;
-
-import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue("condicion")

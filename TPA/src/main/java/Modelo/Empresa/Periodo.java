@@ -14,9 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import Excepciones.Indicadores.NoTieneLaCuentaException;
+import Modelo.Empresa.Cuenta;
 import Excepciones.Empresas.PeriodoSinCuentasException;
 import Excepciones.Empresas.YaExisteLaCuentaException;
-import Modelo.Empresa.Cuenta;
 
 @Entity
 @Table(name = "periodo")

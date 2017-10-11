@@ -1,6 +1,7 @@
 package Modelo.Metodologias.Condiciones;
 
 import java.math.BigDecimal;
+
 import Modelo.Indicadores.Indicador;
 
 public class CondicionFactory {

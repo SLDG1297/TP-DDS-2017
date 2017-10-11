@@ -1,7 +1,5 @@
 package Modelo.Metodologias.Condiciones;
 
-import Modelo.Empresa.Empresa;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -11,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+
+import Modelo.Empresa.Empresa;
 
 @Entity
 @Table(name = "condiciones")

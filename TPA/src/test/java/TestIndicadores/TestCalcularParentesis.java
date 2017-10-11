@@ -2,8 +2,9 @@ package TestIndicadores;
 
 import org.junit.experimental.theories.Theory;
 
-import static Factories.FactoryOperaciones.*;
 import Modelo.Indicadores.*;
+
+import static Factories.FactoryOperaciones.*;
 
 import org.junit.Assert;
 import org.junit.Test;

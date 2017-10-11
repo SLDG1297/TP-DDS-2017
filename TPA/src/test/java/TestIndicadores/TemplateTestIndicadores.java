@@ -24,6 +24,7 @@ import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Numero;
 import Modelo.Indicadores.Query;
+
 import org.junit.Test;
 
 @RunWith(Theories.class)

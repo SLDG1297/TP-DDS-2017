@@ -7,6 +7,7 @@ import org.junit.Test;
 import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;
 import Modelo.Indicadores.*;
+
 import org.junit.Assert;
 
 public class TestIndicador extends TemplateTestIndicadores {

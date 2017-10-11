@@ -2,10 +2,11 @@ package Modelo.Metodologias.Condiciones;
 
 import java.math.BigDecimal;
 import java.util.List;
-import Modelo.Indicadores.Indicador;
-import Modelo.Metodologias.Try;
 
 import javax.persistence.*;
+
+import Modelo.Indicadores.Indicador;
+import Modelo.Metodologias.Try;
 
 @Entity
 @DiscriminatorValue(value="siempre_decreciente")

@@ -2,11 +2,12 @@ package Modelo.Metodologias.Condiciones;
 
 import java.math.BigDecimal;
 import java.util.List;
+
+import javax.persistence.*;
+
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Condicion;
-
-import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue(value="mediana")

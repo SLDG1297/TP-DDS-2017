@@ -4,11 +4,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.persistence.*;
+
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
-
-import javax.persistence.*;
 
 @Entity
 @DiscriminatorValue("comportamiento")

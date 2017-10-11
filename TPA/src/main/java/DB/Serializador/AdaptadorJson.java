@@ -1,8 +1,9 @@
 package DB.Serializador;
 
-import Modelo.Indicadores.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import Modelo.Indicadores.*;
 
 public class AdaptadorJson {
 

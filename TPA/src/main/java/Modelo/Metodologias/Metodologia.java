@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import DB.TipoDeRepositorio;
-import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Empresa.Empresa;
+import Modelo.Metodologias.Condiciones.Condiciones;
 
 import javax.persistence.*;
 

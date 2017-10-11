@@ -5,6 +5,7 @@ import static Factories.FactoryOperaciones.*;
 import org.junit.Test;
 
 import Modelo.Indicadores.*;
+
 import org.junit.Assert;
 
 public class TestImprimir extends TemplateTestIndicadores {
