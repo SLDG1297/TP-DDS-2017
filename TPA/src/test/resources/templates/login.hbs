@@ -1,0 +1,19 @@
+{{# partial "titulo" }}
+    <title>Consultorea.me</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <form id="loginForm" method="POST">
+
+        <label>Email</label>
+        <input type="text" id="email" name="email" value="">
+
+        <label>Password</label>
+        <input type="text" id="password" name="password" value="">
+
+        <input type="submit" id="loginButton" value="Login">
+
+    </form>
+{{/partial}}
+
+{{> template.hbs }}
