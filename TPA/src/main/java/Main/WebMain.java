@@ -8,8 +8,6 @@ import Controllers.HomeController;
 import Controllers.LoginController;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-
-
 public class WebMain {
 
     public static void iniciarInterfazWeb() {
