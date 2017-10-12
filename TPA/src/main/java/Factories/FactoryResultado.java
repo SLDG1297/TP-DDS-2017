@@ -1,4 +1,4 @@
-package Modelo.Factories;
+package Factories;
 
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Resultados.*;

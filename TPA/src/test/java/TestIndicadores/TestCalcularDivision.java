@@ -3,8 +3,8 @@ package TestIndicadores;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static Modelo.Factories.FactoryNumero.crearNumero;
-import static Modelo.Factories.FactoryOperaciones.dividir;
+import static Factories.FactoryNumero.crearNumero;
+import static Factories.FactoryOperaciones.dividir;
 
 import Modelo.Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 import Modelo.Indicadores.Division;

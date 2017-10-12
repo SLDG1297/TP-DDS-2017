@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
+import Modelo.Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 @Entity
 @Table(name = "division")
 public class Division extends Operacion {

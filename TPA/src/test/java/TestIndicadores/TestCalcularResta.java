@@ -10,7 +10,7 @@ import org.junit.experimental.theories.Theory;
 
 import static Factories.FactoryOperaciones.restar;
 
-import Excepciones.Indicadores.FaltaOperandoDerechoException;
+import Modelo.Excepciones.Indicadores.FaltaOperandoDerechoException;
 import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Resta;
 

@@ -1,6 +1,6 @@
 package TestMetodologias.TestComparadores;
 
-import static Modelo.Factories.FactoryComparadores.*;
+import static Factories.FactoryComparadores.*;
 
 import java.util.Arrays;
 import java.util.List;

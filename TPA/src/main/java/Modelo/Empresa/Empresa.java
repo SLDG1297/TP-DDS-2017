@@ -1,24 +1,15 @@
 package Modelo.Empresa;
 
+import DB.TipoDeRepositorio;
+import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
+import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
+import Modelo.Excepciones.Empresas.NoExisteElPeriodoException;
+import org.uqbar.commons.utils.Observable;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.uqbar.commons.utils.Observable;
-
-import DB.TipoDeRepositorio;
-import Excepciones.Empresas.EmpresaSinNombreException;
-import Excepciones.Empresas.EmpresaSinPeriodoException;
-import Excepciones.Empresas.NoExisteElPeriodoException;
 
 @Entity
 @Observable
@@ -40,7 +31,7 @@ public class Empresa implements TipoDeRepositorio {
 	@SuppressWarnings("unused")
 	private Empresa(){};
 	
-	// Esto solo lo usa el Parser para crear la empresa rápidamente
+	// Esto solo lo usa el Parser para crear la empresa rï¿½pidamente
 	public Empresa(String nombre, String nombreCuenta, String anio, String valor) {
 		 this.setNombre(nombre);	
 		 periodos.add(new Periodo(Integer.parseInt(anio), new Cuenta(nombreCuenta, Integer.parseInt(valor))));

@@ -1,13 +1,10 @@
 package Modelo.Empresa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import Modelo.Excepciones.Empresas.CuentaConValorNegativoException;
+import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import org.uqbar.commons.utils.Observable;
-import Excepciones.Empresas.CuentaConValorNegativoException;
-import Excepciones.Empresas.CuentaSinNombreException;
-import javax.persistence.Table;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 @Observable

@@ -1,4 +1,4 @@
-package Modelo.Factories;
+package Factories;
 
 import java.util.ArrayList;
 import java.util.Arrays;

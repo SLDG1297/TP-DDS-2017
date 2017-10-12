@@ -5,7 +5,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import Excepciones.Indicadores.FaltaOperandoDerechoException;
+import Modelo.Excepciones.Indicadores.FaltaOperandoDerechoException;
 
 @Entity
 @Table(name = "operacion")

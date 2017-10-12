@@ -6,9 +6,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import Excepciones.Empresas.EmpresaSinNombreException;
-import Excepciones.Empresas.EmpresaSinPeriodoException;
-import Excepciones.Empresas.NoExisteElPeriodoException;
+import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
+import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
+import Modelo.Excepciones.Empresas.NoExisteElPeriodoException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;

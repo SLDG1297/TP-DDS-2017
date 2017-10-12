@@ -1,7 +1,7 @@
 package TestMetodologias.TestComparadores;
 
-import static Modelo.Factories.FactoryComparadores.*;
-import static Modelo.Factories.FactoryResultado.*;
+import static Factories.FactoryComparadores.*;
+import static Factories.FactoryResultado.*;
 
 import org.junit.Test;
 

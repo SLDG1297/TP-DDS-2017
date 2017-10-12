@@ -1,7 +1,7 @@
 package Modelo.Indicadores;
 
 import DB.Repositorios.RepositorioIndicadores;
-import Excepciones.Indicadores.IndicadorSinNombreException;
+import Modelo.Excepciones.Indicadores.IndicadorSinNombreException;
 
 public class IndicadorBuilder {
 

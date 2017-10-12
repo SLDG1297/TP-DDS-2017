@@ -4,8 +4,8 @@ import static Factories.FactoryIndicador.crearIndicador;
 
 import org.junit.Test;
 
-import Excepciones.Indicadores.IndicadorSinFormulaException;
-import Excepciones.Indicadores.IndicadorSinNombreException;
+import Modelo.Excepciones.Indicadores.IndicadorSinFormulaException;
+import Modelo.Excepciones.Indicadores.IndicadorSinNombreException;
 import Modelo.Indicadores.*;
 
 import org.junit.Assert;

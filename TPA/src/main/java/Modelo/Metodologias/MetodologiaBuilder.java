@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import DB.Repositorios.RepositorioMetodologias;
-import Excepciones.Metodologias.MetodologiaSinNombreException;
+import Modelo.Excepciones.Metodologias.MetodologiaSinNombreException;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Condiciones.Condicion;
 import Modelo.Metodologias.Condiciones.Condiciones;

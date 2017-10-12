@@ -5,8 +5,8 @@ import javax.persistence.*;
 
 import DB.Converter.IndicadorConverter;
 import DB.TipoDeRepositorio;
-import Excepciones.Indicadores.IndicadorSinFormulaException;
-import Excepciones.Indicadores.IndicadorSinNombreException;
+import Modelo.Excepciones.Indicadores.IndicadorSinFormulaException;
+import Modelo.Excepciones.Indicadores.IndicadorSinNombreException;
 
 @Entity
 @Table(name = "indicador")

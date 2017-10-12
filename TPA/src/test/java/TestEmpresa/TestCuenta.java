@@ -1,11 +1,10 @@
 package TestEmpresa;
 
+import Modelo.Empresa.Cuenta;
+import Modelo.Excepciones.Empresas.CuentaConValorNegativoException;
+import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import org.junit.Assert;
 import org.junit.Test;
-
-import Excepciones.Empresas.CuentaConValorNegativoException;
-import Excepciones.Empresas.CuentaSinNombreException;
-import Modelo.Empresa.Cuenta;
 
 import static Factories.FactoryCuenta.*;
 
