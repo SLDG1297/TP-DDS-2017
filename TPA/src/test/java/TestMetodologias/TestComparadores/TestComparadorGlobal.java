@@ -1,6 +1,6 @@
 package TestMetodologias.TestComparadores;
 
-import static Factories.FactoryComparadores.*;
+import static Modelo.Factories.FactoryComparadores.*;
 
 import static org.junit.Assert.*;
 

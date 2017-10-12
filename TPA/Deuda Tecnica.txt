@@ -16,7 +16,7 @@ Entrega 2
  
 	Realizar Test Entrega 
 	
-)Excepciones:
+)Modelo.Excepciones:
 
 	No se muestra una View de Error cuando el usuario evalua un indicador que tiene una cuenta en su formula, que la empresa no tiene (La excepcion ya existe) pero en la view hay que capturarla y lanzar una pantalla, en la view pajas, no en el modelo. GONZA
  

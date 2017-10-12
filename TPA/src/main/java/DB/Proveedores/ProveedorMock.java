@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import DB.Proveedor;
 import DB.TipoDeRepositorio;
-import Excepciones.Empresas.NoExisteEnElRepositorioException;
+import Modelo.Excepciones.Empresas.NoExisteEnElRepositorioException;
 
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
 	private List<T> lista = new ArrayList<T>();
