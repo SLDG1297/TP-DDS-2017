@@ -2,6 +2,10 @@
 
     <!---------Deberia estar en el css de Home -------------->
     <style>
+        .titulo {
+            margin-bottom: 15px;
+        }
+
         .contenedor-gris {
             background-color: #ECEFF1;
             padding: 120px 40px;
@@ -29,7 +33,7 @@
             font-size: 24px;
         }
 
-        .letraDescripcionesContenedores {
+        .letra-descripciones-contenedores {
             line-height: 1.8;
             color: #4e5758;
             font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
@@ -39,19 +43,60 @@
             font-style: normal;
             padding-left: 36px;
         }
+
+        .item-descripcion {
+            margin-bottom: 15px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .descripcion {
+            font-size: 18px;
+            font-weight: inherit;
+
+            margin-left: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .boton {
+            margin-left: 10px;
+        }
+
     </style>
 
 
     <div class="container-fluid contenedor-blanco">
         <div class="row">
-            <div class="col-sm-4">
-                <h2>Gestionar Empresas</h2>
-                <div class="letraDescripcionesContenedores">
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Puede visualizar las cuentas de una empresa dado un periodo</h4>
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Puede obtener el valor de las cuentas de una empresa dado un periodo</h4>
+            <ul class="col-sm-4">
+                <h2 class="titulo">Gestionar Empresas</h2>
+
+                <ul class="letra-descripciones-contenedores">
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Puede visualizar las cuentas de una empresa dado un periodo</label>
+                    </li>
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Puede obtener el valor de las cuentas de una empresa dado un periodo</label>
+                    </li>
+
+                </ul>
+
+                <div class="buttons">
+
+                    <button type="button" class="btn btn-primary btn-lg boton">Consultar</button>
+
                 </div>
-                <button type="button" class="btn btn-primary btn-lg">Consultar</button>
-            </div>
+
+            </ul>
+
             <div class="col-sm-4">
                 <img class="img-responsive rounded float-right" src="https://www.iae.edu.ar/es/PublishingImages/alumni/icono_empresas.png">
             </div>
@@ -62,16 +107,34 @@
     <div class="container-fluid contenedor-gris">
         <div class="row">
             <div class="col-sm-4">
-                <h2>Gestionar Indicaores</h2>
-                <div class="letraDescripcionesContenedores">
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
+                <h2 class="titulo">Gestionar Indicadores</h2>
+                <ul class="letra-descripciones-contenedores">
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Aqui va una descripcion bonita</label>
+                    </li>
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Aqui va una descripcion bonita</label>
+                    </li>
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Aqui va una descripcion bonita</label>
+                    </li>
+
+                </ul>
+
+                <div class="buttons">
+
+                    <button type="button" class="btn btn-lg boton">Eliminar</button>
+                    <button type="button" class="btn btn-lg boton">Crear</button>
+                    <button type="button" class="btn btn-primary btn-lg boton">Consultar</button>
+
                 </div>
-                <button type="button" class="btn btn-primary btn-lg">Crear</button>
-                <button type="button" class="btn btn-primary btn-lg">Consultar</button>
-                <button type="button" class="btn btn-primary btn-lg">Eliminar</button>
+
             </div>
             <div class="col-sm-4">
                 <img class="img-responsive rounded float-right" src="http://redenetsolucoes.com.br/img/components/bar-chart-icon.svg">
@@ -83,16 +146,39 @@
     <div class="container-fluid contenedor-grisClaro">
         <div class="row">
             <div class="col-sm-4">
-                <h2>Gestionar Metodologias</h2>
-                <div class="letraDescripcionesContenedores">
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
-                    <h4><span class="glyphicon glyphicon-ok-circle iconoOk"></span>Aqui va una descripcion bonita</h4>
+                <h2 class="titulo">Gestionar Metodologias</h2>
+                <ul class="letra-descripciones-contenedores">
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Aqui va una descripcion bonita</label>
+                    </li>
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Aqui va una descripcion bonita</label>
+                    </li>
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Aqui va una descripcion bonita</label>
+                    </li>
+
+                    <li class="item-descripcion">
+                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <label class="descripcion">Aqui va una descripcion bonita</label>
+                    </li>
+
+                </ul>
+
+                <div class="buttons">
+
+                    <button type="button" class="btn btn-lg boton">Eliminar</button>
+                    <button type="button" class="btn btn-lg boton">Crear</button>
+                    <button type="button" class="btn btn-primary btn-lg boton">Consultar</button>
+
                 </div>
-                <button type="button" class="btn btn-primary btn-lg">Crear</button>
-                <button type="button" class="btn btn-primary btn-lg">Consultar</button>
-                <button type="button" class="btn btn-primary btn-lg">Eliminar</button>
+
             </div>
             <div class="col-sm-4">
                 <img class="img-responsive rounded float-right" src="http://www.arangobueno.com/wp-content/uploads/2016/08/Iconos_Empresariales.png" width="304" height="236">
