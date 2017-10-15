@@ -51,6 +51,17 @@
         transform: translatex(-50%);
     }
 
+    .navCentral ul:hover{
+        box-shadow: 8px 12px 16px rgba(0,0,0,0.2);
+        position: relative;
+        border: none;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
     .navbar-nav.login {
         position: absolute;
         left: 77%;
@@ -78,11 +89,13 @@
         <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-compressed"></span>Logo</a>
     </div>
 
-    <ul class="nav navbar-nav navbar-center">
-        <li><a href="#empresas">EMPRESAS</a></li>
-        <li><a href="#indicadores">INDICADORES</a></li>
-        <li><a href="#metodologias">METODOLOGIAS</a></li>
-    </ul>
+    <div class="navCentral">
+        <ul class="nav navbar-nav navbar-center">
+            <li><a href="#empresas">EMPRESAS</a></li>
+            <li><a href="#indicadores">INDICADORES</a></li>
+            <li><a href="#metodologias">METODOLOGIAS</a></li>
+        </ul>
+    </div>
 
     <ul class="nav navbar-nav navbar-right login">
         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
