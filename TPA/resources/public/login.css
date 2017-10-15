@@ -1,0 +1,23 @@
+body {
+    padding: 0 40%;
+
+}
+
+.form-login {
+    padding: 20px;
+
+    box-shadow: 0 10px 10px 0 gray;
+
+    margin-top: 50%;
+
+}
+
+.contenedor-input {
+
+    margin-bottom: 15px;
+
+}
+
+.descriptor-input {
+    display: block;
+}

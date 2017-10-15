@@ -2,16 +2,25 @@
     <title>Consultorea.me</title>
 {{/partial}}
 
+<head>
+    <!-- Css del home -->
+    <link rel="stylesheet"  href="login.css">
+</head>
+
 {{# partial "contenido" }}
-    <form id="loginForm" method="POST">
+    <form id="loginForm" class="form-login" method="POST">
 
-        <label>Email</label>
-        <input type="text" id="email" name="email" value="">
+        <div class="contenedor-input">
+            <label class="descriptor-input">Email</label>
+            <input type="text" class="form-control" id="email" name="email" value="">
+        </div>
 
-        <label>Password</label>
-        <input type="text" id="password" name="password" value="">
+        <div class="contenedor-input">
+            <label class="descriptor-input">Password</label>
+            <input type="password" class="form-control" id="password" name="password" value="">
+        </div>
 
-        <input type="submit" id="loginButton" value="Login">
+        <input type="submit" class="btn btn-primary btn-md btn-block" id="loginButton" value="Login">
 
     </form>
 {{/partial}}
