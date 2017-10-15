@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-       <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
@@ -30,7 +28,14 @@
         box-shadow: 0px 2px 2px 0 rgba(0,0,0,0.2);
     }
 
-    .navbar :hover{
+    .navbar a {
+        color: #fff !important;
+    }
+
+    .navbar-nav li a:hover, .navbar li.active a {
+        color: #2A93DF !important;
+        background-color: #fff !important;
+        box-shadow: 8px 12px 16px rgba(0,0,0,0.2);
         position: relative;
         border: none;
         -webkit-transition-duration: 0.4s; /* Safari */
@@ -38,27 +43,24 @@
         text-decoration: none;
         overflow: hidden;
         cursor: pointer;
-        box-shadow: 8px 12px 16px rgba(0,0,0,0.2);
     }
 
-    .navbar a {
-        color: #fff !important;
-    }
-
-    .navbar a:hover, .navbar a:active {
-        color: #2A93DF !important;
-        background-color: #fff !important;
-    }
-
-    .jumbotron {
-        background-color: #2A93DF;
-        color: #fff;
-        padding: 100px 25px;
-    }
-
-    .nav.position-right {
+    .navbar-nav.navbar-center {
         position: absolute;
-        right: 10px;
+        left: 50%;
+        transform: translatex(-50%);
+    }
+
+    .navbar-nav.login {
+        position: absolute;
+        left: 77%;
+        transform: translatex(-50%);
+    }
+
+    .navbar-header.logo {
+        position: absolute;
+        left: 21%;
+        transform: translatex(-50%);
     }
 
      footer .glyphicon {
@@ -70,17 +72,22 @@
 
 </style>
 
+
 <!-------Barra de navagacion------->
-<nav class="nav navbar fixed-top">
-    <div class="nav position-right">
-        <a class="nav-item nav-link" href="#myPage"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header logo">
+        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-compressed"></span>Logo</a>
     </div>
 
-    <div class="nav justify-content-center nav-empresas-indicadores-metodologias">
-        <a class="nav-item nav-link" href="#empresas">EMPRESAS</a>
-        <a class="nav-item nav-link" href="#indicadores">INDICADORES</a>
-        <a class="nav-item nav-link" href="#metodologias">METODOLOGIAS</a>
-    </div>
+    <ul class="nav navbar-nav navbar-center">
+        <li><a href="#empresas">EMPRESAS</a></li>
+        <li><a href="#indicadores">INDICADORES</a></li>
+        <li><a href="#metodologias">METODOLOGIAS</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right login">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+    </ul>
 </nav>
 
 <!---------Nombre de el programa (No sacar)-------->
