@@ -1,90 +1,10 @@
 {{# partial "contenido" }}
+    <head>
+        !-- Css del home -->
+        <link rel="stylesheet"  href="home.css">
+    </head>
 
-    <!---------Deberia estar en el css de Home -------------->
-    <style>
-        .titulo {
-            margin-bottom: 15px;
-        }
-
-        .contenedor-blanco {
-            background-color: #FFFFFF;
-            padding: 120px 40px;
-        }
-
-        .contenedor-gris {
-            background-color: #ECEFF1;
-            padding: 120px 40px;
-        }
-
-        .contenedor-grisClaro {
-            background-color: #F7F9FA;
-            padding: 120px 40px;
-        }
-
-        .contenedor-blanco span {
-            color: #31AEBF;
-            font-size: 24px;
-        }
-
-        .contenedor-gris span {
-            color: #145367;
-            font-size: 24px;
-        }
-
-        .contenedor-grisClaro span {
-            color: #2B75BE;
-            font-size: 24px;
-        }
-
-
-        @media screen and (max-width: 768px) {
-            .col-sm-4 {
-                text-align: center;
-                margin: 25px 0;
-            }
-        }
-
-        .letra-descripciones-contenedores {
-            line-height: 1.8;
-            color: #4e5758;
-            font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
-            margin: 0;
-            border: 0;
-            font-weight: 400;
-            font-style: normal;
-            padding-left: 36px;
-        }
-
-        .item-descripcion {
-            margin-bottom: 15px;
-
-            display: flex;
-            align-items: center;
-        }
-
-        .descripcion {
-            font-size: 18px;
-            font-weight: inherit;
-
-            margin-left: 10px;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .boton {
-            margin-left: 10px;
-        }
-
-        .jumbotron {
-            background-color: #2A93DF;
-            color: #fff;
-            padding: 100px 25px;
-        }
-
-    </style>
+    <body>
 
     <div class="jumbotron text-center">
         <h1>Business Program</h1>
@@ -94,7 +14,7 @@
 
     <div id="empresas" class="container-fluid contenedor-blanco">
         <div class="row">
-            <ul class="col-sm-4">
+            <ul class="col-sm-8">
                 <h2 class="titulo">Gestionar Empresas</h2>
 
                 <ul class="letra-descripciones-contenedores">
@@ -111,15 +31,13 @@
                 </ul>
 
                 <div class="buttons">
-
-                    <button type="button" class="btn btn-primary btn-lg boton">Consultar</button>
-
+                    <button type="button" class="btn btn-default btn-lg boton">Consultar</button>
                 </div>
 
             </ul>
 
             <div class="col-sm-4">
-                <img class="img-responsive rounded float-right" src="https://www.iae.edu.ar/es/PublishingImages/alumni/icono_empresas.png">
+                <img class="img-responsive rounded float-right imagen" src="https://www.iae.edu.ar/es/PublishingImages/alumni/icono_empresas.png">
             </div>
         </div>
     </div>
@@ -127,22 +45,22 @@
 
     <div id="indicadores" class="container-fluid contenedor-gris">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-8">
                 <h2 class="titulo">Gestionar Indicadores</h2>
                 <ul class="letra-descripciones-contenedores">
 
                     <li class="item-descripcion">
-                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <span class="glyphicon glyphicon-ok-circle"></span>
                         <label class="descripcion">Aqui va una descripcion bonita</label>
                     </li>
 
                     <li class="item-descripcion">
-                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <span class="glyphicon glyphicon-ok-circle"></span>
                         <label class="descripcion">Aqui va una descripcion bonita</label>
                     </li>
 
                     <li class="item-descripcion">
-                        <span class="glyphicon glyphicon-ok-circle iconoOk"></span>
+                        <span class="glyphicon glyphicon-ok-circle"></span>
                         <label class="descripcion">Aqui va una descripcion bonita</label>
                     </li>
 
@@ -158,7 +76,7 @@
 
             </div>
             <div class="col-sm-4">
-                <img class="img-responsive rounded float-right" src="http://redenetsolucoes.com.br/img/components/bar-chart-icon.svg">
+                <img class="img-responsive rounded float-right imagen" src="http://redenetsolucoes.com.br/img/components/bar-chart-icon.svg">
             </div>
         </div>
     </div>
@@ -166,7 +84,7 @@
 
     <div id="metodologias" class="container-fluid contenedor-grisClaro">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-8">
                 <h2 class="titulo">Gestionar Metodologias</h2>
                 <ul class="letra-descripciones-contenedores">
 
@@ -202,7 +120,7 @@
 
             </div>
             <div class="col-sm-4">
-                <img class="img-responsive rounded float-right" src="http://www.arangobueno.com/wp-content/uploads/2016/08/Iconos_Empresariales.png" width="304" height="236">
+                <img class="img-responsive rounded float-right imagen thumbnail" src="http://www.arangobueno.com/wp-content/uploads/2016/08/Iconos_Empresariales.png" width="304" height="236">
             </div>
         </div>
     </div>
@@ -234,6 +152,8 @@
             });
         })
     </script>
+
+    </body>
 
 {{/partial}}
 
