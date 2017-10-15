@@ -1,0 +1,69 @@
+{{# partial "contenido" }}
+<style>
+
+    .jumbotron {
+        background-color: #46aadf;
+        color: #fff;
+        padding: 100px 25px;
+        margin-bottom: 100px;
+    }
+
+    .left-text {
+        font-size: 30px;
+        padding-left: 200px;
+        line-height: 1.8;
+        color: #4e5758;
+        font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
+    }
+
+    .right-text {
+        font-size: 30px;
+        padding-left: 1150px;
+        padding-right: 200px;
+        line-height: 1.8;
+        color: #4e5758;
+        font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
+    }
+
+    .text30{
+
+        font-size: 30px;
+
+    }
+
+    .text20{
+        font-size: 20px;
+    }
+
+
+</style>
+
+ <div class="jumbotron text-center">
+
+     <h1>Consultar Cuentas</h1>
+     <p>Encuentre los valores de las cuentas de las empresas mas importantes</p>
+
+ </div>
+
+ <div>
+
+     <h1><a class="left-text">Elegir empresa:</a><a class="right-text">Elegir periodo:</a></h1>
+
+
+ </div>
+
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle text30" type="button" data-toggle="dropdown">
+        Empresa
+        <!--<span class="caret"></span>-->
+    </button>
+    <ul class="dropdown-menu text20">
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+    </ul>
+</div>
+
+{{/partial}}
+
+{{> template.hbs }}

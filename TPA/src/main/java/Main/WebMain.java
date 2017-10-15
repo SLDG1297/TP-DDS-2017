@@ -4,6 +4,7 @@ import static spark.Spark.*;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
 
+import Controllers.EmpresasController;
 import Controllers.HomeController;
 import Controllers.LoginController;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -18,11 +19,14 @@ public class WebMain {
 
         HomeController homeController = new HomeController();
 
+        EmpresasController empresasController = new EmpresasController();
+
         port(8080);
 
         staticFileLocation("/public");
 
         get("/login", loginController::show, engine);
+        get("/empresas",empresasController::show,engine);
         post("/login", loginController::create);
         get("/", homeController::show, engine);
 
