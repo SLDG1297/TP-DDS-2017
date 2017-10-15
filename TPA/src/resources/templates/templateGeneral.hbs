@@ -4,14 +4,13 @@
 
 <head>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="mainGeneral.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	{{# block "masEstilos" }}
 		<!-------Aca se pueden agregar más estilos------->	
 	{{/ block }}
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	{{# block "masMetadata" }}
@@ -20,21 +19,24 @@
 	
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar-header logo">
+		<a class="navbar-brand" href="#"><span class="glyphicon glyphicon-compressed"></span>Logo</a>
+	</div>
 
-	<nav class="nav navbar fixed-top">
-		<div class="nav justify-content-center nav-empresas-indicadores-metodologias">
-			<a class="nav-item nav-link" href="#empresas">EMPRESAS</a>
-			<a class="nav-item nav-link" href="#indicadores">INDICADORES</a>
-			<a class="nav-item nav-link" href="#metodologias">METODOLOG&Iacute;AS</a>
-		</div>
-		<div class="nav position-right">
-			<a class="nav-item nav-link" href="#myPage"> <span class="glyphicon glyphicon-log-in"></span>LOGIN</a>
-		</div>
-	</nav>
-	
+	<ul class="nav navbar-nav navbar-center">
+		<li><a href="#empresas">EMPRESAS</a></li>
+		<li><a href="#indicadores">INDICADORES</a></li>
+		<li><a href="#metodologias">METODOLOG&Iacute;AS</a></li>
+	</ul>
+
+	<ul class="nav navbar-nav navbar-right login">
+		<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
+	</ul>
+</nav>
+
 	{{# block "contenido" }}
-		<!-------Aqui ira el contenido de las distintas paginas------->
+		<!-------Aca ira el contenido de las distintas paginas------->
 	{{/ block }}
 
 
