@@ -5,16 +5,14 @@ import static spark.Spark.post;
 import static spark.SparkBase.port;
 
 import Controllers.EmpresasController;
-import Controllers.HomeController;
-import Controllers.LoginController;
+import Controllers.*;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 public class WebMain {
+	private static HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
 
     public static void iniciarInterfazWeb() {
-
-        HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
-
+        
         LoginController loginController = new LoginController();
 
         HomeController homeController = new HomeController();
@@ -30,6 +28,12 @@ public class WebMain {
         post("/login", loginController::create);
         get("/", homeController::show, engine);
 
+    }
+    
+    public static void iniciarMetodologias() {
+    	MetodologiasController metodologiasController = new MetodologiasController();
+    	
+    	get("/comparadormetodologias", metodologiasController::listar, engine);
     }
 
 }

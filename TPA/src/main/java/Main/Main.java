@@ -17,6 +17,8 @@ public class Main {
 		iniciarModelo();
 		
 		WebMain.iniciarInterfazWeb();
+		
+		WebMain.iniciarMetodologias();
 	}
 
 	public static void iniciarModelo() throws IOException {

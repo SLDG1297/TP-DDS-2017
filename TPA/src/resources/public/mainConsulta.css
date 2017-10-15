@@ -1,0 +1,31 @@
+.jumbotron {
+	background-color: #46aadf;
+	color: #fff;
+	padding: 100px 25px;
+	margin-bottom: 100px;
+}
+
+.left-text {
+	font-size: 30px;
+	padding-left: 200px;
+	line-height: 1.8;
+	color: #4e5758;
+	font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
+}
+
+.right-text {
+	font-size: 30px;
+	padding-left: 1150px;
+	padding-right: 200px;
+	line-height: 1.8;
+	color: #4e5758;
+	font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
+}
+
+.text30 {
+	font-size: 30px;
+}
+
+.text20 {
+	font-size: 20px;
+}

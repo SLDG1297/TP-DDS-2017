@@ -1,0 +1,23 @@
+{{# partial "masEstilos" }}
+<link rel="stylesheet" href="mainEvaluacion.css">
+{{# block "masMasEstilos" }} {{/ block }}
+{{/ partial }}
+
+{{# partial "masMetadata" }}
+<title>{{# block "titleEvaluacion" }} {{/ block }}</title>
+{{/ partial }}
+
+{{# partial "contenido" }}
+
+	 <div class="jumbotron text-center">
+		<h1>{{# block "headingEvaluacion" }} {{/ block }}</h1>
+		<p>{{# block "descripcionEvaluacion" }} {{/ block }}</p>
+	 </div>
+	 
+	{{# block "estructuraEvaluacion" }}
+	
+	{{/ block }}
+
+{{/ partial }}
+
+{{> templateGeneral.hbs }}
