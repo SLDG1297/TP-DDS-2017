@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <!---------Deberia estar en el css de template-------------->
 <style>
@@ -27,13 +27,25 @@
         line-height: 1.42857143 !important;
         letter-spacing: 4px;
         border-radius: 0;
+        box-shadow: 0px 2px 2px 0 rgba(0,0,0,0.2);
+    }
+
+    .navbar :hover{
+        position: relative;
+        border: none;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        text-decoration: none;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 8px 12px 16px rgba(0,0,0,0.2);
     }
 
     .navbar a {
         color: #fff !important;
     }
 
-    .navbar a:hover, .navbar active a {
+    .navbar a:hover, .navbar a:active {
         color: #2A93DF !important;
         background-color: #fff !important;
     }
@@ -45,24 +57,22 @@
     }
 
     .nav.position-right {
-
         position: absolute;
         right: 10px;
-
     }
 
 </style>
 
 <!-------Barra de navagacion------->
 <nav class="nav navbar fixed-top">
-    <div class="nav justify-content-center nav-empresas-indicadores-metodologias">
-        <a class="nav-item nav-link" href="#">EMPRESAS</a>
-        <a class="nav-item nav-link" href="#">INDICADORES</a>
-        <a class="nav-item nav-link" href="#">METODOLOGIAS</a>
+    <div class="nav position-right">
+        <a class="nav-item nav-link" href="#myPage"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a>
     </div>
 
-    <div class="nav position-right">
-        <a class="nav-item nav-link" href="#"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a>
+    <div class="nav justify-content-center nav-empresas-indicadores-metodologias">
+        <a class="nav-item nav-link" href="#empresas">EMPRESAS</a>
+        <a class="nav-item nav-link" href="#indicadores">INDICADORES</a>
+        <a class="nav-item nav-link" href="#metodologias">METODOLOGIAS</a>
     </div>
 </nav>
 
@@ -75,6 +85,8 @@
  {{# block "contenido" }}
         <!-------Aqui ira el contenido de las distintas paginas------->
  {{/block}}
+
+
 
 
 
