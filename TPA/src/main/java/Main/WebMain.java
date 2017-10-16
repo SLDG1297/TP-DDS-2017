@@ -25,11 +25,13 @@ public class WebMain {
 
         staticFileLocation("/public");
 
-        get("/login", loginController::show, engine);
-        get("/empresas",empresasController::show, engine);
-        get("/indicadores/evaluacion",indicadoresEvaluacionController::show, engine);
-        post("/login", loginController::create);
         get("/", homeController::show, engine);
+        get("/login", loginController::show, engine);
+        post("/login", loginController::create);
+        get("/login-retry", loginController::showFailedLogin, engine);
+        post("/login-retry", loginController::create);
+        get("/empresas",empresasController::show,engine);
+        get("/indicadores/evaluacion",indicadoresEvaluacionController::show,engine);
 
     }
     

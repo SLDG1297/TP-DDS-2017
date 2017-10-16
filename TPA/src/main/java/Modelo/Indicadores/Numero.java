@@ -2,15 +2,7 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "numero")
-public class Numero extends Expresiones{
-	
-	@Column(name="numero_valor")
+public class Numero implements Expresion{
 	private BigDecimal numero;
 	
 	public Numero(BigDecimal num){
@@ -23,7 +15,7 @@ public class Numero extends Expresiones{
 		return numero;
 	}
 	
-	public void addOperando(Expresiones operando){
+	public void addOperando(Expresion operando){
 	}
 	
 	public String imprimirFormula() {

@@ -1,25 +1,25 @@
 package DB.Converter;
 
 import DB.Serializador.SerializadorJson;
-import Modelo.Indicadores.Expresiones;
+import Modelo.Indicadores.Expresion;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter
-public class IndicadorConverter implements AttributeConverter<Expresiones, String> {
+public class IndicadorConverter implements AttributeConverter<Expresion, String> {
 
     @Override
-    public String convertToDatabaseColumn(Expresiones expresiones) {
+    public String convertToDatabaseColumn(Expresion expresiones) {
 
         return SerializadorJson.getInstance().serializar(expresiones);
 
     }
 
     @Override
-    public Expresiones convertToEntityAttribute(String expresiones) {
+    public Expresion convertToEntityAttribute(String expresiones) {
 
-        return SerializadorJson.getInstance().deserializar(expresiones, Expresiones.class);
+        return SerializadorJson.getInstance().deserializar(expresiones, Expresion.class);
 
     }
 

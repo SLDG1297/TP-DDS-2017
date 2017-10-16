@@ -11,7 +11,7 @@ import org.junit.experimental.theories.Theory;
 import static Factories.FactoryOperaciones.restar;
 
 import Modelo.Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Modelo.Indicadores.Expresiones;
+import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Resta;
 
 public class TestCalcularResta extends TemplateTestIndicadores{
@@ -30,21 +30,21 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void restarPorCeroDaSiMismo(Expresiones unValor){
+	public void restarPorCeroDaSiMismo(Expresion unValor){
 		restaExpectante = restar(unValor, cero);
 		
 		Assert.assertEquals(evaluar(unValor), evaluar(restaExpectante));
 	}
 	
 	@Theory
-	public void restarUnNumeroPorSiMismoDaElNeutro(Expresiones unValor){
+	public void restarUnNumeroPorSiMismoDaElNeutro(Expresion unValor){
 		restaExpectante = restar(unValor, unValor);
 		
 		Assert.assertTrue(evaluarEntero(restaExpectante) == evaluarEntero(cero));
 	}
 	
 	@Theory
-	public void restarPorNumeroMayorA20DaNegativo(Expresiones unValor){
+	public void restarPorNumeroMayorA20DaNegativo(Expresion unValor){
 		Assume.assumeTrue(evaluar(unValor).compareTo(evaluar(natural)) == 1);
 		
 		restaConNatural.addOperando(unValor);
@@ -53,7 +53,7 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void laRestaNoEsConmutativaPorElOrdenEnQueSeAniadenOperandos(Expresiones operandoIzquierdo, Expresiones operandoDerecho){
+	public void laRestaNoEsConmutativaPorElOrdenEnQueSeAniadenOperandos(Expresion operandoIzquierdo, Expresion operandoDerecho){
 		Assume.assumeFalse(operandoIzquierdo.equals(operandoDerecho));
 		
 		int valor1 = evaluarEntero(restar(operandoIzquierdo, operandoDerecho));
@@ -63,7 +63,7 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void noSePuedeRestarSiFaltaElOperandoDerecho(Expresiones unValor){
+	public void noSePuedeRestarSiFaltaElOperandoDerecho(Expresion unValor){
 		try
 		{
 			restaExpectante = restar(unValor);

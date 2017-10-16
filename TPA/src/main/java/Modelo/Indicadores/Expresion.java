@@ -6,7 +6,7 @@ public interface Expresion {
 
 	public BigDecimal calcular(Query query);
 	
-	public void addOperando(Expresiones operando);
+	public void addOperando(Expresion operando);
 
 	public String imprimirFormula();
 	

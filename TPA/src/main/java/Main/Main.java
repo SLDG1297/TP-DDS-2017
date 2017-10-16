@@ -2,7 +2,6 @@ package Main;
 
 import java.io.IOException;
 
-import Archivo.Empresa.Instanciador_Bolsa_Empresas;
 import DB.Proveedores.ProveedorBD;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
@@ -10,9 +9,10 @@ import DB.Repositorios.RepositorioMetodologias;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
+import Modelo.RepositorioUsuarios;
+import Modelo.Usuario;
 
 public class Main {
-	
 	public static void main(String[] args) throws IOException {
 		iniciarModelo();
 		
@@ -28,6 +28,10 @@ public class Main {
 
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
 
-		new Instanciador_Bolsa_Empresas().instanciar();
+		RepositorioUsuarios.getInstancia().setProveedor(new ProveedorBD<Usuario>());
+		
+		// ElementosDePrueba.iniciarObjetosDePrueba(); // Esto haganlo una vez y después comentenlo.
+		
+		// new Instanciador_Bolsa_Empresas().instanciar();
 	}
 }

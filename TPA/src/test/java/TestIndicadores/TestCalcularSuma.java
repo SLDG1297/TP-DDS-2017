@@ -6,7 +6,7 @@ import org.junit.experimental.theories.Theory;
 import static Factories.FactoryOperaciones.*;
 
 import Modelo.Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Modelo.Indicadores.Expresiones;
+import Modelo.Indicadores.Expresion;
 import Modelo.Indicadores.Suma;
 
 import java.math.BigDecimal;
@@ -85,7 +85,7 @@ public class TestCalcularSuma extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void laSumaEsConmutativa(Expresiones operandoIzquierdo, Expresiones operandoDerecho)
+	public void laSumaEsConmutativa(Expresion operandoIzquierdo, Expresion operandoDerecho)
 	{
 		int valor1 = evaluarEntero(sumar(operandoIzquierdo, operandoDerecho));
 		int valor2 = evaluarEntero(sumar(operandoDerecho, operandoIzquierdo));
