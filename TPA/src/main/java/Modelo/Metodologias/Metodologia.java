@@ -49,7 +49,7 @@ public class Metodologia implements TipoDeRepositorio {
 		return listaCondiciones.stream().allMatch(condicion -> condicion.cumple(empresa));
 	}
 	
-	public String mostrarCadena() {
+	public String getCadena() {
 		return String.join(" && ", listaCondiciones.stream().map(c -> c.mostrarCadena()).collect(Collectors.toList()));
 	}
 

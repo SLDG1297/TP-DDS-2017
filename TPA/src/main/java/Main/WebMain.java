@@ -38,7 +38,8 @@ public class WebMain {
     public static void iniciarMetodologias() {
     	MetodologiasController metodologiasController = new MetodologiasController();
     	
-    	get("/metodologias", metodologiasController::listar, engine);
+    	get("/metodologias/comparacion", metodologiasController::listarMetodologias, engine);
+    	get("/metodologias/comparacion/:metodologia", metodologiasController::mostrarComparacion, engine);
     }
 
 }

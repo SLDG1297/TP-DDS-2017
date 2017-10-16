@@ -30,7 +30,7 @@ public class Main {
 
 		RepositorioUsuarios.getInstancia().setProveedor(new ProveedorBD<Usuario>());
 		
-		// ElementosDePrueba.iniciarObjetosDePrueba(); // Esto haganlo una vez y después comentenlo.
+		// Bootstrap.iniciarObjetos(); // Esto haganlo una vez y después comentenlo.
 		
 		// new Instanciador_Bolsa_Empresas().instanciar();
 	}

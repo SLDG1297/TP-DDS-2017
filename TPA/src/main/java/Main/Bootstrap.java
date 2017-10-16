@@ -16,14 +16,14 @@ import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
 import DB.Repositorios.RepositorioMetodologias;
 
-public class ElementosDePrueba {
-	public static void iniciarObjetosDePrueba() {
-		iniciarEmpresasDePrueba();
-		iniciarIndicadoresDePrueba();
-		iniciarMetodologiasDePrueba();
+public class Bootstrap {
+	public static void iniciarObjetos() {
+		iniciarEmpresas();
+		iniciarIndicadores();
+		iniciarMetodologias();
 	}
 	
-	public static void iniciarEmpresasDePrueba() {
+	public static void iniciarEmpresas() {
 		RepositorioEmpresas.getInstancia().agregarListaDeObjetos(
 			Arrays.asList(
 				crearEmpresa("Rolito",
@@ -42,15 +42,27 @@ public class ElementosDePrueba {
 								crearCuentaConValor("FCF", 2)))));
 	}
 	
-	public static void iniciarIndicadoresDePrueba() {
+	public static void iniciarIndicadores() {
+		RepositorioIndicadores.getInstancia().agregarListaDeObjetos(
+			Arrays.asList(
+				crearIndicador("ArrorROE", 
+						sumar(crearCuenta("EDITBA"), multiplicar(crearCuenta("FCF"), crearNumero(2)))),
+				crearIndicador("VANcomoLasCamionetas",
+						restar(crearCuenta("FCF"), crearCuenta("EDITBA")))));
 		RepositorioIndicadores.getInstancia().agregarObjeto(
-				crearIndicador("JejeSaluditos", 
-							sumar(crearCuenta("EDITBA"), multiplicar(crearCuenta("FCF"), crearNumero(2)))));
+				crearIndicador("VAI-BYE",
+						dividir(RepositorioIndicadores.getInstancia().buscarObjeto("ArrorROE"), crearNumero(5))));
+				
 	}
 	
-	public static void iniciarMetodologiasDePrueba() {
-		RepositorioMetodologias.getInstancia().agregarObjeto(
-				crearMetodologia("Leprita",
-						crearMayorAEnPeriodos(RepositorioIndicadores.getInstancia().buscarObjeto("JejeSaluditos"), 10, 1)));
+	public static void iniciarMetodologias() {
+		RepositorioMetodologias.getInstancia().agregarListaDeObjetos(
+			Arrays.asList(
+				crearMetodologia("MetodologiaAgil",
+						crearMayorAEnPeriodos(RepositorioIndicadores.getInstancia().buscarObjeto("ArrorROE"), 10, 1)),
+				crearMetodologia("MaomenoMaomeno2",
+						crearMedianaMayorA(RepositorioIndicadores.getInstancia().buscarObjeto("VANcomoLasCamionetas"), 5000)),
+				crearMetodologia("GGWP",
+						crearSumatoriaMayorA(RepositorioIndicadores.getInstancia().buscarObjeto("VAI-BYE"), 0))));
 	}
 }
