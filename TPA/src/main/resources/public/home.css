@@ -1,7 +1,6 @@
 
 .titulo {
     margin-bottom: 15px;
-    padding-left: 322px;
     font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
     font-weight: 100;
     line-height: 1.2;
@@ -11,17 +10,17 @@
 
 .contenedor-blanco {
     background-color: #FFFFFF;
-    padding: 120px 40px;
+    height: 450px;
 }
 
 .contenedor-gris {
     background-color: #ECEFF1;
-    padding: 120px 40px;
+    height: 450px;
 }
 
 .contenedor-grisClaro {
     background-color: #F7F9FA;
-    padding: 120px 40px;
+    height: 450px;
 }
 
 .contenedor-blanco span {
@@ -49,17 +48,7 @@
 
 .contenedor-grisClaro button {
     backgroundcolor: #2B75BE;
-    font-size: 24px;
 }
-
-
-@media screen and (max-width: 768px) {
-    .col-sm-4 {
-        text-align: center;
-        margin: 25px 0;
-    }
-}
-
 
 .letra-descripciones-contenedores {
     line-height: 1.8;
@@ -68,7 +57,6 @@
     border: 0;
     font-weight: 400;
     font-style: normal;
-    padding-left: 322px;
     margin-top: .5rem;
     font-size: 15px;
     text-align: -webkit-match-parent;
@@ -83,7 +71,6 @@
 .descripcion {
     font-size: 18px;
     font-weight: inherit;
-
     margin-left: 10px;
 }
 
@@ -99,21 +86,19 @@
 .jumbotron {
     background-color: #2A93DF;
     color: #fff;
-    padding: 100px 25px;
+    /*padding: 100px 25px;*/
 }
 
 .imagen{
-    padding-right: 300px;
+    /*padding-right: 300px;*/
+    height: 400px;
+    width: 300px;
+    /*display: flex;*/
+    /*justify-content: flex-end;*/
 }
 
-.thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-}
-
-.thumbnail img {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
+.contenido{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
