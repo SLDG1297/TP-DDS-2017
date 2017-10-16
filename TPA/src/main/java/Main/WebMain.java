@@ -6,6 +6,7 @@ import static spark.SparkBase.port;
 
 import Controllers.EmpresasController;
 import Controllers.HomeController;
+import Controllers.IndicadoresEvaluacionController;
 import Controllers.LoginController;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -20,6 +21,8 @@ public class WebMain {
         HomeController homeController = new HomeController();
 
         EmpresasController empresasController = new EmpresasController();
+        
+        IndicadoresEvaluacionController indicadoresEvaluacionController = new IndicadoresEvaluacionController();
 
         port(8080);
 
@@ -31,6 +34,7 @@ public class WebMain {
         get("/login-retry", loginController::showFailedLogin, engine);
         post("/login-retry", loginController::create);
         get("/empresas",empresasController::show,engine);
+        get("/indicadores/evaluacion",indicadoresEvaluacionController::show,engine);
 
     }
 
