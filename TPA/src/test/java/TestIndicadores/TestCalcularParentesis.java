@@ -38,7 +38,7 @@ public class TestCalcularParentesis extends TemplateTestIndicadores {
 		Assert.assertEquals(evaluar(parentesisIzquierdo), evaluar(parentesisDerecho));
 	}
 	
-	/*@Theory @Deprecated // No sé cómo arreglarlo...
+	/*@Theory @Deprecated // No sï¿½ cï¿½mo arreglarlo...
 	public void laDivisionNoEsAsociativa(Expresiones a, Expresiones b, Expresiones c) {
 		Assume.assumeFalse(a.equals(uno) || b.equals(uno) || c.equals(uno) || a.equals(cero) || b.equals(cero)|| c.equals(cero));
 		

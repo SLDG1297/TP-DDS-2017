@@ -10,6 +10,8 @@ import DB.Repositorios.RepositorioMetodologias;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
+import Modelo.RepositorioUsuarios;
+import Modelo.Usuario;
 
 public class Main {
 	
@@ -25,6 +27,8 @@ public class Main {
 		RepositorioIndicadores.getInstancia().setProveedor(new ProveedorBD<Indicador>());
 
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
+
+		RepositorioUsuarios.getInstancia().setProveedor(new ProveedorBD<Usuario>());
 
 		new Instanciador_Bolsa_Empresas().instanciar();
 	}

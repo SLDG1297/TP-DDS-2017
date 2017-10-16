@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
-import Modelo.Metodologias.Condiciones.Condicion;
 
 @Entity
 @DiscriminatorValue(value="sumatoria")
