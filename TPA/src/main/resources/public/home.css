@@ -1,3 +1,9 @@
+.jumbotron {
+    background-color: #2A93DF;
+    color: #fff;
+    /*padding: 100px 25px;*/
+}
+
 
 .titulo {
     margin-bottom: 15px;
@@ -8,9 +14,12 @@
     color: #1c2b39;
 }
 
+/*-----------------------------------------------Contenedores--------------------------------------------------------*/
+
 .contenedor-blanco {
     background-color: #FFFFFF;
     height: 450px;
+    /*padding-bottom: 50px;*/
 }
 
 .contenedor-gris {
@@ -23,31 +32,26 @@
     height: 450px;
 }
 
-.contenedor-blanco span {
+/*-------------------------------------------------Contenido---------------------------------------------------------*/
+
+.contenido{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.texto-contenido-ContenedorBlanco span{
     color: #31AEBF;
     font-size: 24px;
 }
 
-.contenedor-blanco button {
-    backgroundcolor: #31AEBF;
-}
-
-.contenedor-gris span {
+.texto-contenido-ContenedorGris span{
     color: #145367;
     font-size: 24px;
 }
 
-.contenedor-gris button {
-    backgroundcolor: #145367;
-}
-
-.contenedor-grisClaro span {
+.texto-contenido-ContenedorGrisClaro span{
     color: #2B75BE;
     font-size: 24px;
-}
-
-.contenedor-grisClaro button {
-    backgroundcolor: #2B75BE;
 }
 
 .letra-descripciones-contenedores {
@@ -74,25 +78,118 @@
     margin-left: 10px;
 }
 
+/*-----------------------------------------------botones-------------------------------------------------------------*/
+
 .buttons {
-    display: flex;
-    justify-content: flex-end;
+display: flex;
+justify-content: flex-end;
 }
 
-.boton {
+/*.boton {*/
+    /*margin-left: 10px;*/
+/*}*/
+/*------------------BotonPrincipal---------------------*/
+.buttonPrincipal button {
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 7px 15px;
+    width: auto;
+    height: 45px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 14px;
+}
+
+.buttonPrincipal span {
+    background-color: inherit;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.buttonPrincipal span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.buttonPrincipal:hover span {
+    padding-right: 20px;
+}
+
+.buttonPrincipal:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.botonPrincipalContenedorBlanco{
+     background-color: #31AEBF;
+ }
+
+.botonPrincipalContenedorGris{
+    background-color: #145367;
+}
+
+.botonPrincipalContenedorGrisClaro{
+    background-color: #2B75BE;
+}
+
+/*------------------BotonSecundario---------------------*/
+
+.buttonSecundario button{
+    display: inline-block;
+    border-radius: 7px;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding: 7px 15px;
+    width: auto;
+    height: 45px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 6px;
     margin-left: 10px;
 }
 
-.jumbotron {
-    background-color: #2A93DF;
-    color: #fff;
-    /*padding: 100px 25px;*/
+.botonSecundarioContenedorBlanco{
+     background-color: white;
+     border: 2px solid #31AEBF;
+ }
+
+.botonSecundarioContenedorBlanco:hover {
+    background-color: #31AEBF;
+    color: white;
 }
 
-.contenido{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.botonSecundarioContenedorGris{
+    background-color: #ECEFF1;
+    border: 2px solid #145367;
+}
+
+.botonSecundarioContenedorGris:hover {
+    background-color: #145367;
+    color: white;
+}
+
+.botonSecundarioContenedorGrisClaro{
+    background-color: #F7F9FA;
+    border: 2px solid #2B75BE;
+}
+
+.botonSecundarioContenedorGrisClaro:hover {
+    background-color: #2B75BE;
+    color: white;
 }
 
 
