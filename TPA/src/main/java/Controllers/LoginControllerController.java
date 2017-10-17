@@ -5,12 +5,15 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-public class LoginController {
+public class LoginControllerController {
 
     public ModelAndView show(Request request, Response response) {
-        return new ModelAndView(null, "login.hbs");
-    }
 
+        if(GestorDeUsuarios.getInstance().obtenerMapa(request).get("email") != null)
+            return new ModelAndView(GestorDeUsuarios.getInstance().obtenerMapa(request), "yaLogeado.hbs");
+
+        return new ModelAndView(GestorDeUsuarios.getInstance().obtenerMapa(request), "login.hbs");
+    }
 
     public Void create(Request request, Response response) {
 
@@ -22,8 +25,6 @@ public class LoginController {
         /*
         "axel@bags.com", "axel"
          */
-
-        // Integer codigoUsuario = null;
 
         if(codigoUsuario == null)
             response.redirect("/login-retry");
@@ -37,6 +38,11 @@ public class LoginController {
     }
 
     public ModelAndView showFailedLogin(Request request, Response response) {
-        return new ModelAndView(null, "loginRetry.hbs");
+
+        if(GestorDeUsuarios.getInstance().obtenerMapa(request).get("email") != null)
+            return new ModelAndView(GestorDeUsuarios.getInstance().obtenerMapa(request), "yaLogeado.hbs");
+
+        return new ModelAndView(GestorDeUsuarios.getInstance().obtenerMapa(request), "loginRetry.hbs");
     }
+
 }

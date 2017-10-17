@@ -1,5 +1,7 @@
 package Modelo;
 
+import spark.Request;
+
 import javax.persistence.NoResultException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -55,4 +57,22 @@ public class GestorDeUsuarios {
 
     }
 
+    public Map<String, String> obtenerMapa(Request request) {
+        Map<String, String> mapilla = new HashMap<>();
+
+        mapilla.put("email", GestorDeUsuarios.getInstance().correo(Integer.parseInt(request.cookie("idUser")), request.cookie("email")));
+
+        return mapilla;
+    }
+
+    private String correo(Integer id, String email) {
+
+        if(this.usuariosEnLinea.get(id) != null) {
+            if (this.usuariosEnLinea.get(id).getEmail().equals(email))
+                return email;
+        }
+
+        return null;
+
+    }
 }
