@@ -1,5 +1,6 @@
 package Controllers;
 
+import Modelo.GestorDeUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -16,9 +17,13 @@ public class LoginController {
         String email = request.queryParams("email");
         String passwordHasheada = request.queryParams("password");
 
-        // Integer codigoUsuario = GestorDeUsuarios.getInstance().obtenerId(email, passwordHasheada);
+        Integer codigoUsuario = GestorDeUsuarios.getInstance().obtenerId(email, passwordHasheada);
 
-        Integer codigoUsuario = null;
+        /*
+        "axel@bags.com", "axel"
+         */
+
+        // Integer codigoUsuario = null;
 
         if(codigoUsuario == null)
             response.redirect("/login-retry");

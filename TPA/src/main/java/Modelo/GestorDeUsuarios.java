@@ -1,5 +1,6 @@
 package Modelo;
 
+import javax.persistence.NoResultException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,7 +43,15 @@ public class GestorDeUsuarios {
 
     private Boolean esUsuarioValido(String email, String passwordHasheada) {
 
-        return RepositorioUsuarios.getInstancia().buscarObjeto(email).getPasswordHasheada().equals(passwordHasheada);
+        try {
+
+            return RepositorioUsuarios.getInstancia().buscarObjeto(email).getPasswordHasheada().equals(passwordHasheada);
+
+        } catch(NoResultException e) {
+
+            return false;
+
+        }
 
     }
 
