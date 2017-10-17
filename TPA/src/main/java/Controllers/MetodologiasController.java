@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioMetodologias;
 import Modelo.Metodologias.Metodologia;
 import spark.ModelAndView;
@@ -27,7 +28,9 @@ public class MetodologiasController {
 		
 		try
 		{
-			Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjeto(request.queryParams("metodologia"));
+			Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjeto(request.queryParams("metodologia"));	
+			
+			modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos());
 			
 			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
 			

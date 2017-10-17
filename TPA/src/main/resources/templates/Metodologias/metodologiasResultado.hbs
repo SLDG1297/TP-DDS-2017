@@ -1,7 +1,20 @@
 {{# partial "resultado" }}
 
 <hr>
-<h2>Resultado de aplicar <strong>{{ metodologiaElegida.nombre }}</strong></h2>
+
+<table>
+	<caption>Resultado de aplicar <strong>{{ metodologiaElegida.nombre }}</strong></caption>
+		<tr>
+			<th>Empresas</th>
+			<th>Resultados</th>
+		</tr>
+		{{# each empresas }}
+		<tr>
+			<td>{{ nombre }}</td>
+			<td>NO FUNCA!!</td>
+		</tr>
+		{{/ each }}
+</table>
 
 {{/ partial }}
 
