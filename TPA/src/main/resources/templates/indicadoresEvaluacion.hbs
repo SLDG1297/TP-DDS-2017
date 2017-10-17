@@ -7,36 +7,34 @@
         margin-bottom: 100px;
         }
 
-
-.selectores{
-	  position: absolute;
-	  left: 10%;
-	  font-size: 50px;
-}
-
-.selectorPeriodo{
-      position: absolute;
-	  left: 10%;
-	  font-size: 50px;
-}
-
-.container-fluid {
-    background-color: #FFFFFF;
-    padding: 10px 40px;
-}
+.container {
+		padding: 10px 25px;
+		}
 
 .row{
-background-color : yellow;
- display: flex;
-    align-items: center;
+padding: 100px;
 }
-     
-.col-lg-6 {
-        text-align: center;
-        margin: 25px 0;
-    } 
-     
-        
+
+p{
+font-size: 20px;
+}
+
+.blue-background{
+background-color: #2A93DF;
+}
+
+.margen{
+margin-top: 35px;
+}
+
+.dropdown-menu {
+  width: 100%; 
+}
+
+.btn{
+ width: 100%;
+}
+				
 </style>
 
 
@@ -47,77 +45,87 @@ background-color : yellow;
      <p>Ponga a prueba a las empresas evaluandolas con sus indicadores </p>
 
  </div>
+
+ <div class = "container">
  
- <div class = "container-fluid">
- 
- <div class = "row row1">
- 
- <div class = "col-lg-6">
- 
-  <div class="dropdown">
-    <button class="btn btn-lg dropdown-toggle selectorIndicador" type="button" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Normal</a></li>
-      <li class="disabled"><a href="#">Disabled</a></li>
-      <li class="active"><a href="#">Active</a></li>
-      <li><a href="#">Normal</a></li>
-    </ul>
-    </div>  
+ <div class="row">
+  <div class="col-lg-6 selectorIndicador margen text-left">
+    <div class="dropdown btn-group">
+
+      <button class="btn btn-primary dropdown-toggle btn-lg blue-background" type="button" data-toggle="dropdown">Seleccione un indicador
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu">
+        <li><a href="#">ROA</a></li>
+        <li><a href="#">ROE</a></li>
+      </ul>
+
+    </div>
   </div>
   
-  <div class = "col-lg-6">
-  
-  <!--Aca iria un campo en donde se mostraria la formula del indicador seleccionado ------- -->
-  
-  </div>
-  </div>
-  
-   <div class = "row row2">
-  
-  <div class = "col-lg-6">
-  
-    <div class="dropdown">
-    <button class="btn btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Normal</a></li>
-      <li class="disabled"><a href="#">Disabled</a></li>
-      <li class="active"><a href="#">Active</a></li>
-      <li><a href="#">Normal</a></li>
-    </ul>
-  </div>
-  </div>
-  
-  <div class = "col-lg-6">
-  
-   <div class="dropdown selectorPeriodo">
-    <button class="btn btn-lg dropdown-toggle " type="button" data-toggle="dropdown">Tutorials
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Normal</a></li>
-      <li class="disabled"><a href="#">Disabled</a></li>
-      <li class="active"><a href="#">Active</a></li>
-      <li><a href="#">Normal</a></li>
-    </ul>
-  </div>
-  </div>
-  
-  </div>
+   <div class="col-lg-6  text-center">
+   
+   <p>Formula</p>
+   <div class="well">
+   
+   </div>
+   
+   </div>
+</div>
+
+<div class = "row">
+
+<div class = "col-lg-6 selectorEmpresa text-left">
+	  <div class="dropdown btn-group">
+
+      <button class="btn btn-primary dropdown-toggle btn-lg blue-background" type="button" data-toggle="dropdown">Seleccione una empresa
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu">
+        <li><a href="#">Empresa1</a></li>
+        <li class = "disabled"><a href="#">Empresa2</a></li>
+        <li><a href="#">Empresa3</a></li>
+      </ul>
+
+    </div>
+</div>
+
+<div class = "col-lg-6 selectorPeriodo text-right">
+      <div class="dropdown btn-group">
+
+      <button class="btn btn-primary dropdown-toggle btn-lg blue-background" type="button" data-toggle="dropdown">Seleccione un periodo
+        <span class="caret"></span>
+      </button>
+
+      <ul class="dropdown-menu">
+        <li class = "disabled"><a href="#">2012</a></li>
+        <li><a href="#">2015</a></li>
+        <li><a href="#">2016</a></li>
+        <li><a href="#">2017</a></li>
+      </ul>
+
+    </div>
+</div>
 
 </div>
 
-<div class="container">
-  <h1>Hello World!</h1>
-  <div class="row">
-    <div class="col-sm-6" style="background-color:yellow;">
-      <p>Lorem ipsum...</p>
-    </div>
-    <div class="col-sm-6" style="background-color:pink;">
-      <p>Sed ut perspiciatis...</p>
-    </div>
+<div class = "row">
+
+<div class = "col-lg-12 resultado text-center">
+
+<p>Resultado</p>
+ <div class="well">
+   
   </div>
+  
 </div>
+
+</div>
+ 
+  </div>
+ 
 
 {{/partial}}
 
