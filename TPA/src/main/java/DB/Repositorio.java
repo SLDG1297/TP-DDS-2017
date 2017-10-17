@@ -2,6 +2,8 @@ package DB;
 
 import java.util.List;
 
+import DB.Excepciones.NoExisteObjetoConEseNombreException;
+
 public abstract class Repositorio<T extends TipoDeRepositorio> {
 	protected NombreRepositorio tabla;
 	private Proveedor<T> proveedor = null;
@@ -22,7 +24,7 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 		return proveedor;
 	}
 	
-	public T buscarObjeto(String unNombre) {
+	public T buscarObjeto(String unNombre) throws NoExisteObjetoConEseNombreException {
 		return this.getProveedor().darObjeto(unNombre, this.getTabla());
 	}
 	

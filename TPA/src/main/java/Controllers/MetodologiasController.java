@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Repositorios.RepositorioMetodologias;
 import Modelo.Metodologias.Metodologia;
 import spark.ModelAndView;
@@ -12,18 +13,37 @@ import spark.Response;
 
 public class MetodologiasController {
 	public ModelAndView listarMetodologias(Request request, Response response) {
-		Map<String, List<Metodologia>> model = new HashMap<>();
-
-		List<Metodologia> metodologias = RepositorioMetodologias.getInstancia().buscarListaDeObjetos();
-
-		model.put("metodologias", metodologias);
-
-		return new ModelAndView(model, "Metodologias/metodologiasComparacion.hbs");
-	}
-	
-	public ModelAndView mostrarComparacion(Request request, Response response) {
-		Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjeto(request.queryParams("metodologia"));
+		Map<String, List<Metodologia>> modelo = new HashMap<>();
 		
-		return new ModelAndView(metodologiaElegida, "Metodologias/metodologiasResultado.hbs");
+		modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+		
+		return new ModelAndView(modelo, "Metodologias/metodologiasComparacion.hbs");
+	}
+
+	public ModelAndView mostrarComparacion(Request request, Response response) {
+		Map<String, Object> modelo = new HashMap<>();
+		
+		String ruta = "";
+		
+		try
+		{
+			Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjeto(request.queryParams("metodologia"));
+			
+			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			
+			modelo.put("metodologiaElegida", metodologiaElegida);
+			
+			ruta = "Metodologias/metodologiasResultado.hbs";
+		}
+		catch (NoExisteObjetoConEseNombreException excepcion)
+		{
+			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			
+			modelo.put("metodologiaInexistente", request.queryParams("metodologia"));
+			
+			ruta = "Metodologias/metodologiasComparacionErronea.hbs";
+		}
+		
+		return new ModelAndView(modelo, ruta);
 	}
 }

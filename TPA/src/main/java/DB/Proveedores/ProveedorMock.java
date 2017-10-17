@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import DB.Proveedor;
 import DB.TipoDeRepositorio;
-import Modelo.Excepciones.Empresas.NoExisteEnElRepositorioException;
+import DB.Excepciones.NoExisteObjetoConEseNombreException;
 
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
 	private List<T> lista = new ArrayList<T>();
@@ -31,7 +31,7 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 
 	@Override
 	public T darObjeto(String unNombre, String unTipo) {
-		return this.getLista().stream().filter(o -> o.getNombre().equals(unNombre)).findFirst().orElseThrow(() -> new NoExisteEnElRepositorioException());
+		return this.getLista().stream().filter(o -> o.getNombre().equals(unNombre)).findFirst().orElseThrow(() -> new NoExisteObjetoConEseNombreException());
 	}
 
 	@Override
