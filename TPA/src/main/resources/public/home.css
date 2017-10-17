@@ -85,9 +85,6 @@ display: flex;
 justify-content: flex-end;
 }
 
-/*.boton {*/
-    /*margin-left: 10px;*/
-/*}*/
 /*------------------BotonPrincipal---------------------*/
 .buttonPrincipal button {
     display: inline-block;
