@@ -57,8 +57,8 @@ public class GestorDeUsuarios {
 
     }
 
-    public Map<String, String> obtenerMapa(Request request) {
-        Map<String, String> mapilla = new HashMap<>();
+    public Map<Object, Object> obtenerMapa(Request request) {
+        Map<Object, Object> mapilla = new HashMap<>();
 
         mapilla.put("email", GestorDeUsuarios.getInstance().correo(Integer.parseInt(request.cookie("idUser")), request.cookie("email")));
 
