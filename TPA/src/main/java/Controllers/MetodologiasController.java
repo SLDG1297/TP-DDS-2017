@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import DB.Repositorios.RepositorioMetodologias;
+import Modelo.GestorDeUsuarios;
 import Modelo.Metodologias.Metodologia;
 import spark.ModelAndView;
 import spark.Request;
@@ -12,7 +13,7 @@ import spark.Response;
 
 public class MetodologiasController {
 	public ModelAndView listarMetodologias(Request request, Response response) {
-		Map<String, List<Metodologia>> model = new HashMap<>();
+		Map<Object, Object> model = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
 		List<Metodologia> metodologias = RepositorioMetodologias.getInstancia().buscarListaDeObjetos();
 
@@ -22,8 +23,12 @@ public class MetodologiasController {
 	}
 	
 	public ModelAndView mostrarComparacion(Request request, Response response) {
+		Map<Object, Object> model = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
 		Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjeto(request.queryParams("metodologia"));
+
+		model.put("nombre", metodologiaElegida.getNombre());
 		
-		return new ModelAndView(metodologiaElegida, "Metodologias/metodologiasResultado.hbs");
+		return new ModelAndView(model, "Metodologias/metodologiasResultado.hbs");
 	}
 }
