@@ -29,8 +29,8 @@ public class Main {
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
 
 		RepositorioUsuarios.getInstancia().setProveedor(new ProveedorBD<Usuario>());
-		
-		// Bootstrap.iniciarObjetos(); // Esto haganlo una vez y después comentenlo.
+
+		// Bootstrap.iniciarObjetos(); // Esto haganlo una vez y despuï¿½s comentenlo.
 		
 		// new Instanciador_Bolsa_Empresas().instanciar();
 	}

@@ -13,7 +13,7 @@ public class WebMain {
 
     public static void iniciarInterfazWeb() {
         
-        LoginController loginController = new LoginController();
+        LoginControllerController loginController = new LoginControllerController();
 
         HomeController homeController = new HomeController();
 
