@@ -19,20 +19,28 @@
 <!-------Barra de navagacion------->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header logo">
-        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-compressed"></span>Logo</a>
+        <a class="navbar-brand" href="http://localhost:8080/#"><span class="glyphicon glyphicon-compressed"></span>Logo</a>
     </div>
 
     <div class="navCentral">
         <ul class="nav navbar-nav navbar-center">
-            <li><a href="#empresas">EMPRESAS</a></li>
-            <li><a href="#indicadores">INDICADORES</a></li>
-            <li><a href="#metodologias">METODOLOGIAS</a></li>
+            <li>
+                <a href="http://localhost:8080/#empresas">EMPRESAS</a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8080/#indicadores">INDICADORES</a>
+            </li>
+
+            <li>
+                <a href="http://localhost:8080/#metodologias">METODOLOGIAS</a>
+            </li>
         </ul>
     </div>
 
     <ul class="nav navbar-nav navbar-right login">
         <li>
-            <a href="#">
+            <a href="http://localhost:8080/login">
                 {{#if email}}
                     {{email}}
                 {{else}}

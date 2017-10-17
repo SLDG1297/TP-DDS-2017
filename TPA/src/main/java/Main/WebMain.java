@@ -30,7 +30,7 @@ public class WebMain {
         post("/login", loginController::create);
         get("/login-retry", loginController::showFailedLogin, engine);
         post("/login-retry", loginController::create);
-        get("/empresas",empresasController::show,engine);
+        get("/empresas", empresasController::show,engine);
         get("/indicadores/evaluacion",indicadoresEvaluacionController::show,engine);
 
     }
