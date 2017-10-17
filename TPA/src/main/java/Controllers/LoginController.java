@@ -14,14 +14,24 @@ public class LoginController {
     public Void create(Request request, Response response) {
 
         String email = request.queryParams("email");
-        String password = request.queryParams("password");
+        String passwordHasheada = request.queryParams("password");
 
-        response.cookie("email", email);
-        response.cookie("password",password);
+        // Integer codigoUsuario = GestorDeUsuarios.getInstance().obtenerId(email, passwordHasheada);
 
-        response.redirect("/");
+        Integer codigoUsuario = null;
+
+        if(codigoUsuario == null)
+            response.redirect("/login-retry");
+        else {
+            response.cookie("email", email);
+            response.cookie("idUser", codigoUsuario.toString());
+            response.redirect("/");
+        }
 
         return null;
     }
 
+    public ModelAndView showFailedLogin(Request request, Response response) {
+        return new ModelAndView(null, "loginRetry.hbs");
+    }
 }

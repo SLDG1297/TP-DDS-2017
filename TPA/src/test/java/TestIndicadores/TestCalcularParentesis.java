@@ -31,15 +31,15 @@ public class TestCalcularParentesis extends TemplateTestIndicadores {
 	}
 
 	@Theory
-	public void laSumaEsAsociativa(Expresiones a, Expresiones b, Expresiones c) {
+	public void laSumaEsAsociativa(Expresion a, Expresion b, Expresion c) {
 		Suma parentesisIzquierdo = sumar(parentesis(sumar(a, b)), c);
 		Suma parentesisDerecho = sumar(a, parentesis(sumar(b, c)));
 
 		Assert.assertEquals(evaluar(parentesisIzquierdo), evaluar(parentesisDerecho));
 	}
 	
-	/*@Theory @Deprecated // No sé cómo arreglarlo...
-	public void laDivisionNoEsAsociativa(Expresiones a, Expresiones b, Expresiones c) {
+	/*@Theory @Deprecated // No sï¿½ cï¿½mo arreglarlo...
+	public void laDivisionNoEsAsociativa(Expresion a, Expresion b, Expresion c) {
 		Assume.assumeFalse(a.equals(uno) || b.equals(uno) || c.equals(uno) || a.equals(cero) || b.equals(cero)|| c.equals(cero));
 		
 		BigDecimal parentesisIzquierdo = evaluar(dividir((parentesis(dividir(a, b))), c));

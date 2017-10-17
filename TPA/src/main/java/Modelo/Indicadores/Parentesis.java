@@ -2,10 +2,10 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-public class Parentesis extends Expresiones implements Expresion{
+public class Parentesis implements Expresion {
     private Expresion expresion;
 	
-	public Parentesis(Expresiones _expresion) {
+	public Parentesis(Expresion _expresion) {
 		expresion = _expresion;
 	}
 	
@@ -13,7 +13,7 @@ public class Parentesis extends Expresiones implements Expresion{
 		return expresion.calcular(query);
 	}
 
-	public void addOperando(Expresiones operando){
+	public void addOperando(Expresion operando){
 	}
 
 	public String imprimirFormula() {

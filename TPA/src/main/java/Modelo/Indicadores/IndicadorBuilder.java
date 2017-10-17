@@ -6,7 +6,7 @@ import Modelo.Excepciones.Indicadores.IndicadorSinNombreException;
 public class IndicadorBuilder {
 
 	String nombreIndicador;
-	Expresiones operandoAnterior;
+	Expresion operandoAnterior;
 	
 	public void setNombreIndicador(String nombreIndicador) {
 		if(nombreIndicador.isEmpty()) throw new IndicadorSinNombreException();
@@ -14,15 +14,15 @@ public class IndicadorBuilder {
 		this.operandoAnterior = null;
 	}
 	
-	public Expresiones getOperandoAnterior() {
+	public Expresion getOperandoAnterior() {
 		return operandoAnterior;
 	}
 
-	public void setOperandoAnterior(Expresiones operandoAnterior) {
+	public void setOperandoAnterior(Expresion operandoAnterior) {
 		this.operandoAnterior = operandoAnterior;
 	}
 	
-	public Indicador crearIndicador(Expresiones expresion){ 
+	public Indicador crearIndicador(Expresion expresion){ 
 		Indicador indicadorCreado;
 		indicadorCreado = new Indicador(nombreIndicador, expresion);
 		RepositorioIndicadores.getInstancia().agregarObjeto(indicadorCreado);

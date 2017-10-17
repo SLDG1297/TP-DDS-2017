@@ -3,7 +3,8 @@ package DB;
 public enum NombreRepositorio {
 	EMPRESA("Empresa"),
 	INDICADOR("Indicador"),
-	METODOLOGIA("Metodologia");
+	METODOLOGIA("Metodologia"),
+	USUARIO("Usuario");
 	
 	private String nombre;
 	

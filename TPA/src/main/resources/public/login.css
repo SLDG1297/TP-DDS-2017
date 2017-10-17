@@ -1,14 +1,17 @@
-body {
-    padding: 0 40%;
+.contenido {
 
+    margin-top: 10%;
+
+}
+
+.contenedor-form {
+    padding: 0 40%;
 }
 
 .form-login {
     padding: 20px;
 
     box-shadow: 0 10px 10px 0 gray;
-
-    margin-top: 50%;
 
 }
 
