@@ -25,11 +25,13 @@
 .contenedor-gris {
     background-color: #ECEFF1;
     height: 450px;
+    padding-top: 70px;
 }
 
 .contenedor-grisClaro {
     background-color: #F7F9FA;
-    height: 450px;
+    height: 480px;
+    padding-top: 70px;
 }
 
 /*-------------------------------------------------Contenido---------------------------------------------------------*/
