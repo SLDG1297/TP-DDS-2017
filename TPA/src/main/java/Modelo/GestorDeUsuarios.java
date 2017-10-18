@@ -58,11 +58,18 @@ public class GestorDeUsuarios {
     }
 
     public Map<Object, Object> obtenerMapa(Request request) {
-        Map<Object, Object> mapilla = new HashMap<>();
+        Map<Object, Object> mapaUsuarioLogeado = new HashMap<>();
 
-        mapilla.put("email", GestorDeUsuarios.getInstance().correo(Integer.parseInt(request.cookie("idUser")), request.cookie("email")));
+        String idUser = request.cookie("idUser");
+        String email = request.cookie("email");
 
-        return mapilla;
+        if(idUser == null || email == null) {
+            return mapaUsuarioLogeado;
+        }
+
+        mapaUsuarioLogeado.put("email", GestorDeUsuarios.getInstance().correo(Integer.parseInt(idUser), email));
+
+        return mapaUsuarioLogeado;
     }
 
     private String correo(Integer id, String email) {
