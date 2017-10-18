@@ -51,32 +51,32 @@
 
         <div class="row mi-fila primer-fila">
 
-            <div class="col-lg-6 selectorIndicador text-left">
+            <div class="col-lg-6 text-left">
 
-                <div class="form-group form-indicador">
+
+                <form class="form-group form-indicador" method="POST">
                     <label class="clasificacion-input" for="selector-indicador">Indicador</label>
-                    <select class="form-control mi-control selector-indicador" id="selector-indicador" onchange="this.form.submit()">
+                    <select class="form-control mi-control selector-indicador" name="nombre" id="selector-indicador" onchange="this.form.submit()">
 
                         {{#each indicador}}
                             <option value="{{nombre}}">{{nombre}}</option>
                         {{/each}}
 
-                        <!--
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        -->
                     </select>
 
-                </div>
+                </form>
+
+
 
             </div>
 
             <div class="col-lg-6 text-center">
 
                 <label class="clasificacion-input">Formula</label>
+
                 <div class="well mi-well">
+
+                    {{formula}}
 
                 </div>
 
@@ -86,24 +86,51 @@
 
         <div class = "row mi-fila">
 
-            <div class = "col-lg-6 selectorEmpresa text-left">
+            <div class = "col-lg-6 text-left">
 
                 <div class="form-group form-empresa">
-                    <label class="clasificacion-input" for="selector-indicador">Empresa</label>
-                    <select class="form-control mi-control selector-empresa" id="selector-empresa" disabled>
+                    <label class="clasificacion-input" for="selector-empresa">Empresa</label>
 
-                    </select>
+                    {{#if "empresa"}}
+
+                        <select class="form-control mi-control selector-empresa" id="selector-empresa" name="nombre" onchange="this.form.submit()">
+
+                            {{#each empresa}}
+                                <option value="{{nombre}}">{{nombre}}</option>
+                            {{/each}}
+
+                        </select>
+
+                    {{else}}
+
+                        <select class="form-control mi-control selector-empresa" id="selector-empresa" disabled>
+
+                        </select>
+
+                    {{/if}}
+
                 </div>
 
             </div>
 
-            <div class = "col-lg-6 selectorPeriodo text-right">
+            <div class = "col-lg-6 text-right">
 
                 <div class="form-group form-periodo">
-                    <label class="clasificacion-input" for="selector-indicador">Periodo</label>
-                    <select class="form-control mi-control selector-periodo" id="selector-periodo" disabled>
+                    <label class="clasificacion-input" for="selector-periodo">Periodo</label>
+                    {{#if "periodo"}}
 
-                    </select>
+                        <select class="form-control mi-control selector-periodo" id="selector-periodo" name="periodo" onchange="this.form.submit()">
+                            {{#each periodo}}
+                                <option value="{{anio}}">{{anio}}</option>
+                            {{/each}}
+                        </select>
+
+                    {{else}}
+                        <select class="form-control mi-control selector-periodo" id="selector-periodo" disabled>
+
+                        </select>
+                    {{/if}}
+
                 </div>
 
             </div>
@@ -115,7 +142,10 @@
             <div class = "col-lg-12 resultado text-center">
 
                 <p>Resultado</p>
+
                 <div class="well">
+
+                    {{resultado}}
 
                 </div>
 
