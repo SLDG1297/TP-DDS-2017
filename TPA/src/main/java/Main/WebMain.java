@@ -20,6 +20,8 @@ public class WebMain {
         
         IndicadoresEvaluacionController indicadoresEvaluacionController = new IndicadoresEvaluacionController();
 
+        IndicadoresCreacionController indicadoresCreacionController = new IndicadoresCreacionController();
+
         port(8080);
 
         staticFileLocation("/public");
@@ -29,8 +31,13 @@ public class WebMain {
         post("/login", loginController::create);
         get("/login-retry", loginController::showFailedLogin, engine);
         post("/login-retry", loginController::create);
-        get("/empresas", empresasController::show,engine);
-        get("/indicadores/evaluacion",indicadoresEvaluacionController::show,engine);
+        
+        get("/empresas", empresasController::show, engine);
+        
+        get("/indicadores/evaluacion", indicadoresEvaluacionController::show, engine);
+        post("/indicadores/evaluacion", indicadoresEvaluacionController::seleccionarIndicador);
+        get("/indicadores/evaluacion/:nombre", indicadoresEvaluacionController::redireccionarIndicadorElegido, engine);
+        get("/indicadores/creacion", indicadoresCreacionController::show, engine);
         
         iniciarMetodologias();
     }
