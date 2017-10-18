@@ -1,10 +1,12 @@
 package Modelo;
 
 import DB.TipoDeRepositorio;
+import org.uqbar.commons.utils.Observable;
 
 import javax.persistence.*;
 
 @Entity
+@Observable
 @Table(name = "usuario")
 public class Usuario implements TipoDeRepositorio {
 
@@ -14,19 +16,26 @@ public class Usuario implements TipoDeRepositorio {
     private long id;
 
     @Column(name = "usuario_email")
-    private String email;
+    private String nombre;
 
     @Column(name = "usuario_password_md5")
     private String passwordHasheada;
 
+    public Usuario() {
+    }
+
     public Usuario(String email, String passwordHasheada) {
-        this.email = email;
+        this.nombre = email;
         this.passwordHasheada = passwordHasheada;
     }
 
     @Override
     public String getNombre() {
-        return this.email;
+        return this.nombre;
+    }
+
+    public String getEmail() {
+        return nombre;
     }
 
     public String getPasswordHasheada() {

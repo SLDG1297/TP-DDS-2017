@@ -106,6 +106,26 @@ justify-content: flex-end;
     margin-left: 14px;
 }
 
+<<<<<<< HEAD
+=======
+/*------------------BotonPrincipal---------------------*/
+.buttonPrincipal button {
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 7px 15px;
+    width: auto;
+    height: 45px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 14px;
+}
+
+>>>>>>> origin/web
 .buttonPrincipal span {
     background-color: inherit;
     color: inherit;
@@ -134,8 +154,13 @@ justify-content: flex-end;
 }
 
 .botonPrincipalContenedorBlanco{
+<<<<<<< HEAD
      background-color: #31AEBF;
  }
+=======
+    background-color: #31AEBF;
+}
+>>>>>>> origin/web
 
 .botonPrincipalContenedorGris{
     background-color: #145367;
@@ -165,6 +190,7 @@ justify-content: flex-end;
 
 .botonSecundarioContenedorBlanco{
     color: #2f90a1;
+<<<<<<< HEAD
      background-color: white;
      border: 2px solid #31AEBF;
  }
@@ -197,3 +223,35 @@ justify-content: flex-end;
 }
 
 
+=======
+    background-color: white;
+    border: 2px solid #31AEBF;
+}
+
+.botonSecundarioContenedorBlanco:hover {
+    background-color: #31AEBF;
+    color: white;
+}
+
+.botonSecundarioContenedorGris{
+    color: #144458;
+    background-color: #ECEFF1;
+    border: 2px solid #145367;
+}
+
+.botonSecundarioContenedorGris:hover {
+    background-color: #145367;
+    color: white;
+}
+
+.botonSecundarioContenedorGrisClaro{
+    color: #2b60a9;
+    background-color: #F7F9FA;
+    border: 2px solid #2B75BE;
+}
+
+.botonSecundarioContenedorGrisClaro:hover {
+    background-color: #2B75BE;
+    color: white;
+}
+>>>>>>> origin/web

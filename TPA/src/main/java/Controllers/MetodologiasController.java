@@ -1,6 +1,5 @@
 package Controllers;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -8,6 +7,7 @@ import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioMetodologias;
+import Modelo.GestorDeUsuarios;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Resultados.Evaluacion;
 import spark.ModelAndView;
@@ -16,7 +16,7 @@ import spark.Response;
 
 public class MetodologiasController {
 	public ModelAndView listarMetodologias(Request request, Response response) {
-		Map<Object, Object> modelo = new HashMap<>();
+		Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
 		
 		String ruta = "";
 		
@@ -35,7 +35,7 @@ public class MetodologiasController {
 	}
 
 	public ModelAndView mostrarComparacion(Request request, Response response) {
-		Map<Object, Object> modelo = new HashMap<>();
+		Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
 		
 		String ruta = "";
 		

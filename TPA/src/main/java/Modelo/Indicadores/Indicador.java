@@ -29,7 +29,7 @@ public class Indicador implements Expresion, TipoDeRepositorio {
 		this.setFormula(formula);
 	}
 	
-	public Indicador(){};
+	public Indicador(){}
 
 	public BigDecimal calcular(Query query) {
 		return formula.calcular(query);

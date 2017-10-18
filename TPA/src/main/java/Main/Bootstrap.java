@@ -133,4 +133,5 @@ public class Bootstrap {
 				crearMetodologia("GGWP",
 						crearSumatoriaMayorA(RepositorioIndicadores.getInstancia().buscarObjeto("VAI-BYE"), 0))));
 	}
+
 }

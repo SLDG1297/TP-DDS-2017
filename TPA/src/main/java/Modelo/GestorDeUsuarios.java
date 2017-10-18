@@ -1,5 +1,8 @@
 package Modelo;
 
+import spark.Request;
+
+import javax.persistence.NoResultException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,8 +45,41 @@ public class GestorDeUsuarios {
 
     private Boolean esUsuarioValido(String email, String passwordHasheada) {
 
-        return RepositorioUsuarios.getInstancia().buscarObjeto(email).getPasswordHasheada().equals(passwordHasheada);
+        try {
+
+            return RepositorioUsuarios.getInstancia().buscarObjeto(email).getPasswordHasheada().equals(passwordHasheada);
+
+        } catch(NoResultException e) {
+
+            return false;
+
+        }
 
     }
 
+    public Map<Object, Object> obtenerMapa(Request request) {
+        Map<Object, Object> mapaUsuarioLogeado = new HashMap<>();
+
+        String idUser = request.cookie("idUser");
+        String email = request.cookie("email");
+
+        if(idUser == null || email == null) {
+            return mapaUsuarioLogeado;
+        }
+
+        mapaUsuarioLogeado.put("email", GestorDeUsuarios.getInstance().correo(Integer.parseInt(idUser), email));
+
+        return mapaUsuarioLogeado;
+    }
+
+    private String correo(Integer id, String email) {
+
+        if(this.usuariosEnLinea.get(id) != null) {
+            if (this.usuariosEnLinea.get(id).getEmail().equals(email))
+                return email;
+        }
+
+        return null;
+
+    }
 }
