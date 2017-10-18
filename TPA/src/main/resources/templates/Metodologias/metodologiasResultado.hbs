@@ -8,10 +8,11 @@
 			<th>Empresas</th>
 			<th>Resultados</th>
 		</tr>
-		{{# each empresas }}
+		{{# each resultados }}
 		<tr>
-			<td>{{ nombre }}</td>
-			<td>NO FUNCA!!</td>
+			<td>{{ empresa }}</td>
+			{{# if resultado }}<td>Pasa</td>
+			{{else}}<td>Ripe&oacute;</td>{{/ if }}
 		</tr>
 		{{/ each }}
 </table>

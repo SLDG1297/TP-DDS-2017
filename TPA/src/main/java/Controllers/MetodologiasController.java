@@ -1,42 +1,59 @@
 package Controllers;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.Excepciones.NoExistenObjetosException;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioMetodologias;
 import Modelo.Metodologias.Metodologia;
+import Modelo.Metodologias.Resultados.Evaluacion;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
 public class MetodologiasController {
 	public ModelAndView listarMetodologias(Request request, Response response) {
-		Map<String, List<Metodologia>> modelo = new HashMap<>();
-		
-		modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
-		
-		return new ModelAndView(modelo, "Metodologias/metodologiasComparacion.hbs");
-	}
-
-	public ModelAndView mostrarComparacion(Request request, Response response) {
-		Map<String, Object> modelo = new HashMap<>();
+		Map<Object, Object> modelo = new HashMap<>();
 		
 		String ruta = "";
 		
 		try
 		{
+			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			
+			ruta = "Metodologias/metodologiasComparacion.hbs";
+		}
+		catch (NoExistenObjetosException excepcion)
+		{
+			ruta = "Metodologias/metodologiasInexistentes.hbs";
+		}
+		
+		return new ModelAndView(modelo, ruta);
+	}
+
+	public ModelAndView mostrarComparacion(Request request, Response response) {
+		Map<Object, Object> modelo = new HashMap<>();
+		
+		String ruta = "";
+		
+		try
+		{
+			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			
 			Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjeto(request.queryParams("metodologia"));	
 			
-			modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos());
-			
-			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			modelo.put("resultados", RepositorioEmpresas.getInstancia().buscarListaDeObjetos().stream().map(e -> new Evaluacion(e, metodologiaElegida)).collect(Collectors.toList()));
 			
 			modelo.put("metodologiaElegida", metodologiaElegida);
 			
 			ruta = "Metodologias/metodologiasResultado.hbs";
+		}
+		catch (NoExistenObjetosException excepcion)
+		{
+			ruta = "Metodologias/metodologiasInexistentes.hbs";
 		}
 		catch (NoExisteObjetoConEseNombreException excepcion)
 		{

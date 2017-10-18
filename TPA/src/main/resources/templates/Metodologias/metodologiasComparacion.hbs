@@ -1,36 +1,24 @@
-{{# partial "contenido" }}
-
-<head>
-	<title>Comparaci&oacute;n de Metodolog&iacute;as</title>
-	<link rel="stylesheet" href="/home.css">
-</head>
-
-<body>
-
-	<div class="jumbotron text-center">
-		<h1>Comparaci&oacute;n de Metodolog&iacute;as</h1>
-		<p>Proceda a elegir una metodolog&iacute;a para determinar cu&aacute;les empresas las cumplen.</p>
-	</div>
+{{# partial "acciones" }}
 	
-	<form action="/metodologias/comparacion/:metodologia" method="get">
-		<fieldset>
-			<legend>Elija una metodolog&iacute;a:</legend>
-				<select name="metodologia" placeholder="Metodolog&iacute;a" autofocus required>
-					{{# each metodologias }}
-					<option value="{{ nombre }}">{{ nombre }}</option>
-					{{/ each }}
-				</select>
-		</fieldset>
+<form action="/metodologias/comparacion/:metodologia" method="get">
+	<fieldset>
+		<legend>Elija una metodolog&iacute;a:</legend>
+			<select name="metodologia" placeholder="Metodolog&iacute;a" autofocus required>
+				{{# each metodologias }}
+				<option value="{{ nombre }}">{{ nombre }}</option>
+				{{/ each }}
+			</select>
+	</fieldset>
 		
-		<input type="submit" value="Comparar">
-	</form>
+	<input type="submit" value="Comparar">
+</form>
 	
-	{{# block "resultado"}}
+{{# block "resultado"}}
 	
-	{{/ block}}
+{{/ block}}
 	
 </body>
 
 {{/ partial }}
 
-{{> template.hbs }}
+{{> Metodologias/metodologiasTemplate.hbs }}

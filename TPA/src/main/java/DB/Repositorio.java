@@ -3,6 +3,7 @@ package DB;
 import java.util.List;
 
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.Excepciones.NoExistenObjetosException;
 
 public abstract class Repositorio<T extends TipoDeRepositorio> {
 	protected NombreRepositorio tabla;
@@ -28,8 +29,12 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 		return this.getProveedor().darObjeto(unNombre, this.getTabla());
 	}
 	
-	public List<T> buscarListaDeObjetos() {
-		return this.getProveedor().darLista(this.getTabla());
+	public List<T> buscarListaDeObjetos() throws NoExistenObjetosException {
+		List<T> lista = this.getProveedor().darLista(this.getTabla());
+		
+		if(lista.isEmpty()) throw new NoExistenObjetosException();
+		
+		return lista;
 	}
 	
 	public List<String> darListaNombres() {
