@@ -8,6 +8,7 @@ import DB.DBManager;
 import DB.Proveedor;
 import DB.TipoDeRepositorio;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.Excepciones.NoExistenObjetosException;
 
 public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implements Proveedor<T> {
 
@@ -31,7 +32,11 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> darLista(String unTipo) {
-		return (List<T>) createQuery("from " + unTipo).getResultList();
+		List<T> lista = (List<T>) createQuery("from " + unTipo).getResultList();
+
+		if(lista.isEmpty()) throw new NoExistenObjetosException();
+		
+		return lista;
 	}
 
 	@SuppressWarnings("unchecked")

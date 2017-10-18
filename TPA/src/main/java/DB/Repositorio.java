@@ -30,11 +30,7 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 	}
 	
 	public List<T> buscarListaDeObjetos() throws NoExistenObjetosException {
-		List<T> lista = this.getProveedor().darLista(this.getTabla());
-		
-		if(lista.isEmpty()) throw new NoExistenObjetosException();
-		
-		return lista;
+		return this.getProveedor().darLista(this.getTabla());
 	}
 	
 	public List<String> darListaNombres() {
@@ -52,5 +48,4 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 	public void eliminarObjeto(T unObjeto) {
 		this.getProveedor().eliminar(unObjeto);
 	}
-	
 }
