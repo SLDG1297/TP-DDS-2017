@@ -22,7 +22,7 @@ public class IndicadoresEvaluacionController {
 	   }
 
 	public Void seleccionarIndicador(Request request, Response response) {
-		
+
 		String nombre = request.queryParams("nombre");
 
 		response.redirect("/indicadores/evaluacion/" + nombre);

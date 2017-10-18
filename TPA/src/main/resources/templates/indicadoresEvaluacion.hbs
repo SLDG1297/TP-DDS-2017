@@ -91,7 +91,7 @@
                 <div class="form-group form-empresa">
                     <label class="clasificacion-input" for="selector-empresa">Empresa</label>
 
-                    {{#if "empresa"}}
+                    {{#if empresa}}
 
                         <select class="form-control mi-control selector-empresa" id="selector-empresa" name="nombre" onchange="this.form.submit()">
 
@@ -117,7 +117,7 @@
 
                 <div class="form-group form-periodo">
                     <label class="clasificacion-input" for="selector-periodo">Periodo</label>
-                    {{#if "periodo"}}
+                    {{#if periodo}}
 
                         <select class="form-control mi-control selector-periodo" id="selector-periodo" name="periodo" onchange="this.form.submit()">
                             {{#each periodo}}

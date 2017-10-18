@@ -21,6 +21,8 @@ public class WebMain {
         
         IndicadoresEvaluacionController indicadoresEvaluacionController = new IndicadoresEvaluacionController();
 
+        IndicadoresCreacionController indicadoresCreacionController = new IndicadoresCreacionController();
+
         port(8080);
 
         staticFileLocation("/public");
@@ -34,6 +36,7 @@ public class WebMain {
         get("/indicadores/evaluacion", indicadoresEvaluacionController::show, engine);
         post("/indicadores/evaluacion", indicadoresEvaluacionController::seleccionarIndicador);
         get("/indicadores/evaluacion/:nombre", indicadoresEvaluacionController::redireccionarIndicadorElegido, engine);
+        get("/indicadores/creacion", indicadoresCreacionController::show, engine);
 
     }
     
