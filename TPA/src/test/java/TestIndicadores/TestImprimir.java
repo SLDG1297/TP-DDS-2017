@@ -8,7 +8,7 @@ import Modelo.Indicadores.*;
 import org.junit.Assert;
 
 public class TestImprimir extends TemplateTestIndicadores {
-	public static void impresionParcial(String cadena, Expresion unaExpresion) {
+	public static void impresionParcial(String cadena, Expresiones unaExpresion) {
 		IndicadorBuilder indicador = new IndicadorBuilder();
 		indicador.setOperandoAnterior(unaExpresion);
 		

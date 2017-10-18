@@ -5,7 +5,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.windows.WindowOwner;
 
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 
 public class ViewAgregarIndicador extends ViewAgregar {
 	
@@ -20,7 +20,7 @@ public class ViewAgregarIndicador extends ViewAgregar {
 		new Label(x).setText("Elija indicador");
 		new Label(x); //Espacio
 		
-		Selector<Expresion> selector = new Selector<Expresion>(x);
+		Selector<Expresiones> selector = new Selector<Expresiones>(x);
 		selector.bindValueToProperty("nombreDeIndicadorElegido");
 		selector.bindItemsToProperty("nombresDeIndicadoresExistentes");
 		
@@ -33,7 +33,7 @@ public class ViewAgregarIndicador extends ViewAgregar {
 		return this.getModelObject().getNombreDeIndicadorElegido();
 	}
 	
-	public Expresion operacion(){
+	public Expresiones operacion(){
 		return this.getModelObject().devolverIndicador();
 	}
 }

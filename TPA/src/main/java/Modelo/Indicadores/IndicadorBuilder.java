@@ -1,27 +1,31 @@
 package Modelo.Indicadores;
 
+import DB.Repositorios.RepositorioIndicadores;
+import Excepciones.Indicadores.IndicadorSinNombreException;
+
 public class IndicadorBuilder {
 
 	String nombreIndicador;
-	Expresion operandoAnterior;
+	Expresiones operandoAnterior;
 	
 	public void setNombreIndicador(String nombreIndicador) {
+		if(nombreIndicador.isEmpty()) throw new IndicadorSinNombreException();
 		this.nombreIndicador = nombreIndicador;
 		this.operandoAnterior = null;
 	}
 	
-	public Expresion getOperandoAnterior() {
+	public Expresiones getOperandoAnterior() {
 		return operandoAnterior;
 	}
 
-	public void setOperandoAnterior(Expresion operandoAnterior) {
+	public void setOperandoAnterior(Expresiones operandoAnterior) {
 		this.operandoAnterior = operandoAnterior;
 	}
 	
-	public Indicador crearIndicador(Expresion expresion){ 
+	public Indicador crearIndicador(Expresiones expresion){ 
 		Indicador indicadorCreado;
 		indicadorCreado = new Indicador(nombreIndicador, expresion);
-		IndicadoresRepository.getInstancia().agregarIndicador(indicadorCreado);
+		RepositorioIndicadores.getInstancia().agregarObjeto(indicadorCreado);
 		
 		return indicadorCreado;
 	}

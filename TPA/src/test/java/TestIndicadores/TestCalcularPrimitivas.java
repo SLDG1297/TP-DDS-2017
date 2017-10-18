@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Indicadores.Query;
-import Factories.FactoryQueryIndicador.*;
 
 public class TestCalcularPrimitivas extends TemplateTestIndicadores{
 	@Test

@@ -1,20 +1,30 @@
 package Modelo.Indicadores;
 
 import java.math.BigDecimal;
+import javax.persistence.*;
 
+import DB.Converter.IndicadorConverter;
+import DB.TipoDeRepositorio;
 import Excepciones.Indicadores.IndicadorSinFormulaException;
 import Excepciones.Indicadores.IndicadorSinNombreException;
-import Modelo.Empresa.Deserializa;
 
-public class Indicador implements Expresion, Deserializa{
-
+@Entity
+@Table(name = "indicador")
+public class Indicador extends Expresiones implements TipoDeRepositorio {
+	
+	@Column(name = "indicador_nombre")
 	private String nombre;
-	private Expresion formula;
 
-	public Indicador(String nombre, Expresion formula) {
+	@Column(name = "indicador_formula", columnDefinition = "LONGTEXT")
+	@Convert(converter = IndicadorConverter.class)
+	private Expresiones formula;
+
+	public Indicador(String nombre, Expresiones formula) {
 		this.setNombre(nombre);
 		this.setFormula(formula);
 	}
+	
+	public Indicador(){};
 
 	public BigDecimal calcular(Query query) {
 		return formula.calcular(query);
@@ -29,20 +39,22 @@ public class Indicador implements Expresion, Deserializa{
 		this.nombre = nombre;
 	}
 
-	public Expresion getFormula() {
+	public Expresiones getFormula() {
 		return formula;
 	}
 
-	public void setFormula(Expresion formula) {
+	public void setFormula(Expresiones formula) {
 		if(formula == null) throw new IndicadorSinFormulaException();
 		this.formula = formula;
 	}
 	
-	public void addOperando(Expresion operando){
+	public void addOperando(Expresiones operando){
 	}
 	
 	public String imprimirFormula() {
 		return "( " + nombre + " = " + formula.imprimirFormula() + " )";
 	}
+
+	
 	
 }

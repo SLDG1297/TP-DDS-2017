@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.List;
 import org.uqbar.commons.utils.Observable;
 
-import Modelo.Empresa.Cuenta;
-import Modelo.Indicadores.Expresion;
+import DB.Repositorios.RepositorioIndicadores;
+import Modelo.Indicadores.Cuenta_Indicadores;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.IndicadorBuilder;
-import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Numero;
 
 @Observable
@@ -57,7 +57,7 @@ public abstract class VMAgregar {
 		}
 		
 		public Indicador devolverIndicador() {
-			return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);	
+			return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido);	
 		}
 		
 		public BigDecimal getNumeroElegido() {
@@ -68,7 +68,7 @@ public abstract class VMAgregar {
 			this.numeroElegido = numeroElegido;
 		}
 		
-		public Expresion devolverNumero() {
+		public Expresiones devolverNumero() {
 			
 			return new Numero(numeroElegido);
 			
@@ -94,9 +94,9 @@ public abstract class VMAgregar {
 			this.cuentaElegida = cuentaElegida;
 		}
 		
-		public Expresion devolverCuenta() {
+		public Expresiones devolverCuenta() {
 
-			Cuenta cuenta = new Cuenta(cuentaElegida);
+			Cuenta_Indicadores cuenta = new Cuenta_Indicadores(cuentaElegida);
 			return cuenta;
 		}
 		

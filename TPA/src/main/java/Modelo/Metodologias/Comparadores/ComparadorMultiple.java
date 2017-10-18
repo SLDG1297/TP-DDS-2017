@@ -2,7 +2,8 @@ package Modelo.Metodologias.Comparadores;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import Modelo.Empresa.BolsaDeEmpresas;
+
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Resultados.Resultado;
@@ -19,7 +20,7 @@ public class ComparadorMultiple {
 	}
 	
 	public List<ResultadoAdapterView> comparar(){
-		List<Empresa> listaEmpresas = BolsaDeEmpresas.getInstancia().getEmpresas();
+		List<Empresa> listaEmpresas =  RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		return listaEmpresas.stream().map(emp -> generarResultadoViewAdapter(emp)).collect(Collectors.toList());
 		
 		/*List<ResultadoAdapterView> listaResultadosAdapter = new ArrayList<ResultadoAdapterView>();

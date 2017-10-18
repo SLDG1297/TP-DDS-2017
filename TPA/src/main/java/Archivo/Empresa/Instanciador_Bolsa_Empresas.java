@@ -1,10 +1,10 @@
 package Archivo.Empresa;
 
 import java.util.List;
-
+import Archivo.FileCleaner;
 import Archivo.LectorDeArchivos;
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
-import Modelo.Empresa.BolsaDeEmpresas;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,9 +13,10 @@ import java.util.ArrayList;
 public class Instanciador_Bolsa_Empresas {
 	
 	public void instanciar() throws IOException {
-	    BolsaDeEmpresas.getInstancia().setEmpresas(obtenerEmpresas());
+	    RepositorioEmpresas.getInstancia().agregarListaDeObjetos(this.obtenerEmpresas());
+	    this.vaciarCsv();
 	}
-	
+
 	private List<Empresa> obtenerEmpresas() throws IOException {
 	
 		// Instancio el Lector de Archivos
@@ -28,6 +29,10 @@ public class Instanciador_Bolsa_Empresas {
 		misEmpresas = miParser.parse(stream);
 		
 		return misEmpresas;
+	}
+	
+	private void vaciarCsv() {
+		new FileCleaner().limpiar("cuentitasDeHector.csv");
 	}
 	
 }

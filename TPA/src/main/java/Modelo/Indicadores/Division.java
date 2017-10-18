@@ -2,15 +2,22 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
-
+@Entity
+@Table(name = "division")
 public class Division extends Operacion {
+	
+	@SuppressWarnings("unused")
+	private Division(){};
 
-	public Division(Expresion valorA) {
+	public Division(Expresiones valorA) {
 		super(valorA);
 	}
 
-	public Division(Expresion valorA, Expresion valorB) {
+	public Division(Expresiones valorA, Expresiones valorB) {
 		super(valorA, valorB);
 	}
 	

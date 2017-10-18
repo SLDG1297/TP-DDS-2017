@@ -4,12 +4,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("comportamiento")
 public abstract class Comportamiento extends Condicion {
 
 	protected int anios;
@@ -18,7 +20,10 @@ public abstract class Comportamiento extends Condicion {
 		super(indicador);
 		this.anios = anios;
 	}
-	
+
+	public Comportamiento() {
+	}
+
 	@Override
 	protected List<Periodo> inicio(List<Periodo> lista) {
 		return lista.stream().filter(periodo -> periodo.estaEntre(anios, lista, periodo)).collect(Collectors.toList());

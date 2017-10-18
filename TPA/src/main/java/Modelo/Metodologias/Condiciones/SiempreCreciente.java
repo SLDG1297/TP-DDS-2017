@@ -2,16 +2,21 @@ package Modelo.Metodologias.Condiciones;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 import Modelo.Metodologias.Condiciones.Comportamiento;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="siempre_creciente")
 public class SiempreCreciente extends Comportamiento {
 
 	public SiempreCreciente(Indicador indicador, int anios) {
 		super(indicador, anios);
+	}
+
+	public SiempreCreciente() {
 	}
 
 	@Override
@@ -28,7 +33,7 @@ public class SiempreCreciente extends Comportamiento {
 	
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es siempre creciente en " + String.valueOf(anios) + " años";
+		return "El indicador " + indicador.getNombre() + " es siempre creciente en " + String.valueOf(anios) + " anos";
 	}
 
 }

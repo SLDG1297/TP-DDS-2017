@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
 
+import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Metodologias.MetodologiaBuilder;
 
 @Observable
@@ -21,7 +21,7 @@ public class VMSeleccionCondicion {
 	public VMSeleccionCondicion(MetodologiaBuilder _MiMetodologiaBuilder){
 		super();
 		miMetodologiaBuilder = _MiMetodologiaBuilder;
-		this.setNombresDeIndicadoresExistentes(IndicadoresRepository.getInstancia().getNombresIndicadores());
+		this.setNombresDeIndicadoresExistentes(RepositorioIndicadores.getInstancia().darListaNombres());
 	}
 
 	/*--------------------------------------------------------------------------------------*/ //Comienzo de los getters y setters
@@ -64,11 +64,11 @@ public class VMSeleccionCondicion {
 	/*--------------------------------------------------------------------------------------*/ //Final de los getters y setters
 	
 	public Indicador devolverIndicador() {
-		return IndicadoresRepository.getInstancia().getIndicador(nombreDeIndicadorElegido);	
+		return RepositorioIndicadores.getInstancia().buscarObjeto(nombreDeIndicadorElegido);	
 	}
 
 	public void iniciarBuilder(){
-		miMetodologiaBuilder.setIndicadorSeleccionado(this.devolverIndicador());
+		miMetodologiaBuilder.setIndicadorSeleccionado(devolverIndicador());
 	}
 	
 }

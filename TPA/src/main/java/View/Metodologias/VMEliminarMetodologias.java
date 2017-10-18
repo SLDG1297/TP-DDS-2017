@@ -1,17 +1,18 @@
 package View.Metodologias;
 
 import java.util.List;
+
+import DB.Repositorios.RepositorioMetodologias;
 import org.uqbar.commons.utils.Observable;
-import Modelo.Metodologias.MetodologiasRepository;
 
 @Observable
 public class VMEliminarMetodologias {
 
 	public String nombreDeMetodologiaElegida;
-	public List<String> nombresDeMetodologiasExistentes = MetodologiasRepository.getInstancia().nombresDeMetodologias();
+	public List<String> nombresDeMetodologiasExistentes = RepositorioMetodologias.getInstancia().darListaNombres();
 	
 	public void destruirMetodologiaSeleccionada() {
-		MetodologiasRepository.getInstancia().removerMetodologia(nombreDeMetodologiaElegida);
+		RepositorioMetodologias.getInstancia().eliminarObjeto(RepositorioMetodologias.getInstancia().buscarObjeto(nombreDeMetodologiaElegida));
 	}
 	
 	public void setNombreDeMetodologiaElegida(String nombreMetodologiaElegida) {

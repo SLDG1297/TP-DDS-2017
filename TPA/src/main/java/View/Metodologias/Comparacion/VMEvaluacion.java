@@ -1,15 +1,14 @@
 package View.Metodologias.Comparacion;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import DB.Repositorios.RepositorioMetodologias;
 import org.uqbar.commons.utils.Observable;
 
-import Modelo.Empresa.BolsaDeEmpresas;
+import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Metodologia;
-import Modelo.Metodologias.MetodologiasRepository;
 
 @Observable
 public class VMEvaluacion {
@@ -28,18 +27,18 @@ public class VMEvaluacion {
 	public VMEvaluacion (){
 		
 		super();
-		listaDeEmpresas = BolsaDeEmpresas.getInstancia().getNombresDeEmpresas();
-		listaDeMetodologias = MetodologiasRepository.getInstancia().nombresDeMetodologias();
+		listaDeEmpresas = RepositorioEmpresas.getInstancia().darListaNombres();
+		listaDeMetodologias = RepositorioMetodologias.getInstancia().darListaNombres();
 		
 	}
 		
 	public void buscarEmpresa() {
-		setEmpresaElegida(BolsaDeEmpresas.getInstancia().buscarEmpresa(getNombreEmpresaElegida()));
+		setEmpresaElegida(RepositorioEmpresas.getInstancia().buscarObjeto(getNombreEmpresaElegida()));
 	}
 	
 	public void buscarMetodologia(){
 		
-		setMetodologiaElegida(MetodologiasRepository.getInstancia().obtenerMetodologia(nombreMetodologiaElegida));
+		setMetodologiaElegida(RepositorioMetodologias.getInstancia().buscarObjeto(nombreMetodologiaElegida));
 	}
 
 	public String getNombreEmpresaB() {
@@ -116,7 +115,7 @@ public class VMEvaluacion {
 	
 	
 	public void buscarEmpresaB() {
-		setEmpresaB(BolsaDeEmpresas.getInstancia().buscarEmpresa(getNombreEmpresaB()));
+		setEmpresaB(RepositorioEmpresas.getInstancia().buscarObjeto(getNombreEmpresaB()));
 	}
 	
 	public void generarListaSinPrimerEmpresaElegida() {

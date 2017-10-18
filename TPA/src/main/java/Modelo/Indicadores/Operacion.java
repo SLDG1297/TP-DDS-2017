@@ -1,21 +1,34 @@
 package Modelo.Indicadores;
 
 import java.math.BigDecimal;
-
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Modelo.Empresa.Deserializa;
 
-public abstract class Operacion implements Expresion, Deserializa {
-	Expresion valorA, valorB;
+@Entity
+@Table(name = "operacion")
+public abstract class Operacion extends Expresiones {
 	
-	public Operacion(Expresion valorA) {
+	//@Column(name = "operacion_valor_a")
+	@OneToOne(cascade = {CascadeType.ALL})
+	Expresiones valorA;
+	
+	//@Column(name = "operacion_valor_b")
+	@OneToOne(cascade = {CascadeType.ALL})
+	Expresiones valorB;
+	
+	public Operacion(Expresiones valorA) {
 	    this.valorA = valorA;
 	}
 	
-	public Operacion(Expresion valorA, Expresion valorB){
+	public Operacion(Expresiones valorA, Expresiones valorB){
 		this.valorA = valorA;
 		this.valorB = valorB;
 	}
+	
+	public Operacion(){};
 	
 	public BigDecimal calcular(Query query){
 		this.puedeRealizarOperacion(query);
@@ -28,7 +41,7 @@ public abstract class Operacion implements Expresion, Deserializa {
 	
 	public abstract BigDecimal realizarOperacion(Query query);
 
-	public void addOperando(Expresion operando){
+	public void addOperando(Expresiones operando){
 		  this.valorB = operando;
 	}
 

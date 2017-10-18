@@ -1,15 +1,41 @@
 package Modelo.Empresa;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import Excepciones.Indicadores.NoTieneLaCuentaException;
 import Excepciones.Empresas.PeriodoSinCuentasException;
 import Excepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Empresa.Cuenta;
 
+@Entity
+@Table(name = "periodo")
 public class Periodo {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "periodo_id")
+	private long id;
+	
+	@Column(name = "periodo_anio")
 	Integer anio;
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "periodo_fk_id", referencedColumnName = "periodo_id")
 	List<Cuenta> cuentas = new ArrayList<Cuenta>();
+	
+	@SuppressWarnings("unused")
+	private Periodo(){};
 	
 	public Periodo(Integer nuevoAnio, List<Cuenta> nuevasCuentas) {
 		this.setAnio(nuevoAnio);

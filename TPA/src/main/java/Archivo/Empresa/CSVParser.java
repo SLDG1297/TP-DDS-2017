@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +16,7 @@ public class CSVParser {
 	
 	private String separador;
 	
-	CSVParser(String miSeparador) {
+	public CSVParser(String miSeparador) {
 		separador = miSeparador;
 	}
 		

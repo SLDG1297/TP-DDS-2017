@@ -5,7 +5,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 
 public class ViewAgregarCuenta extends ViewAgregar {
 
@@ -29,7 +29,7 @@ public class ViewAgregarCuenta extends ViewAgregar {
 		return this.getModelObject().getCuentaElegida();
 	}
 	
-	public Expresion operacion(){
+	public Expresiones operacion(){
 		return this.getModelObject().devolverCuenta();
 	}
 	

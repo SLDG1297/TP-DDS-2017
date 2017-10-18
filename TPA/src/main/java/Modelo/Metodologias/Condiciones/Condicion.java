@@ -11,12 +11,21 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;
 import Modelo.Metodologias.Try;
 
-public abstract class Condicion implements Condiciones, Deserializa{
+import javax.persistence.*;
 
+@Entity
+@DiscriminatorValue("condicion")
+public abstract class Condicion extends Condiciones implements Deserializa {
+
+	@OneToOne(cascade = {CascadeType.PERSIST})
 	protected Indicador indicador;
+
+	@Transient
 	protected Empresa empresa;
 
-	
+	public Condicion() {
+	}
+
 	public Condicion(Indicador indicador) {
 		this.indicador = indicador;
 	}

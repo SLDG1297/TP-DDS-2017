@@ -4,21 +4,27 @@ import java.math.BigDecimal;
 import java.util.List;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
-import Modelo.Metodologias.Condiciones.Condicion;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="promedio")
 public class Promedio extends Condicion {
-	
+
 		private BigDecimal valor;
 		private int booleano;
 		private String cadena;
-		
-	
-		public Promedio(Indicador indicador, BigDecimal valor, int booleano, String cadena) {
+
+	public Promedio() {
+	}
+
+	public Promedio(Indicador indicador, BigDecimal valor, int booleano, String cadena) {
 			super(indicador);
 			this.valor = valor;
 			this.booleano = booleano;
 			this.cadena = cadena;
-		}
+	}
 		
 		public boolean fin(List<Try<BigDecimal>> success){
 			 Double promedio = this.sum(success) // Suma la lista, no puedo usar sum()

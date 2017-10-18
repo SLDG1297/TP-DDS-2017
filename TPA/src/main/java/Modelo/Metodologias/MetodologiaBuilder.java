@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import DB.Repositorios.RepositorioMetodologias;
+import Excepciones.Metodologias.MetodologiaSinNombreException;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Condiciones.Condicion;
 import Modelo.Metodologias.Condiciones.Condiciones;
@@ -20,7 +22,7 @@ public class MetodologiaBuilder {
 		this.condiciones = condiciones;
 	}
 
-	private MetodologiasRepository repositorio = MetodologiasRepository.getInstancia();
+	
 	private List<Condiciones> condiciones = new ArrayList<Condiciones>();
 	
 	public Indicador getIndicadorSeleccionado() {
@@ -36,6 +38,7 @@ public class MetodologiaBuilder {
 	}
 
 	public void setNombreMetodologia(String nombreMetodologia) {
+		if(nombreMetodologia.isEmpty()) throw new MetodologiaSinNombreException();
 		this.nombreMetodologia = nombreMetodologia;
 	}
 	
@@ -49,7 +52,7 @@ public class MetodologiaBuilder {
 	
 	public Metodologia crearMetodologia(){ 
 		Metodologia miNuevaMetodologia = new Metodologia(nombreMetodologia,condiciones);
-		repositorio.agregarMetodologia(miNuevaMetodologia);
+		RepositorioMetodologias.getInstancia().agregarObjeto(miNuevaMetodologia);
 		return miNuevaMetodologia;
 	}
 	

@@ -1,18 +1,13 @@
 package View.Indicadores;
 
 import java.awt.Color;
-import java.io.IOException;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
-
-import Archivo.EscritorDeAchivos;
-import Archivo.SerializadorJson;
 import Modelo.Indicadores.Division;
-import Modelo.Indicadores.Expresion;
-import Modelo.Indicadores.IndicadoresRepository;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Multiplicacion;
 import Modelo.Indicadores.Resta;
@@ -80,8 +75,10 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 			
 			this.agregarSegundoOperando();
 			indicadorCreado = this.getModelObject().miIndicadorBuilder.crearIndicador(this.getOperandoAnterior());
-			String lista = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
-			new EscritorDeAchivos().escribir("repositorioIndicadores.csv", lista);
+			
+			
+			//String lista = new SerializadorJson().serializar(IndicadoresRepository.getInstancia().getIndicadores());
+			//new EscritorDeAchivos().escribir("repositorioIndicadores.csv", lista);
 			
 			this.mensajeIndicadorCreado(indicadorCreado);
 		});
@@ -89,7 +86,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	}
 	
 	//Es el algoritmo/efecto que usan todos botones operacion 
-	private void efectoBotonOperacion(Expresion y) {
+	private void efectoBotonOperacion(Expresiones y) {
 		this.agregarSegundoOperando();
 		this.mostrarCadena();
 		this.nuevaOperacion(y);
@@ -103,7 +100,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 		this.getOperandoAnterior().addOperando(this.operacion());
 	}
 	
-	private Expresion getOperandoAnterior(){
+	private Expresiones getOperandoAnterior(){
 		if (this.getModelObject().miIndicadorBuilder.getOperandoAnterior() == null){
 			return this.operacion();
 		}else{
@@ -112,7 +109,7 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	}
 	
 	//Crea una Nueva Operacion, y esta ahora es Operando anterior en el Builder  
-	private void nuevaOperacion(Expresion x){
+	private void nuevaOperacion(Expresiones x){
 		this.getModelObject().miIndicadorBuilder.setOperandoAnterior(x);
 	}
 		
@@ -132,6 +129,6 @@ public abstract class ViewAgregar extends Window<VMAgregar> {
 	
 	public abstract void cuerpo(Panel x);
 	public abstract String cadena(); // Es para el manejo de cadenas particular de cadena de cada view, que son distintas
-	public abstract Expresion operacion();
+	public abstract Expresiones operacion();
 
 }

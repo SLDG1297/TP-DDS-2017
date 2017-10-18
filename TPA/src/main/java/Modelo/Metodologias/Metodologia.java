@@ -4,12 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import DB.TipoDeRepositorio;
 import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Empresa.Empresa;
 
-public class Metodologia {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "metodologia")
+public class Metodologia implements TipoDeRepositorio {
+
+	@Id
+	@GeneratedValue
+	@Column(name = "metolodogia_id")
+	private long id_metodologia;
+
+	@Column(name = "nombre")
 	private String nombre;
+
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "metodologia_fk_id",  referencedColumnName = "metolodogia_id")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
 	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista
@@ -23,7 +37,10 @@ public class Metodologia {
 		this.nombre = nombre;
 		this.listaCondiciones = condiciones;
 	}
-	
+
+	public Metodologia() {
+	}
+
 	public void addCondicion(Condiciones condicion){
 		listaCondiciones.add(condicion);
 	}

@@ -1,12 +1,18 @@
 package View;
 
 import java.io.IOException;
+
+import DB.Repositorios.RepositorioMetodologias;
+import Modelo.Metodologias.Metodologia;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 import Archivo.Empresa.Instanciador_Bolsa_Empresas;
-
-import Archivo.Indicadores.InstanciadorListaIndicadores;
+import DB.Proveedores.ProveedorBD;
+import DB.Repositorios.RepositorioEmpresas;
+import DB.Repositorios.RepositorioIndicadores;
+import Modelo.Empresa.Empresa;
+import Modelo.Indicadores.Indicador;
 import View.Cuentas.VMCargarCuentas;
 import View.Cuentas.ViewCargarCuentas;
 import View.Indicadores.VMGestionDeIndicadores;
@@ -14,10 +20,8 @@ import View.Indicadores.ViewGestionDeIndicadores;
 import View.Metodologias.VMGestionDeMetodologias;
 import View.Metodologias.ViewGestionDeMetodologias;
 
-
 public class ViewMain extends MainWindow<VM_Main> {
 	
-		
 	public ViewMain() {
 		super(new VM_Main());
 	}
@@ -36,14 +40,15 @@ public class ViewMain extends MainWindow<VM_Main> {
 	}
 
 	public static void main(String[] args) throws IOException {
+		RepositorioEmpresas.getInstancia().setProveedor(new ProveedorBD<Empresa>());
 		
-		new Instanciador_Bolsa_Empresas().instanciar();
+		RepositorioIndicadores.getInstancia().setProveedor(new ProveedorBD<Indicador>());
 
-		new InstanciadorListaIndicadores().instanciarListaIndicadores();
+		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
+
+		new Instanciador_Bolsa_Empresas().instanciar();
 		
 		new ViewMain().startApplication(); 
-		
-		// System.out.println(IndicadoresRepository.getInstancia().getIndicador("IndicadorConOperaciones").imprimirFormula());
 		
 	}
 

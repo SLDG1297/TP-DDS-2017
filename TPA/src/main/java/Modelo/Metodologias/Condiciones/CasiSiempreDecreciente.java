@@ -3,15 +3,20 @@ package Modelo.Metodologias.Condiciones;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Try;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="casi_siempre_decreciente")
 public class CasiSiempreDecreciente extends Comportamiento {
 
 	public CasiSiempreDecreciente(Indicador indicador, int anios) {
 		super(indicador, anios);
+	}
+
+	public CasiSiempreDecreciente() {
 	}
 
 	@Override
@@ -28,7 +33,7 @@ public class CasiSiempreDecreciente extends Comportamiento {
 
 	@Override
 	public String mostrarCadena() {
-		return "El indicador " + indicador.getNombre() + " es casi siempre decreciente en " + String.valueOf(anios) + " años";
+		return "El indicador " + indicador.getNombre() + " es casi siempre decreciente en " + String.valueOf(anios) + " anios";
 	}
 	
 }

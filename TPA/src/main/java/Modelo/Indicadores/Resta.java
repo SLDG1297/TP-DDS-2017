@@ -2,12 +2,21 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "resta")
 public class Resta extends Operacion {
-	public Resta(Expresion valorA) {
+	
+	@SuppressWarnings("unused")
+	private Resta(){};
+
+	public Resta(Expresiones valorA) {
 		super(valorA);
 	}
 
-	public Resta(Expresion valorA, Expresion valorB) {
+	public Resta(Expresiones valorA, Expresiones valorB) {
 		super(valorA, valorB);
 	}
 

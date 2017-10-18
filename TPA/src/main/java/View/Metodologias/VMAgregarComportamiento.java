@@ -66,21 +66,42 @@ public class VMAgregarComportamiento {
     	Indicador indicadorSeleccionado = miMetodologiaBuilder.getIndicadorSeleccionado();
     	Condicion nuevaCondicion;
     	
+    	switch(comportamientoElegido) {
+    	
+    	case "Siempre creciente":
+    		nuevaCondicion = new SiempreCreciente(indicadorSeleccionado,periodoElegido);
+    		break;
+    		
+    	case "Casi siempre creciente":
+    		nuevaCondicion = new CasiSiempreCreciente(indicadorSeleccionado,periodoElegido);
+    		break;
+    	
+    	case "Siempre decreciente":
+    		nuevaCondicion = new SiempreDecreciente(indicadorSeleccionado,periodoElegido);
+    		break;
+    		
+    	default:
+    		nuevaCondicion = new CasiSiempreDecreciente(indicadorSeleccionado,periodoElegido);
+    		break;
+    	}
+    	 	
+    	/*
     	if(comportamientoElegido.equals("Siempre creciente")){
     		nuevaCondicion = new SiempreCreciente(indicadorSeleccionado,periodoElegido);
     	}
     	
-    	if(comportamientoElegido.equals("Siempre creciente")){
+    	if(comportamientoElegido.equals("Casi siempre creciente")){
     		nuevaCondicion = new CasiSiempreCreciente(indicadorSeleccionado,periodoElegido);
     	}
     	
-    	if(comportamientoElegido.equals("Siempre creciente")){
+    	if(comportamientoElegido.equals("Siempre decreciente")){
     		nuevaCondicion = new SiempreDecreciente(indicadorSeleccionado,periodoElegido);
     	}
     	
     	else{
     		nuevaCondicion = new CasiSiempreDecreciente(indicadorSeleccionado,periodoElegido);
     	}
+    	*/
     	
     	miMetodologiaBuilder.agregarCondicion(nuevaCondicion);
     }

@@ -1,20 +1,44 @@
 package Modelo.Empresa;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.uqbar.commons.utils.Observable;
-import Excepciones.Indicadores.NoTieneLaCuentaException;
+
+import DB.TipoDeRepositorio;
 import Excepciones.Empresas.EmpresaSinNombreException;
 import Excepciones.Empresas.EmpresaSinPeriodoException;
 import Excepciones.Empresas.NoExisteElPeriodoException;
 
+@Entity
 @Observable
-public class Empresa {
+@Table(name = "empresa")
+public class Empresa implements TipoDeRepositorio {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "empresa_id")
+	private long id;
+	
+	@Column(name = "empresa_nombre")
 	private String nombre;
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "empresa_fk_id", referencedColumnName = "empresa_id")
 	private List<Periodo> periodos = new ArrayList<Periodo>();
+	
+	@SuppressWarnings("unused")
+	private Empresa(){};
 	
 	// Esto solo lo usa el Parser para crear la empresa rápidamente
 	public Empresa(String nombre, String nombreCuenta, String anio, String valor) {

@@ -2,14 +2,13 @@ package View.Indicadores;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.uqbar.commons.utils.Observable;
 
+import DB.Repositorios.RepositorioEmpresas;
+import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Empresa.Empresa;
-import Modelo.Empresa.BolsaDeEmpresas;
 import Modelo.Indicadores.Indicador;
-import Modelo.Indicadores.IndicadoresRepository;
 import Modelo.Indicadores.Query;
 
 @Observable
@@ -20,7 +19,7 @@ public class VMEvaluacionIndicadores {
 		public String nombreEmpresa;
 		//Empresa seleccionada en el selector 
 		public Empresa empresa;
-		public BolsaDeEmpresas bolsaEmpresas;
+		public RepositorioEmpresas bolsaEmpresas;
 		//Para bindear items del selector de periodos de la empresa elegida
 		public Integer periodoElegido;
 		public List<Integer> listaDePeriodosDeEmpresa;
@@ -35,13 +34,13 @@ public class VMEvaluacionIndicadores {
 		//Constructor
 		public VMEvaluacionIndicadores() {
 			super();
-			bolsaEmpresas = BolsaDeEmpresas.getInstancia();
+			bolsaEmpresas = RepositorioEmpresas.getInstancia();
 			listaDeNombresDeEmpresas = this.buscarNombresDeEmpresas();
 			listaDeNombresDeIndicador = this.buscarNombresDeIndicadores();
 		}
 
 		private List<String> buscarNombresDeIndicadores() {
-			return IndicadoresRepository.getInstancia().getIndicadores().stream().map(i -> i.getNombre()).collect(Collectors.toList());
+			return RepositorioIndicadores.getInstancia().darListaNombres();
 		}
 
 		public Integer getPeriodoElegido() {
@@ -63,11 +62,11 @@ public class VMEvaluacionIndicadores {
 		}
 
 
-		public BolsaDeEmpresas getBolsaEmpresas() {
+		public RepositorioEmpresas getBolsaEmpresas() {
 			return bolsaEmpresas;
 		}
 
-		public void setBolsaEmpresas(BolsaDeEmpresas bolsaEmpresas) {
+		public void setBolsaEmpresas(RepositorioEmpresas bolsaEmpresas) {
 			this.bolsaEmpresas = bolsaEmpresas;
 		}
 
@@ -98,12 +97,12 @@ public class VMEvaluacionIndicadores {
 		//Sirve para actualizar el VM con la empresa seleccionada a partir de su nombre y además 
 		//obtener la lista de periodos correspondientes a esa empresa
 		public void buscarEmpresaYSusPeriodos() {
-			empresa = this.bolsaEmpresas.buscarEmpresa(nombreEmpresa);
+			empresa = this.bolsaEmpresas.buscarObjeto(nombreEmpresa);
 			this.listaDePeriodosDeEmpresa = this.buscarPeriodosDeEmpresa();
 		}
 	    
 		public List<String> buscarNombresDeEmpresas() {
-			return this.bolsaEmpresas.getNombresDeEmpresas();
+			return this.bolsaEmpresas.darListaNombres();
 		}
 		
 		public List<Integer> buscarPeriodosDeEmpresa(){
@@ -127,7 +126,7 @@ public class VMEvaluacionIndicadores {
 		}
 		
 		public void buscarIndicadorSeleccionado(){
-		indicadorSeleccionado = IndicadoresRepository.getInstancia().getIndicador(nombreIndicador);
+		indicadorSeleccionado = RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
 		}
 		
 		//Metodo para evaluar la empresa seleccionada en determinado periodo con el indicador seleccionado

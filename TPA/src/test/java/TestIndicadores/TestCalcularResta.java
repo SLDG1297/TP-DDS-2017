@@ -11,7 +11,7 @@ import org.junit.experimental.theories.Theory;
 import static Factories.FactoryOperaciones.restar;
 
 import Excepciones.Indicadores.FaltaOperandoDerechoException;
-import Modelo.Indicadores.Expresion;
+import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Resta;
 
 public class TestCalcularResta extends TemplateTestIndicadores{
@@ -30,21 +30,21 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void restarPorCeroDaSiMismo(Expresion unValor){
+	public void restarPorCeroDaSiMismo(Expresiones unValor){
 		restaExpectante = restar(unValor, cero);
 		
 		Assert.assertEquals(evaluar(unValor), evaluar(restaExpectante));
 	}
 	
 	@Theory
-	public void restarUnNumeroPorSiMismoDaElNeutro(Expresion unValor){
+	public void restarUnNumeroPorSiMismoDaElNeutro(Expresiones unValor){
 		restaExpectante = restar(unValor, unValor);
 		
 		Assert.assertTrue(evaluarEntero(restaExpectante) == evaluarEntero(cero));
 	}
 	
 	@Theory
-	public void restarPorNumeroMayorA20DaNegativo(Expresion unValor){
+	public void restarPorNumeroMayorA20DaNegativo(Expresiones unValor){
 		Assume.assumeTrue(evaluar(unValor).compareTo(evaluar(natural)) == 1);
 		
 		restaConNatural.addOperando(unValor);
@@ -53,7 +53,7 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void laRestaNoEsConmutativaPorElOrdenEnQueSeAniadenOperandos(Expresion operandoIzquierdo, Expresion operandoDerecho){
+	public void laRestaNoEsConmutativaPorElOrdenEnQueSeAniadenOperandos(Expresiones operandoIzquierdo, Expresiones operandoDerecho){
 		Assume.assumeFalse(operandoIzquierdo.equals(operandoDerecho));
 		
 		int valor1 = evaluarEntero(restar(operandoIzquierdo, operandoDerecho));
@@ -63,7 +63,7 @@ public class TestCalcularResta extends TemplateTestIndicadores{
 	}
 	
 	@Theory
-	public void noSePuedeRestarSiFaltaElOperandoDerecho(Expresion unValor){
+	public void noSePuedeRestarSiFaltaElOperandoDerecho(Expresiones unValor){
 		try
 		{
 			restaExpectante = restar(unValor);

@@ -95,33 +95,38 @@ public class VMAgregarPromedioSumatoriaMediana {
      	Indicador indicadorSeleccionado = miMetodologiaBuilder.getIndicadorSeleccionado();
     	Condicion nuevaCondicion;
     	
-    	if(operacionElegida.equals("Promedio")){
-    		if(comparadorElegido.equals("Mayor")){
-        		nuevaCondicion = new CondicionFactory().crearPromedioMayorA(indicadorSeleccionado, valorElegido);
-        	}
-        	else{
+    	switch(operacionElegida) {
+    	
+    	case "Promedio":
+    		if(comparadorElegido.equals("Mayor")) {
+    		nuevaCondicion = new CondicionFactory().crearPromedioMayorA(indicadorSeleccionado, valorElegido);
+    		}
+    		else{
         		nuevaCondicion = new CondicionFactory().crearPromedioMenorA(indicadorSeleccionado, valorElegido);
         	}
-    	}
-    	
-    	if(operacionElegida.equals("Sumatoria")){
+    		break;
+    		
+    	case "Sumatoria":
+    		
     		if(comparadorElegido.equals("Mayor")){
         		nuevaCondicion = new CondicionFactory().crearSumatoriaMayorA(indicadorSeleccionado, valorElegido);
         	}
         	else{
         		nuevaCondicion = new CondicionFactory().crearSumatoriaMenorA(indicadorSeleccionado, valorElegido);
         	}
-    	}
-    	
-    	else{
+    		break;
+    		
+    	default: //El caso en el que sea una mediana
+    		
     		if(comparadorElegido.equals("Mayor")){
         		nuevaCondicion = new CondicionFactory().crearMedianaMayorA(indicadorSeleccionado, valorElegido);
         	}
         	else{
         		nuevaCondicion = new CondicionFactory().crearMedianaMenorA(indicadorSeleccionado, valorElegido);
         	}
+    		break;
+    		
     	}
-    	
     	miMetodologiaBuilder.agregarCondicion(nuevaCondicion);
     }
 
