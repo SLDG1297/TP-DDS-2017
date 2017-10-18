@@ -58,6 +58,7 @@ public class Bootstrap {
 		chequearEmpresas();
 		chequearIndicadores();
 		chequearMetodologias();
+		chequearUsuarios();
 	}
 	
 	public static void chequearEmpresas() throws IOException {
@@ -88,6 +89,16 @@ public class Bootstrap {
 		}
 		catch (NoExistenObjetosException excepcion) {
 			iniciarMetodologias();
+		}
+	}
+	
+	public static void chequearUsuarios() {
+		try
+		{
+			RepositorioUsuarios.getInstancia().buscarListaDeObjetos();
+		}
+		catch (NoExistenObjetosException excepcion) {
+			iniciarUsuarios();
 		}
 	}
 
@@ -134,4 +145,9 @@ public class Bootstrap {
 						crearSumatoriaMayorA(RepositorioIndicadores.getInstancia().buscarObjeto("VAI-BYE"), 0))));
 	}
 
+	public static void iniciarUsuarios() {
+		RepositorioUsuarios.getInstancia().agregarListaDeObjetos(
+			Arrays.asList(
+					new Usuario("AxelXXX@gmail.com", "1234")));
+	}
 }
