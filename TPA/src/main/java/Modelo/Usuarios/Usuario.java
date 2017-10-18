@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.Usuarios;
 
 import DB.TipoDeRepositorio;
 import org.uqbar.commons.utils.Observable;

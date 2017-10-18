@@ -1,6 +1,7 @@
 package Controllers;
 
-import Modelo.GestorDeUsuarios;
+import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import Modelo.Usuarios.GestorDeUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -8,7 +9,7 @@ import spark.Response;
 public class LoginControllerController {
 
     public ModelAndView show(Request request, Response response) {
-
+    	
         if(GestorDeUsuarios.getInstance().obtenerMapa(request).get("email") != null)
             return new ModelAndView(GestorDeUsuarios.getInstance().obtenerMapa(request), "yaLogeado.hbs");
 
@@ -20,18 +21,16 @@ public class LoginControllerController {
         String email = request.queryParams("email");
         String passwordHasheada = request.queryParams("password");
 
-        Integer codigoUsuario = GestorDeUsuarios.getInstance().obtenerId(email, passwordHasheada);
-
-        /*
-        "axel@bags.com", "axel"
-         */
-
-        if(codigoUsuario == null)
-            response.redirect("/login-retry");
-        else {
-            response.cookie("email", email);
+        try
+        {
+        	Integer codigoUsuario = GestorDeUsuarios.getInstance().obtenerId(email, passwordHasheada);
+        	response.cookie("email", email);
             response.cookie("idUser", codigoUsuario.toString());
             response.redirect("/");
+        }
+        catch (NoExisteObjetoConEseNombreException excepcion)
+        {
+            response.redirect("/login-retry");  
         }
 
         return null;

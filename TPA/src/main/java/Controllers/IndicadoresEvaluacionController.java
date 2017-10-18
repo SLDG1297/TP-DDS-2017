@@ -1,8 +1,8 @@
 package Controllers;
 
 import DB.Repositorios.RepositorioIndicadores;
-import Modelo.GestorDeUsuarios;
 import Modelo.Indicadores.Indicador;
+import Modelo.Usuarios.GestorDeUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

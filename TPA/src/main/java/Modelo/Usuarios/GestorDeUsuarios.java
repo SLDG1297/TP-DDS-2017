@@ -1,8 +1,11 @@
-package Modelo;
+package Modelo.Usuarios;
 
 import spark.Request;
 
 import javax.persistence.NoResultException;
+
+import DB.Repositorios.RepositorioUsuarios;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;

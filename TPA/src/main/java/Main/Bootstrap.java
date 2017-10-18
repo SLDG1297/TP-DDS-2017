@@ -21,11 +21,11 @@ import DB.Proveedores.ProveedorMock;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
 import DB.Repositorios.RepositorioMetodologias;
-import Modelo.RepositorioUsuarios;
-import Modelo.Usuario;
+import DB.Repositorios.RepositorioUsuarios;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
+import Modelo.Usuarios.Usuario;
 
 public class Bootstrap {
 	public static void iniciarModelo() throws IOException {
@@ -148,6 +148,6 @@ public class Bootstrap {
 	public static void iniciarUsuarios() {
 		RepositorioUsuarios.getInstancia().agregarListaDeObjetos(
 			Arrays.asList(
-					new Usuario("AxelXXX@gmail.com", "1234")));
+					new Usuario("axel@bags.com", "axel")));
 	}
 }

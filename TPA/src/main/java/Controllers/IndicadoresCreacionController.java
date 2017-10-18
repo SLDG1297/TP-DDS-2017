@@ -1,11 +1,12 @@
 package Controllers;
 
-import Modelo.GestorDeUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
 import java.util.Map;
+
+import Modelo.Usuarios.GestorDeUsuarios;
 
 public class IndicadoresCreacionController {
 
