@@ -1,131 +1,130 @@
 {{# partial "contenido" }}
-<style>
-.jumbotron {
-        background-color: #46aadf;
-        color: #fff;
-        padding: 100px 25px;
-        margin-bottom: 100px;
+    <style>
+        .jumbotron {
+            background-color: #46aadf;
+            color: #fff;
+            padding: 100px 25px;
+            margin-bottom: 100px;
         }
 
-.container {
-		padding: 10px 25px;
-		}
+        .container {
+            padding: 10px 25px;
+        }
 
-.row{
-padding: 100px;
-}
+        .row.mi-fila{
+            padding: 100px;
+        }
 
-p{
-font-size: 20px;
-}
+        .row.primer-fila {
+            display: flex;
+            align-items: center;
+        }
 
-.blue-background{
-background-color: #2A93DF;
-}
+        .form-group.form-indicador {
+            margin-bottom: inherit;
+        }
 
-.margen{
-margin-top: 35px;
-}
+        .form-control.mi-control {
+            height: 40px;
+        }
 
-.dropdown-menu {
-  width: 100%; 
-}
+        .well.mi-well {
+            margin-bottom: inherit;
+        }
 
-.btn{
- width: 100%;
-}
-				
-</style>
+        .clasificacion-input {
+            font-size: 20px;
+        }
+
+    </style>
 
 
 
- <div class="jumbotron text-center">
+    <div class="jumbotron text-center">
 
-     <h1>Consultar indicadores</h1>
-     <p>Ponga a prueba a las empresas evaluandolas con sus indicadores </p>
-
- </div>
-
- <div class = "container">
- 
- <div class="row">
-  <div class="col-lg-6 selectorIndicador margen text-left">
-    <div class="dropdown btn-group">
-
-      <button class="btn btn-primary dropdown-toggle btn-lg blue-background" type="button" data-toggle="dropdown">Seleccione un indicador
-        <span class="caret"></span>
-      </button>
-
-      <ul class="dropdown-menu">
-        <li><a href="#">ROA</a></li>
-        <li><a href="#">ROE</a></li>
-      </ul>
+        <h1>Consultar indicadores</h1>
+        <p>Ponga a prueba a las empresas evaluandolas con sus indicadores </p>
 
     </div>
-  </div>
-  
-   <div class="col-lg-6  text-center">
-   
-   <p>Formula</p>
-   <div class="well">
-   
-   </div>
-   
-   </div>
-</div>
 
-<div class = "row">
+    <div class = "container">
 
-<div class = "col-lg-6 selectorEmpresa text-left">
-	  <div class="dropdown btn-group">
+        <div class="row mi-fila primer-fila">
 
-      <button class="btn btn-primary dropdown-toggle btn-lg blue-background" type="button" data-toggle="dropdown">Seleccione una empresa
-        <span class="caret"></span>
-      </button>
+            <div class="col-lg-6 selectorIndicador text-left">
 
-      <ul class="dropdown-menu">
-        <li><a href="#">Empresa1</a></li>
-        <li class = "disabled"><a href="#">Empresa2</a></li>
-        <li><a href="#">Empresa3</a></li>
-      </ul>
+                <div class="form-group form-indicador">
+                    <label class="clasificacion-input" for="selector-indicador">Indicador</label>
+                    <select class="form-control mi-control selector-indicador" id="selector-indicador" onchange="this.form.submit()">
+
+                        {{#each indicador}}
+                            <option value="{{nombre}}">{{nombre}}</option>
+                        {{/each}}
+
+                        <!--
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        -->
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 text-center">
+
+                <label class="clasificacion-input">Formula</label>
+                <div class="well mi-well">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class = "row mi-fila">
+
+            <div class = "col-lg-6 selectorEmpresa text-left">
+
+                <div class="form-group form-empresa">
+                    <label class="clasificacion-input" for="selector-indicador">Empresa</label>
+                    <select class="form-control mi-control selector-empresa" id="selector-empresa" disabled>
+
+                    </select>
+                </div>
+
+            </div>
+
+            <div class = "col-lg-6 selectorPeriodo text-right">
+
+                <div class="form-group form-periodo">
+                    <label class="clasificacion-input" for="selector-indicador">Periodo</label>
+                    <select class="form-control mi-control selector-periodo" id="selector-periodo" disabled>
+
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class = "row">
+
+            <div class = "col-lg-12 resultado text-center">
+
+                <p>Resultado</p>
+                <div class="well">
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-</div>
 
-<div class = "col-lg-6 selectorPeriodo text-right">
-      <div class="dropdown btn-group">
-
-      <button class="btn btn-primary dropdown-toggle btn-lg blue-background" type="button" data-toggle="dropdown">Seleccione un periodo
-        <span class="caret"></span>
-      </button>
-
-      <ul class="dropdown-menu">
-        <li class = "disabled"><a href="#">2012</a></li>
-        <li><a href="#">2015</a></li>
-        <li><a href="#">2016</a></li>
-        <li><a href="#">2017</a></li>
-      </ul>
-
-    </div>
-</div>
-
-</div>
-
-<div class = "row">
-
-<div class = "col-lg-12 resultado text-center">
-
-<p>Resultado</p>
- <div class="well">
-   
-  </div>
-  
-</div>
-
-</div>
- 
-  </div>
- 
 
 {{/partial}}
 
