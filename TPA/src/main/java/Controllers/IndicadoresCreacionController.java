@@ -1,5 +1,6 @@
 package Controllers;
 
+import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Indicadores.GestorDeCreacionDeIndicadores;
 import spark.ModelAndView;
 import spark.Request;
@@ -52,6 +53,7 @@ public class IndicadoresCreacionController {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_indicador.hbs");
 
