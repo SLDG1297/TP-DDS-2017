@@ -115,9 +115,13 @@ public class IndicadoresCreacionController {
 
     public Void redireccionarOperadorElegido(Request request, Response response) {
 
-        if(request.queryParams("operador").equals("Crear"))
-            response.redirect("/indicadores/creacion/" + request.params("nombre") + "/creado");
+        String accion = request.queryParams("operador");
 
+        if(accion.equals("Crear")) {
+            response.redirect("/indicadores/creacion/" + request.params("nombre") + "/creado");
+            return null;
+
+        }
 
         GestorDeIndicadores.getInstance().agregarOperador(request.queryParams("operador"));
 
@@ -136,7 +140,7 @@ public class IndicadoresCreacionController {
 
         // Hay que validar..
 
-        return new ModelAndView(mapa, "indicadoresCreacion_creado");
+        return new ModelAndView(mapa, "indicadoresCreacion_creado.hbs");
 
     }
 }
