@@ -41,4 +41,8 @@ public class Usuario implements TipoDeRepositorio {
     public String getPasswordHasheada() {
         return passwordHasheada;
     }
+
+	public boolean chequearPassword(String password) {
+		return this.passwordHasheada.equals(password);
+	}
 }

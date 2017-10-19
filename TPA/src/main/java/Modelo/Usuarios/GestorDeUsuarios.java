@@ -27,7 +27,7 @@ public class GestorDeUsuarios {
 
     public Integer obtenerId(String email, String passwordHasheada) {
 
-    	if(RepositorioUsuarios.getInstancia().buscarObjeto(email).getPasswordHasheada().equals(passwordHasheada)) return this.idUsuarioLogeado(email);
+    	if(RepositorioUsuarios.getInstancia().buscarObjeto(email).chequearPassword(passwordHasheada)) return this.idUsuarioLogeado(email);
     	
     	else throw new PasswordIncorrectaException();
 
