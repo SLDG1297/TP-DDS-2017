@@ -46,6 +46,8 @@ public class WebMain {
         get("/indicadores/creacion/:nombre", indicadoresCreacionController::colocarOperando, engine);
         post("/indicadores/creacion/:nombre", indicadoresCreacionController::operandoColocado);
         get("/indicadores/creacion/:nombre/Indicador", indicadoresCreacionController::colocarIndicador, engine);
+        get("/indicadores/creacion/:nombre/Cuenta", indicadoresCreacionController::colocarCuenta, engine);
+        get("/indicadores/creacion/:nombre/Numero", indicadoresCreacionController::colocarNumero, engine);
 
         iniciarMetodologias();
     }

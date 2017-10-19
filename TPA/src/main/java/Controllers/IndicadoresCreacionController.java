@@ -49,9 +49,25 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
+        GestorDeIndicadores.getInstance().colocarIndicador(request.queryParams("nombre"));
 
-
-        return null;
+        return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_indicador.hbs");
 
     }
+
+    public ModelAndView colocarCuenta(Request request, Response response) {
+        Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
+        GestorDeIndicadores.getInstance().colocarCuenta(request.queryParams("nombre"));
+
+        return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_cuenta.hbs");
+
+    }
+
+    public ModelAndView colocarNumero(Request request, Response response) {
+        Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
+        return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_numero.hbs");
+    }
+
 }

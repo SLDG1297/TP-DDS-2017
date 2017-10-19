@@ -14,7 +14,19 @@ public class GestorDeIndicadores {
 
     public void nombrar(String nombre) {
 
-        indicadorBuilder.setNombreIndicador(nombre);
+        this.indicadorBuilder.setNombreIndicador(nombre);
 
     }
+
+    public void colocarIndicador(String nombre) {
+
+        /*
+
+        TODO
+
+         */
+
+    }
+
+
 }
