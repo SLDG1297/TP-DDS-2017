@@ -1,0 +1,27 @@
+{{# partial "contenido" }}
+
+    <style>
+
+        .formcito {
+            margin-top: 10%;
+        }
+
+    </style>
+
+    <form class="formcito" method="POST">
+
+        <select class="form-control mi-control selector-indicador" name="nombre" id="selector-indicador">
+
+        {{#each indicadores}}
+            <option value="{{nombre}}">{{nombre}}</option>
+        {{/each}}
+
+        </select>
+
+        <input type="submit" class="btn btn-danger" value="Destruir"/>
+
+    </form>
+
+{{/partial}}
+
+{{> template.hbs }}
