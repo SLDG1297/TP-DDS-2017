@@ -109,8 +109,8 @@ public class Bootstrap {
 	public static void iniciarUsuarios() {
 		RepositorioUsuarios.getInstancia().agregarListaDeObjetos(
 			Arrays.asList(
-					new Usuario("axel@bags.com", "a7c15c415c37626de8fa648127ba1ae5"), // LA PASSWORD ES: axel
-					new Usuario("qepd@rip.com", "qepd")));
+					new Usuario("axel@bags.com", "a7c15c415c37626de8fa648127ba1ae5"),
+					new Usuario("qepd@rip.com", "6b5b687895b5883436a775cb27fd196a")));
 	}
 
 	public static void iniciarEmpresas() {
