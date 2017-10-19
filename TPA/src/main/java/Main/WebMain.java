@@ -35,7 +35,11 @@ public class WebMain {
         get("/empresas", empresasController::show, engine);
         get("/indicadores/evaluacion", indicadoresEvaluacionController::show, engine);
         post("/indicadores/evaluacion", indicadoresEvaluacionController::seleccionarIndicador);
-        get("/indicadores/evaluacion/:nombre", indicadoresEvaluacionController::redireccionarIndicadorElegido, engine);
+        get("/indicadores/evaluacion/:nombreIndicador", indicadoresEvaluacionController::redireccionarIndicadorElegido, engine);
+        post("/indicadores/evaluacion/:nombreIndicador", indicadoresEvaluacionController::seleccionarEmpresa);
+        get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::redireccionarEmpresaElegida, engine);
+        post("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::seleccionarPeriodo);
+        get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa/:periodo", indicadoresEvaluacionController::redireccionarPeriodoElegido, engine);
         get("/indicadores/creacion", indicadoresCreacionController::show, engine);
 
     }

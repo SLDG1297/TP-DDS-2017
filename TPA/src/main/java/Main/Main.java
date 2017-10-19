@@ -2,6 +2,7 @@ package Main;
 
 import java.io.IOException;
 
+import Archivo.Empresa.Instanciador_Bolsa_Empresas;
 import DB.Proveedores.ProveedorBD;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
@@ -30,8 +31,8 @@ public class Main {
 
 		RepositorioUsuarios.getInstancia().setProveedor(new ProveedorBD<Usuario>());
 
-		// Bootstrap.iniciarObjetos(); // Esto haganlo una vez y despu�s comentenlo.
+		//Bootstrap.iniciarObjetos(); // Esto haganlo una vez y despues comentenlo.
 		
-		// new Instanciador_Bolsa_Empresas().instanciar();
+		//new Instanciador_Bolsa_Empresas().instanciar();
 	}
 }

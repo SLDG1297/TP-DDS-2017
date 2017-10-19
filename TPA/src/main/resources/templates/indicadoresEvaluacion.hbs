@@ -35,6 +35,10 @@
         .clasificacion-input {
             font-size: 20px;
         }
+        
+        .negrita{
+         font-weight: bold;
+        }
 
     </style>
 
@@ -54,16 +58,26 @@
             <div class="col-lg-6 text-left">
 
 
-                <form class="form-group form-indicador" method="POST">
+                <form class="form-group form-indicador" method ="POST">
                     <label class="clasificacion-input" for="selector-indicador">Indicador</label>
-                    <select class="form-control mi-control selector-indicador" name="nombre" id="selector-indicador" onchange="this.form.submit()">
-
-                        {{#each indicador}}
+                    
+                    {{#if indicadores}}
+                    <select class="form-control mi-control selector-indicador" name="nombreIndicador" id="selector-indicador" onchange="this.form.submit()">
+                    
+                        {{#each indicadores}}
                             <option value="{{nombre}}">{{nombre}}</option>
                         {{/each}}
 
                     </select>
+                    
+                    {{else}}
 
+                        <select class="form-control mi-control selector-indicador" id="selector-indicador" disabled>
+                             <option value="{{nombreIndicadorSeleccionado}}">{{nombreIndicadorSeleccionado}}</option>
+                        </select>
+
+                    {{/if}}
+                    
                 </form>
 
 
@@ -88,14 +102,14 @@
 
             <div class = "col-lg-6 text-left">
 
-                <div class="form-group form-empresa">
+                <form class="form-group form-empresa" method ="POST">
                     <label class="clasificacion-input" for="selector-empresa">Empresa</label>
 
-                    {{#if empresa}}
+                    {{#if empresas}}
 
-                        <select class="form-control mi-control selector-empresa" id="selector-empresa" name="nombre" onchange="this.form.submit()">
+                        <select class="form-control mi-control selector-empresa" id="selector-empresa" name="nombreEmpresa" onchange="this.form.submit()">
 
-                            {{#each empresa}}
+                            {{#each empresas}}
                                 <option value="{{nombre}}">{{nombre}}</option>
                             {{/each}}
 
@@ -104,44 +118,44 @@
                     {{else}}
 
                         <select class="form-control mi-control selector-empresa" id="selector-empresa" disabled>
-
+                               <option value="{{nombreEmpresaSeleccionada}}">{{nombreEmpresaSeleccionada}}</option>
                         </select>
 
                     {{/if}}
 
-                </div>
+                </form>
 
             </div>
 
             <div class = "col-lg-6 text-right">
 
-                <div class="form-group form-periodo">
+                <form class="form-group form-periodo" method="POST">
                     <label class="clasificacion-input" for="selector-periodo">Periodo</label>
-                    {{#if periodo}}
+                    {{#if periodos}}
 
                         <select class="form-control mi-control selector-periodo" id="selector-periodo" name="periodo" onchange="this.form.submit()">
-                            {{#each periodo}}
+                            {{#each periodos}}
                                 <option value="{{anio}}">{{anio}}</option>
                             {{/each}}
                         </select>
 
                     {{else}}
                         <select class="form-control mi-control selector-periodo" id="selector-periodo" disabled>
-
+                               <option value="{{periodoSeleccionado}}">{{periodoSeleccionado}}</option>
                         </select>
                     {{/if}}
 
-                </div>
+                </form>
 
             </div>
 
         </div>
 
-        <div class = "row">
+        <div class = "row mi-fila">
 
             <div class = "col-lg-12 resultado text-center">
 
-                <p>Resultado</p>
+                <p class = "negrita clasificacion-input">Resultado</p>
 
                 <div class="well">
 
@@ -154,6 +168,10 @@
         </div>
 
     </div>
+    
+    <div class="alert alert-danger">
+  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+</div>
 
 
 {{/partial}}
