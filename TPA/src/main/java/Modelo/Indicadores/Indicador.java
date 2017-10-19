@@ -2,12 +2,22 @@ package Modelo.Indicadores;
 
 import java.math.BigDecimal;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import DB.Converter.IndicadorConverter;
 import DB.TipoDeRepositorio;
+import DB.Converter.IndicadorConverter;
 import Modelo.Excepciones.Indicadores.IndicadorSinFormulaException;
 import Modelo.Excepciones.Indicadores.IndicadorSinNombreException;
+import Modelo.Usuarios.Usuario;
 
 @Entity
 @Table(name = "indicador")
@@ -23,6 +33,16 @@ public class Indicador implements Expresion, TipoDeRepositorio {
 	@Column(name = "indicador_formula", columnDefinition = "LONGTEXT")
 	@Convert(converter = IndicadorConverter.class)
 	private Expresion formula;
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_fk_id")
+	private Usuario usuario;
+	
+	public Indicador(Usuario usuario, String nombre, Expresion formula) {
+		this.setUsuario(usuario);
+		this.setNombre(nombre);
+		this.setFormula(formula);
+	}
 
 	public Indicador(String nombre, Expresion formula) {
 		this.setNombre(nombre);
@@ -33,6 +53,18 @@ public class Indicador implements Expresion, TipoDeRepositorio {
 
 	public BigDecimal calcular(Query query) {
 		return formula.calcular(query);
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public long getId() {
+		return id;
 	}
 
 	public String getNombre() {

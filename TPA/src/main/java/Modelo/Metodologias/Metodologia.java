@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import DB.TipoDeRepositorio;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Condiciones.Condiciones;
+import Modelo.Usuarios.Usuario;
 
 import javax.persistence.*;
 
@@ -26,19 +27,55 @@ public class Metodologia implements TipoDeRepositorio {
 	@JoinColumn(name = "metodologia_fk_id",  referencedColumnName = "metolodogia_id")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
-	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista
-	//Supongo que haran un builder, seria lo mas logico asi no cambian el modelo
-	public Metodologia(String nombre, Condiciones condicion) {
-		this.nombre = nombre;
-		this.addCondicion(condicion);
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_fk_id")
+	private Usuario usuario;
+	
+	public Metodologia(String nombre, Usuario usuario, List<Condiciones> condiciones){
+		this.setUsuario(usuario);
+		this.setNombre(nombre);
+		this.setListaCondiciones(condiciones);
 	}
 	
 	public Metodologia(String nombre, List<Condiciones> condiciones){
-		this.nombre = nombre;
-		this.listaCondiciones = condiciones;
+		this.setNombre(nombre);
+		this.setListaCondiciones(condiciones);
+	}
+	
+	public Metodologia(String nombre, Condiciones condicion) {
+		this.setNombre(nombre);
+		this.addCondicion(condicion);
 	}
 
-	public Metodologia() {
+	@SuppressWarnings("unused")
+	private Metodologia() {}
+	
+	public long getId_metodologia() {
+		return id_metodologia;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public List<Condiciones> getListaCondiciones() {
+		return listaCondiciones;
+	}
+	
+	public void setListaCondiciones(List<Condiciones> listaCondiciones) {
+		this.listaCondiciones = listaCondiciones;
 	}
 
 	public void addCondicion(Condiciones condicion){
@@ -51,14 +88,6 @@ public class Metodologia implements TipoDeRepositorio {
 	
 	public String getCadena() {
 		return String.join(" && ", listaCondiciones.stream().map(c -> c.mostrarCadena()).collect(Collectors.toList()));
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public List<Condiciones> getListaCondiciones() {
-		return listaCondiciones;
 	}
 
 }
