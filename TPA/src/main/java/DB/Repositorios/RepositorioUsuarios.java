@@ -1,7 +1,8 @@
-package Modelo;
+package DB.Repositorios;
 
 import DB.NombreRepositorio;
 import DB.Repositorio;
+import Modelo.Usuarios.Usuario;
 
 public class RepositorioUsuarios extends Repositorio<Usuario> {
     private static RepositorioUsuarios ourInstance = new RepositorioUsuarios(NombreRepositorio.USUARIO);

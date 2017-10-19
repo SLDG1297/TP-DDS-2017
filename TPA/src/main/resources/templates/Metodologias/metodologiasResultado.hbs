@@ -1,5 +1,22 @@
 {{# partial "resultado" }}
-<h2>Resultado de aplicar <strong>{{ nombre }}</strong></h2>
+
+<hr>
+
+<table>
+	<caption>Resultado de aplicar <strong>{{ metodologiaElegida.nombre }}</strong></caption>
+		<tr>
+			<th>Empresas</th>
+			<th>Resultados</th>
+		</tr>
+		{{# each resultados }}
+		<tr>
+			<td>{{ empresa }}</td>
+			{{# if resultado }}<td>Pasa</td>
+			{{else}}<td>Ripe&oacute;</td>{{/ if }}
+		</tr>
+		{{/ each }}
+</table>
+
 {{/ partial }}
 
 {{> Metodologias/metodologiasComparacion.hbs }}

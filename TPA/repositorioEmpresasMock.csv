@@ -1,5 +1,5 @@
 ﻿Rolito,EDITBA,2000,8000
-Axel's Consortium Bags,Free Cash Flow,2017,6969
+Axel's Consortium Bags,FCF,2017,6969
 Rolito,EDITBA,2001,9000
 Axel's Consortium Bags,EDITBA,2017,7171
 Axel's Consortium Bags,EDITBA,2015,6969
@@ -8,11 +8,11 @@ Rolito,EDITBA,2003,8003
 Rolito,EDITBA,2005,8500
 Rolito,EDITBA,2008,9000
 Rolito,EDITBA,2000,11000
-Rip SA, FDS,1999,11500
-Rip SA, Free Cash Flow,1999,25000
-Rip SA, EDITBA,2002,15000
-Rolito,FDS,2001,17400
-Rolito,Free Cash Flow,2001,3700
+Rip SA,FCF,1999,11500
+Rip SA,FCF,1999,25000
+Rip SA,EDITBA,2002,15000
+Rolito,FCF,2001,17400
+Rolito,FCF,2001,3700
 Rolito,EDITBA,2010,1000
 Axel's Consortium Bags,EDITBA,2010,2000
 Axel's Consortium Bags,EDITBA,2009,1900
@@ -58,14 +58,14 @@ Jorgito,EDITBA,2003,1300
 Jorgito,EDITBA,2002,1200
 Jorgito,EDITBA,2001,1100
 Jorgito,EDITBA,2000,1100
-TecnoPlus,Free Cash Flow,2000,1000
-TecnoPlus,Free Cash Flow,2001,1100
-TecnoPlus,Free Cash Flow,2002,1200
-TecnoPlus,Free Cash Flow,2003,1300
-TecnoPlus,Free Cash Flow,2004,1400
-TecnoPlus,Free Cash Flow,2005,1500
-TecnoPlus,Free Cash Flow,2006,1600
-TecnoPlus,Free Cash Flow,2007,1700
-TecnoPlus,Free Cash Flow,2008,1800
-TecnoPlus,Free Cash Flow,2009,1900
-TecnoPlus,Free Cash Flow,2010,2000
+TecnoPlus,FCF,2000,1000
+TecnoPlus,FCF,2001,1100
+TecnoPlus,FCF,2002,1200
+TecnoPlus,FCF,2003,1300
+TecnoPlus,FCF,2004,1400
+TecnoPlus,FCF,2005,1500
+TecnoPlus,FCF,2006,1600
+TecnoPlus,FCF,2007,1700
+TecnoPlus,FCF,2008,1800
+TecnoPlus,FCF,2009,1900
+TecnoPlus,FCF,2010,2000

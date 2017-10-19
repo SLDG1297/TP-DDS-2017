@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 
 import DB.Proveedor;
 import DB.TipoDeRepositorio;
-import Modelo.Excepciones.Empresas.NoExisteEnElRepositorioException;
+import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.Excepciones.NoExistenObjetosException;
 
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
 	private List<T> lista = new ArrayList<T>();
@@ -31,11 +32,12 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 
 	@Override
 	public T darObjeto(String unNombre, String unTipo) {
-		return this.getLista().stream().filter(o -> o.getNombre().equals(unNombre)).findFirst().orElseThrow(() -> new NoExisteEnElRepositorioException());
+		return this.getLista().stream().filter(o -> o.getNombre().equals(unNombre)).findFirst().orElseThrow(() -> new NoExisteObjetoConEseNombreException());
 	}
 
 	@Override
 	public List<T> darLista(String unTipo) {
+		if(this.getLista().isEmpty()) throw new NoExistenObjetosException();
 		return this.getLista();
 	}
 
@@ -46,17 +48,29 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 
 	@Override
 	public void agregar(T unObjeto) {
-		this.getLista().add(unObjeto);
+		ArrayList<T> nuevaLista = new ArrayList<T>();
+		
+		nuevaLista.addAll(this.getLista());
+		
+		nuevaLista.add(unObjeto);
+		
+		this.setLista(nuevaLista);
 	}
 
 	@Override
 	public void agregarLista(List<T> listaObjetos) {
-		this.lista.addAll(listaObjetos);	
+		ArrayList<T> nuevaLista = new ArrayList<T>();
+		
+		nuevaLista.addAll(this.getLista());
+		
+		nuevaLista.addAll(listaObjetos);
+		
+		this.setLista(nuevaLista);	
 	}
 
 	@Override
 	public void eliminar(T unObjeto) {
 		this.lista.remove(unObjeto);
 	}
-
+	
 }

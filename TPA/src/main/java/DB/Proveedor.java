@@ -15,5 +15,4 @@ public interface Proveedor<T extends TipoDeRepositorio> {
 	void agregarLista(List<T> listaObjetos);
 
 	void eliminar(T unObjeto);
-	
 }
