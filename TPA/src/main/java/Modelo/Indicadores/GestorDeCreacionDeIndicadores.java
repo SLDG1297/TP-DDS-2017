@@ -22,21 +22,34 @@ public class GestorDeCreacionDeIndicadores {
 
     }
 
+    public void colocar(Expresion expresion) {
+
+        Expresion nuevaExpresion = this.indicadorBuilder.getOperandoAnterior();
+
+        if(nuevaExpresion != null)
+            nuevaExpresion.addOperando(expresion);
+        else
+            nuevaExpresion = expresion;
+
+        this.indicadorBuilder.setOperandoAnterior(nuevaExpresion);
+
+    }
+
     public void colocarIndicador(String nombre) {
 
-        this.indicadorBuilder.setOperandoAnterior(RepositorioIndicadores.getInstancia().buscarObjeto(nombre));
+        this.colocar(RepositorioIndicadores.getInstancia().buscarObjeto(nombre));
 
     }
 
     public void colocarCuenta(String nombre) {
 
-        this.indicadorBuilder.setOperandoAnterior(new Cuenta_Indicadores(nombre));
+        this.colocar(new Cuenta_Indicadores(nombre));
 
     }
 
     public void colocarNumero(String numero) {
 
-        this.indicadorBuilder.setOperandoAnterior(new Numero(new BigDecimal(numero)));
+        this.colocar(new Numero(new BigDecimal(numero)));
 
     }
 
@@ -44,22 +57,24 @@ public class GestorDeCreacionDeIndicadores {
 
         Operacion operador;
 
+        Expresion expresion = this.indicadorBuilder.getOperandoAnterior();
+
         switch (operadorAAsignar) {
 
             case "Suma":
-                operador = new Suma();
+                operador = new Suma(expresion);
                 break;
 
             case "Resta":
-                operador = new Resta();
+                operador = new Resta(expresion);
                 break;
 
             case "Multiplicacion":
-                operador = new Multiplicacion();
+                operador = new Multiplicacion(expresion);
                 break;
 
             case "Division":
-                operador = new Division();
+                operador = new Division(expresion);
                 break;
 
             default:
@@ -67,11 +82,7 @@ public class GestorDeCreacionDeIndicadores {
 
         }
 
-        Expresion expresion = this.indicadorBuilder.getOperandoAnterior();
-
-        expresion.addOperando(operador);
-
-        this.indicadorBuilder.setOperandoAnterior(expresion);
+        this.indicadorBuilder.setOperandoAnterior(operador);
 
     }
 
