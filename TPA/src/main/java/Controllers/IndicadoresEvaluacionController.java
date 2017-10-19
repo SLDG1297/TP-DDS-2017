@@ -112,7 +112,7 @@ public class IndicadoresEvaluacionController {
 			resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
 		}
 		catch(NoTieneLaCuentaException e) {
-			
+			resultado = null;
 		}*/
 		
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);

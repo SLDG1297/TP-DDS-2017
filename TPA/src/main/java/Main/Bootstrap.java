@@ -126,6 +126,8 @@ public class Bootstrap {
 			Arrays.asList(
 				crearIndicador("ArrorROE", 
 						sumar(crearCuenta("EDITBA"), multiplicar(crearCuenta("FCF"), crearNumero(2)))),
+				crearIndicador("Shasha-Saludos", 
+								sumar(crearCuenta("FreeCashFlow"), dividir(crearCuenta("EDITBA"), crearNumero(10)))),
 				crearIndicador("VANcomoLasCamionetas",
 						restar(crearCuenta("FCF"), crearCuenta("EDITBA")))));
 		RepositorioIndicadores.getInstancia().agregarObjeto(
