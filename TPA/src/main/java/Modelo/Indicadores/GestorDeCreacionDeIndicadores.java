@@ -85,5 +85,7 @@ public class GestorDeCreacionDeIndicadores {
 
         this.indicadorBuilder.crearIndicador(this.indicadorBuilder.getOperandoAnterior());
 
+        this.indicadorBuilder = new IndicadorBuilder();
+
     }
 }

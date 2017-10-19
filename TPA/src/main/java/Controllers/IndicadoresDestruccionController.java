@@ -1,7 +1,6 @@
 package Controllers;
 
 import DB.Repositorios.RepositorioIndicadores;
-import Modelo.Indicadores.GestorDeDestruccionDeIndicadores;
 import Modelo.Usuarios.GestorDeUsuarios;
 import spark.ModelAndView;
 import spark.Request;
@@ -28,7 +27,7 @@ public class IndicadoresDestruccionController {
         RepositorioIndicadores.getInstancia().eliminarObjeto(
                 RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicadorABorrar)
         );
-        
+
         response.redirect("/indicadores/destruccion");
 
         return null;
