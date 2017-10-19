@@ -4,6 +4,7 @@ import DB.TipoDeRepositorio;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
 import Modelo.Excepciones.Empresas.NoExisteElPeriodoException;
+
 import org.uqbar.commons.utils.Observable;
 
 import javax.persistence.*;

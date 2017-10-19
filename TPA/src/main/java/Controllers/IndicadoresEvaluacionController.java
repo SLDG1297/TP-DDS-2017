@@ -2,11 +2,11 @@ package Controllers;
 
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
-import Modelo.GestorDeUsuarios;
 import Modelo.Empresa.Empresa;
 import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;
+import Modelo.Usuarios.GestorDeUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -105,20 +105,21 @@ public class IndicadoresEvaluacionController {
 		Indicador indicadorElegido = RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
 		Empresa empresaElegida = RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa);
 
-		BigDecimal resultado;
+		BigDecimal resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
 		
+		/*
 		try {
 			resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
 		}
 		catch(NoTieneLaCuentaException e) {
 			
-		}
+		}*/
 		
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);
 		mapa.put("nombreEmpresaSeleccionada", nombreEmpresa);
 		mapa.put("periodoSeleccionado", periodo);
 		mapa.put("formula", indicadorElegido.imprimirFormula());
-		//mapa.put("resultado", resultado);
+		mapa.put("resultado", resultado);
 		
 		return new ModelAndView(mapa, "indicadoresEvaluacion.hbs");
 	}

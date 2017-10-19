@@ -11,8 +11,7 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class WebMain {
 	private static HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
 
-    public static void iniciarInterfazWeb() {
-        
+    public static void iniciarInterfazWeb() {  
         LoginControllerController loginController = new LoginControllerController();
 
         HomeController homeController = new HomeController();
@@ -32,7 +31,9 @@ public class WebMain {
         post("/login", loginController::create);
         get("/login-retry", loginController::showFailedLogin, engine);
         post("/login-retry", loginController::create);
+        
         get("/empresas", empresasController::show, engine);
+        
         get("/indicadores/evaluacion", indicadoresEvaluacionController::show, engine);
         post("/indicadores/evaluacion", indicadoresEvaluacionController::seleccionarIndicador);
         get("/indicadores/evaluacion/:nombreIndicador", indicadoresEvaluacionController::redireccionarIndicadorElegido, engine);
@@ -41,14 +42,16 @@ public class WebMain {
         post("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::seleccionarPeriodo);
         get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa/:periodo", indicadoresEvaluacionController::redireccionarPeriodoElegido, engine);
         get("/indicadores/creacion", indicadoresCreacionController::show, engine);
+        post("/indicadores/creacion", indicadoresCreacionController::redireccionarCrearIndicador);
+        get("/indicadores/creacion/:nombre", indicadoresCreacionController::crearIndicador, engine);
 
+        iniciarMetodologias();
     }
     
     public static void iniciarMetodologias() {
     	MetodologiasController metodologiasController = new MetodologiasController();
-    	
+
     	get("/metodologias/comparacion", metodologiasController::listarMetodologias, engine);
     	get("/metodologias/comparacion/:metodologia", metodologiasController::mostrarComparacion, engine);
     }
-
 }

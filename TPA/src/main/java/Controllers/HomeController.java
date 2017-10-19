@@ -1,6 +1,6 @@
 package Controllers;
 
-import Modelo.GestorDeUsuarios;
+import Modelo.Usuarios.GestorDeUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;

@@ -4,7 +4,25 @@
 
 {{# partial "contenido" }}
 
+    <style>
 
+        .formcito {
+            margin-top: 10%;
+        }
+
+    </style>
+
+    <form class="formcito" method="POST">
+
+        <label>Nombre</label>
+        <input type="text" name="nombre" value=""/>
+
+        <label>Quiere agregar un...</label>
+        <input type="submit" name="cosaAOperar" value="Indicador"/>
+        <input type="submit" name="cosaAOperar" value="Cuenta"/>
+        <input type="submit" name="cosaAOperar" value="Número"/>
+
+    </form>
 
 {{/partial}}
 

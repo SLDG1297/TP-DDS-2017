@@ -2,9 +2,13 @@ package DB.Proveedores;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import DB.DBManager;
 import DB.Proveedor;
 import DB.TipoDeRepositorio;
+import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.Excepciones.NoExistenObjetosException;
 
 public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implements Proveedor<T> {
 
@@ -14,14 +18,25 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public T darObjeto(String unNombre, String unTipo) {
-		return (T) createQuery("from " + unTipo + " objeto where objeto.nombre = :nombre").setParameter("nombre", unNombre).getSingleResult();
+	public T darObjeto(String unNombre, String unTipo) throws NoExisteObjetoConEseNombreException {
+		try
+		{
+			return (T) createQuery("from " + unTipo + " objeto where objeto.nombre = :nombre").setParameter("nombre", unNombre).getSingleResult();
+		}
+		catch(NoResultException excepcion)
+		{
+			throw new NoExisteObjetoConEseNombreException();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> darLista(String unTipo) {
-		return (List<T>) createQuery("from " + unTipo).getResultList();
+		List<T> lista = (List<T>) createQuery("from " + unTipo).getResultList();
+
+		if(lista.isEmpty()) throw new NoExistenObjetosException();
+		
+		return lista;
 	}
 
 	@SuppressWarnings("unchecked")
