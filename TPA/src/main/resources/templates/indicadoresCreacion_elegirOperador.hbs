@@ -1,0 +1,37 @@
+{{# partial "titulo" }}
+    <title>Consultorea.me</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+    <style>
+
+        .contenedor {
+            margin-top: 10%;
+        }
+
+    </style>
+
+    <div class="contenedor">
+
+        <div class="well">
+
+            {{formula}}
+
+        </div>
+
+        <form class="formcito" method="post">
+
+            <label>Quiere operar con un...</label>
+            <input type="submit" name="operador" value="Suma"/>
+            <input type="submit" name="operador" value="Resta"/>
+            <input type="submit" name="operador" value="Multiplicacion"/>
+            <input type="submit" name="operador" value="Division"/>
+
+        </form>
+
+    </div>
+
+{{/partial}}
+
+{{> template.hbs }}

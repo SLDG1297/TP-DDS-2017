@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 
 public class Resta extends Operacion {
 	
-	@SuppressWarnings("unused")
-	private Resta(){};
+	public Resta(){};
 
 	public Resta(Expresion valorA) {
 		super(valorA);

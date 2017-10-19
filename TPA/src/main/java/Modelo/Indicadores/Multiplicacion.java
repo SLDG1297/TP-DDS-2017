@@ -3,9 +3,8 @@ package Modelo.Indicadores;
 import java.math.BigDecimal;
 
 public class Multiplicacion extends Operacion {
-	
-	@SuppressWarnings("unused")
-	private Multiplicacion(){};
+
+	public Multiplicacion(){};
 	
 	public Multiplicacion(Expresion valorA) {
 		super(valorA);
