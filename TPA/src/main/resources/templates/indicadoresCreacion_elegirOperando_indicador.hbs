@@ -22,13 +22,14 @@
 
         <form class="formcito" method="POST">
 
-            <!-- TODO
+            <select class="form-control mi-control selector-indicador" name="nombre" id="selector-indicador" onchange="this.form.submit()">
 
-                El input con el que selecciones el indicador tiene que tener por name "nombre"
+                <option disabled selected value> -- Seleccione un indicador -- </option>
+                {{#each indicadores}}
+                    <option value="{{nombre}}">{{nombre}}</option>
+                {{/each}}
 
-            -->
-
-            <input type="submit"/>
+            </select>
 
         </form>
 

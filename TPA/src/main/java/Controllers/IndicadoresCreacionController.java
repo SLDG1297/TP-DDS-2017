@@ -1,6 +1,7 @@
 package Controllers;
 
-import Modelo.Indicadores.GestorDeIndicadores;
+import DB.Repositorios.RepositorioIndicadores;
+import Modelo.Indicadores.GestorDeCreacionDeIndicadores;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -21,7 +22,7 @@ public class IndicadoresCreacionController {
 
     public Void redireccionarCreacion(Request request, Response response) {
 
-        GestorDeIndicadores.getInstance().nombrar(request.queryParams("nombre"));
+        GestorDeCreacionDeIndicadores.getInstance().nombrar(request.queryParams("nombre"));
 
         response.redirect("/indicadores/creacion/" + request.queryParams("nombre"));
 
@@ -33,7 +34,7 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        mapa.put("formula", GestorDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando.hbs");
 
@@ -51,7 +52,8 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        mapa.put("formula", GestorDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_indicador.hbs");
 
@@ -60,7 +62,7 @@ public class IndicadoresCreacionController {
     public ModelAndView colocarCuenta(Request request, Response response) {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        mapa.put("formula", GestorDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_cuenta.hbs");
     }
@@ -68,14 +70,14 @@ public class IndicadoresCreacionController {
     public ModelAndView colocarNumero(Request request, Response response) {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        mapa.put("formula", GestorDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_numero.hbs");
     }
 
     public Void redireccionarOperadorDesdeIndicador(Request request, Response response) {
 
-        GestorDeIndicadores.getInstance().colocarIndicador(request.queryParams("nombre"));
+        GestorDeCreacionDeIndicadores.getInstance().colocarIndicador(request.queryParams("nombre"));
 
         response.redirect("/indicadores/creacion/" + request.params("nombre") + "/operadores");
 
@@ -85,7 +87,7 @@ public class IndicadoresCreacionController {
 
     public Void redireccionarOperadorDesdeCuenta(Request request, Response response) {
 
-        GestorDeIndicadores.getInstance().colocarCuenta(request.queryParams("nombre"));
+        GestorDeCreacionDeIndicadores.getInstance().colocarCuenta(request.queryParams("nombre"));
 
         response.redirect("/indicadores/creacion/" + request.params("nombre") + "/operadores");
 
@@ -95,7 +97,7 @@ public class IndicadoresCreacionController {
 
     public Void redireccionarOperadorDesdeNumero(Request request, Response response) {
 
-        GestorDeIndicadores.getInstance().colocarNumero(request.queryParams("numero"));
+        GestorDeCreacionDeIndicadores.getInstance().colocarNumero(request.queryParams("numero"));
 
         response.redirect("/indicadores/creacion/" + request.params("nombre") + "/operadores");
 
@@ -107,7 +109,7 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        mapa.put("formula", GestorDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperador.hbs");
 
@@ -123,7 +125,7 @@ public class IndicadoresCreacionController {
 
         }
 
-        GestorDeIndicadores.getInstance().agregarOperador(request.queryParams("operador"));
+        GestorDeCreacionDeIndicadores.getInstance().agregarOperador(request.queryParams("operador"));
 
         response.redirect("/indicadores/creacion/" + request.params("nombre"));
 
@@ -134,9 +136,9 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        mapa.put("formula", GestorDeIndicadores.getInstance().obtenerFormula());
+        mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
-        GestorDeIndicadores.getInstance().crearIndicador();
+        GestorDeCreacionDeIndicadores.getInstance().crearIndicador();
 
         // Hay que validar..
 

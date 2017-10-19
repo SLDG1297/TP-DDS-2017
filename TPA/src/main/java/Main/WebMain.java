@@ -22,6 +22,8 @@ public class WebMain {
 
         IndicadoresCreacionController indicadoresCreacionController = new IndicadoresCreacionController();
 
+        IndicadoresDestruccionController indicadoresDestruccionController = new IndicadoresDestruccionController();
+
         port(8080);
 
         staticFileLocation("/public");
@@ -41,6 +43,7 @@ public class WebMain {
         get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::redireccionarEmpresaElegida, engine);
         post("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::seleccionarPeriodo);
         get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa/:periodo", indicadoresEvaluacionController::redireccionarPeriodoElegido, engine);
+
         get("/indicadores/creacion", indicadoresCreacionController::show, engine);
         post("/indicadores/creacion", indicadoresCreacionController::redireccionarCreacion);
         get("/indicadores/creacion/:nombre", indicadoresCreacionController::colocarOperando, engine);
@@ -54,6 +57,9 @@ public class WebMain {
         get("/indicadores/creacion/:nombre/operadores", indicadoresCreacionController::mostrarOperadores, engine);
         post("/indicadores/creacion/:nombre/operadores", indicadoresCreacionController::redireccionarOperadorElegido);
         get("/indicadores/creacion/:nombre/creado", indicadoresCreacionController::crearIndicador, engine);
+
+        get("/indicadores/destruccion", indicadoresDestruccionController::show, engine);
+        post("/indicadores/destruccion", indicadoresDestruccionController::destruir);
 
         iniciarMetodologias();
     }

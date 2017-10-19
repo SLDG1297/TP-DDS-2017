@@ -1,18 +1,17 @@
 package Modelo.Indicadores;
 
 import DB.Repositorios.RepositorioIndicadores;
-import Factories.FactoryOperaciones;
 
 import java.math.BigDecimal;
 
-public class GestorDeIndicadores {
-    private static GestorDeIndicadores ourInstance = new GestorDeIndicadores();
+public class GestorDeCreacionDeIndicadores {
+    private static GestorDeCreacionDeIndicadores ourInstance = new GestorDeCreacionDeIndicadores();
 
-    public static GestorDeIndicadores getInstance() {
+    public static GestorDeCreacionDeIndicadores getInstance() {
         return ourInstance;
     }
 
-    private GestorDeIndicadores() {
+    private GestorDeCreacionDeIndicadores() {
     }
 
     IndicadorBuilder indicadorBuilder = new IndicadorBuilder();
@@ -85,6 +84,8 @@ public class GestorDeIndicadores {
     public void crearIndicador() {
 
         this.indicadorBuilder.crearIndicador(this.indicadorBuilder.getOperandoAnterior());
+
+        this.indicadorBuilder = new IndicadorBuilder();
 
     }
 }
