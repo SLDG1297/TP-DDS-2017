@@ -46,8 +46,13 @@ public class WebMain {
         get("/indicadores/creacion/:nombre", indicadoresCreacionController::colocarOperando, engine);
         post("/indicadores/creacion/:nombre", indicadoresCreacionController::operandoColocado);
         get("/indicadores/creacion/:nombre/Indicador", indicadoresCreacionController::colocarIndicador, engine);
+        post("/indicadores/creacion/:nombre/Indicador", indicadoresCreacionController::redireccionarOperadorDesdeIndicador);
         get("/indicadores/creacion/:nombre/Cuenta", indicadoresCreacionController::colocarCuenta, engine);
+        post("/indicadores/creacion/:nombre/Cuenta", indicadoresCreacionController::redireccionarOperadorDesdeCuenta);
         get("/indicadores/creacion/:nombre/Numero", indicadoresCreacionController::colocarNumero, engine);
+        post("/indicadores/creacion/:nombre/Numero", indicadoresCreacionController::redireccionarOperadorDesdeNumero);
+        get("/indicadores/creacion/:nombre/operadores", indicadoresCreacionController::mostrarOperadores, engine);
+        post("/indicadores/creacion/:nombre/operadores", indicadoresCreacionController::redireccionarOperadorElegido);
 
         iniciarMetodologias();
     }
