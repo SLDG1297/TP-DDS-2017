@@ -2,6 +2,7 @@ package Controllers;
 
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import Modelo.Usuarios.GestorDeUsuarios;
+import Modelo.Usuarios.Excepciones.PasswordIncorrectaException;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -30,7 +31,11 @@ public class LoginControllerController {
         }
         catch (NoExisteObjetoConEseNombreException excepcion)
         {
-            response.redirect("/login-retry");  
+        	response.redirect("/login-retry");  
+        }
+        catch (PasswordIncorrectaException excepcion)
+        {
+        	response.redirect("/login-retry");
         }
 
         return null;

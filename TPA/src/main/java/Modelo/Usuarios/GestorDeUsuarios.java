@@ -2,9 +2,8 @@ package Modelo.Usuarios;
 
 import spark.Request;
 
-import javax.persistence.NoResultException;
-
 import DB.Repositorios.RepositorioUsuarios;
+import Modelo.Usuarios.Excepciones.PasswordIncorrectaException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -28,10 +27,9 @@ public class GestorDeUsuarios {
 
     public Integer obtenerId(String email, String passwordHasheada) {
 
-        if(this.esUsuarioValido(email, passwordHasheada))
-            return this.idUsuarioLogeado(email);
-
-        return null;
+    	if(RepositorioUsuarios.getInstancia().buscarObjeto(email).getPasswordHasheada().equals(passwordHasheada)) return this.idUsuarioLogeado(email);
+    	
+    	else throw new PasswordIncorrectaException();
 
     }
 
@@ -43,20 +41,6 @@ public class GestorDeUsuarios {
         idLibre++;
 
         return idAlmacenado;
-
-    }
-
-    private Boolean esUsuarioValido(String email, String passwordHasheada) {
-
-        try {
-
-            return RepositorioUsuarios.getInstancia().buscarObjeto(email).getPasswordHasheada().equals(passwordHasheada);
-
-        } catch(NoResultException e) {
-
-            return false;
-
-        }
 
     }
 

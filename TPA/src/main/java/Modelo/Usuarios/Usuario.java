@@ -21,8 +21,8 @@ public class Usuario implements TipoDeRepositorio {
     @Column(name = "usuario_password_md5")
     private String passwordHasheada;
 
-    public Usuario() {
-    }
+    @SuppressWarnings("unused")
+	private Usuario(){};
 
     public Usuario(String email, String passwordHasheada) {
         this.nombre = email;
