@@ -37,6 +37,8 @@ public class WebMain {
         post("/indicadores/evaluacion", indicadoresEvaluacionController::seleccionarIndicador);
         get("/indicadores/evaluacion/:nombre", indicadoresEvaluacionController::redireccionarIndicadorElegido, engine);
         get("/indicadores/creacion", indicadoresCreacionController::show, engine);
+        post("/indicadores/creacion", indicadoresCreacionController::redireccionarCrearIndicador);
+        get("/indicadores/creacion/:nombre", indicadoresCreacionController::crearIndicador, engine);
 
     }
     
