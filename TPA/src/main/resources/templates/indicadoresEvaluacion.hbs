@@ -39,6 +39,10 @@
         .negrita{
             font-weight: bold;
         }
+        
+        .top-padding{
+        padding-top: 100px;
+        }
 
     </style>
 
@@ -50,6 +54,7 @@
         <p>Ponga a prueba a las empresas evaluandolas con sus indicadores </p>
 
     </div>
+       
 
     <div class = "container">
 
@@ -156,7 +161,7 @@
 
         </div>
 
-        <div class = "row mi-fila">
+        <div class = "row top-padding">
 
             <div class = "col-lg-12 resultado text-center">
 
@@ -172,8 +177,15 @@
             </div>
 
         </div>
+        
+    {{#block "NoHayCuenta" }}
+		
+		{{/block }}
 
     </div>
+
+
+
 {{/partial}}
 
 {{> template.hbs }}
