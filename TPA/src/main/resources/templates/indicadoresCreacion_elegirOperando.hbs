@@ -1,0 +1,26 @@
+{{# partial "titulo" }}
+    <title>Consultorea.me</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+    <style>
+
+        .formcito {
+            margin-top: 10%;
+        }
+
+    </style>
+
+    <form class="formcito" method="post">
+
+        <label>Quiere agregar un...</label>
+        <input type="submit" name="cosaAOperar" value="Indicador"/>
+        <input type="submit" name="cosaAOperar" value="Cuenta"/>
+        <input type="submit" name="cosaAOperar" value="Numero"/>
+
+    </form>
+
+{{/partial}}
+
+{{> template.hbs }}

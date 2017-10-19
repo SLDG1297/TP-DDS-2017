@@ -42,8 +42,10 @@ public class WebMain {
         post("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::seleccionarPeriodo);
         get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa/:periodo", indicadoresEvaluacionController::redireccionarPeriodoElegido, engine);
         get("/indicadores/creacion", indicadoresCreacionController::show, engine);
-        post("/indicadores/creacion", indicadoresCreacionController::redireccionarCrearIndicador);
-        get("/indicadores/creacion/:nombre", indicadoresCreacionController::crearIndicador, engine);
+        post("/indicadores/creacion", indicadoresCreacionController::redireccionarCreacion);
+        get("/indicadores/creacion/:nombre", indicadoresCreacionController::colocarOperando, engine);
+        post("/indicadores/creacion/:nombre", indicadoresCreacionController::operandoColocado);
+        get("/indicadores/creacion/:nombre/Indicador", indicadoresCreacionController::colocarIndicador, engine);
 
         iniciarMetodologias();
     }
