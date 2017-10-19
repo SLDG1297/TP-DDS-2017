@@ -53,6 +53,7 @@ public class WebMain {
         post("/indicadores/creacion/:nombre/Numero", indicadoresCreacionController::redireccionarOperadorDesdeNumero);
         get("/indicadores/creacion/:nombre/operadores", indicadoresCreacionController::mostrarOperadores, engine);
         post("/indicadores/creacion/:nombre/operadores", indicadoresCreacionController::redireccionarOperadorElegido);
+        get("/indicadores/creacion/:nombre/creado", indicadoresCreacionController::crearIndicador, engine);
 
         iniciarMetodologias();
     }

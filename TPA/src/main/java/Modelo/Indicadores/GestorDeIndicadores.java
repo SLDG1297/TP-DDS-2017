@@ -81,4 +81,10 @@ public class GestorDeIndicadores {
         return this.indicadorBuilder.imprimirFormula();
 
     }
+
+    public void crearIndicador() {
+
+        this.indicadorBuilder.crearIndicador(this.indicadorBuilder.getOperandoAnterior());
+
+    }
 }

@@ -115,6 +115,10 @@ public class IndicadoresCreacionController {
 
     public Void redireccionarOperadorElegido(Request request, Response response) {
 
+        if(request.queryParams("operador").equals("Crear"))
+            response.redirect("/indicadores/creacion/" + request.params("nombre") + "/creado");
+
+
         GestorDeIndicadores.getInstance().agregarOperador(request.queryParams("operador"));
 
         response.redirect("/indicadores/creacion/" + request.params("nombre"));
@@ -122,4 +126,17 @@ public class IndicadoresCreacionController {
         return null;
     }
 
+    public ModelAndView crearIndicador(Request request, Response response) {
+
+        Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
+        mapa.put("formula", GestorDeIndicadores.getInstance().obtenerFormula());
+
+        GestorDeIndicadores.getInstance().crearIndicador();
+
+        // Hay que validar..
+
+        return new ModelAndView(mapa, "indicadoresCreacion_creado");
+
+    }
 }
