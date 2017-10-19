@@ -105,22 +105,21 @@ public class IndicadoresEvaluacionController {
 		Indicador indicadorElegido = RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
 		Empresa empresaElegida = RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa);
 
-		BigDecimal resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
-		
-		/*
-		try {
-			resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
-		}
-		catch(NoTieneLaCuentaException e) {
-			resultado = null;
-		}*/
+		BigDecimal resultado;
 		
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);
 		mapa.put("nombreEmpresaSeleccionada", nombreEmpresa);
 		mapa.put("periodoSeleccionado", periodo);
 		mapa.put("formula", indicadorElegido.imprimirFormula());
-		mapa.put("resultado", resultado);
 		
-		return new ModelAndView(mapa, "indicadoresEvaluacion.hbs");
+		try {
+			resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
+			mapa.put("resultado", resultado);
+			return new ModelAndView(mapa, "indicadoresEvaluacion.hbs");
+		}
+		catch(NoTieneLaCuentaException e) {
+			return new ModelAndView(mapa, "indicadoresEvaluacionError.hbs");
+		}
+		
 	}
 }
