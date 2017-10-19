@@ -67,6 +67,8 @@ public class IndicadoresCreacionController {
     public ModelAndView colocarNumero(Request request, Response response) {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
+        GestorDeIndicadores.getInstance().colocarNumero(request.queryParams("numero"));
+
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_numero.hbs");
     }
 

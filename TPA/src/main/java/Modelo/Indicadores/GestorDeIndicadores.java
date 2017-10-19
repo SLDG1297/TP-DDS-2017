@@ -1,5 +1,9 @@
 package Modelo.Indicadores;
 
+import DB.Repositorios.RepositorioIndicadores;
+
+import java.math.BigDecimal;
+
 public class GestorDeIndicadores {
     private static GestorDeIndicadores ourInstance = new GestorDeIndicadores();
 
@@ -20,13 +24,19 @@ public class GestorDeIndicadores {
 
     public void colocarIndicador(String nombre) {
 
-        /*
-
-        TODO
-
-         */
+        this.indicadorBuilder.setOperandoAnterior(RepositorioIndicadores.getInstancia().buscarObjeto(nombre));
 
     }
 
+    public void colocarCuenta(String nombre) {
 
+        this.indicadorBuilder.setOperandoAnterior(new Cuenta_Indicadores(nombre));
+
+    }
+
+    public void colocarNumero(String numero) {
+
+        this.indicadorBuilder.setOperandoAnterior(new Numero(new BigDecimal(numero)));
+
+    }
 }
