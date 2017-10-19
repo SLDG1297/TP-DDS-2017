@@ -1,6 +1,8 @@
-package DB;
+package DB.Proveedores;
 
 import java.util.List;
+
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 public interface Proveedor<T extends TipoDeRepositorio> {
 

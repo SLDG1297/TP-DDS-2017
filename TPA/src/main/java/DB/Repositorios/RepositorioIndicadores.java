@@ -1,12 +1,11 @@
 package DB.Repositorios;
 
-import static DB.NombreRepositorio.*;
+import static DB.TiposDeRepositorios.NombreRepositorio.INDICADOR;
 
-import DB.NombreRepositorio;
-import DB.Repositorio;
+import DB.TiposDeRepositorios.NombreRepositorio;
 import Modelo.Indicadores.Indicador;
 
-public class RepositorioIndicadores extends Repositorio<Indicador> {
+public class RepositorioIndicadores extends RepositorioPrivado<Indicador> {
 	private static RepositorioIndicadores instancia = null;
 	
 	private RepositorioIndicadores(NombreRepositorio nombreTabla) {

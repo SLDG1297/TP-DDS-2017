@@ -7,6 +7,8 @@ import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioMetodologias;
+import DB.Repositorios.RepositorioUsuarios;
+import DB.Repositorios.Excepciones.NoEsUnObjetoDelUsuarioException;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Resultados.Evaluacion;
 import Modelo.Usuarios.GestorDeUsuarios;
@@ -22,13 +24,19 @@ public class MetodologiasController {
 		
 		try
 		{
-			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			RepositorioMetodologias.getInstancia().setUsuario(RepositorioUsuarios.getInstancia().buscarObjeto((String) modelo.get("email")));
+			
+			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetosDeUsuario());
 			
 			ruta = "Metodologias/metodologiasComparacion.hbs";
 		}
 		catch (NoExistenObjetosException excepcion)
 		{
 			ruta = "Metodologias/metodologiasInexistentes.hbs";
+		}
+		catch (NoEsUnObjetoDelUsuarioException excepcion)
+		{
+			ruta = "Metodologias/metodologiasProhibidas.hbs";
 		}
 		
 		return new ModelAndView(modelo, ruta);
@@ -41,9 +49,11 @@ public class MetodologiasController {
 		
 		try
 		{
-			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			RepositorioMetodologias.getInstancia().setUsuario(RepositorioUsuarios.getInstancia().buscarObjeto((String) modelo.get("email")));
 			
-			Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjeto(request.queryParams("metodologia"));	
+			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetosDeUsuario());
+			
+			Metodologia metodologiaElegida = RepositorioMetodologias.getInstancia().buscarObjetoDeUsuario(request.queryParams("metodologia"));	
 			
 			modelo.put("resultados", RepositorioEmpresas.getInstancia().buscarListaDeObjetos().stream().map(e -> new Evaluacion(e, metodologiaElegida)).collect(Collectors.toList()));
 			
@@ -55,9 +65,13 @@ public class MetodologiasController {
 		{
 			ruta = "Metodologias/metodologiasInexistentes.hbs";
 		}
+		catch (NoEsUnObjetoDelUsuarioException excepcion)
+		{
+			ruta = "Metodologias/metodologiasProhibidas.hbs";
+		}
 		catch (NoExisteObjetoConEseNombreException excepcion)
 		{
-			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetos());
+			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetosDeUsuario());
 			
 			modelo.put("metodologiaInexistente", request.queryParams("metodologia"));
 			

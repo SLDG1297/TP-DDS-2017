@@ -1,7 +1,6 @@
 package DB.Repositorios;
 
-import DB.NombreRepositorio;
-import DB.Repositorio;
+import DB.TiposDeRepositorios.NombreRepositorio;
 import Modelo.Usuarios.Usuario;
 
 public class RepositorioUsuarios extends Repositorio<Usuario> {

@@ -1,7 +1,8 @@
 package Modelo.Usuarios;
 
-import DB.TipoDeRepositorio;
 import org.uqbar.commons.utils.Observable;
+
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 import javax.persistence.*;
 

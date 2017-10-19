@@ -6,22 +6,21 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import DB.TipoDeRepositorio;
 import DB.Converter.IndicadorConverter;
+import DB.TiposDeRepositorios.ElementoPrivado;
 import Modelo.Excepciones.Indicadores.IndicadorSinFormulaException;
 import Modelo.Excepciones.Indicadores.IndicadorSinNombreException;
 import Modelo.Usuarios.Usuario;
 
 @Entity
 @Table(name = "indicador")
-public class Indicador implements Expresion, TipoDeRepositorio {
+public class Indicador implements Expresion, ElementoPrivado {
 	@Id
 	@GeneratedValue
 	@Column(name = "indicador_id")
@@ -34,7 +33,7 @@ public class Indicador implements Expresion, TipoDeRepositorio {
 	@Convert(converter = IndicadorConverter.class)
 	private Expresion formula;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_fk_id")
 	private Usuario usuario;
 	

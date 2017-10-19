@@ -4,16 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import DB.TipoDeRepositorio;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import DB.TiposDeRepositorios.ElementoPrivado;
 import Modelo.Empresa.Empresa;
 import Modelo.Metodologias.Condiciones.Condiciones;
 import Modelo.Usuarios.Usuario;
 
-import javax.persistence.*;
-
 @Entity
 @Table(name = "metodologia")
-public class Metodologia implements TipoDeRepositorio {
+public class Metodologia implements ElementoPrivado {
 
 	@Id
 	@GeneratedValue
@@ -27,7 +35,7 @@ public class Metodologia implements TipoDeRepositorio {
 	@JoinColumn(name = "metodologia_fk_id",  referencedColumnName = "metolodogia_id")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "usuario_fk_id")
 	private Usuario usuario;
 	

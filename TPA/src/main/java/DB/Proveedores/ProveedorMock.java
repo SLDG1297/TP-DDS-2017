@@ -5,10 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import DB.Proveedor;
-import DB.TipoDeRepositorio;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
 	private List<T> lista = new ArrayList<T>();

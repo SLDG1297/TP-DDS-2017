@@ -5,10 +5,9 @@ import java.util.List;
 import javax.persistence.NoResultException;
 
 import DB.DBManager;
-import DB.Proveedor;
-import DB.TipoDeRepositorio;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implements Proveedor<T> {
 

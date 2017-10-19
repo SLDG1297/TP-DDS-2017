@@ -16,7 +16,7 @@ public class FactoryMetodologia {
 		return new Metodologia(nombre, listaCondiciones);
 	}
 	
-	public static Metodologia crearMetodologiaDeUsuario(String nombre, Usuario usuario, Condiciones...condiciones) {
+	public static Metodologia crearMetodologiaDeUsuario(Usuario usuario, String nombre, Condiciones...condiciones) {
 		Metodologia metodologia = crearMetodologia(nombre, condiciones);
 		
 		metodologia.setUsuario(usuario);

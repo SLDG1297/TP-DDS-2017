@@ -1,9 +1,8 @@
 package Modelo.Indicadores;
 
-import DB.Repositorios.RepositorioIndicadores;
-import Factories.FactoryOperaciones;
-
 import java.math.BigDecimal;
+
+import DB.Repositorios.RepositorioIndicadores;
 
 public class GestorDeIndicadores {
     private static GestorDeIndicadores ourInstance = new GestorDeIndicadores();

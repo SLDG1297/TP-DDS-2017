@@ -1,4 +1,4 @@
-package DB;
+package DB.TiposDeRepositorios;
 
 public enum NombreRepositorio {
 	EMPRESA("Empresa"),
