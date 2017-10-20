@@ -19,27 +19,34 @@ import spark.Response;
 public class MetodologiasController {
 	public ModelAndView listarMetodologias(Request request, Response response) {
 		Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
-		
+
 		String ruta = "";
+
+		if (modelo.get("email") != null){
+			try
+			{
+				RepositorioMetodologias.getInstancia().setUsuario(RepositorioUsuarios.getInstancia().buscarObjeto((String) modelo.get("email")));
+
+				modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetosDeUsuario());
+
+				ruta = "Metodologias/metodologiasComparacion.hbs";
+			}
+			catch (NoExistenObjetosException excepcion)
+			{
+				ruta = "Metodologias/metodologiasInexistentes.hbs";
+			}
+			catch (NoEsUnObjetoDelUsuarioException excepcion)
+			{
+				ruta = "Metodologias/metodologiasProhibidas.hbs";
+			}
+
+			return new ModelAndView(modelo, ruta);
+		}else{
+			response.redirect("/login");
+			return null;
+		}
 		
-		try
-		{
-			RepositorioMetodologias.getInstancia().setUsuario(RepositorioUsuarios.getInstancia().buscarObjeto((String) modelo.get("email")));
-			
-			modelo.put("metodologias", RepositorioMetodologias.getInstancia().buscarListaDeObjetosDeUsuario());
-			
-			ruta = "Metodologias/metodologiasComparacion.hbs";
-		}
-		catch (NoExistenObjetosException excepcion)
-		{
-			ruta = "Metodologias/metodologiasInexistentes.hbs";
-		}
-		catch (NoEsUnObjetoDelUsuarioException excepcion)
-		{
-			ruta = "Metodologias/metodologiasProhibidas.hbs";
-		}
-		
-		return new ModelAndView(modelo, ruta);
+
 	}
 
 	public ModelAndView mostrarComparacion(Request request, Response response) {
