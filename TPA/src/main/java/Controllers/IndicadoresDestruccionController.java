@@ -14,10 +14,14 @@ public class IndicadoresDestruccionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
+        if (mapa.get("email") != null){
 
-        return new ModelAndView(mapa, "indicadoresDestruccion.hbs");
-
+            mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
+            return new ModelAndView(mapa, "indicadoresDestruccion.hbs");
+        }else{
+            response.redirect("/login");
+            return null;
+        }
     }
 
     public Void destruir(Request request, Response response) {

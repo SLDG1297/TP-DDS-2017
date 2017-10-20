@@ -16,8 +16,12 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-        return new ModelAndView(mapa, "indicadoresCreacion.hbs");
-
+        if (mapa.get("email") != null){
+            return new ModelAndView(mapa, "indicadoresCreacion.hbs");
+        }else{
+            response.redirect("/login");
+            return null;
+        }
     }
 
     public Void redireccionarCreacion(Request request, Response response) {
