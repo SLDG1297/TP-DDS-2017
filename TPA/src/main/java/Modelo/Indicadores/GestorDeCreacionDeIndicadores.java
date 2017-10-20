@@ -61,19 +61,19 @@ public class GestorDeCreacionDeIndicadores {
 
         switch (operadorAAsignar) {
 
-            case "Suma":
+            case "+":
                 operador = new Suma(expresion);
                 break;
 
-            case "Resta":
+            case "-":
                 operador = new Resta(expresion);
                 break;
 
-            case "Multiplicacion":
+            case "*":
                 operador = new Multiplicacion(expresion);
                 break;
 
-            case "Division":
+            case "/":
                 operador = new Division(expresion);
                 break;
 
