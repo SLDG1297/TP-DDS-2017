@@ -75,4 +75,8 @@ public class EmpresasController {
 
     }
 
+    public ModelAndView creacionEmpresas(Request request, Response response){
+        return new ModelAndView(GestorDeUsuarios.getInstance().obtenerMapa(request), "empresasCreacion.hbs");
+    }
+
 }
