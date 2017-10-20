@@ -3,7 +3,6 @@ package Main;
 import static spark.Spark.*;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
-
 import Controllers.EmpresasController;
 import Controllers.*;
 import spark.template.handlebars.HandlebarsTemplateEngine;

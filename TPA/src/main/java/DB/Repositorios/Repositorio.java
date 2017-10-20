@@ -1,9 +1,12 @@
-package DB;
+package DB.Repositorios;
 
 import java.util.List;
 
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
+import DB.Proveedores.Proveedor;
+import DB.TiposDeRepositorios.NombreRepositorio;
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 public abstract class Repositorio<T extends TipoDeRepositorio> {
 	protected NombreRepositorio tabla;

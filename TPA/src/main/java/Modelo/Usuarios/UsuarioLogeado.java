@@ -2,18 +2,12 @@ package Modelo.Usuarios;
 
 import java.time.LocalDateTime;
 
-public class UsuarioLogeado {
-
-    private String email;
+public class UsuarioLogeado extends Usuario {
     private LocalDateTime cuandoExpira;
 
     public UsuarioLogeado(String email, LocalDateTime cuandoExpira) {
-        this.email = email;
+    	super(email, null);
         this.cuandoExpira = cuandoExpira;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public LocalDateTime getCuandoExpira() {

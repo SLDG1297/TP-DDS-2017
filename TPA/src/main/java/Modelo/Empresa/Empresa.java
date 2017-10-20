@@ -1,11 +1,12 @@
 package Modelo.Empresa;
 
-import DB.TipoDeRepositorio;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
 import Modelo.Excepciones.Empresas.NoExisteElPeriodoException;
 
 import org.uqbar.commons.utils.Observable;
+
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 import javax.persistence.*;
 import java.util.ArrayList;

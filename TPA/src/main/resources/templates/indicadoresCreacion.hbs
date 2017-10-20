@@ -1,26 +1,49 @@
-{{# partial "titulo" }}
-    <title>Consultorea.me</title>
-{{/partial}}
-
-{{# partial "contenido" }}
+{{# partial "contenidoDeCreacion" }}
 
     <style>
-
+        
         .formcito {
             margin-top: 10%;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .labelNombre{
+            font-size: 20px;
+            padding: 20px;
+        }
+        
+        .inputNombre{
+            width: 500px;
+            height: 40px;
+        }
+        
+        .botonCrear{
+           height: 45px;
+           width: 200px;
+           margin-left: 20px;
+           border-radius: 7px;
+        }
+        
+        .primerFila{
+           padding-bottom: 300px;
         }
 
     </style>
 
+	<div class = "row text-center primerFila">
+	
     <form class="formcito" method="POST">
 
-        <label>Nombre</label>
-        <input type="text" name="nombre" value=""/>
+        <label class = "labelNombre">Nombre</label>
+        <input class = "inputNombre" type="text" name="nombre" value=""/>
 
-        <input type="submit" value="Comenzar creación"/>
+        <input class ="botonCrear" type="submit" value="Comenzar creación"/>
 
     </form>
+    
+    </div>
 
 {{/partial}}
 
-{{> template.hbs }}
+{{> indicadoresCreacionTemplate.hbs }}

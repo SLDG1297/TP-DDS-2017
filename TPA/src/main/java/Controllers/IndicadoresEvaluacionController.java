@@ -1,5 +1,8 @@
 package Controllers;
 
+import java.math.BigDecimal;
+import java.util.Map;
+
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Empresa.Empresa;
@@ -11,19 +14,21 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-import java.math.BigDecimal;
-import java.util.Map;
-
 public class IndicadoresEvaluacionController {
 
 	   public ModelAndView show(Request request, Response response){
 
 		   Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
-		   mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
+		   if (mapa.get("email") != null){
 
-		   return new ModelAndView(mapa,"indicadoresEvaluacion.hbs");
+			   mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
 
+			   return new ModelAndView(mapa,"indicadoresEvaluacion.hbs");
+		   }else{
+			   response.redirect("/login");
+			   return null;
+		   }
 	   }
 
 	public Void seleccionarIndicador(Request request, Response response) {

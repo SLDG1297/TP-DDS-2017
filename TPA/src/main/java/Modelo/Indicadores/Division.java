@@ -6,8 +6,7 @@ import Modelo.Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 
 public class Division extends Operacion {
 	
-	@SuppressWarnings("unused")
-    public Division(){};
+	public Division(){};
 
 	public Division(Expresion valorA) {
 		super(valorA);
