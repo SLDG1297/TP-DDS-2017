@@ -21,6 +21,11 @@
     color: white;
 }
 
+.botonSecundario:disabled {
+    background-color: rgba(56, 56, 56, 0.18);
+    color: white;
+}
+
 .botonPrincipal{
     display: inline-block;
     border-radius: 7px;
@@ -39,10 +44,15 @@
     margin-left: 10px;
 }
 
+
 .botonPrincipal:hover {
     background-color: #255892;
     border: 2px solid #255892;
 
+}
+
+.botonPrincipal:disabled {
+    background-color: rgba(56, 56, 56, 0.18);
 }
 
 .btnSuma,.btnResta,.btnMulti,.btnDiv,.btnCrear{
