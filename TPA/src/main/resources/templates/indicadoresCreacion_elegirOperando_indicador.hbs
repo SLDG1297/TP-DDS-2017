@@ -12,9 +12,15 @@
         .selector-indicador{
             width: 350px;
         }
+
+        .form-control.mi-control {
+            height: 40px;
+        }
+
         .formcito{
             margin-top: 100px;
         }
+
         .well {
             height: 100px;
             text-align: center;
@@ -40,7 +46,7 @@
             <div class="formcito">
                 <form method="POST" class="centrar">
 
-                    <select class="selector-indicador" name="nombre" id="selector-indicador" onchange="this.form.submit()">
+                    <select class="form-control mi-control selector-indicador" name="nombre" id="selector-indicador" onchange="this.form.submit()">
 
                         <option disabled selected value> -- Seleccione un indicador -- </option>
                         {{#each indicadores}}
