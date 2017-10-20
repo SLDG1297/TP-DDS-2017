@@ -138,7 +138,7 @@ public class Bootstrap {
 				crearIndicadorDeUsuario(
 						RepositorioUsuarios.getInstancia().buscarObjeto("axel@bags.com"),
 						"ArrorROE", 
-						sumar(crearCuenta("EDITBA"), multiplicar(crearCuenta("FCF"), crearNumero(2)))),
+						multiplicar(crearCuenta("EDITBA"), crearNumero(2))),
 				crearIndicadorDeUsuario(
 						RepositorioUsuarios.getInstancia().buscarObjeto("qepd@rip.com"),
 						"Shasha-Saludos",
