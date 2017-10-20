@@ -35,6 +35,10 @@ public class WebMain {
         post("/login-retry", loginController::create);
         
         get("/empresas", empresasController::show, engine);
+        post("/empresas",empresasController::seleccionarEmpresa);
+        get("/empresas/:nombreEmpresaElegida",empresasController::redireccionarEmpresaElegida, engine);
+        post("/empresas/:nombreEmpresaElegida",empresasController::seleccionarPeriodo);
+        get("/empresas/:nombreEmpresaElegida/:nombrePeriodoElegido",empresasController::redireccionarPeriodoElegido,engine);
         
         get("/indicadores/evaluacion", indicadoresEvaluacionController::show, engine);
         post("/indicadores/evaluacion", indicadoresEvaluacionController::seleccionarIndicador);
