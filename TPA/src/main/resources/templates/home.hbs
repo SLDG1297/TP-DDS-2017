@@ -38,15 +38,36 @@
                         </ul>
                     </div>
 
+
                     <div class="buttons">
-                        <div class="buttonSecundario">
-                            <a href="http://localhost:8080/empresasCreacion"><button class="boton botonSecundarioContenedorBlanco">Eliminar</button></a>
-                            <a href="http://localhost:8080/empresasCreacion"><button class="boton botonSecundarioContenedorBlanco">Crear</button></a>
-                        </div>
-                        <div class="buttonPrincipal">
-                            <a href="http://localhost:8080/empresas"><button class="boton botonPrincipalContenedorBlanco"><span>Consultar</span></button></a>
-                        </div>
+
+                        {{#if email}}
+
+                            <div class="buttonSecundario">
+                                <a href="http://localhost:8080/empresasCreacion"><button class="boton botonSecundarioContenedorBlanco">Eliminar</button></a>
+                                <a href="http://localhost:8080/empresasCreacion"><button class="boton botonSecundarioContenedorBlanco">Crear</button></a>
+                            </div>
+
+                            <div class="buttonPrincipal">
+                                <a href="http://localhost:8080/empresas"><button class="boton botonPrincipalContenedorBlanco"><span>Consultar</span></button></a>
+                            </div>
+
+
+                        {{else}}
+
+                            <div class="buttonSecundario">
+                                <button class="boton desabilitado">Eliminar</button>
+                                <button class="boton desabilitado">Crear</button>
+                            </div>
+
+                            <div class="buttonPrincipal">
+                                <a href="http://localhost:8080/empresas"><button class="boton botonPrincipalContenedorBlanco"><span>Consultar</span></button></a>
+                            </div>
+
+                        {{/if}}
+
                     </div>
+
                 </div>
 
                 <div class="img-rounded imagenes">
@@ -94,15 +115,34 @@
                         </ul>
                     </div>
 
+
                     <div class="buttons">
-                        <div class="buttonSecundario">
-                            <a href="http://localhost:8080/indicadores/destruccion"><button type="button" class="boton botonSecundarioContenedorGris">Eliminar</button></a>
-                            <a href="http://localhost:8080/indicadores/creacion"><button type="button" class="boton botonSecundarioContenedorGris">Crear</button></a>
-                        </div>
-                        <div class="buttonPrincipal">
-                            <a href="http://localhost:8080/indicadores/evaluacion"><button class="boton botonPrincipalContenedorGris"><span>Consultar</span></button></a>
-                        </div>
+
+                        {{#if email}}
+
+                            <div class="buttonSecundario">
+                                <a href="http://localhost:8080/indicadores/destruccion"><button type="button" class="boton botonSecundarioContenedorGris">Eliminar</button></a>
+                                <a href="http://localhost:8080/indicadores/creacion"><button type="button" class="boton botonSecundarioContenedorGris">Crear</button></a>
+                            </div>
+
+                            <div class="buttonPrincipal">
+                                <a href="http://localhost:8080/indicadores/evaluacion"><button class="boton botonPrincipalContenedorGris"><span>Consultar</span></button></a>
+                            </div>
+
+                        {{else}}
+
+                            <div class="buttonSecundario">
+                                <button type="button" class="boton desabilitado">Eliminar</button>
+                                <button type="button" class="boton desabilitado">Crear</button>
+
+                                <button class="boton desabilitado"><span>Consultar</span></button>
+                            </div>
+
+                        {{/if}}
+
+
                     </div>
+
                 </div>
 
             </div>
@@ -141,13 +181,28 @@
                     </div>
 
                     <div class="buttons">
-                        <div class="buttonSecundario">
-                            <a></a><button type="button" class="boton botonSecundarioContenedorGrisClaro">Eliminar</button>
-                            <a></a><button type="button" class="boton botonSecundarioContenedorGrisClaro">Crear</button>
-                        </div>
-                        <div class="buttonPrincipal">
-                            <a href="http://localhost:8080/metodologias/comparacion"><button class="boton botonPrincipalContenedorGrisClaro"><span>Consultar</span></button></a>
-                        </div>
+
+                        {{#if email}}
+
+                            <div class="buttonSecundario">
+                                <a></a><button type="button" class="boton botonSecundarioContenedorGrisClaro">Eliminar</button>
+                                <a></a><button type="button" class="boton botonSecundarioContenedorGrisClaro">Crear</button>
+                            </div>
+                            <div class="buttonPrincipal">
+                                <a href="http://localhost:8080/metodologias/comparacion"><button class="boton botonPrincipalContenedorGrisClaro"><span>Consultar</span></button></a>
+                            </div>
+
+                        {{else}}
+
+                            <div class="buttonSecundario">
+                                <button type="button" class="boton desabilitado">Eliminar</button>
+                                <button type="button" class="boton desabilitado">Crear</button>
+
+                                <button class="boton desabilitado"><span>Consultar</span></button>
+                            </div>
+
+                        {{/if}}
+
                     </div>
                 </div>
 

@@ -196,3 +196,17 @@
     background-color: #2B75BE;
     color: white;
 }
+
+.desabilitado {
+    border: 2px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed !important;
+}
+
+.desabilitado:active,
+.desabilitado:focus {
+
+    outline: none;
+
+}
