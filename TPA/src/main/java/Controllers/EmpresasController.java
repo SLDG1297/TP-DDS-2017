@@ -22,7 +22,7 @@ public class EmpresasController {
         Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
         modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos());
 
-    return new ModelAndView(modelo,"empresas.hbs");
+        return new ModelAndView(modelo,"empresas.hbs");
 
     }
 
@@ -47,6 +47,7 @@ public class EmpresasController {
     public ModelAndView redireccionarPeriodoElegido(Request request, Response response) {
 
         Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
         String nombreEmpresa = request.params(":nombreEmpresaElegida");
         String nombrePeridoElegido = request.params(":nombrePeriodoElegido");
         Empresa empresaElegida = RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa);
@@ -66,6 +67,7 @@ public class EmpresasController {
     public ModelAndView redireccionarEmpresaElegida(Request request, Response response) {
 
         Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
         String nombreEmpresa = request.params(":nombreEmpresaElegida");
         modelo.put("nombreEmpresaElegida",nombreEmpresa);
         modelo.put("periodos",RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getPeriodos());
@@ -75,8 +77,17 @@ public class EmpresasController {
 
     }
 
-    public ModelAndView creacionEmpresas(Request request, Response response){
-        return new ModelAndView(GestorDeUsuarios.getInstance().obtenerMapa(request), "empresasCreacion.hbs");
+    public ModelAndView creacionEmpresas(Request request, Response response) {
+        Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
+        if (mapa.get("email") == null) {
+
+            response.redirect("/login");
+            return null;
+
+        }
+
+        return new ModelAndView(mapa, "empresasCreacion.hbs");
     }
 
 }

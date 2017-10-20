@@ -18,7 +18,7 @@ public class IndicadoresCreacionController {
 
         if (mapa.get("email") != null){
             return new ModelAndView(mapa, "indicadoresCreacion.hbs");
-        }else{
+        } else {
             response.redirect("/login");
             return null;
         }
@@ -38,6 +38,13 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
+        if (mapa.get("email") == null) {
+
+            response.redirect("/login");
+            return null;
+
+        }
+
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando.hbs");
@@ -56,6 +63,13 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
+        if (mapa.get("email") == null) {
+
+            response.redirect("/login");
+            return null;
+
+        }
+
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
         mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
 
@@ -66,6 +80,13 @@ public class IndicadoresCreacionController {
     public ModelAndView colocarCuenta(Request request, Response response) {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
+        if (mapa.get("email") == null) {
+
+            response.redirect("/login");
+            return null;
+
+        }
+
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_cuenta.hbs");
@@ -73,6 +94,13 @@ public class IndicadoresCreacionController {
 
     public ModelAndView colocarNumero(Request request, Response response) {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
+        if (mapa.get("email") == null) {
+
+            response.redirect("/login");
+            return null;
+
+        }
 
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
@@ -113,6 +141,13 @@ public class IndicadoresCreacionController {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
+        if (mapa.get("email") == null) {
+
+            response.redirect("/login");
+            return null;
+
+        }
+
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperador.hbs");
@@ -139,6 +174,13 @@ public class IndicadoresCreacionController {
     public ModelAndView crearIndicador(Request request, Response response) {
 
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
+
+        if (mapa.get("email") == null) {
+
+            response.redirect("/login");
+            return null;
+
+        }
 
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
