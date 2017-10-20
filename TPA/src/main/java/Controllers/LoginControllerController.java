@@ -20,7 +20,7 @@ public class LoginControllerController {
     public Void create(Request request, Response response) {
 
         String email = request.queryParams("email");
-        String passwordHasheada = request.queryParams("password");System.out.println(passwordHasheada);
+        String passwordHasheada = request.queryParams("password");
 
         try
         {

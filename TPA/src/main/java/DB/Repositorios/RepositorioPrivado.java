@@ -28,6 +28,10 @@ public class RepositorioPrivado<P extends ElementoPrivado> extends Repositorio<P
 		return super.buscarListaDeObjetos().stream().filter(o -> o.getUsuario().equals(this.getUsuario())).collect(Collectors.toList());
 	}
 
+	public List<P> buscarListaDeObjetosDeUsuario(Usuario usuario) throws NoExistenObjetosException {
+		return super.buscarListaDeObjetos().stream().filter(o -> o.getUsuario().equals(usuario)).collect(Collectors.toList());
+	}
+
 	public P buscarObjetoDeUsuario(String unNombre) {
 		P objeto = super.buscarObjeto(unNombre);
 		

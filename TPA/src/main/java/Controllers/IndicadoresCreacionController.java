@@ -1,11 +1,15 @@
 package Controllers;
 
 import DB.Repositorios.RepositorioIndicadores;
+import DB.Repositorios.RepositorioUsuarios;
 import Modelo.Indicadores.GestorDeCreacionDeIndicadores;
+import Modelo.Indicadores.Indicador;
+import Modelo.Usuarios.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import java.util.List;
 import java.util.Map;
 
 import Modelo.Usuarios.GestorDeUsuarios;
@@ -71,7 +75,12 @@ public class IndicadoresCreacionController {
         }
 
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
-        mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
+
+        Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto((String) mapa.get("email"));
+
+        List<Indicador> indicadores = RepositorioIndicadores.getInstancia().buscarListaDeObjetosDeUsuario(usuario);
+
+        mapa.put("indicadores", indicadores);
 
         return new ModelAndView(mapa, "indicadoresCreacion_elegirOperando_indicador.hbs");
 
@@ -185,8 +194,6 @@ public class IndicadoresCreacionController {
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
         GestorDeCreacionDeIndicadores.getInstance().crearIndicador();
-
-        // Hay que validar..
 
         return new ModelAndView(mapa, "indicadoresCreacion_creado.hbs");
 

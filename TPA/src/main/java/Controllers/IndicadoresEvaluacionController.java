@@ -1,15 +1,19 @@
 package Controllers;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
+import DB.Repositorios.RepositorioUsuarios;
 import Modelo.Empresa.Empresa;
 import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;
 import Modelo.Usuarios.GestorDeUsuarios;
+import Modelo.Usuarios.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -22,10 +26,15 @@ public class IndicadoresEvaluacionController {
 
 		   if (mapa.get("email") != null){
 
-			   mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
+			   Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto((String) mapa.get("email"));
+
+			   List<Indicador> indicadores = RepositorioIndicadores.getInstancia().buscarListaDeObjetosDeUsuario(usuario);
+
+			   mapa.put("indicadores", indicadores);
 
 			   return new ModelAndView(mapa,"indicadoresEvaluacion.hbs");
-		   }else{
+
+		   } else {
 			   response.redirect("/login");
 			   return null;
 		   }
@@ -47,7 +56,7 @@ public class IndicadoresEvaluacionController {
 		
 		String nombreIndicador = request.params(":nombreIndicador");
 
-		Indicador indicadorElegido = RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
+		Indicador indicadorElegido =  RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
 
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);
 		mapa.put("formula", indicadorElegido.imprimirFormula());

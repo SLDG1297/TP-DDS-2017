@@ -51,13 +51,6 @@ public class MetodologiasController {
 
 	public ModelAndView mostrarComparacion(Request request, Response response) {
 		Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
-
-		if (modelo.get("email") == null) {
-
-			response.redirect("/login");
-			return null;
-
-		}
 		
 		String ruta = "";
 		
