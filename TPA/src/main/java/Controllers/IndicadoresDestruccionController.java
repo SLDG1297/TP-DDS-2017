@@ -15,12 +15,13 @@ public class IndicadoresDestruccionController {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 
         if (mapa.get("email") != null){
-
             mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetos());
             return new ModelAndView(mapa, "indicadoresDestruccion.hbs");
-        }else{
+
+        } else {
             response.redirect("/login");
             return null;
+
         }
     }
 
