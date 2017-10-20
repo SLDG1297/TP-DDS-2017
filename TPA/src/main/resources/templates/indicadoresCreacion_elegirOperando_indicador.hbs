@@ -2,39 +2,102 @@
     <title>Consultorea.me</title>
 {{/partial}}
 
-{{# partial "contenido" }}
+{{# partial "contenidoDeCreacion" }}
+
+    <head>
+        <link rel="stylesheet"  href="/indicadoresCreacion.css">
+    </head>
 
     <style>
-
-        .contenedor {
-            margin-top: 10%;
+        .selector-indicador{
+            width: 350px;
         }
-
+        .formcito{
+            margin-top: 100px;
+        }
+        .well{
+            height: 100px;
+        }
     </style>
 
-    <div class="contenedor">
+    <body>
 
-        <div class="well">
 
-            {{formula}}
+    <div class="col-sm-2"></div>
+
+
+    <div class="col-sm-8 parteIzq">
+
+        <div class="contenidoCentral">
+
+            <div class="well">
+
+                {{formula}}
+
+            </div>
+
+            <div class="formcito">
+                <form method="POST" class="centrar">
+
+                    <select class="selector-indicador" name="nombre" id="selector-indicador" onchange="this.form.submit()">
+
+                        <option disabled selected value> -- Seleccione un indicador -- </option>
+                        {{#each indicadores}}
+                            <option value="{{nombre}}">{{nombre}}</option>
+                        {{/each}}
+
+                    </select>
+
+                </form>
+            </div>
+
 
         </div>
 
-        <form class="formcito" method="POST">
-
-            <select class="form-control mi-control selector-indicador" name="nombre" id="selector-indicador" onchange="this.form.submit()">
-
-                <option disabled selected value> -- Seleccione un indicador -- </option>
-                {{#each indicadores}}
-                    <option value="{{nombre}}">{{nombre}}</option>
-                {{/each}}
-
-            </select>
-
-        </form>
+        <div class="botonesICN">
+            <form >
+                <input type="submit" name="cosaAOperar" value="Indicador" disabled class="botonSecundario"/>
+                <input type="submit" name="cosaAOperar" value="Cuenta" disabled class="botonSecundario"/>
+                <input type="submit" name="cosaAOperar" value="Numero" disabled class="botonSecundario"/>
+            </form>
+        </div>
 
     </div>
 
+    <div class="col-sm-1 parteDer">
+
+        <div class="botonesCalcu">
+            <form>
+                <div class="btnSuma">
+                    <input type="submit" name="operador" value=" + " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnResta">
+                    <input type="submit" name="operador" value=" - " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnMulti">
+                    <input type="submit" name="operador" value=" * " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnDiv">
+                    <input type="submit" name="operador" value=" / " disabled class="botonSecundario"/>
+                </div>
+
+                <div class="btnCrear">
+                    <input type="submit" name="operador" value="Crear" disabled class="botonPrincipal"/>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="col-sm-1"></div>
+
+
+    </body>
+
+
 {{/partial}}
 
-{{> template.hbs }}
+{{> indicadoresCreacionTemplate.hbs }}
+
