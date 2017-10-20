@@ -10,36 +10,76 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class WebMain {
 	private static HandlebarsTemplateEngine engine = new HandlebarsTemplateEngine();
 
-    public static void iniciarInterfazWeb() {  
-        LoginControllerController loginController = new LoginControllerController();
-
-        HomeController homeController = new HomeController();
-
-        EmpresasController empresasController = new EmpresasController();
-        
-        IndicadoresEvaluacionController indicadoresEvaluacionController = new IndicadoresEvaluacionController();
-
-        IndicadoresCreacionController indicadoresCreacionController = new IndicadoresCreacionController();
-
-        IndicadoresDestruccionController indicadoresDestruccionController = new IndicadoresDestruccionController();
+    public static void iniciarSitio() {
 
         port(8080);
 
         staticFileLocation("/public");
 
+        iniciarInterfazWeb();
+
+    }
+
+    private static void iniciarInterfazWeb() {
+
+        iniciarHome();
+
+        iniciarLogin();
+
+        iniciarEmpresas();
+
+        iniciarIndicadores();
+
+        iniciarMetodologias();
+
+    }
+
+    private static void iniciarHome() {
+
+        HomeController homeController = new HomeController();
+
         get("/", homeController::show, engine);
+
+    }
+
+    public static void iniciarLogin() {
+
+        LoginControllerController loginController = new LoginControllerController();
+
         get("/login", loginController::show, engine);
         post("/login", loginController::create);
         get("/login-retry", loginController::showFailedLogin, engine);
         post("/login-retry", loginController::create);
-        
+
+    }
+
+    public static void iniciarEmpresas() {
+
+        EmpresasController empresasController = new EmpresasController();
+
         get("/empresas", empresasController::show, engine);
         post("/empresas",empresasController::seleccionarEmpresa);
         get("/empresas/:nombreEmpresaElegida",empresasController::redireccionarEmpresaElegida, engine);
         post("/empresas/:nombreEmpresaElegida",empresasController::seleccionarPeriodo);
         get("/empresas/:nombreEmpresaElegida/:nombrePeriodoElegido",empresasController::redireccionarPeriodoElegido,engine);
         get("/empresasCreacion", empresasController::creacionEmpresas, engine);
-        
+
+    }
+
+    public static void iniciarIndicadores() {
+
+        iniciarIndicadoresEvaluacion();
+
+        iniciarIndicadoresCreacion();
+
+        iniciarIndicadoresDestruccion();
+
+    }
+
+    public static void iniciarIndicadoresEvaluacion() {
+
+        IndicadoresEvaluacionController indicadoresEvaluacionController = new IndicadoresEvaluacionController();
+
         get("/indicadores/evaluacion", indicadoresEvaluacionController::show, engine);
         post("/indicadores/evaluacion", indicadoresEvaluacionController::seleccionarIndicador);
         get("/indicadores/evaluacion/:nombreIndicador", indicadoresEvaluacionController::redireccionarIndicadorElegido, engine);
@@ -47,6 +87,12 @@ public class WebMain {
         get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::redireccionarEmpresaElegida, engine);
         post("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa", indicadoresEvaluacionController::seleccionarPeriodo);
         get("/indicadores/evaluacion/:nombreIndicador/:nombreEmpresa/:periodo", indicadoresEvaluacionController::redireccionarPeriodoElegido, engine);
+
+    }
+
+    public static void iniciarIndicadoresCreacion() {
+
+        IndicadoresCreacionController indicadoresCreacionController = new IndicadoresCreacionController();
 
         get("/indicadores/creacion", indicadoresCreacionController::show, engine);
         post("/indicadores/creacion", indicadoresCreacionController::redireccionarCreacion);
@@ -62,10 +108,15 @@ public class WebMain {
         post("/indicadores/creacion/:nombre/operadores", indicadoresCreacionController::redireccionarOperadorElegido);
         get("/indicadores/creacion/:nombre/creado", indicadoresCreacionController::crearIndicador, engine);
 
+    }
+
+    public static void iniciarIndicadoresDestruccion() {
+
+        IndicadoresDestruccionController indicadoresDestruccionController = new IndicadoresDestruccionController();
+
         get("/indicadores/destruccion", indicadoresDestruccionController::show, engine);
         post("/indicadores/destruccion", indicadoresDestruccionController::destruir);
 
-        iniciarMetodologias();
     }
     
     public static void iniciarMetodologias() {
