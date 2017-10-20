@@ -1,6 +1,7 @@
 package Modelo.Indicadores;
 
 import DB.Repositorios.RepositorioIndicadores;
+import Modelo.Usuarios.Usuario;
 
 import java.math.BigDecimal;
 
@@ -92,9 +93,9 @@ public class GestorDeCreacionDeIndicadores {
 
     }
 
-    public void crearIndicador() {
+    public void crearIndicador(Usuario usuario) {
 
-        this.indicadorBuilder.crearIndicador(this.indicadorBuilder.getOperandoAnterior());
+        this.indicadorBuilder.crearIndicador(this.indicadorBuilder.getOperandoAnterior(), usuario);
 
         this.indicadorBuilder = new IndicadorBuilder();
 

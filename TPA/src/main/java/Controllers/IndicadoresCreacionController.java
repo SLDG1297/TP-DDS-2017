@@ -193,7 +193,9 @@ public class IndicadoresCreacionController {
 
         mapa.put("formula", GestorDeCreacionDeIndicadores.getInstance().obtenerFormula());
 
-        GestorDeCreacionDeIndicadores.getInstance().crearIndicador();
+        Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto((String) mapa.get("email"));
+
+        GestorDeCreacionDeIndicadores.getInstance().crearIndicador(usuario);
 
         return new ModelAndView(mapa, "indicadoresCreacion_creado.hbs");
 

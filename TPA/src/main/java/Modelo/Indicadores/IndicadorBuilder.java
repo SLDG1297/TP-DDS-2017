@@ -2,6 +2,7 @@ package Modelo.Indicadores;
 
 import DB.Repositorios.RepositorioIndicadores;
 import Modelo.Excepciones.Indicadores.IndicadorSinNombreException;
+import Modelo.Usuarios.Usuario;
 
 public class IndicadorBuilder {
 
@@ -22,9 +23,9 @@ public class IndicadorBuilder {
 		this.operandoAnterior = operandoAnterior;
 	}
 	
-	public Indicador crearIndicador(Expresion expresion){ 
+	public Indicador crearIndicador(Expresion expresion, Usuario usuario){
 		Indicador indicadorCreado;
-		indicadorCreado = new Indicador(nombreIndicador, expresion);
+		indicadorCreado = new Indicador(usuario, nombreIndicador, expresion);
 		RepositorioIndicadores.getInstancia().agregarObjeto(indicadorCreado);
 		
 		return indicadorCreado;
