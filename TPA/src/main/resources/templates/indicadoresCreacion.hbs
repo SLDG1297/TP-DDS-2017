@@ -1,48 +1,97 @@
 {{# partial "contenidoDeCreacion" }}
 
+    <head>
+        <link rel="stylesheet"  href="/indicadoresCreacion.css">
+    </head>
+
     <style>
-        
-        .formcito {
-            margin-top: 10%;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        .labelNombre{
-            font-size: 20px;
-            padding: 20px;
-        }
-        
-        .inputNombre{
-            width: 500px;
-            height: 40px;
-        }
-        
         .botonCrear{
-           height: 45px;
-           width: 200px;
-           margin-left: 20px;
-           border-radius: 7px;
-        }
-        
-        .primerFila{
-           padding-bottom: 300px;
+            height: auto;
         }
 
+        .botonCrear:hover{
+            background-color: #2B75BE;
+            border: 2px solid #2B75BE;
+            box-shadow: 8px 10px 8px rgba(0,0,0,0.2);
+        }
+        .inputNombre{
+            width: 400px;
+            box-shadow: 1px 1px 1px 1px gray;
+        }
     </style>
 
-	<div class = "row text-center primerFila">
-	
-    <form class="formcito" method="POST">
+    <body>
 
-        <label class = "labelNombre">Nombre</label>
-        <input class = "inputNombre" type="text" name="nombre" value=""/>
 
-        <input class ="botonCrear" type="submit" value="Comenzar creación"/>
+    <div class="col-sm-2"></div>
 
-    </form>
-    
+
+    <div class="col-sm-8 parteIzq">
+
+        <div class="contenidoCentral">
+
+            <div class="centrar" style="padding-top: 70px">
+                <h3>Ingrese el nombre del indicador</h3>
+            </div>
+
+            <div class="centrar">
+                <form method="POST">
+
+                    <div class="centrar divInputNombre" style="padding-top: 10px; padding-bottom: 10px;">
+                        <input class="inputNombre" type="text" name="nombre" value=""/>
+                    </div>
+
+                    <div class="centrar">
+                        <input type="submit" value="Comenzar creación" class="botonCrear botonPrincipal"/>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+        <div class="botonesICN">
+            <form >
+                <input type="submit" name="cosaAOperar" value="Indicador" disabled class="botonSecundario"/>
+                <input type="submit" name="cosaAOperar" value="Cuenta" disabled class="botonSecundario"/>
+                <input type="submit" name="cosaAOperar" value="Numero" disabled class="botonSecundario"/>
+            </form>
+        </div>
+
     </div>
+
+    <div class="col-sm-1 parteDer">
+
+        <div class="botonesCalcu">
+            <form>
+                <div class="btnSuma">
+                    <input type="submit" name="operador" value=" + " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnResta">
+                    <input type="submit" name="operador" value=" - " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnMulti">
+                    <input type="submit" name="operador" value=" * " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnDiv">
+                    <input type="submit" name="operador" value=" / " disabled class="botonSecundario"/>
+                </div>
+
+                <div class="btnCrear">
+                    <input type="submit" name="operador" value="Crear" disabled class="botonPrincipal"/>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="col-sm-1"></div>
+
+
+    </body>
+
 
 {{/partial}}
 
