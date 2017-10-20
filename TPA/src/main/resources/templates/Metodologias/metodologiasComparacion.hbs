@@ -1,18 +1,20 @@
 {{# partial "acciones" }}
-	
-<form action="/metodologias/comparacion/:metodologia" method="get">
-	<fieldset>
-		<legend>Elija una metodolog&iacute;a:</legend>
-			<select name="metodologia" placeholder="Metodolog&iacute;a" autofocus required>
-				{{# each metodologias }}
-				<option value="{{ nombre }}">{{ nombre }}</option>
-				{{/ each }}
-			</select>
-	</fieldset>
-		
-	<input type="submit" value="Comparar">
+
+<form id="selector" action="/metodologias/comparacion/:metodologia#tabla" method="get">
+	<div class="form-group">
+		<fieldset class="selector-redondeado">
+		<legend>Elija una metodolog&iacute;a</legend>
+			<label for="selector">Lista de metodolog&iacute;as</label>
+				<select name="metodologia" id="selector" class="form-control" placeholder="Metodolog&iacute;a" autofocus required>
+					{{# each metodologias }}
+					<option value="{{ nombre }}">{{ nombre }}</option>
+					{{/ each }}
+				</select>
+		</fieldset>
+		<button type="submit" class="btn btn-primary btn-lg">Comparar</button>
+	</div>
 </form>
-	
+
 {{# block "resultado"}}
 	
 {{/ block}}

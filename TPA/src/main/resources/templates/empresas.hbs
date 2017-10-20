@@ -1,60 +1,201 @@
 {{# partial "contenido" }}
-<style>
-    .jumbotron {
-        background-color: #46aadf;
-        color: #fff;
-        padding: 100px 25px;
-        margin-bottom: 100px;
-    }
-    .left-text {
-        font-size: 30px;
-        padding-left: 200px;
-        line-height: 1.8;
-        color: #4e5758;
-        font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
-    }
-    .right-text {
-        font-size: 30px;
-        padding-left: 1150px;
-        padding-right: 200px;
-        line-height: 1.8;
-        color: #4e5758;
-        font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
-    }
-    .text30{
-        font-size: 30px;
-    }
-    .text20{
-        font-size: 20px;
-    }
-</style>
 
- <div class="jumbotron text-center">
+    <style>
 
-     <h1>Consultar Cuentas</h1>
-     <p>Encuentre los valores de las cuentas de las empresas mas importantes</p>
+        .jumbotron {
+            background-color: #46aadf;
+            color: #fff;
+            padding: 100px 25px;
+            margin-bottom: 100px;
+        }
 
- </div>
+        .text {
+            color: #4e5758;
+            font-family: WeblySleek UI, Segoe UI, Helvetica Neue, Arial, sans-serif;
+        }
 
- <div>
+        .text30 {
 
-     <h1><a class="left-text">Elegir empresa:</a><a class="right-text">Elegir periodo:</a></h1>
+            font-size: 30px;
+
+        }
+
+        .columna-derecha {
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+        }
+
+        .text20 {
+            font-size: 20px;
+        }
+
+        .selector {
+
+            padding-top: 20px;
+
+        }
+
+        .tabla {
+
+            padding-top: 100px;
+            display: flex;
+            justify-content: center;
+            /*align-content: center;*/
+            align-items: center;
+
+        }
+
+        .columna-tabla-izquierda {
+
+            margin-right: 200px;
+
+        }
+
+        .row2 {
+
+            padding-bottom: 50px;
+
+        }
 
 
- </div>
+    </style>
 
-<div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle text30" type="button" data-toggle="dropdown">
-        Empresa
-        <!--<spanaaa class="caret"></span>-->
-    </button>
-    <ul class="dropdown-menu text20">
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
-        <li><a href="#">JavaScript</a></li>
-    </ul>
-</div>
+    <div class="jumbotron text-center">
+
+        <h1>Consultar Cuentas</h1>
+        <p>Encuentre los valores de las cuentas de las empresas mas importantes</p>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-4">
+
+            <h1 class="text">Elegir empresa: </h1>
+
+            <div class="selector">
+
+                <form method="POST">
+
+                    {{#if empresas}}
+                        <select id="selector-empresa" name="nombreEmpresaElegida" onchange="this.form.submit()">
+
+
+                            <option disabled selected value> -- Seleccione una empresa --</option>
+
+                            {{#each empresas}}
+
+                                <option value="{{nombre}}">{{nombre}}</option>
+
+                            {{/each}}
+
+                        </select>
+
+                    {{else}}
+
+                        <select id="selector-empresa" disabled>
+
+                            <option value="{{nombreEmpresaElegida}}">{{nombreEmpresaElegida}}</option>
+
+                        </select>
+
+                    {{/if}}
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-4 columna-derecha">
+            <h1 class="text">Elegir periodo:</h1>
+
+            <div class="selector">
+
+                <form method="POST">
+
+                    {{#if periodos}}
+
+                        <select id="selector-periodo" name="nombrePeriodoElegido" onchange="this.form.submit()">
+
+
+                            <option disabled selected value> -- Seleccione un periodo --</option>
+
+                            {{#each periodos}}
+
+                                <option value="{{anio}}">{{anio}}</option>
+
+                            {{/each}}
+
+                        </select>
+
+                    {{else}}
+
+                        <select id="selector-periodo" disabled>
+
+                            <option value="{{nombrePeriodoElegido}}">{{nombrePeriodoElegido}}</option>
+
+                        </select>
+
+                    {{/if}}
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="col-sm-2"></div>
+
+    </div>
+
+    <div class="row row2">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-8 tabla" >
+
+                <table>
+
+                    <tr>
+
+                        <th class="columna-tabla-izquierda">Cuenta</th>
+                        <th>Valor</th>
+
+                    </tr>
+
+                    {{#each listaDeCuentas}}
+
+                        <tr>
+
+                            <td>{{nombre}}</td>
+                            <td>{{valor}}</td>
+
+
+                        </tr>
+
+
+
+
+                        {{/each}}
+
+
+                </table>
+
+        </div>
+
+        <div class="col-sm-2"></div>
+
+    </div>
+
 
 {{/partial}}
+
+
 
 {{> template.hbs }}
