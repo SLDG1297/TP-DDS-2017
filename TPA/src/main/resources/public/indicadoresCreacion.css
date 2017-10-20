@@ -1,0 +1,87 @@
+.botonSecundario{
+    display: inline-block;
+    border-radius: 7px;
+    color: #2b60a9;
+    background-color: #F7F9FA;
+    border: 2px solid #2B75BE;
+    text-align: center;
+    font-size: 20px;
+    padding: 7px 15px;
+    width: auto;
+    height: 45px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+.botonSecundario:hover {
+    background-color: #2B75BE;
+    color: white;
+}
+
+.botonPrincipal{
+    display: inline-block;
+    border-radius: 7px;
+    color: white;
+    background-color: #2B75BE;
+    border: 2px solid #2B75BE;
+    text-align: center;
+    font-size: 20px;
+    padding: 7px 15px;
+    width: 200px;
+    height: 60px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+.botonPrincipal:hover {
+    background-color: #255892;
+    border: 2px solid #255892;
+
+}
+
+.btnSuma,.btnResta,.btnMulti,.btnDiv,.btnCrear{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.botonesICN{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.contenidoCentral{
+    border: 2px solid #2B75BE;
+    height: 350px;
+}
+
+.botonesCalcu{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.parteIzq{
+    padding-right: 0px;
+}
+
+.contenido{
+    display: flex;
+    justify-content: center;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+
+
