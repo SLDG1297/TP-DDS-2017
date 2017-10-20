@@ -78,10 +78,10 @@ public class Bootstrap {
 	public static void chequearEmpresas() throws IOException {
 		try
 		{
+			new Instanciador_Bolsa_Empresas().instanciar();
 			RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		}
 		catch (NoExistenObjetosException excepcion) {
-			new Instanciador_Bolsa_Empresas().instanciar();
 			iniciarEmpresas();
 		}
 	}
