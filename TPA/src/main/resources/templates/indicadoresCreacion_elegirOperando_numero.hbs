@@ -2,34 +2,111 @@
     <title>Consultorea.me</title>
 {{/partial}}
 
-{{# partial "contenido" }}
+{{# partial "contenidoDeCreacion" }}
+
+    <head>
+        <link rel="stylesheet"  href="/indicadoresCreacion.css">
+    </head>
 
     <style>
-
-        .contenedor {
-            margin-top: 10%;
+        .well{
+            height: 100px;
+        }
+        .botonCrear{
+            height: auto;
         }
 
+        .botonCrear:hover{
+            background-color: #2B75BE;
+            border: 2px solid #2B75BE;
+            box-shadow: 8px 10px 8px rgba(0,0,0,0.2);
+        }
+        .inputNombre{
+            width: 400px;
+            box-shadow: 1px 1px 1px 1px gray;
+        }
     </style>
 
-    <div class="contenedor">
+    <body>
 
-        <div class="well">
 
-            {{formula}}
+    <div class="col-sm-2"></div>
+
+
+    <div class="col-sm-8 parteIzq">
+
+        <div class="contenidoCentral">
+
+            <div class="well">
+
+                {{formula}}
+
+            </div>
+
+            <div class="centrar" style="padding-top: 0px">
+                <h3>Ingrese el nombre del indicador</h3>
+            </div>
+
+            <div class="centrar">
+                <form method="POST">
+
+                    <div class="centrar divInputNombre" style="padding-top: 10px; padding-bottom: 10px;">
+                        <input class="inputNombre" type="number" name="numero" value=""/>
+                    </div>
+
+                    <div class="centrar">
+                        <input type="submit" value="Ingresar numero" class="botonCrear botonPrincipal"/>
+                    </div>
+
+                </form>
+            </div>
+
 
         </div>
 
-        <form class="formcito" method="POST">
-
-            <label>Ingrese numero a operar</label>
-            <input type="number" name="numero"/>
-            <input type="submit" value="Ingresar numero"/>
-
-        </form>
+        <div class="botonesICN">
+            <form >
+                <input type="submit" name="cosaAOperar" value="Indicador" disabled class="botonSecundario"/>
+                <input type="submit" name="cosaAOperar" value="Cuenta" disabled class="botonSecundario"/>
+                <input type="submit" name="cosaAOperar" value="Numero" disabled class="botonSecundario"/>
+            </form>
+        </div>
 
     </div>
 
+    <div class="col-sm-1 parteDer">
+
+        <div class="botonesCalcu">
+            <form>
+                <div class="btnSuma">
+                    <input type="submit" name="operador" value=" + " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnResta">
+                    <input type="submit" name="operador" value=" - " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnMulti">
+                    <input type="submit" name="operador" value=" * " disabled class="botonSecundario"/>
+                </div>
+                <div class="btnDiv">
+                    <input type="submit" name="operador" value=" / " disabled class="botonSecundario"/>
+                </div>
+
+                <div class="btnCrear">
+                    <input type="submit" name="operador" value="Crear" disabled class="botonPrincipal"/>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="col-sm-1"></div>
+
+
+    </body>
+
+
 {{/partial}}
 
-{{> template.hbs }}
+{{> indicadoresCreacionTemplate.hbs }}
