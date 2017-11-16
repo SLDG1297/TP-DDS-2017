@@ -61,6 +61,15 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
     	
     	commit();
 	}
+	
+	@Override
+	public void modificar(T unObjeto) {
+		beginTransaction();
+		
+		update(unObjeto);
+		
+		commit();
+	}
 
 	@Override
 	public void eliminar(T unObjeto) {

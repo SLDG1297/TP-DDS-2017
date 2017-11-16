@@ -66,6 +66,18 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 		
 		this.setLista(nuevaLista);	
 	}
+	
+	@Override
+	public void modificar(T unObjeto) {
+		try
+		{
+			this.lista.set(this.lista.indexOf(unObjeto), unObjeto);
+		}
+		catch(IndexOutOfBoundsException excepcion)
+		{
+			throw new NoExisteObjetoConEseNombreException();
+		}
+	}
 
 	@Override
 	public void eliminar(T unObjeto) {

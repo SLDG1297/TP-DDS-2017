@@ -2,6 +2,7 @@ package Archivo.CargaBatch;
 
 import java.util.Arrays;
 
+import Archivo.CargaBatch.Excepciones.NoSePuedeModificarException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
@@ -52,6 +53,16 @@ public class RenglonCSV {
 
 	public void setValor(Integer valor) {
 		this.valor = valor;
+	}
+	
+	public void actualizar(Empresa empresaVieja) {
+		if (!quiereModificarEmpresa(empresaVieja)) throw new NoSePuedeModificarException();
+		
+		else if (!quiereModificarPeriodo(empresaVieja)) empresaVieja.getPeriodos().add(this.getPeriodo());
+		
+		else if (!quiereModificarCuenta(empresaVieja)) empresaVieja.buscarPeriodo(this.getPeriodo().getAnio()).agregarCuenta(this.getCuenta());
+		
+		else empresaVieja.buscarPeriodo(this.getPeriodo().getAnio()).buscarCuenta(this.getCuenta().getNombre()).setValor(this.getCuenta().getValor());
 	}
 
 	public Boolean quiereModificarEmpresa(Empresa unaEmpresa) {

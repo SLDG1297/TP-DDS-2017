@@ -48,6 +48,10 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 		this.getProveedor().agregarLista(listaObjetos);
 	}
 	
+	public void modificarObjeto(T unObjeto) {
+		this.getProveedor().modificar(unObjeto);
+	}
+	
 	public void eliminarObjeto(T unObjeto) {
 		this.getProveedor().eliminar(unObjeto);
 	}
