@@ -1,5 +1,6 @@
 package Archivo.CargaBatch;
 
+import Archivo.CargaBatch.Excepciones.NoTieneCambiosException;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
@@ -16,27 +17,25 @@ public class ReceptorDeEmpresas {
 	}
 	
 	public void recibirEmpresa(RenglonCSV renglon) {
-		if(!existeEmpresa(renglon)) insertarEmpresa(renglon);
-		
-		else modificarEmpresa(renglon);
-	}
-	
-	private Boolean existeEmpresa(RenglonCSV renglon) {
 		try
 		{
-			return renglon.getEmpresa().getNombre().equals(RepositorioEmpresas.getInstancia().buscarObjeto(renglon.getEmpresa().getNombre()));
+			modificarEmpresa(renglon);
 		}
 		catch(NoExisteObjetoConEseNombreException excepcion)
 		{
-			return false;
+			insertarEmpresa(renglon);
+		}
+		catch(NoTieneCambiosException excepcion)
+		{
+			
 		}
 	}
 	
-	private void insertarEmpresa(RenglonCSV renglon) {
+	public void insertarEmpresa(RenglonCSV renglon) {
 		RepositorioEmpresas.getInstancia().agregarObjeto(renglon.getEmpresa());
 	}
 	
-	private void modificarEmpresa(RenglonCSV renglon) {
+	public void modificarEmpresa(RenglonCSV renglon) {
 		Empresa empresaVieja = RepositorioEmpresas.getInstancia().buscarObjeto(renglon.getEmpresa().getNombre());
 		
 		renglon.actualizar(empresaVieja);
