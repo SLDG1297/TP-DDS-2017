@@ -15,13 +15,20 @@
             text-align: center;
         }
 
-        .imagenes{
-            font-size: 100px;
-        }
-
         .imagenes span{
             margin-right: 5px;
             color: #2B75BE;
+        }
+
+        .botonPrincipalDisabled{
+            pointer-events:none;
+            background-color: rgba(56, 56, 56, 0.18);
+        }
+
+        .botonSecundarioDisabled{
+            pointer-events:none;
+            background-color: rgba(56, 56, 56, 0.18);
+            color: white;
         }
 
     </style>
@@ -31,9 +38,9 @@
     <div class="col-sm-2"></div>
 
 
-    <div class="col-sm-8 parteIzq">
+    <div class="col-sm-9">
 
-        <div class="contenidoCentral">
+        <div class="caja">
 
             <div class="well">
 
@@ -41,48 +48,51 @@
 
             </div>
 
-            <h2 class="centrar" style="padding-top: 60px; margin-bottom: 50px">Eliga una opcion: Indicador, Cuenta o Numero</h2>
+            <div class="contenido">
 
-            <div class="imagenes centrar">
-                <span class="glyphicon glyphicon-arrow-down"></span>
-                <span class="glyphicon glyphicon-arrow-down"></span>
-                <span class="glyphicon glyphicon-arrow-down"></span>
+                <div class="botonesICN">
+                    <form method="POST">
+                        <div class="btnDiv">
+                            <input type="submit" name="cosaAOperar" value="Indicador"  class="botonSecundario iluminar" style="width: 110px"/>
+                        </div>
+                        <div class="btnDiv">
+                            <input type="submit" name="cosaAOperar" value="Cuenta"  class="botonSecundario iluminar" style="width: 110px"/>
+                        </div>
+                        <div class="btnDiv">
+                            <input type="submit" name="cosaAOperar" value="Numero"  class="botonSecundario iluminar" style="width: 110px"/>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contenidoCentral">
+
+                </div>
+
+                <div class="botonesCalcu">
+                    <form>
+                        <div class="btnSuma">
+                            <input type="submit" name="operador" value=" + " class="botonSecundario botonSecundarioDisabled"/>
+                        </div>
+                        <div class="btnResta">
+                            <input type="submit" name="operador" value=" - " class="botonSecundario botonSecundarioDisabled"/>
+                        </div>
+                        <div class="btnMulti">
+                            <input type="submit" name="operador" value=" * " class="botonSecundario botonSecundarioDisabled"/>
+                        </div>
+                        <div class="btnDiv">
+                            <input type="submit" name="operador" value=" / " class="botonSecundario botonSecundarioDisabled"/>
+                        </div>
+                    </form>
+                </div>
+
             </div>
 
-        </div>
+            <div class="centrar" style="margin-left: 23px">
+                <form>
+                    <input type="submit" name="operador" value="Crear" class="botonPrincipal botonPrincipalDisabled"/>
+                </form>
+            </div>
 
-        <div class="botonesICN">
-            <form method="post">
-                <input type="submit" name="cosaAOperar" value="Indicador"  class="botonSecundario"/>
-                <input type="submit" name="cosaAOperar" value="Cuenta"  class="botonSecundario"/>
-                <input type="submit" name="cosaAOperar" value="Numero"  class="botonSecundario"/>
-            </form>
-        </div>
-
-    </div>
-
-    <div class="col-sm-1 parteDer">
-
-        <div class="botonesCalcu">
-            <form>
-                <div class="btnSuma">
-                    <input type="submit" name="operador" value=" + " disabled class="botonSecundario"/>
-                </div>
-                <div class="btnResta">
-                    <input type="submit" name="operador" value=" - " disabled class="botonSecundario"/>
-                </div>
-                <div class="btnMulti">
-                    <input type="submit" name="operador" value=" * " disabled class="botonSecundario"/>
-                </div>
-                <div class="btnDiv">
-                    <input type="submit" name="operador" value=" / " disabled class="botonSecundario"/>
-                </div>
-
-                <div class="btnCrear">
-                    <input type="submit" name="operador" value="Crear" disabled class="botonPrincipal"/>
-                </div>
-
-            </form>
         </div>
 
     </div>
