@@ -96,6 +96,19 @@ public class TestRecepcionDeEmpresas {
 	}
 	
 	@Test
+	public void puedoHacerVariosCambiosSobreLoMismo() {
+		RenglonCSV renglon1 = new RenglonCSV("A", "X", 1, 1);
+		RenglonCSV renglon2 = new RenglonCSV("A", "X", 1, 2);
+		RenglonCSV renglon3 = new RenglonCSV("A", "X", 2, 2);
+		RenglonCSV renglon4 = new RenglonCSV("A", "Y", 2, 2);
+		
+		receptor.recibirEmpresa(renglon1);
+		receptor.recibirEmpresa(renglon2);
+		receptor.recibirEmpresa(renglon3);
+		receptor.recibirEmpresa(renglon4);
+	}
+	
+	@Test
 	public void sePuedeCompilarArchivo() throws IOException {
 		CompiladorCSV.instanciar().presentarEmpresas("repositorioEmpresasMock.csv");
 	}

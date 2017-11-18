@@ -59,7 +59,7 @@ public class RenglonCSV {
 	public void actualizar(Empresa empresaVieja) {
 		if (!quiereModificarEmpresa(empresaVieja)) throw new NoSePuedeModificarException();
 		
-		else if (!quiereModificarPeriodo(empresaVieja)) empresaVieja.getPeriodos().add(this.getPeriodo());
+		else if (!quiereModificarPeriodo(empresaVieja)) empresaVieja.agregarPeriodo(this.getPeriodo());
 		
 		else if (!quiereModificarCuenta(empresaVieja)) empresaVieja.buscarPeriodo(this.getPeriodo().getAnio()).agregarCuenta(this.getCuenta());
 		
