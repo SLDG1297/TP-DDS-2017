@@ -1,5 +1,7 @@
 package Archivo.CargaBatch;
 
+import java.io.IOException;
+
 import Archivo.CargaBatch.Excepciones.NoTieneCambiosException;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Repositorios.RepositorioEmpresas;
@@ -14,6 +16,10 @@ public class ReceptorDeEmpresas {
 		if(instancia == null) instancia = new ReceptorDeEmpresas();
 		
 		return instancia;
+	}
+	
+	public void dejarPasar(String ruta) throws IOException {
+		CompiladorCSV.instanciar().compilarEmpresas(ruta).stream().forEach(r -> recibirEmpresa(r));
 	}
 	
 	public void recibirEmpresa(RenglonCSV renglon) {
