@@ -19,11 +19,11 @@ public class TestRenglonCSV {
 	
 	@Before
 	public void iniciarRenglones() {
-		renglonQueNoPuedeHacerNada = new RenglonCSV("Te la creiste, wey equisde", "EDITBA", "2007", "7171");
-		renglonQueAgregaPeriodo = new RenglonCSV("Axel", "EDITBA", "2008", "7171");
-		renglonQueAgregaCuenta = new RenglonCSV("Axel", "JajaSalu2", "2007", "7171");
-		renglonQueModificaPosta = new RenglonCSV("Axel", "EDITBA", "2007", "7171");
-		renglonQueNoHaceNada = new RenglonCSV("Axel", "EDITBA", "2006", "2");
+		renglonQueNoPuedeHacerNada = new RenglonCSV("Te la creiste, wey equisde", "EDITBA", 2007, 7171);
+		renglonQueAgregaPeriodo = new RenglonCSV("Axel", "EDITBA", 2008, 7171);
+		renglonQueAgregaCuenta = new RenglonCSV("Axel", "JajaSalu2", 2007, 7171);
+		renglonQueModificaPosta = new RenglonCSV("Axel", "EDITBA", 2007, 7171);
+		renglonQueNoHaceNada = new RenglonCSV("Axel", "EDITBA", 2006, 2);
 	}
 	
 	@Before
@@ -61,7 +61,7 @@ public class TestRenglonCSV {
 	
 	@Test
 	public void parecieraQueQuiereModifciarPeriodoPeroNadaQueVerPorqueLaEmpresaEsDistinta() {
-		RenglonCSV renglon = new RenglonCSV("EstaNooo", "EDITBA", "2006", "5470");
+		RenglonCSV renglon = new RenglonCSV("EstaNooo", "EDITBA", 2006, 5470);
 		
 		assertFalse(renglon.quiereModificarPeriodo(empresa));
 	}
@@ -78,7 +78,7 @@ public class TestRenglonCSV {
 	
 	@Test
 	public void quiereDejarTodoIgual() {
-		RenglonCSV renglon = new RenglonCSV("Axel", "EDITBA", "2006", "2");
+		RenglonCSV renglon = new RenglonCSV("Axel", "EDITBA", 2006, 2);
 		
 		assertTrue(renglon.quiereModificarCuenta(empresa));
 	}

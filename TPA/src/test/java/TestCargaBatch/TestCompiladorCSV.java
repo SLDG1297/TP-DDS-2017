@@ -14,6 +14,17 @@ import java.io.StringReader;
 import java.util.List;
 
 public class TestCompiladorCSV {
+	@Test
+	public void sePuedeEscanear() {
+		String renglon = "Rolito,EDITBA,2000,8000";
+		
+		RenglonCSV token = CompiladorCSV.instanciar().escanear(renglon);
+		
+		assertEquals("Rolito", token.getEmpresa().getNombre());
+		assertEquals("EDITBA", token.getCuenta().getNombre());
+		assertEquals(new Integer(2000), token.getPeriodo().getAnio());
+		assertEquals(new Integer(8000), token.getValor());
+	}
 
 	@Test
 	public void sePuedeParsear() throws IOException {
@@ -33,17 +44,5 @@ public class TestCompiladorCSV {
 		assertEquals(tokens.get(1).getPeriodo().getAnio(), new Integer(2001));
 		assertEquals(tokens.get(2).getCuenta().getNombre(), "EDITBA");
 		assertEquals(tokens.get(0).getCuenta().getValor(), new Integer(8000));
-	}
-	
-	@Test
-	public void sePuedeEscanear() {
-		String renglon = "Rolito,EDITBA,2000,8000";
-		
-		RenglonCSV token = CompiladorCSV.instanciar().escanear(renglon);
-		
-		assertEquals("Rolito", token.getEmpresa().getNombre());
-		assertEquals("EDITBA", token.getCuenta().getNombre());
-		assertEquals(new Integer(2000), token.getPeriodo().getAnio());
-		assertEquals(new Integer(8000), token.getValor());
 	}
 }

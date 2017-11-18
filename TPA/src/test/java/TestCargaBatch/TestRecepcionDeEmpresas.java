@@ -3,6 +3,7 @@ package TestCargaBatch;
 import org.junit.Before;
 import org.junit.Test;
 
+import Archivo.CargaBatch.CompiladorCSV;
 import Archivo.CargaBatch.ReceptorDeEmpresas;
 import Archivo.CargaBatch.RenglonCSV;
 import Archivo.CargaBatch.Excepciones.NoTieneCambiosException;
@@ -17,16 +18,19 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import static org.junit.Assert.*;
 
-public class TestCarga {
+import java.io.IOException;
+
+public class TestRecepcionDeEmpresas {
+	ReceptorDeEmpresas receptor = new ReceptorDeEmpresas();
 	RenglonCSV renglonQueNoPuedeHacerNada, renglonQueAgregaPeriodo, renglonQueAgregaCuenta, renglonQueModificaPosta, renglonQueNoHaceNada;
 	
 	@Before
 	public void iniciarRenglones() {
-		renglonQueNoPuedeHacerNada = new RenglonCSV("Te la creiste, wey equisde", "EDITBA", "2007", "7171");
-		renglonQueAgregaPeriodo = new RenglonCSV("Axel", "EDITBA", "2008", "7171");
-		renglonQueAgregaCuenta = new RenglonCSV("Axel", "JajaSalu2", "2007", "7171");
-		renglonQueModificaPosta = new RenglonCSV("Axel", "FCF", "2006", "7171");
-		renglonQueNoHaceNada = new RenglonCSV("Axel", "FCF", "2006", "500");
+		renglonQueNoPuedeHacerNada = new RenglonCSV("Te la creiste, wey equisde", "EDITBA", 2007, 7171);
+		renglonQueAgregaPeriodo = new RenglonCSV("Axel", "EDITBA", 2008, 7171);
+		renglonQueAgregaCuenta = new RenglonCSV("Axel", "JajaSalu2", 2007, 7171);
+		renglonQueModificaPosta = new RenglonCSV("Axel", "FCF", 2006, 7171);
+		renglonQueNoHaceNada = new RenglonCSV("Axel", "FCF", 2006, 500);
 	}
 	
 	@Before
@@ -39,45 +43,45 @@ public class TestCarga {
 
 	@Test(expected = NoExisteObjetoConEseNombreException.class)
 	public void errorSiSeIntentaModificarObjetoQueNoExiste() {
-		ReceptorDeEmpresas.instanciar().modificarEmpresa(renglonQueNoPuedeHacerNada);
+		receptor.modificarEmpresa(renglonQueNoPuedeHacerNada);
 	}
 	
 	@Test(expected = NoTieneCambiosException.class)
 	public void errorSiSeIntentaModificarObjetoQueNoTieneCambios() {
-		ReceptorDeEmpresas.instanciar().modificarEmpresa(renglonQueNoHaceNada);
+		receptor.modificarEmpresa(renglonQueNoHaceNada);
 	}
 	
 	@Test
 	public void sePuedeIngresarUnaNuevaEmpresa() {
-		ReceptorDeEmpresas.instanciar().recibirEmpresa(renglonQueNoPuedeHacerNada);
+		receptor.recibirEmpresa(renglonQueNoPuedeHacerNada);
 		
 		assertEquals(renglonQueNoPuedeHacerNada.getEmpresa().getNombre(), RepositorioEmpresas.getInstancia().buscarObjeto("Te la creiste, wey equisde").getNombre());
 	}
 	
 	@Test
 	public void noPasaNadaSiIngresoUnaEmpresaExistente() {
-		ReceptorDeEmpresas.instanciar().recibirEmpresa(renglonQueModificaPosta);
+		receptor.recibirEmpresa(renglonQueModificaPosta);
 		
 		assertEquals(renglonQueModificaPosta.getEmpresa().getNombre(), RepositorioEmpresas.getInstancia().buscarObjeto("Axel").getNombre());
 	}
 	
 	@Test
 	public void sePuedeAgregarUnPeriodoAUnaEmpresa() {
-		ReceptorDeEmpresas.instanciar().recibirEmpresa(renglonQueAgregaPeriodo);
+		receptor.recibirEmpresa(renglonQueAgregaPeriodo);
 		
 		assertEquals(renglonQueAgregaPeriodo.getPeriodo().getAnio(), RepositorioEmpresas.getInstancia().buscarObjeto("Axel").buscarPeriodo(2008).getAnio());
 	}
 	
 	@Test
 	public void sePuedeAgregarUnaCuentaAUnaEmpresa() {
-		ReceptorDeEmpresas.instanciar().recibirEmpresa(renglonQueAgregaCuenta);
+		receptor.recibirEmpresa(renglonQueAgregaCuenta);
 		
 		assertEquals(renglonQueAgregaCuenta.getCuenta().getNombre(), RepositorioEmpresas.getInstancia().buscarObjeto("Axel").buscarPeriodo(2007).buscarCuenta("JajaSalu2").getNombre());
 	}
 	
 	@Test
 	public void sePuedeModificarUnaCuentaAUnaEmpresa() {
-		ReceptorDeEmpresas.instanciar().recibirEmpresa(renglonQueModificaPosta);
+		receptor.recibirEmpresa(renglonQueModificaPosta);
 		
 		assertEquals(renglonQueModificaPosta.getValor(), RepositorioEmpresas.getInstancia().buscarObjeto("Axel").buscarPeriodo(2006).buscarCuenta("FCF").getValor());
 	}
@@ -86,8 +90,13 @@ public class TestCarga {
 	public void noDeberiaOcurrirNadaSiSeQuiereModificarEmpresaSinCambios() {
 		Cuenta cuentaAntes = RepositorioEmpresas.getInstancia().buscarObjeto("Axel").buscarPeriodo(2006).buscarCuenta("FCF");
 		
-		ReceptorDeEmpresas.instanciar().recibirEmpresa(renglonQueNoHaceNada);
+		receptor.recibirEmpresa(renglonQueNoHaceNada);
 		
 		assertEquals(cuentaAntes, RepositorioEmpresas.getInstancia().buscarObjeto("Axel").buscarPeriodo(2006).buscarCuenta("FCF"));
+	}
+	
+	@Test
+	public void sePuedeCompilarArchivo() throws IOException {
+		CompiladorCSV.instanciar().presentarEmpresas("repositorioEmpresasMock.csv");
 	}
 }

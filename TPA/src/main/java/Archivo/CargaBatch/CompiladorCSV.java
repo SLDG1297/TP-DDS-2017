@@ -6,10 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Archivo.FileCleaner;
-
 public class CompiladorCSV {
 	private static CompiladorCSV instancia = null;
+	public ReceptorDeEmpresas receptor = new ReceptorDeEmpresas();
 	
 	private CompiladorCSV() { }
 	
@@ -19,35 +18,52 @@ public class CompiladorCSV {
 		return instancia;
 	}
 	
-	public List<RenglonCSV> compilarEmpresas(String ruta) throws IOException {
+	public ReceptorDeEmpresas getReceptor() {
+		return receptor;
+	}
+
+	public void setReceptor(ReceptorDeEmpresas receptor) {
+		this.receptor = receptor;
+	}
+	
+	public void presentarEmpresas(String ruta) throws IOException {
 		FileReader reader = new FileReader(ruta);
 		
 		BufferedReader buffer = new BufferedReader(reader);
 		
-		List<RenglonCSV> renglones = instanciar().parsear(buffer);
+		compilar(parsear(buffer));
 		
 		buffer.close();
 		
 		reader.close();
-		
-		new FileCleaner().limpiar(ruta);
-		
-		return renglones;
 	}
 	
+	public void compilar(List<RenglonCSV> renglones) {
+		renglones.stream().forEach(r -> receptor.recibirEmpresa(r));
+	}
+
 	public List<RenglonCSV> parsear(BufferedReader buffer) throws IOException {
-		List<RenglonCSV> renglones = new ArrayList<RenglonCSV>();
-		
 		String renglon;
+		List<RenglonCSV> listaRenglones = new ArrayList<RenglonCSV>();
 		
-        while((renglon = buffer.readLine())!= null) renglones.add(instanciar().escanear(renglon));
-		
-		return renglones;
+		try
+		{
+	        while((renglon = buffer.readLine()) != null)
+	        {
+	        	listaRenglones.add(escanear(renglon));
+	        }
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			
+		}
+        
+        return listaRenglones;
 	}
 	
 	public RenglonCSV escanear(String renglon) {
 		String[] vector = renglon.split(",");
 		
-		return new RenglonCSV(vector[0], vector[1], vector[2], vector[3]);
+		return new RenglonCSV(vector[0], vector[1], Integer.parseInt(vector[2]), Integer.parseInt(vector[3]));
 	}
 }
