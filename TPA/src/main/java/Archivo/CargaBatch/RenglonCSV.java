@@ -3,6 +3,7 @@ package Archivo.CargaBatch;
 import java.util.Arrays;
 
 import Archivo.CargaBatch.Excepciones.NoSePuedeModificarException;
+import Archivo.CargaBatch.Excepciones.NoTieneCambiosException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
@@ -62,7 +63,9 @@ public class RenglonCSV {
 		
 		else if (!quiereModificarCuenta(empresaVieja)) empresaVieja.buscarPeriodo(this.getPeriodo().getAnio()).agregarCuenta(this.getCuenta());
 		
-		else empresaVieja.buscarPeriodo(this.getPeriodo().getAnio()).buscarCuenta(this.getCuenta().getNombre()).setValor(this.getCuenta().getValor());
+		else if (!esLoMismo(empresaVieja)) empresaVieja.buscarPeriodo(this.getPeriodo().getAnio()).buscarCuenta(this.getCuenta().getNombre()).setValor(this.getCuenta().getValor());
+		
+		else throw new NoTieneCambiosException();
 	}
 
 	public Boolean quiereModificarEmpresa(Empresa unaEmpresa) {
@@ -84,6 +87,17 @@ public class RenglonCSV {
 		try
 		{
 			return this.quiereModificarPeriodo(unaEmpresa) && unaEmpresa.buscarPeriodo(this.getPeriodo().getAnio()).buscarCuenta(this.getCuenta().getNombre()).getNombre().equals(this.getCuenta().getNombre());
+		}
+		catch(NoTieneLaCuentaException exception)
+		{
+			return false;
+		}
+	}
+	
+	public Boolean esLoMismo(Empresa unaEmpresa) {
+		try
+		{
+			return this.quiereModificarCuenta(unaEmpresa) && unaEmpresa.buscarPeriodo(this.getPeriodo().getAnio()).buscarCuenta(this.getCuenta().getNombre()).getValor().equals(this.getCuenta().getValor());
 		}
 		catch(NoTieneLaCuentaException exception)
 		{

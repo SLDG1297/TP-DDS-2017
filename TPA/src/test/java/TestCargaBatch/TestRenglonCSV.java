@@ -10,11 +10,12 @@ import org.junit.Test;
 
 import Archivo.CargaBatch.RenglonCSV;
 import Archivo.CargaBatch.Excepciones.NoSePuedeModificarException;
+import Archivo.CargaBatch.Excepciones.NoTieneCambiosException;
 import Modelo.Empresa.Empresa;
 
 public class TestRenglonCSV {
 	Empresa empresa;
-	RenglonCSV renglonQueNoPuedeHacerNada, renglonQueAgregaPeriodo, renglonQueAgregaCuenta, renglonQueModificaPosta;
+	RenglonCSV renglonQueNoPuedeHacerNada, renglonQueAgregaPeriodo, renglonQueAgregaCuenta, renglonQueModificaPosta, renglonQueNoHaceNada;
 	
 	@Before
 	public void iniciarRenglones() {
@@ -22,6 +23,7 @@ public class TestRenglonCSV {
 		renglonQueAgregaPeriodo = new RenglonCSV("Axel", "EDITBA", "2008", "7171");
 		renglonQueAgregaCuenta = new RenglonCSV("Axel", "JajaSalu2", "2007", "7171");
 		renglonQueModificaPosta = new RenglonCSV("Axel", "EDITBA", "2007", "7171");
+		renglonQueNoHaceNada = new RenglonCSV("Axel", "EDITBA", "2006", "2");
 	}
 	
 	@Before
@@ -105,5 +107,10 @@ public class TestRenglonCSV {
 		renglonQueModificaPosta.actualizar(empresa);
 		
 		assertEquals(renglonQueModificaPosta.getValor(), empresa.buscarPeriodo(renglonQueModificaPosta.getPeriodo().getAnio()).buscarCuenta(renglonQueModificaPosta.getCuenta().getNombre()).getValor());
+	}
+	
+	@Test(expected = NoTieneCambiosException.class)
+	public void noTieneCambiosLaCuenta() {
+		renglonQueNoHaceNada.actualizar(empresa);
 	}
 }
