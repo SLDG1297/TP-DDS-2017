@@ -8,6 +8,8 @@ import DB.DBManager;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.TiposDeRepositorios.TipoDeRepositorio;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
 
 public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implements Proveedor<T> {
 
@@ -79,5 +81,6 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 		
 		commit();
 	}
+
 
 }

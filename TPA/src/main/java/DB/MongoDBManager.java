@@ -21,12 +21,12 @@ import java.util.List;
 
 public abstract class MongoDBManager {
 
-    static MongoClient mongoClient = new MongoClient();
+    private MongoClient mongoClient = new MongoClient();
 
-    static MongoDatabase db = mongoClient.getDatabase("db");
+    private MongoDatabase cache = mongoClient.getDatabase("cache");
 
-    public static MongoCollection<Document> crearColeccion(String nombre){
-        MongoCollection<Document> collection = db.getCollection(nombre);
+    public MongoCollection<Document> crearColeccionMongo(String nombre){
+        MongoCollection<Document> collection = cache.getCollection(nombre);
         return collection;
     }
 
