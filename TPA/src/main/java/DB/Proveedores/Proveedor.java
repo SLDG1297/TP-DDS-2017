@@ -25,4 +25,6 @@ public interface Proveedor<T extends TipoDeRepositorio> {
 	T ejecutarQuery(Object query);
 
 	List<T> EjecutarQueryReturnList(Object query);
+
+	void eliminarConQuery(Object query);
 }

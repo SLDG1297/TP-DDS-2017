@@ -92,4 +92,16 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 		return null;
 	}
 
+	@Deprecated
+	@Override
+	public List<T> EjecutarQueryReturnList(Object query) {
+		return null;
+	}
+
+	@Deprecated
+	@Override
+	public void eliminarConQuery(Object query) {
+
+	}
+
 }

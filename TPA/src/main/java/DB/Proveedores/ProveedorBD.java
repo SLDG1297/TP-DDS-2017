@@ -88,5 +88,17 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 		return (T) createQuery(consulta).getSingleResult();
 	}
 
+	@Override
+	public List<T> EjecutarQueryReturnList(Object query) {
+		String consulta = (String) query;
+		return (List<T>) createQuery(consulta).getResultList();
+	}
+
+	@Override
+	public void eliminarConQuery(Object query) {
+		String consulta = (String) query;
+		createQuery(consulta).executeUpdate();
+	}
+
 
 }
