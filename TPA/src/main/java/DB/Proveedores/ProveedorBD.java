@@ -82,5 +82,11 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 		commit();
 	}
 
+	@Override
+	public T ejecutarQuery(Object query) {
+		String consulta = (String) query;
+		return (T) createQuery(consulta).getSingleResult();
+	}
+
 
 }
