@@ -42,8 +42,15 @@ public class RepositorioPrecalculados extends Repositorio<Precalculado> implemen
     @Override
     public Document crearDocument(Object object) {
         Precalculado precalculado = (Precalculado) object;
-
-        return null;
+        Document doc = new Document("idUsuario",precalculado.getIdUsuario())
+                .append("nombreUsuario",precalculado.getNombreUsuario())
+                .append("idIndicador",precalculado.getIdIndicador())
+                .append("nombreIndicador",precalculado.getNombreIndicador())
+                .append("idEmpresa",precalculado.getIdEmpresa())
+                .append("nombreEmpresa",precalculado.getNombreEmpresa())
+                .append("idPeriodo",precalculado.getIdPeriodo())
+                .append("anioPeriodo",precalculado.getAnioPeriodo());
+        return doc;
     }
 
     /*Se puede poner un metodo en el repositorio que sea ejecutar query, que reciba un filter and(eq("x", 1), lt("y", 3))*/

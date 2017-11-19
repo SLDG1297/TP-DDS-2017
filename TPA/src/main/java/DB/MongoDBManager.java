@@ -47,12 +47,10 @@ public abstract class MongoDBManager {
         getCollectionMongo(nombreColecction).insertOne(doc);
     }
 
-    Block<Document> printBlock = new Block<Document>() {
-        @Override
-        public void apply(final Document document) {
-            document.toJson();
-        }
-    };
+    public void addListMongo(String nombreColecction, List<Document> docs){
+        getCollectionMongo(nombreColecction).insertMany(docs);
+    }
+
 
 
 

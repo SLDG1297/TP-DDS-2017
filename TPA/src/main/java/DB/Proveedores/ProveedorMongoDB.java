@@ -59,13 +59,17 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
     @Override
     public void agregar(T unObjeto) {/*Se sobreescribe, se recibe un Obj Precalculado, y aca dentro se crea un Obj Document y este Document se pasar por parametro al super*/
         //Aca Descomponer Obj Precalculado, crear document, y llenarlo con lo que contiene Precalculado
-
-
+        Document doc = repoMongo.crearDocument(unObjeto);
+        addObjectMongo(repoMongo.getTabla(), doc);
     }
 
     @Override
     public void agregarLista(List<T> listaObjetos) {/*Igual que arriba pero con una lista*/
-        getCollectionMongo(repoMongo.getTabla()).insertMany((List<Document>) listaJson);
+        List<Document> documents = new ArrayList<Document>();
+        for(T obj : listaObjetos){
+            documents.add(repoMongo.crearDocument(obj));
+        }
+        addListMongo(repoMongo.getTabla(),documents);
     }
 
 

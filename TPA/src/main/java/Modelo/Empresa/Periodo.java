@@ -76,4 +76,8 @@ public class Periodo {
 	public Cuenta buscarCuenta(String nombreCuenta){
 	     return this.cuentas.stream().filter(c -> c.getNombre().equals(nombreCuenta)).findFirst().orElseThrow(()-> new NoTieneLaCuentaException());
 	}
+
+	public long getId() {
+		return id;
+	}
 }
