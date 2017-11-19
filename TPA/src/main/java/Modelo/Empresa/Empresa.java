@@ -3,6 +3,7 @@ package Modelo.Empresa;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
 import Modelo.Excepciones.Empresas.NoExisteElPeriodoException;
+import Modelo.Excepciones.Empresas.YaExisteElPeriodoException;
 
 import org.uqbar.commons.utils.Observable;
 
@@ -79,6 +80,18 @@ public class Empresa implements TipoDeRepositorio {
 	public Periodo buscarPeriodo(Integer periodo){
 	    return this.periodos.stream().filter(p -> p.getAnio().equals(periodo)).findFirst().orElseThrow(()-> new NoExisteElPeriodoException());
     }
+
+	public void agregarPeriodo(Periodo periodo) {
+		if(this.getPeriodos().contains(periodo)) throw new YaExisteElPeriodoException();
+		
+		List<Periodo> nuevosPeriodos = new ArrayList<Periodo>();
+		
+		nuevosPeriodos.addAll(this.getPeriodos());
+		
+		nuevosPeriodos.add(periodo);
+		
+		this.periodos = nuevosPeriodos;
+	}
 
 }
 

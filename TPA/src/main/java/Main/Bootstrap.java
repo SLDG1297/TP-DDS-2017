@@ -18,7 +18,8 @@ import static Factories.FactoryMetodologia.crearMetodologiaDeUsuario;
 import java.io.IOException;
 import java.util.Arrays;
 
-import Archivo.CargaBatch.ReceptorDeEmpresas;
+import Archivo.FileCleaner;
+import Archivo.CargaBatch.CompiladorCSV;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Proveedores.ProveedorBD;
 import DB.Proveedores.ProveedorMock;
@@ -78,7 +79,11 @@ public class Bootstrap {
 	public static void chequearEmpresas() throws IOException {
 		try
 		{
-			ReceptorDeEmpresas.instanciar().dejarPasar("cuentitasDeHector.csv");
+			String ruta = "cuentitasDeHector.csv";
+			
+			CompiladorCSV.instanciar().presentarEmpresas(ruta);
+			new FileCleaner().limpiar(ruta);
+			
 			RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		}
 		catch (NoExistenObjetosException excepcion) {

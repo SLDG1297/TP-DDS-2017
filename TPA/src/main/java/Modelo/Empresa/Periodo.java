@@ -58,7 +58,13 @@ public class Periodo {
 	public void agregarCuenta(Cuenta miCuenta) {
 		if(this.cuentas.contains(miCuenta)) throw new YaExisteLaCuentaException();
 		
-		this.cuentas.add(miCuenta);
+		List<Cuenta> nuevasCuentas = new ArrayList<Cuenta>();
+		
+		nuevasCuentas.addAll(this.getCuentas());
+		
+		nuevasCuentas.add(miCuenta);
+		
+		this.cuentas = nuevasCuentas;
 	}
 	
 	public boolean estaEntre(int anios, List<Periodo> lista, Periodo periodo){
