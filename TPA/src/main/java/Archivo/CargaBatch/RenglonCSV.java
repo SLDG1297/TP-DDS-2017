@@ -16,11 +16,11 @@ public class RenglonCSV {
 	private Cuenta cuenta;
 	private Integer valor;
 	
-	public RenglonCSV(String nombreEmpresa, String nombreCuenta, String numeroPeriodo, String numeroValor)
+	public RenglonCSV(String nombreEmpresa, String nombreCuenta, Integer numeroPeriodo, Integer numeroValor)
 	{
-		this.valor = Integer.parseInt(numeroValor);
+		this.valor = numeroValor;
 		this.cuenta = new Cuenta(nombreCuenta, this.valor);
-		this.periodo = new Periodo(Integer.parseInt(numeroPeriodo), Arrays.asList(this.cuenta));
+		this.periodo = new Periodo(numeroPeriodo, Arrays.asList(this.cuenta));
 		this.empresa = new Empresa(nombreEmpresa, Arrays.asList(this.periodo));
 	}
 	
@@ -59,7 +59,7 @@ public class RenglonCSV {
 	public void actualizar(Empresa empresaVieja) {
 		if (!quiereModificarEmpresa(empresaVieja)) throw new NoSePuedeModificarException();
 		
-		else if (!quiereModificarPeriodo(empresaVieja)) empresaVieja.getPeriodos().add(this.getPeriodo());
+		else if (!quiereModificarPeriodo(empresaVieja)) empresaVieja.agregarPeriodo(this.getPeriodo());
 		
 		else if (!quiereModificarCuenta(empresaVieja)) empresaVieja.buscarPeriodo(this.getPeriodo().getAnio()).agregarCuenta(this.getCuenta());
 		

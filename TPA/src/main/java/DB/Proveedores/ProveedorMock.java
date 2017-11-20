@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.TiposDeRepositorios.TipoDeRepositorio;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
 
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
 	private List<T> lista = new ArrayList<T>();
@@ -83,5 +85,23 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 	public void eliminar(T unObjeto) {
 		this.lista.remove(unObjeto);
 	}
-	
+
+	@Deprecated
+	@Override
+	public T ejecutarQuery(Object query) {
+		return null;
+	}
+
+	@Deprecated
+	@Override
+	public List<T> EjecutarQueryReturnList(Object query) {
+		return null;
+	}
+
+	@Deprecated
+	@Override
+	public void eliminarConQuery(Object query) {
+
+	}
+
 }

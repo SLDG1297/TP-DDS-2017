@@ -66,4 +66,8 @@ public class Usuario implements TipoDeRepositorio {
         result = 31 * result + passwordHasheada.hashCode();
         return result;
     }
+
+    public long getId() {
+        return id;
+    }
 }
