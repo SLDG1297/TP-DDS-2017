@@ -30,17 +30,19 @@ public class zzzz {
 
         RepositorioPrecalculados repo = RepositorioPrecalculados.getInstancia();
         RepositorioPrecalculados.getInstancia().setProveedor(new ProveedorMongoDB<>(repo));
-
-
-
-        Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto("axel@bags.com");
-        Indicador indicador = RepositorioIndicadores.getInstancia().buscarObjeto("ArrorROE");
-        Empresa empresa = RepositorioEmpresas.getInstancia().buscarObjeto("Feel-Fort");
-        Periodo periodo = empresa.buscarPeriodo(2006);
-
-        Precalculado p = new Precalculado(usuario,indicador,empresa,periodo, new BigDecimal(50));
-
-        RepositorioPrecalculados.getInstancia().agregarObjeto(p);
+//
+//
+//
+//        Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto("axel@bags.com");
+//        Indicador indicador = RepositorioIndicadores.getInstancia().buscarObjeto("ArrorROE");
+//        Empresa empresa = RepositorioEmpresas.getInstancia().buscarObjeto("Feel-Fort");
+//        Periodo periodo = empresa.buscarPeriodo(2006);
+//
+//        Precalculado p = new Precalculado(usuario.getId(),indicador.getId(),empresa.getId(),periodo.getId(), new BigDecimal(50));
+//
+//        RepositorioPrecalculados.getInstancia().agregarObjeto(p);
+        long a = 1;
+        RepositorioPrecalculados.getInstancia().createQuery(Filters.eq("idUsuario", a));
 
         /*agregarObjeto
         agregarListaDeObejtos

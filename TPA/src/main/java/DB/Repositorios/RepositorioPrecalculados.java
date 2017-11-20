@@ -5,12 +5,14 @@ import DB.TiposDeRepositorios.NombreRepositorio;
 import DB.TiposDeRepositorios.RepoDocumental;
 import Modelo.Indicadores.Precalculado;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +31,10 @@ public class RepositorioPrecalculados extends Repositorio<Precalculado> implemen
         super(nombreTabla);
     }
 
-    public Object jsonToObjeto(String json) {
-        Gson gson = new Gson();
-        return gson.fromJson(json, Precalculado.class);
+    public Object jsonToObjeto(Document doc) {
+        double a = doc.getDouble("valor");
+        Precalculado p = new Precalculado(doc.getLong("idUsuario"), doc.getLong("idIndicador"),doc.getLong("idEmpresa"),doc.getLong("idPeriodo"), new BigDecimal(a));
+        return p;
     }
 
     @Override
@@ -43,13 +46,9 @@ public class RepositorioPrecalculados extends Repositorio<Precalculado> implemen
     public Document crearDocument(Object object) {
         Precalculado precalculado = (Precalculado) object;
         Document doc = new Document("idUsuario",precalculado.getIdUsuario())
-                .append("nombreUsuario",precalculado.getNombreUsuario())
                 .append("idIndicador",precalculado.getIdIndicador())
-                .append("nombreIndicador",precalculado.getNombreIndicador())
                 .append("idEmpresa",precalculado.getIdEmpresa())
-                .append("nombreEmpresa",precalculado.getNombreEmpresa())
                 .append("idPeriodo",precalculado.getIdPeriodo())
-                .append("anioPeriodo",precalculado.getAnioPeriodo())
                 .append("valor",precalculado.getValor());
 
         return doc;

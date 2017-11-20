@@ -26,20 +26,23 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
 
     @Override
     public T ejecutarQuery(Object query) {
-        String json = ejecutarQueryMongo(repoMongo.getTabla(), (Bson) query);
+        Document json = ejecutarQueryMongo(repoMongo.getTabla(), (Bson) query);
         T objeto = (T) repoMongo.jsonToObjeto(json);
         return objeto;
     }
 
     @Override
-    public List<T> EjecutarQueryReturnList(Object query) {
-        List<String> list = ejecutarQueryMongoReturnList(repoMongo.getTabla(), (Bson) query);
+    public List<T> EjecutarQueryReturnList(Object query){
+        List<Document> list = ejecutarQueryMongoReturnList(repoMongo.getTabla(), (Bson) query); //Aca se le manda tambien el .class
         List<T> lista = new ArrayList<T>();
-        for(String json : list){
+        for(Document json : list){
             lista.add((T) repoMongo.jsonToObjeto(json));
         }
         return lista;
     }
+
+    //            Gson gson = new Gson();
+//             gson.fromJson(json, (Class.forName(repoMongo.getTabla())).getClass());
 
     @Override
     public void eliminarConQuery(Object query) {
@@ -49,8 +52,8 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
     @Override
     public List<T> darLista(String unTipo) {
         List<T> lista = new ArrayList<>();
-        List<String> list = getElementsColecction(unTipo);
-        for(String json : list){
+        List<Document> list = getElementsColecction(unTipo);
+        for(Document json : list){
             lista.add((T)repoMongo.jsonToObjeto(json));
         }
         return lista;
