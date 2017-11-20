@@ -12,7 +12,7 @@ import com.mongodb.client.model.Filters;
 import org.junit.Test;
 
 
-
+import java.math.BigDecimal;
 import java.net.UnknownHostException;
 
 public class zzzz {
@@ -38,7 +38,7 @@ public class zzzz {
         Empresa empresa = RepositorioEmpresas.getInstancia().buscarObjeto("Feel-Fort");
         Periodo periodo = empresa.buscarPeriodo(2006);
 
-        Precalculado p = new Precalculado(usuario,indicador,empresa,periodo);
+        Precalculado p = new Precalculado(usuario,indicador,empresa,periodo, new BigDecimal(50));
 
         RepositorioPrecalculados.getInstancia().agregarObjeto(p);
 
