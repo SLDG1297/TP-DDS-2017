@@ -35,21 +35,13 @@ public class EmpresasController {
     }
 
     public Void seleccionarPeriodo(Request request,Response response) {
-    	
-    	if(request.queryParams().contains("nombrePeriodoElegido")) 
-    	{
-    		
-    	String nombreEmpresaElegida = request.params(":nombreEmpresaElegida");
+
+        String nombreEmpresaElegida = request.params(":nombreEmpresaElegida");
         String nombrePeriodoElegido = request.queryParams("nombrePeriodoElegido");
         response.redirect("/empresas/" + nombreEmpresaElegida + "/" + nombrePeriodoElegido);
-        
-     	}
-    	else 
-    	{
-    	this.seleccionarEmpresa(request, response);
-    	}
-    	
-    	return null;
+
+        return null;
+
     }
 
     public ModelAndView redireccionarPeriodoElegido(Request request, Response response) {
@@ -75,9 +67,8 @@ public class EmpresasController {
     public ModelAndView redireccionarEmpresaElegida(Request request, Response response) {
 
         Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
-        
+
         String nombreEmpresa = request.params(":nombreEmpresaElegida");
-        modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos());
         modelo.put("nombreEmpresaElegida",nombreEmpresa);
         modelo.put("periodos",RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getPeriodos());
 

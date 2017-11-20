@@ -1,36 +1,26 @@
 {{# partial "contenido" }}
 
     <style>
-
         .jumbotron {
             background-color: #2A93DF;
             color: #fff;
             padding: 100px 25px;
             margin-bottom: 100px;
         }
-
         .tabla {
-
             padding-top: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
-
         }
         
         .columna-tabla-izquierda {
-
             margin-right: 200px;
-
         }
-
         .row2 {
-
             padding-top: 100px;
             padding-bottom: 200px;
-
         }
-
         .h1{
             font-size: 5px;
         }
@@ -103,23 +93,7 @@
 
                 <form method="POST">
                 <label class="clasificacion-input" for="selector-empresa">Empresa</label>
-                
-                    {{#if nombreEmpresaElegida}}
-                        
-                        <select class="form-control mi-control selector-empresa" id="selector-empresa" >
-                        
-         
-                            
-                            {{#each empresas}}
-
-                                <option value="{{nombre}}">{{nombre}}</option>
-
-                            {{/each}}
-                            
-                        </select>
-
-                    {{else}}
-                        
+                    {{#if empresas}}
                         <select class = "form-control mi-control" id="selector-empresa" name="nombreEmpresaElegida" onchange="this.form.submit()">
 
 
@@ -131,6 +105,12 @@
 
                             {{/each}}
 
+                        </select>
+
+                    {{else}}
+  
+                        <select class="form-control mi-control selector-empresa" id="selector-empresa" disabled>
+                            <option value="{{nombreEmpresaElegida}}">{{nombreEmpresaElegida}}</option>
                         </select>
 
                     {{/if}}
