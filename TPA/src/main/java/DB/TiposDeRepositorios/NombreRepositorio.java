@@ -4,7 +4,8 @@ public enum NombreRepositorio {
 	EMPRESA("Empresa"),
 	INDICADOR("Indicador"),
 	METODOLOGIA("Metodologia"),
-	USUARIO("Usuario");
+	USUARIO("Usuario"),
+	PRECALCULADO("Precalculado");
 	
 	private String nombre;
 	

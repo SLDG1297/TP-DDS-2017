@@ -7,14 +7,16 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import DB.Proveedores.Proveedor;
+import DB.Proveedores.ProveedorMongoDB;
+import DB.Repositorios.*;
+import Modelo.Empresa.Periodo;
+import Modelo.Indicadores.Precalculado;
+import Modelo.Usuarios.Usuario;
 import org.junit.Before;
 import org.junit.Test;
 
 import DB.Excepciones.NoExistenObjetosException;
-import DB.Repositorios.RepositorioEmpresas;
-import DB.Repositorios.RepositorioIndicadores;
-import DB.Repositorios.RepositorioMetodologias;
-import DB.Repositorios.RepositorioUsuarios;
 import Main.Bootstrap;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
@@ -96,4 +98,5 @@ public class TestIniciar {
 		assertEquals(indicadoresQepd, Arrays.asList(RepositorioIndicadores.getInstancia().buscarObjeto("Shasha-Saludos"), RepositorioIndicadores.getInstancia().buscarObjeto("VAI-BYE")));
 		assertEquals(metodologiasQepd, Arrays.asList(RepositorioMetodologias.getInstancia().buscarObjeto("GGWP")));
 	}
+
 }

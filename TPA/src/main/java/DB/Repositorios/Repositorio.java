@@ -55,4 +55,10 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 	public void eliminarObjeto(T unObjeto) {
 		this.getProveedor().eliminar(unObjeto);
 	}
+
+	public T createQuery(Object query) {return this.getProveedor().ejecutarQuery(query);}
+
+	public List<T> createQueryReturnList(Object query) {return this.getProveedor().EjecutarQueryReturnList(query);}
+
+	public void deteleByQuery (Object query) {this.getProveedor().eliminarConQuery(query);}
 }

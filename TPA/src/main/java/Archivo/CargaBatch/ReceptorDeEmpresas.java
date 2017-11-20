@@ -6,15 +6,7 @@ import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 
 public class ReceptorDeEmpresas {
-	private static ReceptorDeEmpresas instancia = null;
-	
-	private ReceptorDeEmpresas() { }
-	
-	public static ReceptorDeEmpresas instanciar() {
-		if(instancia == null) instancia = new ReceptorDeEmpresas();
-		
-		return instancia;
-	}
+	public ReceptorDeEmpresas() { }
 	
 	public void recibirEmpresa(RenglonCSV renglon) {
 		try
