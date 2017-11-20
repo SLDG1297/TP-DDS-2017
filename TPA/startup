@@ -1,0 +1,2 @@
+echo Startup
+nohup java -jar target/TPANUAL-0.0.1-SNAPSHOT-jar-with-dependencies.jar > ../nohup.out &
