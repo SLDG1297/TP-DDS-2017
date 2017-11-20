@@ -26,6 +26,9 @@
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:bson:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.uqbar-project:arena-jface:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.uqbar-project:arena-core:3.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.uqbar-project:arena-pot:3.6.1" level="project" />

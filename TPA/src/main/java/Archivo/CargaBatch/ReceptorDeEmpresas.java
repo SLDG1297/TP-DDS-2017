@@ -2,6 +2,7 @@ package Archivo.CargaBatch;
 
 import Archivo.CargaBatch.Excepciones.NoTieneCambiosException;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.GestorDeCache;
 import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 
@@ -33,5 +34,8 @@ public class ReceptorDeEmpresas {
 		renglon.actualizar(empresaVieja);
 		
 		RepositorioEmpresas.getInstancia().modificarObjeto(empresaVieja);
+
+		GestorDeCache.getInstance().eliminarEmpresa(renglon.getEmpresa().getNombre());
+
 	}
 }
