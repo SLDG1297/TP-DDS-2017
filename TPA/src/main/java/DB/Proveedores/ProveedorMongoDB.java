@@ -33,7 +33,7 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
 
     @Override
     public List<T> EjecutarQueryReturnList(Object query){
-        List<Document> list = ejecutarQueryMongoReturnList(repoMongo.getTabla(), (Bson) query); //Aca se le manda tambien el .class
+        List<Document> list = ejecutarQueryMongoReturnList(repoMongo.getTabla(), (Bson) query);
         List<T> lista = new ArrayList<T>();
         for(Document json : list){
             lista.add((T) repoMongo.jsonToObjeto(json));
@@ -41,8 +41,6 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
         return lista;
     }
 
-    //            Gson gson = new Gson();
-//             gson.fromJson(json, (Class.forName(repoMongo.getTabla())).getClass());
 
     @Override
     public void eliminarConQuery(Object query) {
@@ -60,8 +58,7 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
     }
 
     @Override
-    public void agregar(T unObjeto) {/*Se sobreescribe, se recibe un Obj Precalculado, y aca dentro se crea un Obj Document y este Document se pasar por parametro al super*/
-        //Aca Descomponer Obj Precalculado, crear document, y llenarlo con lo que contiene Precalculado
+    public void agregar(T unObjeto) {
         Document doc = repoMongo.crearDocument(unObjeto);
         addObjectMongo(repoMongo.getTabla(), doc);
     }

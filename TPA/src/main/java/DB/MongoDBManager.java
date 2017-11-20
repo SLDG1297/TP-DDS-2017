@@ -19,9 +19,6 @@ import java.util.List;
 
 public abstract class MongoDBManager {
 
-//    MongoClientURI connectionString = new MongoClientURI("mongodb://localhost:27017");
-//    MongoClient mongoClient = new MongoClient(connectionString);
-
     private MongoClient mongoClient = new MongoClient();
 
     private MongoDatabase cache = mongoClient.getDatabase("cache");

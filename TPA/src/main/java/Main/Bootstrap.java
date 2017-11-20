@@ -23,10 +23,8 @@ import Archivo.CargaBatch.CompiladorCSV;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Proveedores.ProveedorBD;
 import DB.Proveedores.ProveedorMock;
-import DB.Repositorios.RepositorioEmpresas;
-import DB.Repositorios.RepositorioIndicadores;
-import DB.Repositorios.RepositorioMetodologias;
-import DB.Repositorios.RepositorioUsuarios;
+import DB.Proveedores.ProveedorMongoDB;
+import DB.Repositorios.*;
 import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
@@ -47,6 +45,9 @@ public class Bootstrap {
 		RepositorioIndicadores.getInstancia().setProveedor(new ProveedorBD<Indicador>());
 
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
+
+		RepositorioPrecalculados repo = RepositorioPrecalculados.getInstancia();
+		RepositorioPrecalculados.getInstancia().setProveedor(new ProveedorMongoDB<>(repo));
 	}
 	
 	public static void iniciarRepositoriosDePrueba() {

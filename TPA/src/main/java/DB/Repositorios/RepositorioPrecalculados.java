@@ -54,16 +54,4 @@ public class RepositorioPrecalculados extends Repositorio<Precalculado> implemen
         return doc;
     }
 
-    /*Se puede poner un metodo en el repositorio que sea ejecutar query, que reciba un filter and(eq("x", 1), lt("y", 3))*/
-
-//    public void x (Bson c){
-//        collection.find(c);
-//    }
-    /*uso this.x(Filters.eq("x", 1));*/
-
-    /*DBManager debe tener los metodos persistir, eliminar, buscar, que reciban por parametro el nombre de una coleccion y lo que necesiten/
-    las debe usar el proveedor a los metodos, esto permite que se elimine la referencia al repo, y ademas que los repos ya NO tengan la
-    necesidad de tener una coleccion dentro, ya que el metodo get da una coleccion y si njo existe la crea
-     */
-
 }
