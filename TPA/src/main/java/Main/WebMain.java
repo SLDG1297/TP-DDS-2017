@@ -12,7 +12,7 @@ public class WebMain {
 
     public static void iniciarSitio() {
 
-        port(8080);
+        port(80);
 
         staticFileLocation("/public");
 
