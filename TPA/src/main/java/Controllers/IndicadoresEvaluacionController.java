@@ -125,13 +125,13 @@ public class IndicadoresEvaluacionController {
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);
 		mapa.put("nombreEmpresaSeleccionada", nombreEmpresa);
 		mapa.put("periodoSeleccionado", periodo);
-		mapa.put("formula", indicadorElegido.imprimirFormula());
+		mapa.put("formula", indicadorElegido.imprimirFormula());/*
 
 		try {
 
 			String emailUsuario = (String)mapa.get("email");
 			//Estoy seleccionando el id del periodo o que? Tambien esta query es gigante, es horrible, lo debo meter en el gestor de cache aunque no haga nada mas que pedirle cosas al repo?
-			resultado = RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario)));
+//			resultado = RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario)));
 
 		}
 
@@ -142,7 +142,9 @@ public class IndicadoresEvaluacionController {
 		}
 		catch(NoTieneLaCuentaException e) {
 			return new ModelAndView(mapa, "indicadoresEvaluacionError.hbs");
-		}
-		
+		}*/
+
+		return null;
+
 	}
 }
