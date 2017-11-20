@@ -56,7 +56,7 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 		this.getProveedor().eliminar(unObjeto);
 	}
 
-	public T createQuery(Object query) {return this.getProveedor().ejecutarQuery(query);}
+	public T buscarObjetoPorQuery(Object query) {return this.getProveedor().ejecutarQuery(query);}
 
 	public List<T> createQueryReturnList(Object query) throws ClassNotFoundException {return this.getProveedor().EjecutarQueryReturnList(query);}
 

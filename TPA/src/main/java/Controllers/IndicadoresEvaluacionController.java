@@ -6,6 +6,7 @@ import java.util.Map;
 
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
+import DB.Repositorios.RepositorioPrecalculados;
 import DB.Repositorios.RepositorioUsuarios;
 import Modelo.Empresa.Empresa;
 import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;
@@ -13,6 +14,7 @@ import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Query;
 import Modelo.Usuarios.GestorDeUsuarios;
 import Modelo.Usuarios.Usuario;
+import com.mongodb.client.model.Filters;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -124,7 +126,15 @@ public class IndicadoresEvaluacionController {
 		mapa.put("nombreEmpresaSeleccionada", nombreEmpresa);
 		mapa.put("periodoSeleccionado", periodo);
 		mapa.put("formula", indicadorElegido.imprimirFormula());
-		
+
+		try {
+
+			String emailUsuario = (String)mapa.get("email");
+			//Estoy seleccionando el id del periodo o que? Tambien esta query es gigante, es horrible, lo debo meter en el gestor de cache aunque no haga nada mas que pedirle cosas al repo?
+			resultado = RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario)));
+
+		}
+
 		try {
 			resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
 			mapa.put("resultado", resultado);

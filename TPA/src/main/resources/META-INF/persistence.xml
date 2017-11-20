@@ -31,9 +31,14 @@
         
          
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
-	    <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db" /> 
+	    	<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db" />
             <property name="hibernate.connection.username" value="root" />
+<<<<<<< HEAD
             <property name="hibernate.connection.password" value="kechu7123" />
+=======
+            <property name="hibernate.connection.password" value="gonza2014" />
+
+>>>>>>> a333feff6e4394be866b2de1e75a5242e0c36b0d
 
 
 <!--

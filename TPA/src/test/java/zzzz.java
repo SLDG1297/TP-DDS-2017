@@ -42,7 +42,7 @@ public class zzzz {
 //
 //        RepositorioPrecalculados.getInstancia().agregarObjeto(p);
         long a = 1;
-        RepositorioPrecalculados.getInstancia().createQuery(Filters.eq("idUsuario", a));
+        RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.eq("idUsuario", a));
 
         /*agregarObjeto
         agregarListaDeObejtos
