@@ -49,7 +49,9 @@ public class RepositorioPrecalculados extends Repositorio<Precalculado> implemen
                 .append("idEmpresa",precalculado.getIdEmpresa())
                 .append("nombreEmpresa",precalculado.getNombreEmpresa())
                 .append("idPeriodo",precalculado.getIdPeriodo())
-                .append("anioPeriodo",precalculado.getAnioPeriodo());
+                .append("anioPeriodo",precalculado.getAnioPeriodo())
+                .append("valor",precalculado.getValor());
+
         return doc;
     }
 
