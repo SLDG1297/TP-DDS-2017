@@ -5,6 +5,8 @@ import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Usuarios.Usuario;
 
+import java.math.BigDecimal;
+
 public class Precalculado implements TipoDeRepositorio {
 
     private long idUsuario;
@@ -19,7 +21,9 @@ public class Precalculado implements TipoDeRepositorio {
     private long idPeriodo;
     private Integer anioPeriodo;
 
-    public Precalculado(Usuario usuario, Indicador indicador, Empresa empresa, Periodo periodo){
+    BigDecimal valor;
+
+    public Precalculado(Usuario usuario, Indicador indicador, Empresa empresa, Periodo periodo, BigDecimal valor){
         this.idUsuario = usuario.getId();
         this.nombreUsuario = usuario.getNombre();
         this.idIndicador = indicador.getId();
@@ -28,6 +32,15 @@ public class Precalculado implements TipoDeRepositorio {
         this.nombreEmpresa = empresa.getNombre();
         this.idPeriodo = periodo.getId();
         this.anioPeriodo = periodo.getAnio();
+        this.valor = valor;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 
     public long getIdUsuario() {
