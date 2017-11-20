@@ -35,7 +35,13 @@ public class ReceptorDeEmpresas {
 		
 		RepositorioEmpresas.getInstancia().modificarObjeto(empresaVieja);
 
-		GestorDeCache.getInstance().eliminarEmpresa(renglon.getEmpresa().getNombre());
+		try {
+			GestorDeCache.getInstance().eliminarEmpresa(renglon.getEmpresa().getNombre());
+		}
+		catch (NullPointerException e){
+
+		}
+
 
 	}
 }

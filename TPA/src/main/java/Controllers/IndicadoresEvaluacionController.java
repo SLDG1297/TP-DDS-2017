@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+import DB.Excepciones.NoEstaEnCacheException;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
 import DB.Repositorios.RepositorioPrecalculados;
@@ -11,6 +12,7 @@ import DB.Repositorios.RepositorioUsuarios;
 import Modelo.Empresa.Empresa;
 import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Indicadores.Indicador;
+import Modelo.Indicadores.Precalculado;
 import Modelo.Indicadores.Query;
 import Modelo.Usuarios.GestorDeUsuarios;
 import Modelo.Usuarios.Usuario;
@@ -131,20 +133,36 @@ public class IndicadoresEvaluacionController {
 
 			String emailUsuario = (String)mapa.get("email");
 			//Estoy seleccionando el id del periodo o que? Tambien esta query es gigante, es horrible, lo debo meter en el gestor de cache aunque no haga nada mas que pedirle cosas al repo?
+<<<<<<< HEAD
 //			resultado = RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario)));
+=======
+			resultado = RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario))).getValor();
+			mapa.put("resultado",resultado);
+			System.out.println("Lo saque de cache");
+			return new ModelAndView(mapa,"indicadoresEvaluacion.hbs");
+>>>>>>> 69c4835ec9a5ea66e6bcaa11f56f60657c8652bd
 
 		}
 
-		try {
-			resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
-			mapa.put("resultado", resultado);
-			return new ModelAndView(mapa, "indicadoresEvaluacion.hbs");
-		}
-		catch(NoTieneLaCuentaException e) {
-			return new ModelAndView(mapa, "indicadoresEvaluacionError.hbs");
-		}*/
+		catch(NoEstaEnCacheException e) {
 
-		return null;
+			try {
+				resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
+				mapa.put("resultado", resultado);
+				System.out.println("No lo saque de cache");
+				agregarACache(mapa);
+				return new ModelAndView(mapa, "indicadoresEvaluacion.hbs");
+			}
+			catch(NoTieneLaCuentaException e2) {
+
+				return new ModelAndView(mapa, "indicadoresEvaluacionError.hbs");
+
+			}
+
+		}
 
 	}
-}
+
+
+	}
+
