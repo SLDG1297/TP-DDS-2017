@@ -143,7 +143,7 @@ public class IndicadoresEvaluacionController {
 
 		}
 
-		catch(NoEstaEnCacheException e) {
+		catch(NullPointerException e) {
 
 			try {
 				resultado = indicadorElegido.calcular(new Query(empresaElegida,periodo));
