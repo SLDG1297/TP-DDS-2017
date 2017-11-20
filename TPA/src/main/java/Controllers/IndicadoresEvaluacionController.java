@@ -133,7 +133,7 @@ public class IndicadoresEvaluacionController {
 
 			String emailUsuario = (String)mapa.get("email");
 			//Estoy seleccionando el id del periodo o que? Tambien esta query es gigante, es horrible, lo debo meter en el gestor de cache aunque no haga nada mas que pedirle cosas al repo?
-			resultado = RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario))).getValor();
+			resultado = new BigDecimal(RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario))).getValor());
 			mapa.put("resultado",resultado);
 			System.out.println("Lo saque de cache");
 			return new ModelAndView(mapa,"indicadoresEvaluacion.hbs");
@@ -161,12 +161,35 @@ public class IndicadoresEvaluacionController {
 
 		public void agregarACache(Map<Object, Object> mapa){
 
-			Precalculado objetoPrecalculado = new Precalculado()
+			Precalculado objetoPrecalculado = obtenerObjetoPrecalculado(mapa);
+
+			RepositorioPrecalculados.getInstancia().agregarObjeto(objetoPrecalculado);
+
+		}
+
+		private Precalculado obtenerObjetoPrecalculado(Map<Object, Object> mapa){
+
+			String emailUsuario = (String)mapa.get("email");
+			Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto(emailUsuario);
+
+			String nombreIndicador = (String)mapa.get("nombreIndicadorSeleccionado");
+			Indicador indicador = RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
+
+			String nombreEmpresa = (String)mapa.get("nombreEmpresaSeleccionada");
+			Empresa empresa = RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa);
+
+			int periodoSeleccionado = (int)mapa.get("periodoSeleccionado");
+
+			BigDecimal resultado = (BigDecimal)mapa.get("resultado");
+
+			Precalculado objetoPrecalculado = new Precalculado(usuario.getId(),indicador.getId(),empresa.getId(),empresa.buscarPeriodo(periodoSeleccionado).getId(),resultado);
+
+			return  objetoPrecalculado;
 
 		}
 
 	}
 
 
-	}
+
 
