@@ -24,7 +24,7 @@ public interface Proveedor<T extends TipoDeRepositorio> {
 
 	T ejecutarQuery(Object query);
 
-	List<T> EjecutarQueryReturnList(Object query);
+	List<T> EjecutarQueryReturnList(Object query) throws ClassNotFoundException;
 
 	void eliminarConQuery(Object query);
 }

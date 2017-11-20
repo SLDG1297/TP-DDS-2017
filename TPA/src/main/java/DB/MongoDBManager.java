@@ -1,5 +1,6 @@
 package DB;
 
+import com.google.gson.GsonBuilder;
 import com.mongodb.Block;
 import com.mongodb.MongoClient;
 
@@ -30,15 +31,15 @@ public abstract class MongoDBManager {
         return collection;
     }
 
-    public String ejecutarQueryMongo(String nombreColecction, Bson consulta){
+    public Document ejecutarQueryMongo(String nombreColecction, Bson consulta){
         Document doc = getCollectionMongo(nombreColecction).find(consulta).first();
-        String json = doc.toJson();
+        String json = new GsonBuilder().create().toJson(doc);
         System.out.println(json);
-        return json;
+        return doc;
     }
 
-    public List<String> ejecutarQueryMongoReturnList(String nombreColecction, Bson consulta){
-        List<String> lista = new ArrayList<String>();
+    public List<Document> ejecutarQueryMongoReturnList(String nombreColecction, Bson consulta){
+        List<Document> lista = new ArrayList<Document>();
         MongoCursor<Document> cursor = getCollectionMongo(nombreColecction).find(consulta).iterator();
         usoCursor(lista, cursor);
         return lista;
@@ -56,8 +57,8 @@ public abstract class MongoDBManager {
         }
     }
 
-    public List<String> getElementsColecction(String nombreColecction){
-        List<String> lista = new ArrayList<String>();
+    public List<Document> getElementsColecction(String nombreColecction){
+        List<Document> lista = new ArrayList<Document>();
         MongoCursor<Document> cursor = getCollectionMongo(nombreColecction).find().iterator();
         usoCursor(lista, cursor);
         return lista;
@@ -68,12 +69,12 @@ public abstract class MongoDBManager {
         System.out.println(deleteResult.getDeletedCount());
     }
 
-    private void usoCursor(List<String> lista, MongoCursor<Document> cursor) {
+    private void usoCursor(List<Document> lista, MongoCursor<Document> cursor) {
         try {
             while (cursor.hasNext()) {
-                String json = cursor.next().toJson();
+                Document json = cursor.next();
                 lista.add(json);
-                System.out.println(json);
+                System.out.println(json.toJson());
             }
         } finally {
             cursor.close();

@@ -9,7 +9,7 @@ public interface RepoDocumental {
 //
 //    public void setCollection(MongoCollection<Document> collection);
 
-    public Object jsonToObjeto(String json);
+    public Object jsonToObjeto(Document json);
 
     public String getTabla();
 
