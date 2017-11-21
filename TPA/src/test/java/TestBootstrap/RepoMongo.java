@@ -81,7 +81,8 @@ public class RepoMongo extends MongoDBManager {
     @Test
     public void a3eliminarPorQuery(){
         long a = 1;
-        eliminarPorQuery("Precalculado", Filters.eq("idUsuario", a));
+        double b = 50;
+        eliminarPorQuery("Precalculado", Filters.and(Filters.eq("idUsuario", a), Filters.eq("valor", b)));
     }
 
 }
