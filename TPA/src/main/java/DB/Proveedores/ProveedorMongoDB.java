@@ -45,7 +45,6 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
     @Override
     public void eliminarConQuery(Object query) {
         eliminarPorQuery(repoMongo.getTabla(), (Bson) query);
-        System.out.println("Se realizo la Eliminacion");
     }
 
     @Override
