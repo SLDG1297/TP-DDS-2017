@@ -31,7 +31,7 @@ public abstract class MongoDBManager {
     public Document ejecutarQueryMongo(String nombreColecction, Bson consulta){
         Document doc = getCollectionMongo(nombreColecction).find(consulta).first();
         String json = new GsonBuilder().create().toJson(doc);
-        System.out.println(json);
+        System.out.println("Se obtuvo : " + json);
         return doc;
     }
 
@@ -63,7 +63,7 @@ public abstract class MongoDBManager {
 
     public void eliminarPorQuery(String nombreColecction, Bson consulta){
         DeleteResult deleteResult = getCollectionMongo(nombreColecction).deleteMany(consulta);
-        System.out.println(deleteResult.getDeletedCount());
+        System.out.println("Se elimino " + deleteResult.getDeletedCount() + " documento/s");
     }
 
     private void usoCursor(List<Document> lista, MongoCursor<Document> cursor) {
@@ -71,7 +71,7 @@ public abstract class MongoDBManager {
             while (cursor.hasNext()) {
                 Document json = cursor.next();
                 lista.add(json);
-                System.out.println(json.toJson());
+                System.out.println("Se obtuvo : " + json.toJson());
             }
         } finally {
             cursor.close();

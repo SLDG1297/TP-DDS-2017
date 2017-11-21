@@ -81,8 +81,7 @@ public class RepoMongo extends MongoDBManager {
     @Test
     public void a3eliminarPorQuery(){
         long a = 1;
-        DeleteResult d = getCollectionMongo("Precalculado").deleteMany(Filters.eq("idUsuario", a));
-        assertTrue(d.wasAcknowledged());
+        eliminarPorQuery("Precalculado", Filters.eq("idUsuario", a));
     }
 
 }
