@@ -62,6 +62,7 @@ public class WebMain {
         get("/empresas/:nombreEmpresaElegida",empresasController::redireccionarEmpresaElegida, engine);
         post("/empresas/:nombreEmpresaElegida",empresasController::seleccionarPeriodo);
         get("/empresas/:nombreEmpresaElegida/:nombrePeriodoElegido",empresasController::redireccionarPeriodoElegido,engine);
+        post("/empresas/:nombreEmpresaElegida/:nombrePeriodoElegido",empresasController::seleccionarPeriodo);
         get("/empresasCreacion", empresasController::creacionEmpresas, engine);
 
     }

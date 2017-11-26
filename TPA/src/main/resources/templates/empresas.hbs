@@ -96,9 +96,9 @@
                 
                     {{#if nombreEmpresaElegida}}
                         
-                        <select class="form-control mi-control selector-empresa" id="selector-empresa" >
-                        
-         
+                        <select class="form-control mi-control selector-empresa" id="selector-empresa" name="nombreEmpresaElegida" onchange="this.form.submit()">
+                                            
+                       <option value="{{nombreEmpresaElegida}}">{{nombreEmpresaElegida}}</option>
                             
                             {{#each empresas}}
 
@@ -139,9 +139,23 @@
                 
                    <label class="clasificacion-input" for="selector-periodo">Periodo</label>
                    
-                    {{#if periodos}}
+                    {{#if nombrePeriodoElegido}}
 
-                        <select class="form-control mi-control" id="selector-periodo" name="nombrePeriodoElegido" onchange="this.form.submit()">
+                       <select class="form-control mi-control selector-periodo" id="selector-periodo" name="nombrePeriodoElegido" onchange="this.form.submit()">
+                       
+                            <option value="{{nombrePeriodoElegido}}">{{nombrePeriodoElegido}}</option>
+                            
+                             {{#each periodos}}
+
+                                <option value="{{anio}}">{{anio}}</option>
+
+                            {{/each}}
+                            
+                        </select>
+
+                    {{else}}
+                        
+                         <select class="form-control mi-control" id="selector-periodo" name="nombrePeriodoElegido" onchange="this.form.submit()">
 
 
                             <option disabled selected value> -- Seleccione un periodo --</option>
@@ -152,12 +166,6 @@
 
                             {{/each}}
 
-                        </select>
-
-                    {{else}}
-                        
-                        <select class="form-control mi-control selector-periodo" id="selector-periodo" disabled>
-                            <option value="{{nombrePeriodoElegido}}">{{nombrePeriodoElegido}}</option>
                         </select>
 
                     {{/if}}

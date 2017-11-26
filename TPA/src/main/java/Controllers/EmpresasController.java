@@ -33,7 +33,21 @@ public class EmpresasController {
 
         return null;
     }
+    
+    public ModelAndView redireccionarEmpresaElegida(Request request, Response response) {
 
+        Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
+        
+        String nombreEmpresa = request.params(":nombreEmpresaElegida");
+        modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos().stream().filter(e -> !e.getNombre().equals(nombreEmpresa)).collect(Collectors.toList()));
+        modelo.put("nombreEmpresaElegida",nombreEmpresa);
+        modelo.put("periodos",RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getPeriodos());
+
+
+        return  new ModelAndView(modelo,"empresas.hbs");
+
+    }
+    
     public Void seleccionarPeriodo(Request request,Response response) {
     	
     	if(request.queryParams().contains("nombrePeriodoElegido")) 
@@ -67,24 +81,13 @@ public class EmpresasController {
         modelo.put("listaDeCuentas",listaCuentasDelPeriodo);
         modelo.put("nombreEmpresaElegida",nombreEmpresa);
         modelo.put("nombrePeriodoElegido",nombrePeridoElegido);
+        modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos().stream().filter(e -> !e.getNombre().equals(nombreEmpresa)).collect(Collectors.toList()));
+        modelo.put("periodos",RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getPeriodos().stream().filter(p -> p.getAnio() != Integer.parseInt(nombrePeridoElegido)).collect(Collectors.toList()));
 
         return new ModelAndView(modelo,"empresas.hbs");
 
     }
 
-    public ModelAndView redireccionarEmpresaElegida(Request request, Response response) {
-
-        Map<Object, Object> modelo = GestorDeUsuarios.getInstance().obtenerMapa(request);
-        
-        String nombreEmpresa = request.params(":nombreEmpresaElegida");
-        modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos());
-        modelo.put("nombreEmpresaElegida",nombreEmpresa);
-        modelo.put("periodos",RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getPeriodos());
-
-
-        return  new ModelAndView(modelo,"empresas.hbs");
-
-    }
 
     public ModelAndView creacionEmpresas(Request request, Response response) {
         Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
