@@ -3,6 +3,7 @@ package Controllers;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import DB.Excepciones.NoEstaEnCacheException;
 import DB.Repositorios.RepositorioEmpresas;
@@ -57,10 +58,13 @@ public class IndicadoresEvaluacionController {
 
 		Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 		
+		Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto((String) mapa.get("email"));
+		
 		String nombreIndicador = request.params(":nombreIndicador");
 
 		Indicador indicadorElegido =  RepositorioIndicadores.getInstancia().buscarObjeto(nombreIndicador);
 
+		mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetosDeUsuario(usuario).stream().filter(i -> !i.getNombre().equals(nombreIndicador)).collect(Collectors.toList()));
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);
 		mapa.put("formula", indicadorElegido.imprimirFormula());
 		mapa.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos());
@@ -71,11 +75,29 @@ public class IndicadoresEvaluacionController {
 	
 	public Void seleccionarEmpresa(Request request, Response response) {
 
+		if(request.queryParams().contains("nombreEmpresa")) {
+	
 		String nombreIndicador = request.params(":nombreIndicador");
 		String nombreEmpresa = request.queryParams("nombreEmpresa");
 
 		response.redirect("/indicadores/evaluacion/" + nombreIndicador + "/"+ nombreEmpresa);
-
+		}
+		else 
+		{
+			if(request.params("nombreEmpresa") != null) 
+			{
+				String nombreIndicador = request.queryParams("nombreIndicador");
+				String nombreEmpresa = request.params("nombreEmpresa");
+				
+				response.redirect("/indicadores/evaluacion/" + nombreIndicador + "/"+ nombreEmpresa);
+			}
+			else 
+			{
+				this.seleccionarIndicador(request, response);
+			}
+			
+		}
+		
 		return null;
 
 	}
@@ -84,6 +106,8 @@ public class IndicadoresEvaluacionController {
 		
 		Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
 		
+		Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto((String) mapa.get("email"));
+		
 		String nombreEmpresa = request.params(":nombreEmpresa");
 		String nombreIndicador = request.params(":nombreIndicador");
 		
@@ -91,6 +115,8 @@ public class IndicadoresEvaluacionController {
 		
 		Empresa empresaElegida = RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa);
 		
+		mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetosDeUsuario(usuario).stream().filter(i -> !i.getNombre().equals(nombreIndicador)).collect(Collectors.toList()));
+		mapa.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos().stream().filter(e -> !e.getNombre().equals(nombreEmpresa)).collect(Collectors.toList()));
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);
 		mapa.put("nombreEmpresaSeleccionada", nombreEmpresa);
 		mapa.put("formula", indicadorElegido.imprimirFormula());
@@ -101,12 +127,18 @@ public class IndicadoresEvaluacionController {
 	
 	public Void seleccionarPeriodo(Request request, Response response) {
 
+		if(request.queryParams().contains("periodo")) {
 		String nombreIndicador = request.params(":nombreIndicador");
 		String nombreEmpresa = request.params(":nombreEmpresa");
 		String anio = request.queryParams("periodo");
 
 		response.redirect("/indicadores/evaluacion/" + nombreIndicador +  "/" + nombreEmpresa + "/" + anio);
-
+		}
+		else 
+		{
+			this.seleccionarEmpresa(request, response);
+		}
+		
 		return null;
 
 	}
@@ -114,6 +146,8 @@ public class IndicadoresEvaluacionController {
 	public ModelAndView redireccionarPeriodoElegido(Request request, Response response) {
 		
 		Map<Object, Object> mapa = GestorDeUsuarios.getInstance().obtenerMapa(request);
+		
+		Usuario usuario = RepositorioUsuarios.getInstancia().buscarObjeto((String) mapa.get("email"));
 		
 		String nombreEmpresa = request.params(":nombreEmpresa");
 		String nombreIndicador = request.params(":nombreIndicador");
@@ -124,6 +158,9 @@ public class IndicadoresEvaluacionController {
 
 		BigDecimal resultado;
 		
+		mapa.put("indicadores", RepositorioIndicadores.getInstancia().buscarListaDeObjetosDeUsuario(usuario).stream().filter(i -> !i.getNombre().equals(nombreIndicador)).collect(Collectors.toList()));
+		mapa.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos().stream().filter(e -> !e.getNombre().equals(nombreEmpresa)).collect(Collectors.toList()));
+		mapa.put("periodos",RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getPeriodos().stream().filter(p -> p.getAnio() != periodo).collect(Collectors.toList()));
 		mapa.put("nombreIndicadorSeleccionado", nombreIndicador);
 		mapa.put("nombreEmpresaSeleccionada", nombreEmpresa);
 		mapa.put("periodoSeleccionado", periodo);
@@ -159,6 +196,25 @@ public class IndicadoresEvaluacionController {
 			}
 
 		}
+
+	}
+	
+	public Void seleccionarOtro(Request request, Response response) {
+
+		if(request.queryParams().contains("nombreIndicador")) {
+			
+			String nombreIndicador = request.queryParams("nombreIndicador");
+			String nombreEmpresa = request.params(":nombreEmpresa");
+			String anio = request.params("periodo");
+
+			response.redirect("/indicadores/evaluacion/" + nombreIndicador +  "/" + nombreEmpresa + "/" + anio);
+		}
+		else 
+		{
+			this.seleccionarPeriodo(request, response);
+		}
+		
+		return null;
 
 	}
 

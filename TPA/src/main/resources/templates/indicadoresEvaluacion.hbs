@@ -8,11 +8,11 @@
         }
 
         .container {
-            padding: 10px 25px;
+            padding: 0px 25px;
         }
 
         .row.mi-fila{
-            padding: 100px;
+            padding: 0px 100px 100px 100px;
         }
 
         .row.primer-fila {
@@ -41,7 +41,7 @@
         }
         
         .top-padding{
-        padding-top: 100px;
+        padding-top: 10px;
         }  
 
     </style>
@@ -66,7 +66,19 @@
                 <form class="form-group form-indicador" method ="POST">
                     <label class="clasificacion-input" for="selector-indicador">Indicador</label>
 
-                    {{#if indicadores}}
+                    {{#if nombreIndicadorSeleccionado}}
+                       
+                      <select class="form-control mi-control selector-indicador" id="selector-indicador" name="nombreIndicador" onchange="this.form.submit()">
+                            <option value="{{nombreIndicadorSeleccionado}}">{{nombreIndicadorSeleccionado}}</option>
+                            
+                            {{#each indicadores}}
+                                <option value="{{nombre}}">{{nombre}}</option>
+                            {{/each}}
+                            
+                        </select>
+
+                    {{else}}
+                        
                         <select class="form-control mi-control selector-indicador" name="nombreIndicador" id="selector-indicador" onchange="this.form.submit()">
 
                             <option disabled selected value> -- Seleccione un indicador -- </option>
@@ -74,12 +86,6 @@
                                 <option value="{{nombre}}">{{nombre}}</option>
                             {{/each}}
 
-                        </select>
-
-                    {{else}}
-
-                        <select class="form-control mi-control selector-indicador" id="selector-indicador" disabled>
-                            <option value="{{nombreIndicadorSeleccionado}}">{{nombreIndicadorSeleccionado}}</option>
                         </select>
 
                     {{/if}}
@@ -111,7 +117,18 @@
                 <form class="form-group form-empresa" method ="POST">
                     <label class="clasificacion-input" for="selector-empresa">Empresa</label>
 
-                    {{#if empresas}}
+                    {{#if nombreEmpresaSeleccionada}}
+
+                        <select class="form-control mi-control selector-empresa" id="selector-empresa" name="nombreEmpresa" onchange="this.form.submit()">
+                            <option value="{{nombreEmpresaSeleccionada}}">{{nombreEmpresaSeleccionada}}</option>
+                            
+                            {{#each empresas}}
+                                <option value="{{nombre}}">{{nombre}}</option>
+                            {{/each}}
+                            
+                        </select>
+
+                    {{else}}
 
                         <select class="form-control mi-control selector-empresa" id="selector-empresa" name="nombreEmpresa" onchange="this.form.submit()">
 
@@ -120,12 +137,6 @@
                                 <option value="{{nombre}}">{{nombre}}</option>
                             {{/each}}
 
-                        </select>
-
-                    {{else}}
-
-                        <select class="form-control mi-control selector-empresa" id="selector-empresa" disabled>
-                            <option value="{{nombreEmpresaSeleccionada}}">{{nombreEmpresaSeleccionada}}</option>
                         </select>
 
                     {{/if}}
@@ -139,20 +150,29 @@
                 <form class="form-group form-periodo" method="POST">
                     <label class="clasificacion-input" for="selector-periodo">Periodo</label>
 
-                    {{#if periodos}}
+                    {{#if periodoSeleccionado}}
 
+                       <select class="form-control mi-control selector-periodo" id="selector-periodo" name="periodo" onchange="this.form.submit()">
+                       
+                            <option value="{{periodoSeleccionado}}">{{periodoSeleccionado}}</option>
+                            
+                             {{#each periodos}}
+                                <option value="{{anio}}">{{anio}}</option>
+                            {{/each}}
+                            
+                        </select>
+                       
+                     
+                    {{else}}
+                                        
                         <select class="form-control mi-control selector-periodo" id="selector-periodo" name="periodo" onchange="this.form.submit()">
 
                             <option disabled selected value> -- Seleccione un periodo -- </option>
+                            
                             {{#each periodos}}
                                 <option value="{{anio}}">{{anio}}</option>
                             {{/each}}
-                        </select>
-
-                    {{else}}
-                    
-                        <select class="form-control mi-control selector-periodo" id="selector-periodo" disabled>
-                            <option value="{{periodoSeleccionado}}">{{periodoSeleccionado}}</option>
+                            
                         </select>
                         
                     {{/if}}
