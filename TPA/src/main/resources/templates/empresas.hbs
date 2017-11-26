@@ -93,7 +93,23 @@
 
                 <form method="POST">
                 <label class="clasificacion-input" for="selector-empresa">Empresa</label>
-                    {{#if empresas}}
+                
+                    {{#if nombreEmpresaElegida}}
+                        
+                        <select class="form-control mi-control selector-empresa" id="selector-empresa" >
+                        
+         
+                            
+                            {{#each empresas}}
+
+                                <option value="{{nombre}}">{{nombre}}</option>
+
+                            {{/each}}
+                            
+                        </select>
+
+                    {{else}}
+                        
                         <select class = "form-control mi-control" id="selector-empresa" name="nombreEmpresaElegida" onchange="this.form.submit()">
 
 
@@ -105,12 +121,6 @@
 
                             {{/each}}
 
-                        </select>
-
-                    {{else}}
-  
-                        <select class="form-control mi-control selector-empresa" id="selector-empresa" disabled>
-                            <option value="{{nombreEmpresaElegida}}">{{nombreEmpresaElegida}}</option>
                         </select>
 
                     {{/if}}
