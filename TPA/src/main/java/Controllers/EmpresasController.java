@@ -84,7 +84,7 @@ public class EmpresasController {
         modelo.put("empresas", RepositorioEmpresas.getInstancia().buscarListaDeObjetos().stream().filter(e -> !e.getNombre().equals(nombreEmpresa)).collect(Collectors.toList()));
         modelo.put("periodos",RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getPeriodos().stream().filter(p -> p.getAnio() != Integer.parseInt(nombrePeridoElegido)).collect(Collectors.toList()));
 
-        return new ModelAndView(modelo,"empresas.hbs");
+        return new ModelAndView(modelo,"empresasCargarTabla.hbs");
 
     }
 

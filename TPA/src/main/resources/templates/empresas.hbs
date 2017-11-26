@@ -1,12 +1,14 @@
 {{# partial "contenido" }}
 
     <style>
+    
         .jumbotron {
             background-color: #2A93DF;
             color: #fff;
             padding: 100px 25px;
             margin-bottom: 100px;
         }
+        
         .tabla {
             padding-top: 100px;
             display: flex;
@@ -19,7 +21,6 @@
         }
         .row2 {
             padding-top: 100px;
-            padding-bottom: 200px;
         }
         .h1{
             font-size: 5px;
@@ -31,7 +32,7 @@
         }
         
         .container {
-            padding: 10px 25px;
+            padding: 10px 25px 350px 25px;
         }
         
         .form-control.mi-control {
@@ -54,25 +55,7 @@
         
         .text20{
         font-size:20px;
-        }
-        
-        table {border-style: groove;
-        border-color: #2A93DF;
-        table-layout: fixed;
-        }
-        
-		table td:nth-child(2)
-		{
-		border-style: groove;
-		  border-color:#2A93DF;
-		}
-		
-		table td:nth-child(1)
-		{
-		border-style: groove;
-		  border-color:#2A93DF;
-		}
-        
+        }      
         
     </style>
 
@@ -179,30 +162,10 @@
 
     </div>
 
-    <div class="row row2">
-        <div class="col-lg-12">
+    {{#block "CargarTabla" }}
+		
+		{{/block }}
 
-                  <table class="table table-striped text-center text15 table-hover" >
-   
-                    <tr>
-
-                        <th class ="text-center text20">Cuenta</th>
-                        <th class = "text-center text20">Valor</th>
-
-                    </tr>
-
-                    {{#each listaDeCuentas}}
-
-                        <tr>
-                            <td>{{nombre}}</td>
-                            <td>{{valor}}</td>
-                        </tr>
-
-                     {{/each}}
-
-                </table>
-                </div>
-    </div> 
     </div>
 
 
