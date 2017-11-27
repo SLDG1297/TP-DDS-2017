@@ -127,4 +127,5 @@ public class WebMain {
     	get("/metodologias/comparacion", metodologiasController::listarMetodologias, engine);
     	get("/metodologias/comparacion/:metodologia", metodologiasController::mostrarComparacion, engine);
     }
+    
 }
