@@ -2,6 +2,8 @@ package Archivo.CargaBatchV2.Scanners;
 
 import Archivo.CargaBatchV2.ArchivoScanner;
 import Archivo.CargaBatchV2.EmpresaToken;
+import Archivo.CargaBatchV2.Excepciones.CantidadCamposIncorrectosException;
+import Archivo.CargaBatchV2.Excepciones.RenglonVacioException;
 
 public class CSV implements ArchivoScanner {
 	private String delimitador;
@@ -20,9 +22,13 @@ public class CSV implements ArchivoScanner {
 
 	@Override
 	public EmpresaToken escanear(String renglon) {
+		if(renglon.isEmpty()) throw new RenglonVacioException();
+		
 		String[] vector = renglon.split(this.delimitador);
 		
-		return new EmpresaToken(vector[0], vector[1], Integer.parseInt(vector[2]), Integer.parseInt(vector[3]));
+		if(vector.length != 4) throw new CantidadCamposIncorrectosException(vector.length);
+		
+		return new EmpresaToken(vector[0], vector[1], vector[2], vector[3]);
 	}
 	
 }

@@ -1,5 +1,10 @@
 package Archivo.CargaBatchV2;
 
+import Archivo.CargaBatchV2.Excepciones.FormatoAnioIncorrectoException;
+import Archivo.CargaBatchV2.Excepciones.FormatoValorIncorrectoException;
+import Modelo.Excepciones.Empresas.CuentaSinNombreException;
+import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
+
 public class EmpresaToken {
 	private String nombreEmpresa;
 	private String nombreCuenta;
@@ -7,10 +12,31 @@ public class EmpresaToken {
 	private int valor;
 	
 	public EmpresaToken(String nombreEmpresa, String nombreCuenta, int anioPeriodo, int valor) {
-		this.nombreEmpresa = nombreEmpresa;
-		this.nombreCuenta = nombreCuenta;
-		this.anioPeriodo = anioPeriodo;
-		this.valor = valor;
+		this.setNombreEmpresa(nombreEmpresa);
+		this.setNombreCuenta(nombreCuenta);
+		this.setAnioPeriodo(anioPeriodo);
+		this.setValor(valor);
+	}
+
+	public EmpresaToken(String nombreEmpresa, String nombreCuenta, String stringPeriodo, String stringValor) {
+		this.setNombreEmpresa(nombreEmpresa);
+		this.setNombreCuenta(nombreCuenta);
+		try
+		{
+			this.setAnioPeriodo(Integer.parseInt(stringPeriodo));
+		}
+		catch(NumberFormatException excepcion)
+		{
+			throw new FormatoAnioIncorrectoException();
+		}
+		try
+		{
+			this.setValor(Integer.parseInt(stringValor));
+		}
+		catch(NumberFormatException excepcion)
+		{
+			throw new FormatoValorIncorrectoException();
+		}
 	}
 
 	public String getNombreEmpresa() {
@@ -18,6 +44,8 @@ public class EmpresaToken {
 	}
 	
 	public void setNombreEmpresa(String nombreEmpresa) {
+		if(nombreEmpresa.replaceAll("\\s+","").isEmpty()) throw new EmpresaSinNombreException();
+		
 		this.nombreEmpresa = nombreEmpresa;
 	}
 	
@@ -26,6 +54,8 @@ public class EmpresaToken {
 	}
 	
 	public void setNombreCuenta(String nombreCuenta) {
+		if(nombreCuenta.replaceAll("\\s+","").isEmpty()) throw new CuentaSinNombreException();
+		
 		this.nombreCuenta = nombreCuenta;
 	}
 	

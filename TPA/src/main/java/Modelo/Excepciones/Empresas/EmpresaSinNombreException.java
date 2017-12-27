@@ -1,5 +1,7 @@
 package Modelo.Excepciones.Empresas;
 
-public class EmpresaSinNombreException extends RuntimeException {
+import Archivo.CargaBatchV2.Excepciones.ScannerException;
+
+public class EmpresaSinNombreException extends RuntimeException implements ScannerException {
 
 }
