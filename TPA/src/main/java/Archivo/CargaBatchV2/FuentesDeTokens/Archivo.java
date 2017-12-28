@@ -1,4 +1,4 @@
-package Archivo.CargaBatchV2.Contenedores;
+package Archivo.CargaBatchV2.FuentesDeTokens;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,41 +8,26 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Archivo.CargaBatchV2.StringScanner;
-import Archivo.CargaBatchV2.Contenedor;
-import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.ScannerExceptionHandler;
+import Archivo.CargaBatchV2.FuenteDeTokens;
 
-public class Archivo extends Contenedor {
+public class Archivo implements FuenteDeTokens {
 	private String ruta;
 	private FileReader reader;
 	private BufferedReader buffer;
-	private StringScanner scanner;
 	
-	public Archivo(String ruta, StringScanner scanner, ScannerExceptionHandler manejadorExcepciones) throws FileNotFoundException
-	{
-		super(manejadorExcepciones);
+	public Archivo(String ruta) throws FileNotFoundException {
 		this.ruta = ruta;
 		this.reader = new FileReader(ruta);
 		this.buffer = new BufferedReader(reader);
-		this.scanner = scanner;
-	}
-	
-	public String getRuta() {
-		return ruta;
-	}
-
-	public void setRuta(String ruta) {
-		this.ruta = ruta;
 	}
 
 	@Override
-	public EmpresaToken escanearProximoToken() throws IOException {
-		return scanner.escanear(buffer.readLine());
+	public String darProximoToken() throws IOException {
+		return buffer.readLine();
 	}
 
 	@Override
-	public boolean tieneTokensPendientes() throws IOException {
+	public boolean quedanTokens() throws IOException {
 		return buffer.read() != -1;
 	}
 
