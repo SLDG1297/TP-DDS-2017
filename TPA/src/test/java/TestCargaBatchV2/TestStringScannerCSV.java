@@ -9,7 +9,7 @@ import Archivo.CargaBatchV2.Excepciones.CantidadCamposIncorrectosException;
 import Archivo.CargaBatchV2.Excepciones.RenglonVacioException;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
-public class TestArchivoScannerCSV {
+public class TestStringScannerCSV {
 	CSV scanner = new CSV(",");
 	
 	@Test

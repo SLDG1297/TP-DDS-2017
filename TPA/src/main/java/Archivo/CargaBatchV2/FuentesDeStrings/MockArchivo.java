@@ -1,18 +1,17 @@
-package Archivo.CargaBatchV2.FuentesDeTokens;
+package Archivo.CargaBatchV2.FuentesDeStrings;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 
-import Archivo.CargaBatchV2.FuenteDeTokens;
+import Archivo.CargaBatchV2.FuenteDeStrings;
 
-public class MockArchivo implements FuenteDeTokens {
+public class MockArchivo implements FuenteDeStrings {
 	private String texto;
 	private StringReader reader;
 	private BufferedReader buffer;
 	
-	public MockArchivo(String texto) throws FileNotFoundException {
+	public MockArchivo(String texto) {
 		this.setTexto(texto);
 		this.reader = new StringReader(texto);
 		this.buffer = new BufferedReader(reader);
@@ -27,12 +26,12 @@ public class MockArchivo implements FuenteDeTokens {
 	}
 
 	@Override
-	public String darProximoToken() throws IOException {
+	public String darProximoString() throws IOException {
 		return buffer.readLine();
 	}
 
 	@Override
-	public boolean quedanTokens() throws IOException {
+	public boolean quedanStrings() throws IOException {
 		return buffer.read() != -1;
 	}
 

@@ -6,14 +6,14 @@ import java.io.IOException;
 
 import Archivo.CargaBatchV2.Contenedor;
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.FuenteDeTokens;
+import Archivo.CargaBatchV2.FuenteDeStrings;
 import Archivo.CargaBatchV2.ScannerExceptionHandler;
 
 public class ContenedorDeStrings extends Contenedor {
-	private FuenteDeTokens fuente;
+	private FuenteDeStrings fuente;
 	private StringScanner scanner;
 	
-	public ContenedorDeStrings(FuenteDeTokens fuente, StringScanner scanner, ScannerExceptionHandler manejadorExcepciones)
+	public ContenedorDeStrings(FuenteDeStrings fuente, StringScanner scanner, ScannerExceptionHandler manejadorExcepciones)
 	{
 		super(manejadorExcepciones);
 		this.fuente = fuente;
@@ -22,12 +22,12 @@ public class ContenedorDeStrings extends Contenedor {
 
 	@Override
 	public EmpresaToken escanearProximoToken() throws IOException {
-		return scanner.escanear(fuente.darProximoToken());
+		return scanner.escanear(fuente.darProximoString());
 	}
 
 	@Override
 	public boolean tieneTokensPendientes() throws IOException {
-		return fuente.quedanTokens();
+		return fuente.quedanStrings();
 	}
 
 	@Override

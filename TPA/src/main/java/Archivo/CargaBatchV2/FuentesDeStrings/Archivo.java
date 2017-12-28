@@ -1,4 +1,4 @@
-package Archivo.CargaBatchV2.FuentesDeTokens;
+package Archivo.CargaBatchV2.FuentesDeStrings;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,9 +8,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Archivo.CargaBatchV2.FuenteDeTokens;
+import Archivo.CargaBatchV2.FuenteDeStrings;
 
-public class Archivo implements FuenteDeTokens {
+public class Archivo implements FuenteDeStrings {
 	private String ruta;
 	private FileReader reader;
 	private BufferedReader buffer;
@@ -22,12 +22,12 @@ public class Archivo implements FuenteDeTokens {
 	}
 
 	@Override
-	public String darProximoToken() throws IOException {
+	public String darProximoString() throws IOException {
 		return buffer.readLine();
 	}
 
 	@Override
-	public boolean quedanTokens() throws IOException {
+	public boolean quedanStrings() throws IOException {
 		return buffer.read() != -1;
 	}
 
