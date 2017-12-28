@@ -13,17 +13,21 @@ import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
 public class TestContenedorDeStrings {
-	ContenedorDeStrings contenedor;
+	ContenedorDeStrings contenedor, contenedorMedioFallado, contenedorFallado, contenedorVacio;
 	
-	@Before
-	public void iniciarContenedor() {
-		String texto =	"Rolito,EDITBA,2000,8000\n" +
-						"Axel's Consortium Bags,FCF,2017,6969";
+	private ContenedorDeStrings inicioDeContenedor(String texto) {
 		MockArchivo fuente  = new MockArchivo(texto);
-		
 		CSV scanner = new CSV(",");
 		
-		contenedor = new ContenedorDeStrings(fuente, scanner);
+		return new ContenedorDeStrings(fuente, scanner);
+	}
+	
+	@Before
+	public void iniciarContenedores() {
+		contenedor = inicioDeContenedor("Rolito,EDITBA,2000,8000\nAxel's Consortium Bags,FCF,2017,6969");
+		contenedorVacio = inicioDeContenedor("");
+		contenedorMedioFallado = inicioDeContenedor("EDITBA,2000,8000\nAxel's Consortium Bags,FCF,2017,6969");
+		contenedorFallado = inicioDeContenedor(",EDITBA,Lepra,8000\nAxel's Consortium Bags,FCF,2017,6969,Khe");
 	}
 	
 	@Test
@@ -37,5 +41,40 @@ public class TestContenedorDeStrings {
 		EmpresaToken[] actual = {escaneo.get(0), escaneo.get(1)};
 		
 		assertArrayEquals(esperado, actual);
+	}
+	
+	@Test
+	public void noHayFallosEnUnContenedorCorrecto() throws IOException {
+		contenedor.serEscaneado();
+		
+		assertFalse(contenedor.tieneFallos());
+	}
+	
+	@Test
+	public void noHayFallosSiNoHayNadaEnElContenedor() throws IOException {
+		contenedorVacio.serEscaneado();
+		
+		assertFalse(contenedorVacio.tieneFallos());
+	}
+	
+	@Test
+	public void hayFallosSiHayErroresEnElContenedor() throws IOException {
+		contenedorMedioFallado.serEscaneado();
+		
+		assertTrue(contenedorMedioFallado.tieneFallos());
+	}
+	
+	@Test
+	public void soloSeEscaneanLasCosasSinErroresDeUnContenedor() throws IOException {
+		EmpresaToken esperado = new EmpresaToken("Axel's Consortium Bags", "FCF", "2017", "6969");
+		
+		EmpresaToken actual = contenedorMedioFallado.serEscaneado().get(0);
+		
+		assertEquals(actual, esperado);
+	}
+	
+	@Test
+	public void siSoloHayErroresNoDeberiaEscanearseNada() throws IOException {
+		assertTrue(contenedorFallado.serEscaneado().isEmpty());
 	}
 }

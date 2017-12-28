@@ -5,11 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Archivo.CargaBatchV2.Excepciones.ScannerException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.NoFueEscaneadoException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.YaFueEscaneadoException;
 
 public abstract class Contenedor {
+	private boolean fueEscaneado = false;
 	private List<ScannerException> fallos = new LinkedList<ScannerException>();
 
 	public final List<EmpresaToken> serEscaneado() throws IOException {
+		if (fueEscaneado) throw new YaFueEscaneadoException();
+		
 		List<EmpresaToken> empresasEscaneadas = new LinkedList<EmpresaToken>();
 		
 		while (this.tieneTokensPendientes())
@@ -24,9 +29,7 @@ public abstract class Contenedor {
 			}
 		}
 		
-		if(!fallos.isEmpty()) this.reportarFallos();
-		
-		this.limpiarse();
+		this.fueEscaneado = true;
 		
 		return empresasEscaneadas;
 	}
@@ -39,11 +42,21 @@ public abstract class Contenedor {
 		this.fallos = fallos;
 	}
 	
+	public boolean tieneFallos() {
+		return this.fueEscaneado && this.fallos.size() != 0;
+	}
+	
+	public void reportarFallos() {
+		if(!fueEscaneado) throw new NoFueEscaneadoException();
+		
+		this.manejarFallos();
+	}
+	
 	public abstract boolean tieneTokensPendientes() throws IOException;
 	
 	public abstract EmpresaToken escanearProximoToken() throws IOException;
 
 	public abstract void limpiarse() throws IOException;
 	
-	public abstract void reportarFallos();
+	public abstract void manejarFallos();
 }

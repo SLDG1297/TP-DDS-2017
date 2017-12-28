@@ -36,7 +36,7 @@ public class ContenedorDeStrings extends Contenedor {
 	}
 
 	@Override
-	public void reportarFallos() {
+	public void manejarFallos() {
 		throw new NotImplementedException();
 	}
 }
