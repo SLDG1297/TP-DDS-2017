@@ -3,11 +3,22 @@ package Archivo.CargaBatchV2.Excepciones;
 public class CantidadCamposIncorrectosException extends ScannerException {
 	private int cantidadActualCampos;
 	
-	public CantidadCamposIncorrectosException(int unaCantidadDeCampos) {
+	public CantidadCamposIncorrectosException(String lineaFallada, int unaCantidadDeCampos) {
+		super(lineaFallada);
 		cantidadActualCampos = unaCantidadDeCampos;
 	}
 	
-	public int camposDeMasOMenos() {
+	@Override
+	public String explicacionDelFallo() {
+		return "La linea tiene " + camposDeMasOMenos() + "de " + masOMenos() + ".";
+	}
+	
+	private int camposDeMasOMenos() {
 		return Math.abs(4 - cantidadActualCampos);
+	}
+	
+	private String masOMenos() {
+		if (4 < cantidadActualCampos) return "menos";
+		else return "más";
 	}
 }

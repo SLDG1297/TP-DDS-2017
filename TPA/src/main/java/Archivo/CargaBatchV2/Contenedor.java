@@ -7,12 +7,8 @@ import java.util.List;
 import Archivo.CargaBatchV2.Excepciones.ScannerException;
 
 public abstract class Contenedor {
-	private ScannerExceptionHandler manejadorExcepciones;
-	
-	public Contenedor(ScannerExceptionHandler manejadorExcepciones) {
-		this.manejadorExcepciones = manejadorExcepciones;
-	}
-	
+	private List<ScannerException> fallos = new LinkedList<ScannerException>();
+
 	public final List<EmpresaToken> serEscaneado() throws IOException {
 		List<EmpresaToken> empresasEscaneadas = new LinkedList<EmpresaToken>();
 		
@@ -24,13 +20,23 @@ public abstract class Contenedor {
 			}
 			catch (ScannerException excepcion)
 			{
-				manejadorExcepciones.manejalo(excepcion);
+				fallos.add(excepcion);
 			}
 		}
 		
 		this.limpiarse();
 		
+		if(!fallos.isEmpty()) this.reportarFallos();
+		
 		return empresasEscaneadas;
+	}
+
+	public List<ScannerException> getFallos() {
+		return fallos;
+	}
+
+	public void setFallos(List<ScannerException> fallos) {
+		this.fallos = fallos;
 	}
 	
 	public abstract boolean tieneTokensPendientes() throws IOException;
@@ -38,4 +44,6 @@ public abstract class Contenedor {
 	public abstract EmpresaToken escanearProximoToken() throws IOException;
 
 	public abstract void limpiarse() throws IOException;
+	
+	public abstract void reportarFallos();
 }

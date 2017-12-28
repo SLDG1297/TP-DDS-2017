@@ -4,18 +4,18 @@ import Archivo.CargaBatchV2.StringScanner;
 
 import java.io.IOException;
 
+import org.apache.commons.lang.NotImplementedException;
+
 import Archivo.CargaBatchV2.Contenedor;
 import Archivo.CargaBatchV2.EmpresaToken;
 import Archivo.CargaBatchV2.FuenteDeStrings;
-import Archivo.CargaBatchV2.ScannerExceptionHandler;
 
 public class ContenedorDeStrings extends Contenedor {
 	private FuenteDeStrings fuente;
 	private StringScanner scanner;
 	
-	public ContenedorDeStrings(FuenteDeStrings fuente, StringScanner scanner, ScannerExceptionHandler manejadorExcepciones)
+	public ContenedorDeStrings(FuenteDeStrings fuente, StringScanner scanner)
 	{
-		super(manejadorExcepciones);
 		this.fuente = fuente;
 		this.scanner = scanner;
 	}
@@ -33,5 +33,10 @@ public class ContenedorDeStrings extends Contenedor {
 	@Override
 	public void limpiarse() throws IOException {
 		fuente.limpiarse();
+	}
+
+	@Override
+	public void reportarFallos() {
+		throw new NotImplementedException();
 	}
 }

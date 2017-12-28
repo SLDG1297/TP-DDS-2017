@@ -27,7 +27,7 @@ public class EmpresaToken {
 		}
 		catch(NumberFormatException excepcion)
 		{
-			throw new FormatoAnioIncorrectoException();
+			throw new FormatoAnioIncorrectoException(stringPeriodo);
 		}
 		try
 		{
@@ -35,7 +35,7 @@ public class EmpresaToken {
 		}
 		catch(NumberFormatException excepcion)
 		{
-			throw new FormatoValorIncorrectoException();
+			throw new FormatoValorIncorrectoException(stringValor);
 		}
 	}
 
