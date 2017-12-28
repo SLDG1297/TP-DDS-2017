@@ -9,6 +9,8 @@ import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
 import Archivo.CargaBatchV2.Contenedores.ContenedorDeStrings;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.NoFueEscaneadoException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.YaFueEscaneadoException;
 import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
@@ -41,6 +43,11 @@ public class TestContenedorDeStrings {
 		EmpresaToken[] actual = {escaneo.get(0), escaneo.get(1)};
 		
 		assertArrayEquals(esperado, actual);
+	}
+	
+	@Test(expected = NoFueEscaneadoException.class)
+	public void noPuedoDeterminarSiHayFallosEnUnContenedorSiNoLoEscaneo() {
+		contenedor.tieneFallos();
 	}
 	
 	@Test
@@ -76,5 +83,16 @@ public class TestContenedorDeStrings {
 	@Test
 	public void siSoloHayErroresNoDeberiaEscanearseNada() throws IOException {
 		assertTrue(contenedorFallado.serEscaneado().isEmpty());
+	}
+	
+	@Test
+	public void noDeberiaEscanearseNadaSiNoHayNada() throws IOException {
+		assertTrue(contenedorVacio.serEscaneado().isEmpty());
+	}
+	
+	@Test(expected = YaFueEscaneadoException.class)
+	public void noDeberiaPoderEscanearUnContenedorDeNuevo() throws IOException {
+		contenedor.serEscaneado();
+		contenedor.serEscaneado();
 	}
 }

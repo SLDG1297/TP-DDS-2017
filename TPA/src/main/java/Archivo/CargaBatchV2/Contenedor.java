@@ -43,7 +43,9 @@ public abstract class Contenedor {
 	}
 	
 	public boolean tieneFallos() {
-		return this.fueEscaneado && this.fallos.size() != 0;
+		if(!fueEscaneado) throw new NoFueEscaneadoException();
+		
+		return this.fallos.size() != 0;
 	}
 	
 	public void reportarFallos() {
