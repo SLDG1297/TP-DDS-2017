@@ -13,6 +13,6 @@ public class RenglonErroneoException extends ScannerException {
 
 	@Override
 	public String explicacionDelFallo() {
-		return "La línea tiene un error en el campo " + excepcionDeFormato.explicarFalla();
+		return excepcionDeFormato.explicarFalla();
 	}
 }

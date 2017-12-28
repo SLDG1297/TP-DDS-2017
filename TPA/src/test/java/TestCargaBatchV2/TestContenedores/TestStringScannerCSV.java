@@ -1,6 +1,6 @@
 package TestCargaBatchV2.TestContenedores;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class TestStringScannerCSV {
 		String renglon = "Rolito,EDITBA,2000,8000";
 		EmpresaToken esperado = new EmpresaToken("Rolito", "EDITBA", 2000, 8000);
 		
-		assertTrue(esperado.esIgual(scanner.escanear(renglon)));
+		assertEquals(esperado, scanner.escanear(renglon));
 	}
 	
 	@Test
@@ -29,7 +29,7 @@ public class TestStringScannerCSV {
 
 		EmpresaToken esperado = new EmpresaToken("Rolito", "EDITBA", 2000, 8000);
 		
-		assertTrue(esperado.esIgual(scannerTurbio.escanear(renglon)));
+		assertEquals(esperado, scannerTurbio.escanear(renglon));
 	}
 	
 	@Test(expected = RenglonVacioException.class)

@@ -28,7 +28,13 @@ public class Archivo implements FuenteDeStrings {
 
 	@Override
 	public boolean quedanStrings() throws IOException {
-		return buffer.read() != -1;
+		buffer.mark(1);
+		
+		boolean valorDeVerdad = buffer.read() != -1;
+		
+		buffer.reset();
+		
+		return valorDeVerdad;
 	}
 
 	@Override

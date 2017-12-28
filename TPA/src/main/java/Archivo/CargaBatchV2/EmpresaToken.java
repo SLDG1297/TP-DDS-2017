@@ -75,8 +75,11 @@ public class EmpresaToken {
 		this.valor = valor;
 	}
 	
-	public boolean esIgual(EmpresaToken otro)
+	@Override
+	public boolean equals(Object otroPosta)
 	{
+		EmpresaToken otro = (EmpresaToken) otroPosta;
+		
 		boolean mismaEmpresa = this.nombreEmpresa.equals(otro.getNombreEmpresa());
 		boolean mismaCuenta = this.nombreCuenta.equals(otro.getNombreCuenta());
 		boolean mismoPeriodo = this.anioPeriodo == otro.getAnioPeriodo();

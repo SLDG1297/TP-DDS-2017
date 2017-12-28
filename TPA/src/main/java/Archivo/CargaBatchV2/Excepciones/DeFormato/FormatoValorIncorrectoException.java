@@ -11,6 +11,6 @@ public class FormatoValorIncorrectoException extends FormatoException {
 
 	@Override
 	public String explicarFalla() {
-		return valorErroneo + " ya que no sigue un formato numérico para un valor de cuenta.";
+		return "El campo " + valorErroneo + " no sigue un formato numérico para un valor de cuenta.";
 	}
 }
