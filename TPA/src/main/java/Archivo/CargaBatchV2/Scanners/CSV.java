@@ -2,10 +2,10 @@ package Archivo.CargaBatchV2.Scanners;
 
 import Archivo.CargaBatchV2.StringScanner;
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.Excepciones.CantidadCamposIncorrectosException;
 import Archivo.CargaBatchV2.Excepciones.FormatoException;
-import Archivo.CargaBatchV2.Excepciones.RenglonErroneoException;
-import Archivo.CargaBatchV2.Excepciones.RenglonVacioException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.CantidadCamposIncorrectosException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.RenglonErroneoException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.RenglonVacioException;
 
 public class CSV implements StringScanner {
 	private String delimitador;

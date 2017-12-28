@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.Excepciones.CantidadCamposIncorrectosException;
-import Archivo.CargaBatchV2.Excepciones.RenglonVacioException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.CantidadCamposIncorrectosException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.RenglonVacioException;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
 public class TestStringScannerCSV {

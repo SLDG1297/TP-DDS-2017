@@ -16,8 +16,6 @@ public class TestContenedorDeStrings {
 		
 		CSV scanner = new CSV(",");
 		
-		// Iniciar Manejador
-		
-		// contenedor = new ContenedorDeStrings(fuente, scanner, manejador);
+		contenedor = new ContenedorDeStrings(fuente, scanner);
 	}
 }

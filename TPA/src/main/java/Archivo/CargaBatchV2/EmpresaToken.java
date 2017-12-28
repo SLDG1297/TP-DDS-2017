@@ -1,7 +1,7 @@
 package Archivo.CargaBatchV2;
 
-import Archivo.CargaBatchV2.Excepciones.FormatoAnioIncorrectoException;
-import Archivo.CargaBatchV2.Excepciones.FormatoValorIncorrectoException;
+import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoAnioIncorrectoException;
+import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoValorIncorrectoException;
 import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 

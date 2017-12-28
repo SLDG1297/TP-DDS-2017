@@ -24,9 +24,9 @@ public abstract class Contenedor {
 			}
 		}
 		
-		this.limpiarse();
-		
 		if(!fallos.isEmpty()) this.reportarFallos();
+		
+		this.limpiarse();
 		
 		return empresasEscaneadas;
 	}

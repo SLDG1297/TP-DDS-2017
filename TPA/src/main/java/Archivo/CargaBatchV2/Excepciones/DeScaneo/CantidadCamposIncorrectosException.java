@@ -1,4 +1,6 @@
-package Archivo.CargaBatchV2.Excepciones;
+package Archivo.CargaBatchV2.Excepciones.DeScaneo;
+
+import Archivo.CargaBatchV2.Excepciones.ScannerException;
 
 public class CantidadCamposIncorrectosException extends ScannerException {
 	private int cantidadActualCampos;

@@ -1,4 +1,7 @@
-package Archivo.CargaBatchV2.Excepciones;
+package Archivo.CargaBatchV2.Excepciones.DeScaneo;
+
+import Archivo.CargaBatchV2.Excepciones.FormatoException;
+import Archivo.CargaBatchV2.Excepciones.ScannerException;
 
 public class RenglonErroneoException extends ScannerException {
 	FormatoException excepcionDeFormato;
