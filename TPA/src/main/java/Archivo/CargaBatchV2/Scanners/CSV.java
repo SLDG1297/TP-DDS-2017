@@ -1,11 +1,11 @@
 package Archivo.CargaBatchV2.Scanners;
 
-import Archivo.CargaBatchV2.ArchivoScanner;
+import Archivo.CargaBatchV2.StringScanner;
 import Archivo.CargaBatchV2.EmpresaToken;
 import Archivo.CargaBatchV2.Excepciones.CantidadCamposIncorrectosException;
 import Archivo.CargaBatchV2.Excepciones.RenglonVacioException;
 
-public class CSV implements ArchivoScanner {
+public class CSV implements StringScanner {
 	private String delimitador;
 	
 	public CSV(String delimitador) {

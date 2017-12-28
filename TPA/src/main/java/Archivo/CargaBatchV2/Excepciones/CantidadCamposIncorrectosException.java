@@ -1,6 +1,6 @@
 package Archivo.CargaBatchV2.Excepciones;
 
-public class CantidadCamposIncorrectosException extends RuntimeException implements ScannerException {
+public class CantidadCamposIncorrectosException extends ScannerException {
 	private int cantidadActualCampos;
 	
 	public CantidadCamposIncorrectosException(int unaCantidadDeCampos) {

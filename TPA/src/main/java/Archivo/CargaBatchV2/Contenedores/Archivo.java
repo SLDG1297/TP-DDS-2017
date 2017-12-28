@@ -8,18 +8,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import Archivo.CargaBatchV2.ArchivoScanner;
+import Archivo.CargaBatchV2.StringScanner;
 import Archivo.CargaBatchV2.Contenedor;
 import Archivo.CargaBatchV2.EmpresaToken;
+import Archivo.CargaBatchV2.ScannerExceptionHandler;
 
 public class Archivo extends Contenedor {
 	private String ruta;
 	private FileReader reader;
 	private BufferedReader buffer;
-	private ArchivoScanner scanner;
+	private StringScanner scanner;
 	
-	public Archivo(String ruta, ArchivoScanner scanner) throws FileNotFoundException
+	public Archivo(String ruta, StringScanner scanner, ScannerExceptionHandler manejadorExcepciones) throws FileNotFoundException
 	{
+		super(manejadorExcepciones);
 		this.ruta = ruta;
 		this.reader = new FileReader(ruta);
 		this.buffer = new BufferedReader(reader);

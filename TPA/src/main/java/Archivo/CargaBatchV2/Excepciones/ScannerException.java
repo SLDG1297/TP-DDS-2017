@@ -1,5 +1,5 @@
 package Archivo.CargaBatchV2.Excepciones;
 
-public interface ScannerException {
+public abstract class ScannerException extends RuntimeException {
 
 }
