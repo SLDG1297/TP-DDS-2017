@@ -1,4 +1,4 @@
-package TestCargaBatchV2.TestAnalizador;
+package TestCargaBatchV2;
 
 import static Factories.FactoryCuenta.crearCuentaConValor;
 import static Factories.FactoryEmpresa.crearEmpresa;
@@ -14,12 +14,12 @@ import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 
 public abstract class SetParaTestearAnalizadores {
-	Cuenta cuenta1, cuenta2, cuenta3;
-	Periodo periodo1, periodo2;
-	Empresa empresa1;
-	RepositorioEmpresas repositorio = RepositorioEmpresas.getInstancia();
+	public Cuenta cuenta1, cuenta2, cuenta3;
+	public Periodo periodo1, periodo2;
+	public Empresa empresa1;
+	public RepositorioEmpresas repositorio = RepositorioEmpresas.getInstancia();
 	
-	Carga alta, modificacion;
+	public Carga alta, modificacion;
 	
 	public void iniciarCuentas() {
 		cuenta1 = crearCuentaConValor("A", 2000);

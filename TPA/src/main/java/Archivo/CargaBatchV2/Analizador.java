@@ -7,7 +7,7 @@ import java.util.List;
 import Archivo.CargaBatchV2.Cargas.Alta;
 import Archivo.CargaBatchV2.Cargas.Modificacion;
 
-public abstract class AnalizadorDeCargas {
+public abstract class Analizador {
 	private List<Carga> cargas = new LinkedList<Carga>();
 	
 	public List<Carga> getCargas() {
@@ -18,9 +18,7 @@ public abstract class AnalizadorDeCargas {
 		this.cargas = cargas;
 	}
 
-	public final List<Carga> analizarContenedor(Contenedor unContenedor) throws IOException {
-		List<EmpresaToken> tokens = unContenedor.serEscaneado();
-		
+	public final List<Carga> analizarContenedor(List<EmpresaToken> tokens) throws IOException {
 		tokens.forEach(t -> this.analizarToken(t));
 		
 		return this.cargas;

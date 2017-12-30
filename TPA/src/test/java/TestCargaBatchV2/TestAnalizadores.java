@@ -1,4 +1,4 @@
-package TestCargaBatchV2.TestAnalizador;
+package TestCargaBatchV2;
 
 import static org.junit.Assert.*;
 
@@ -22,9 +22,9 @@ public class TestAnalizadores extends SetParaTestearAnalizadores {
 	EmpresaToken token2 = new EmpresaToken("Khe", "Khe", 200, 20);
 	
 	private List<Carga> resultadoDeAnalisis(String texto) throws IOException {
-		ContenedorDeStrings contenedor = new ContenedorDeStrings(new MockArchivo(texto), new CSV(","));
+		List<EmpresaToken> tokens = new ContenedorDeStrings(new MockArchivo(texto), new CSV(",")).serEscaneado();
 		
-		return analizador.analizarContenedor(contenedor);
+		return analizador.analizarContenedor(tokens);
 	}
 	
 	@Test

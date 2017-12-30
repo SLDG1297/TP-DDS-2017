@@ -1,4 +1,4 @@
-package TestCargaBatchV2.TestAnalizador;
+package TestCargaBatchV2;
 
 import org.junit.Assert;
 import org.junit.Test;

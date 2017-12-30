@@ -1,4 +1,4 @@
-package TestCargaBatchV2.TestContenedores;
+package TestCargaBatchV2;
 
 import org.junit.Test;
 

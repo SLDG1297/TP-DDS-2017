@@ -1,4 +1,4 @@
-package TestCargaBatchV2.TestContenedores;
+package TestCargaBatchV2;
 
 import java.io.IOException;
 import java.util.List;
