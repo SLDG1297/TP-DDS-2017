@@ -1,7 +1,14 @@
 package Archivo.CargaBatchV2;
 
+import static Factories.FactoryCuenta.crearCuentaConValor;
+import static Factories.FactoryEmpresa.crearEmpresa;
+import static Factories.FactoryPeriodo.crearPeriodo;
+
 import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoAnioIncorrectoException;
 import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoValorIncorrectoException;
+import Modelo.Empresa.Cuenta;
+import Modelo.Empresa.Empresa;
+import Modelo.Empresa.Periodo;
 import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 
@@ -73,6 +80,18 @@ public class EmpresaToken {
 	
 	public void setValor(int valor) {
 		this.valor = valor;
+	}
+	
+	public Cuenta getCuenta() {
+		return crearCuentaConValor(this.nombreCuenta, this.valor);
+	}
+	
+	public Periodo getPeriodo() {
+		return crearPeriodo(this.anioPeriodo, this.getCuenta());
+	}
+
+	public Empresa generarEmpresa() {
+		return crearEmpresa(nombreEmpresa, this.getPeriodo());
 	}
 	
 	@Override

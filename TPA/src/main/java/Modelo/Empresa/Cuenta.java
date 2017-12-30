@@ -4,6 +4,8 @@ import Modelo.Excepciones.Empresas.CuentaConValorNegativoException;
 import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import org.uqbar.commons.utils.Observable;
 
+import Archivo.CargaBatchV2.Excepciones.DeCarga.MismoValorException;
+
 import javax.persistence.*;
 
 @Entity
@@ -50,6 +52,12 @@ public class Cuenta {
 	public void setValor(Integer valor) {
 		if(valor < 0) throw new CuentaConValorNegativoException();
 		this.valor = valor;
+	}
+
+	public void actualizar(Integer valorNuevo) {
+		if(this.valor == valorNuevo) throw new MismoValorException();
+		
+		this.setValor(valorNuevo);
 	}
 
 

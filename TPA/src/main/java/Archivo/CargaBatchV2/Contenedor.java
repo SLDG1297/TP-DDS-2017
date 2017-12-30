@@ -6,6 +6,7 @@ import java.util.List;
 
 import Archivo.CargaBatchV2.Excepciones.ScannerException;
 import Archivo.CargaBatchV2.Excepciones.DeScaneo.NoFueEscaneadoException;
+import Archivo.CargaBatchV2.Excepciones.DeScaneo.NoTieneFallosException;
 import Archivo.CargaBatchV2.Excepciones.DeScaneo.YaFueEscaneadoException;
 
 public abstract class Contenedor {
@@ -50,6 +51,8 @@ public abstract class Contenedor {
 	
 	public void reportarFallos() {
 		if(!fueEscaneado) throw new NoFueEscaneadoException();
+		
+		if(!this.tieneFallos()) throw new NoTieneFallosException();
 		
 		this.manejarFallos();
 	}

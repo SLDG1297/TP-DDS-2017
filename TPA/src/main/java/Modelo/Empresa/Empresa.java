@@ -7,6 +7,8 @@ import Modelo.Excepciones.Empresas.YaExisteElPeriodoException;
 
 import org.uqbar.commons.utils.Observable;
 
+import Archivo.CargaBatchV2.EmpresaToken;
+import Archivo.CargaBatchV2.Excepciones.DeCarga.NoEsLaMismaEmpresaException;
 import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 import javax.persistence.*;
@@ -77,6 +79,10 @@ public class Empresa implements TipoDeRepositorio {
 		return periodosEmpresa;
 	}
 	
+	public boolean tienePeriodo(Periodo periodo){
+		return this.periodos.stream().anyMatch(p -> p.getAnio().equals(periodo.getAnio()));
+	}
+	
 	public Periodo buscarPeriodo(Integer periodo){
 	    return this.periodos.stream().filter(p -> p.getAnio().equals(periodo)).findFirst().orElseThrow(()-> new NoExisteElPeriodoException());
     }
@@ -91,6 +97,15 @@ public class Empresa implements TipoDeRepositorio {
 		nuevosPeriodos.add(periodo);
 		
 		this.periodos = nuevosPeriodos;
+	}
+
+	public void actualizar(EmpresaToken empresaToken) {
+		if(!this.getNombre().equals(empresaToken.getNombreEmpresa())) throw new NoEsLaMismaEmpresaException();
+		
+		if (this.tienePeriodo(empresaToken.getPeriodo()))
+			this.buscarPeriodo(empresaToken.getAnioPeriodo()).actualizar(empresaToken.getPeriodo());
+		else
+			this.agregarPeriodo(empresaToken.getPeriodo());
 	}
 
 }

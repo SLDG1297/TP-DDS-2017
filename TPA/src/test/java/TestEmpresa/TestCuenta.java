@@ -6,15 +6,15 @@ import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Archivo.CargaBatchV2.Excepciones.DeCarga.MismoValorException;
+
 import static Factories.FactoryCuenta.*;
 
 public class TestCuenta {
-	Cuenta prueba1;
+	Cuenta prueba1 = crearCuentaConValor("FCF", 0);;
 
 	@Test
 	public void sePuedeInstanciarUnaCuentaConValorCero() {
-		prueba1 = crearCuentaConValor("FCF", 0);
-
 		Assert.assertEquals(new Integer(0), prueba1.getValor());
 	}
 
@@ -26,5 +26,17 @@ public class TestCuenta {
 	@Test(expected = CuentaConValorNegativoException.class)
 	public void noSeDeberiaInstanciarUnaCuentaConValorNegativo() {
 		prueba1 = crearCuentaConValor("Esto Esta Mal", -1);
+	}
+	
+	@Test
+	public void sePuedeActualizarUnValor() {
+		prueba1.actualizar(200);
+		
+		Assert.assertEquals(new Integer(200), prueba1.getValor());
+	}
+	
+	@Test(expected = MismoValorException.class)
+	public void noSePuedeActualizarElMismoValor() {
+		prueba1.actualizar(0);
 	}
 }

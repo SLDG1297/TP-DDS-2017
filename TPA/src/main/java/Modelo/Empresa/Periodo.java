@@ -5,6 +5,9 @@ import Modelo.Excepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;
 
 import javax.persistence.*;
+
+import Archivo.CargaBatchV2.Excepciones.DeCarga.NoEsElMismoPeriodoException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,11 +82,27 @@ public class Periodo {
 		}
 	}
 	
+
+	public boolean tieneCuenta(Cuenta cuenta) {
+		return this.cuentas.stream().anyMatch(c -> c.getNombre().equals(cuenta.getNombre()));
+	}
+	
 	public Cuenta buscarCuenta(String nombreCuenta){
-	     return this.cuentas.stream().filter(c -> c.getNombre().equals(nombreCuenta)).findFirst().orElseThrow(()-> new NoTieneLaCuentaException());
+	    return this.cuentas.stream().filter(c -> c.getNombre().equals(nombreCuenta)).findFirst().orElseThrow(()-> new NoTieneLaCuentaException());
 	}
 
 	public long getId() {
 		return id;
+	}
+
+	public void actualizar(Periodo periodo) {
+		if(this.anio.intValue() != periodo.getAnio()) throw new NoEsElMismoPeriodoException();
+		
+		Cuenta cuenta = periodo.getCuentas().get(0);
+		
+		if (this.tieneCuenta(cuenta))
+			this.buscarCuenta(cuenta.getNombre()).actualizar(cuenta.getValor());
+		else
+			this.agregarCuenta(cuenta);
 	}
 }
