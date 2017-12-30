@@ -8,11 +8,13 @@ import Archivo.CargaBatchV2.FuenteDeStrings;
 
 public class MockArchivo implements FuenteDeStrings {
 	private String texto;
+	private String textoBackup;
 	private StringReader reader;
 	private BufferedReader buffer;
 	
 	public MockArchivo(String texto) {
 		this.setTexto(texto);
+		this.textoBackup = texto;
 		this.reader = new StringReader(texto);
 		this.buffer = new BufferedReader(reader);
 	}
@@ -44,11 +46,15 @@ public class MockArchivo implements FuenteDeStrings {
 	@Override
 	public void limpiarse() throws IOException {
 		setTexto("");
-		
-		this.cerrarArchivo();
+	}
+
+	@Override
+	public void restaurarse() throws IOException {
+		setTexto(this.textoBackup);
 	}
 	
-	public void cerrarArchivo() throws IOException
+	@Override
+	public void cerrarse() throws IOException
 	{
 		this.buffer.close();
 		

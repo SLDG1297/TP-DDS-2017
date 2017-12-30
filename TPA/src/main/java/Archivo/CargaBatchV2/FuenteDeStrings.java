@@ -8,4 +8,8 @@ public interface FuenteDeStrings {
 	boolean quedanStrings() throws IOException;
 
 	void limpiarse() throws IOException;
+	
+	void restaurarse() throws IOException;
+
+	void cerrarse() throws IOException;
 }

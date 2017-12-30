@@ -62,6 +62,10 @@ public abstract class Contenedor {
 	public abstract EmpresaToken escanearProximoToken() throws IOException;
 
 	public abstract void limpiarse() throws IOException;
+
+	public abstract void cerrarse() throws IOException;
+	
+	public abstract void restaurarse() throws IOException;
 	
 	public abstract void manejarFallos();
 }

@@ -36,6 +36,16 @@ public class ContenedorDeStrings extends Contenedor {
 	}
 
 	@Override
+	public void cerrarse() throws IOException {
+		fuente.cerrarse();
+	}
+
+	@Override
+	public void restaurarse() throws IOException {
+		fuente.restaurarse();
+	}
+	
+	@Override
 	public void manejarFallos() {
 		throw new NotImplementedException();
 	}
