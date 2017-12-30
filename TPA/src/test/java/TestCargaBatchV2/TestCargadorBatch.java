@@ -18,7 +18,6 @@ public class TestCargadorBatch extends SetParaTestearAnalizadores {
 	@Test
 	public void probar() throws IOException {
 		Contenedor contenedor = new ContenedorDeStrings(new MockArchivo("XD,A,2006,105020\nKhe,Khe,200,20"), new CSV(","));
-		
 		Analizador analizador = new AnalizadorDeRepositorio();
 		
 		CargadorBatch.cargar(contenedor, analizador);
