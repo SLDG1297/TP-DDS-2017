@@ -2,11 +2,15 @@ package Main;
 
 import java.io.IOException;
 
+import Archivo.CargaBatchV2.OrquestadorDeCargaBatch;
+
 public class Main {
 	public static void main(String[] args) throws IOException {
-		Bootstrap.iniciarModelo();
+		BootstrapV2.iniciarModelo();
 		
-		WebMain.iniciarSitio();
+		/*WebMain.iniciarSitio();*/
+		
+		OrquestadorDeCargaBatch.iniciar();
 	}
 
 }

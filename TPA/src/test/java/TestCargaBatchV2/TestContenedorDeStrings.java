@@ -1,16 +1,16 @@
 package TestCargaBatchV2;
 
-import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
 import Archivo.CargaBatchV2.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatchV2.Excepciones.DeScaneo.NoFueEscaneadoException;
-import Archivo.CargaBatchV2.Excepciones.DeScaneo.YaFueEscaneadoException;
 import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
@@ -30,10 +30,23 @@ public class TestContenedorDeStrings {
 		contenedorVacio = inicioDeContenedor("");
 		contenedorMedioFallado = inicioDeContenedor("EDITBA,2000,8000\nAxel's Consortium Bags,FCF,2017,6969");
 		contenedorFallado = inicioDeContenedor(",EDITBA,Lepra,8000\nAxel's Consortium Bags,FCF,2017,6969,Khe");
+		
+		contenedor.abrirse();
+		contenedorVacio.abrirse();
+		contenedorMedioFallado.abrirse();
+		contenedorFallado.abrirse();
+	}
+	
+	@After
+	public void cerrarContenedores() {
+		contenedor.cerrarse();
+		contenedorVacio.cerrarse();
+		contenedorMedioFallado.cerrarse();
+		contenedorFallado.cerrarse();	
 	}
 	
 	@Test
-	public void sePuedeParsearExitosamente() throws IOException {
+	public void sePuedeParsearExitosamente() {
 		EmpresaToken empresa1 = new EmpresaToken("Rolito", "EDITBA", "2000", "8000");
 		EmpresaToken empresa2 = new EmpresaToken("Axel's Consortium Bags", "FCF", "2017", "6969");
 		
@@ -51,28 +64,28 @@ public class TestContenedorDeStrings {
 	}
 	
 	@Test
-	public void noHayFallosEnUnContenedorCorrecto() throws IOException {
+	public void noHayFallosEnUnContenedorCorrecto() {
 		contenedor.serEscaneado();
 		
 		assertFalse(contenedor.tieneFallos());
 	}
 	
 	@Test
-	public void noHayFallosSiNoHayNadaEnElContenedor() throws IOException {
+	public void noHayFallosSiNoHayNadaEnElContenedor() {
 		contenedorVacio.serEscaneado();
 		
 		assertFalse(contenedorVacio.tieneFallos());
 	}
 	
 	@Test
-	public void hayFallosSiHayErroresEnElContenedor() throws IOException {
+	public void hayFallosSiHayErroresEnElContenedor() {
 		contenedorMedioFallado.serEscaneado();
 		
 		assertTrue(contenedorMedioFallado.tieneFallos());
 	}
 	
 	@Test
-	public void soloSeEscaneanLasCosasSinErroresDeUnContenedor() throws IOException {
+	public void soloSeEscaneanLasCosasSinErroresDeUnContenedor() {
 		EmpresaToken esperado = new EmpresaToken("Axel's Consortium Bags", "FCF", "2017", "6969");
 		
 		EmpresaToken actual = contenedorMedioFallado.serEscaneado().get(0);
@@ -81,18 +94,12 @@ public class TestContenedorDeStrings {
 	}
 	
 	@Test
-	public void siSoloHayErroresNoDeberiaEscanearseNada() throws IOException {
+	public void siSoloHayErroresNoDeberiaEscanearseNada() {
 		assertTrue(contenedorFallado.serEscaneado().isEmpty());
 	}
 	
 	@Test
-	public void noDeberiaEscanearseNadaSiNoHayNada() throws IOException {
+	public void noDeberiaEscanearseNadaSiNoHayNada() {
 		assertTrue(contenedorVacio.serEscaneado().isEmpty());
-	}
-	
-	@Test(expected = YaFueEscaneadoException.class)
-	public void noDeberiaPoderEscanearUnContenedorDeNuevo() throws IOException {
-		contenedor.serEscaneado();
-		contenedor.serEscaneado();
 	}
 }

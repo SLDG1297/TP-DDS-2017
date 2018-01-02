@@ -1,6 +1,5 @@
 package Archivo.CargaBatchV2;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public abstract class Analizador {
 		this.cargas = cargas;
 	}
 
-	public final List<Carga> analizarContenedor(List<EmpresaToken> tokens) throws IOException {
+	public final List<Carga> analizarContenedor(List<EmpresaToken> tokens) {
 		tokens.forEach(t -> this.analizarToken(t));
 		
 		return this.cargas;

@@ -14,6 +14,8 @@ import org.bson.Document;
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
 	private List<T> lista = new ArrayList<T>();
 	
+	public ProveedorMock() {};
+	
 	public ProveedorMock(List<T> lista) {
 		this.setLista(lista);
 	}

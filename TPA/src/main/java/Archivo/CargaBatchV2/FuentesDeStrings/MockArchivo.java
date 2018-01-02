@@ -14,9 +14,6 @@ public class MockArchivo implements FuenteDeStrings {
 	
 	public MockArchivo(String texto) {
 		this.setTexto(texto);
-		this.textoBackup = texto;
-		this.reader = new StringReader(texto);
-		this.buffer = new BufferedReader(reader);
 	}
 
 	public String getTexto() {
@@ -25,39 +22,72 @@ public class MockArchivo implements FuenteDeStrings {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
+		this.textoBackup = texto;
 	}
 
 	@Override
-	public String darProximoString() throws IOException {
-		return buffer.readLine();
+	public String darProximoString() {
+		String linea = "";
+		
+		try
+		{
+			return buffer.readLine();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return linea;
 	}
 
 	@Override
-	public boolean quedanStrings() throws IOException {
-		buffer.mark(1);
+	public boolean quedanStrings() {
+		boolean valorDeVerdad = false;
 		
-		boolean valorDeVerdad = buffer.read() != -1;
-		
-		buffer.reset();
+		try
+		{
+			buffer.mark(1);
+			
+			valorDeVerdad = buffer.read() != -1;
+			
+			buffer.reset();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		
 		return valorDeVerdad;
 	}
+	
+	@Override
+	public void abrirse() {
+		this.reader = new StringReader(texto);
+		this.buffer = new BufferedReader(reader);
+	}
 
 	@Override
-	public void limpiarse() throws IOException {
+	public void limpiarse() {
 		setTexto("");
 	}
 
 	@Override
-	public void restaurarse() throws IOException {
+	public void restaurarse() {
 		setTexto(this.textoBackup);
 	}
 	
 	@Override
-	public void cerrarse() throws IOException
+	public void cerrarse()
 	{
-		this.buffer.close();
-		
-		this.reader.close();
+		try
+		{
+			this.buffer.close();
+			this.reader.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

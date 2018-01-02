@@ -18,37 +18,66 @@ public class Archivo implements FuenteDeStrings {
 	private FileReader reader;
 	private BufferedReader buffer;
 	
-	public Archivo(String ruta) throws FileNotFoundException {
+	public Archivo(String ruta) {
 		this.ruta = ruta;
-		this.reader = new FileReader(ruta);
-		this.buffer = new BufferedReader(reader);
 	}
 	
-	public Archivo(String ruta, String rutaRestauradora) throws FileNotFoundException {
+	public Archivo(String ruta, String rutaRestauradora) {
 		this.ruta = ruta;
 		this.rutaRestauradora = rutaRestauradora;
-		this.reader = new FileReader(ruta);
-		this.buffer = new BufferedReader(reader);
 	}
 
 	@Override
-	public String darProximoString() throws IOException {
-		return buffer.readLine();
+	public String darProximoString() {
+		String linea = "";
+		
+		try
+		{
+			return buffer.readLine();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return linea;
 	}
 
 	@Override
-	public boolean quedanStrings() throws IOException {
-		buffer.mark(1);
+	public boolean quedanStrings() {
+		boolean valorDeVerdad = false;
 		
-		boolean valorDeVerdad = buffer.read() != -1;
-		
-		buffer.reset();
+		try
+		{
+			buffer.mark(1);
+			
+			valorDeVerdad = buffer.read() != -1;
+			
+			buffer.reset();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		
 		return valorDeVerdad;
 	}
+	
+	@Override
+	public void abrirse() {
+		try
+		{
+			this.reader = new FileReader(ruta);
+			this.buffer = new BufferedReader(reader);
+		}
+		catch (FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+	}
 
 	@Override
-	public void limpiarse() throws IOException {
+	public void limpiarse() {
 		try
 		{
 			File archivoDeLimpieza = new File(ruta);
@@ -95,9 +124,15 @@ public class Archivo implements FuenteDeStrings {
 	}
 	
 	@Override
-	public void cerrarse() throws IOException {
-		this.buffer.close();
-		
-		this.reader.close();
+	public void cerrarse() {
+		try
+		{
+			this.buffer.close();
+			this.reader.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

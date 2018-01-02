@@ -1,15 +1,16 @@
 package Archivo.CargaBatchV2;
 
-import java.io.IOException;
-
 public interface FuenteDeStrings {
-	String darProximoString() throws IOException;
+	String darProximoString();
 
-	boolean quedanStrings() throws IOException;
-
-	void limpiarse() throws IOException;
+	boolean quedanStrings();
 	
-	void restaurarse() throws IOException;
+	void abrirse();
 
-	void cerrarse() throws IOException;
+	void limpiarse();
+	
+	void restaurarse();
+
+	void cerrarse();
+	
 }

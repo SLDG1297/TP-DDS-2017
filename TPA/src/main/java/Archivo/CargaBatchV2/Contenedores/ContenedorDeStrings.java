@@ -2,8 +2,6 @@ package Archivo.CargaBatchV2.Contenedores;
 
 import Archivo.CargaBatchV2.StringScanner;
 
-import java.io.IOException;
-
 import org.apache.commons.lang.NotImplementedException;
 
 import Archivo.CargaBatchV2.Contenedor;
@@ -19,30 +17,51 @@ public class ContenedorDeStrings extends Contenedor {
 		this.fuente = fuente;
 		this.scanner = scanner;
 	}
+	
+	public FuenteDeStrings getFuente() {
+		return fuente;
+	}
+
+	public void setFuente(FuenteDeStrings fuente) {
+		this.fuente = fuente;
+	}
+
+	public StringScanner getScanner() {
+		return scanner;
+	}
+
+	public void setScanner(StringScanner scanner) {
+		this.scanner = scanner;
+	}
 
 	@Override
-	public EmpresaToken escanearProximoToken() throws IOException {
+	public EmpresaToken escanearProximoToken() {
 		return scanner.escanear(fuente.darProximoString());
 	}
 
 	@Override
-	public boolean tieneTokensPendientes() throws IOException {
+	public boolean tieneTokensPendientes() {
 		return fuente.quedanStrings();
 	}
+	
+	@Override
+	public void abrirse() {
+		fuente.abrirse();
+	}
 
 	@Override
-	public void limpiarse() throws IOException {
+	public void limpiarse() {
 		fuente.limpiarse();
 	}
-
+	
 	@Override
-	public void cerrarse() throws IOException {
-		fuente.cerrarse();
+	public void restaurarse() {
+		fuente.restaurarse();
 	}
 
 	@Override
-	public void restaurarse() throws IOException {
-		fuente.restaurarse();
+	public void cerrarse() {
+		fuente.cerrarse();
 	}
 	
 	@Override

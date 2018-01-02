@@ -2,8 +2,7 @@ package TestCargaBatchV2;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
-
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,23 +17,31 @@ public class TestFuenteMockArchivo {
 		String texto =	"Rolito,EDITBA,2000,8000\n" +
 						"Axel's Consortium Bags,FCF,2017,6969";
 		fuente = new MockArchivo(texto);
+		
+		fuente.abrirse();
+	}
+	
+	@After
+	public void cerrarFuentes()
+	{
+		fuente.cerrarse();
 	}
 	
 	@Test
-	public void sePuedeDarUnString() throws IOException
+	public void sePuedeDarUnString()
 	{
 		assertEquals("Rolito,EDITBA,2000,8000", fuente.darProximoString());
 	}
 	
 	@Test
-	public void sePuedenDarVariosStrings() throws IOException
+	public void sePuedenDarVariosStrings()
 	{
 		assertEquals("Rolito,EDITBA,2000,8000", fuente.darProximoString());
 		assertEquals("Axel's Consortium Bags,FCF,2017,6969", fuente.darProximoString());
 	}
 	
 	@Test
-	public void siDoyUnStringDeLaFuenteDePruebaTodaviaQuedarianTokens() throws IOException
+	public void siDoyUnStringDeLaFuenteDePruebaTodaviaQuedarianTokens()
 	{
 		fuente.darProximoString();
 		
@@ -42,7 +49,7 @@ public class TestFuenteMockArchivo {
 	}
 	
 	@Test
-	public void siDoyDosStringDeLaFuenteDePruebaNoQuedanMasTokens() throws IOException
+	public void siDoyDosStringDeLaFuenteDePruebaNoQuedanMasTokens()
 	{
 		fuente.darProximoString();
 		fuente.darProximoString();
@@ -51,7 +58,7 @@ public class TestFuenteMockArchivo {
 	}
 	
 	@Test
-	public void darMasDeTresStringsMeDevuelveNulo() throws IOException
+	public void darMasDeTresStringsMeDevuelveNulo()
 	{
 		fuente.darProximoString();
 		fuente.darProximoString();
@@ -60,7 +67,7 @@ public class TestFuenteMockArchivo {
 	}
 	
 	@Test
-	public void limpiarLaFuenteMeLaDejaVacia() throws IOException
+	public void limpiarLaFuenteMeLaDejaVacia()
 	{
 		fuente.limpiarse();
 		
