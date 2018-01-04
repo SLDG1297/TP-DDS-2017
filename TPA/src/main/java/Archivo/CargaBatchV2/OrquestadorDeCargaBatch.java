@@ -19,7 +19,7 @@ public class OrquestadorDeCargaBatch {
 		Cargador tarea = new CargadorBatch(contenedor, analizador);
 		
 		Cronometro cron = new Cronometro();
-		
+
 		cron.ejecutaPeriodicamente(tarea, TimeUnit.MINUTES.toMillis(1));
 	}
 }

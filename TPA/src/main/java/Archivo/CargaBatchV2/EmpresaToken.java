@@ -1,8 +1,7 @@
 package Archivo.CargaBatchV2;
 
-import static Factories.FactoryCuenta.crearCuentaConValor;
-import static Factories.FactoryEmpresa.crearEmpresa;
-import static Factories.FactoryPeriodo.crearPeriodo;
+import java.util.Arrays;
+import java.util.List;
 
 import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoAnioIncorrectoException;
 import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoValorIncorrectoException;
@@ -83,15 +82,19 @@ public class EmpresaToken {
 	}
 	
 	public Cuenta getCuenta() {
-		return crearCuentaConValor(this.nombreCuenta, this.valor);
+		return new Cuenta(this.nombreCuenta, this.valor);
 	}
 	
 	public Periodo getPeriodo() {
-		return crearPeriodo(this.anioPeriodo, this.getCuenta());
+		List<Cuenta> cuenta = Arrays.asList(this.getCuenta());
+		
+		return new Periodo(this.anioPeriodo, cuenta);
 	}
 
 	public Empresa generarEmpresa() {
-		return crearEmpresa(nombreEmpresa, this.getPeriodo());
+		List<Periodo> periodo = Arrays.asList(this.getPeriodo());
+		
+		return new Empresa(nombreEmpresa, periodo);
 	}
 	
 	@Override
