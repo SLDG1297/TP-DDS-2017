@@ -40,6 +40,8 @@ public abstract class Cargador extends TimerTask {
 		List<Carga> cargas = analizador.analizarContenedor(tokens);
 			
 		cargas.forEach(c -> c.efectuarse());
+		
+		this.analizador.limpiarCargas();
 	}
 
 	public abstract void procesoPreliminar();

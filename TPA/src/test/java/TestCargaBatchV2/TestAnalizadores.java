@@ -85,9 +85,9 @@ public class TestAnalizadores extends SetParaTestearAnalizadores {
 	}
 	
 	@Test
-	public void dosTokensDeEmpresasInexistentesMeDanUnAltaYUnaModificacion() {
+	public void dosTokensDeMismasEmpresasInexistentesMeDanUnAltaYUnaModificacion() {
 		List<Carga> cargas = resultadoDeAnalisis("Khe,Khe,2001,20\nKhe,Khe,2002,21");
 		
-		assertTrue(cargas.get(0).getClass().equals(Alta.class) && cargas.get(1).getClass().equals(Modificacion.class));
+		assertTrue(cargas.get(0).getClass().equals(Alta.class) && cargas.get(1).getClass().equals(Modificacion.class) && cargas.size() == 2);
 	}
 }

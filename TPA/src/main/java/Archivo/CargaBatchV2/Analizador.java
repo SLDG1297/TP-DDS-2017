@@ -29,6 +29,10 @@ public abstract class Analizador {
 		else
 			this.cargas.add(new Alta(token));
 	}
+	
+	public void limpiarCargas() {
+		this.cargas = new LinkedList<Carga>();
+	}
 
 	public abstract boolean existeLaCarga(EmpresaToken token);
 }

@@ -1,6 +1,6 @@
 package TestCargaBatchV2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,7 +13,7 @@ import Archivo.CargaBatchV2.Cronometro;
 import Archivo.CargaBatchV2.FuenteDeStrings;
 import Archivo.CargaBatchV2.StringScanner;
 import Archivo.CargaBatchV2.Analizadores.AnalizadorDeRepositorio;
-import Archivo.CargaBatchV2.Cargadores.CargadorMock;
+import Archivo.CargaBatchV2.Cargadores.CargadorBatch;
 import Archivo.CargaBatchV2.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
 import Archivo.CargaBatchV2.Scanners.CSV;
@@ -40,11 +40,11 @@ public class TestCronometro {
 		
 		contenedor = new ContenedorDeStrings(fuente, scanner);
 		analizador = new AnalizadorDeRepositorio();
-		tarea = new CargadorMock(contenedor, analizador);
+		tarea = new CargadorBatch(contenedor, analizador);
 		
 		cron = new Cronometro();
 		
-		
+		cron.ejecutaPeriodicamente(tarea, 10);
 	}
 	
 	@After
@@ -54,20 +54,16 @@ public class TestCronometro {
 	
 	@Test
 	public void puedoAgregarUnaEmpresaTrasUnLapsoDeTiempo() throws InterruptedException {
-		cron.ejecutaPeriodicamente(tarea, 10);
-		
 		Thread.sleep(100);
-		
+
 		assertEquals(2, repositorio.buscarListaDeObjetos().size());
 	}
 	
 	@Test
 	public void puedoReescribirElContenedorYQueTomeLoNuevo() throws InterruptedException {
-		cron.ejecutaPeriodicamente(tarea, 10);
-		
 		Thread.sleep(200);
 		
-		fuente = new MockArchivo("Yeah,Yeah,2010,5700");
+		tarea.setContenedor(new ContenedorDeStrings(new MockArchivo("Yeah,Yeah,2010,5700"), new CSV(",")));
 		
 		Thread.sleep(200);
 		

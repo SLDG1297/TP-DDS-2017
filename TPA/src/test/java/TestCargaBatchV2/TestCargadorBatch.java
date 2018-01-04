@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
 
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,6 +32,15 @@ public class TestCargadorBatch extends SetParaTestearAnalizadores {
 		
 		cargadorMock = new CargadorBatch(contenedor1, analizador1);
 		cargadorBatch = new CargadorBatch(contenedor2, analizador2);
+		
+		cargadorMock.procesoPreliminar();
+		cargadorBatch.procesoPreliminar();
+	}
+	
+	@After
+	public void cerrarFuentes() {
+		cargadorMock.procesoPosterior();
+		cargadorBatch.procesoPosterior();
 	}
 	
 	@Test
@@ -56,9 +66,6 @@ public class TestCargadorBatch extends SetParaTestearAnalizadores {
 	
 	@AfterClass
 	public static void restaurarArchivo() {
-		cargadorMock.procesoPosterior();
-		cargadorBatch.procesoPosterior();
-		
 		cargadorMock.getContenedor().restaurarse();
 		cargadorBatch.getContenedor().restaurarse();
 	}
