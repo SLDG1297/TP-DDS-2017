@@ -9,6 +9,11 @@ public class RenglonVacioException extends ScannerException {
 
 	@Override
 	public String explicacionDelFallo() {
-		return "Esta línea está vacía.";
+		return "No hay línea";
+	}
+
+	@Override
+	public String causaDelFallo() {
+		return "";
 	}
 }

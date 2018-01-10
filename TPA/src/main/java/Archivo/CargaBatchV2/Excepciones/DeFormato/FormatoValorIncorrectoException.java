@@ -10,7 +10,7 @@ public class FormatoValorIncorrectoException extends FormatoException {
 	}
 
 	@Override
-	public String explicarFalla() {
+	public String explicacionDelFallo() {
 		return "El campo " + valorErroneo + " no sigue un formato numérico para un valor de cuenta.";
 	}
 }

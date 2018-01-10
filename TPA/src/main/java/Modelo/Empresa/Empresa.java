@@ -2,13 +2,13 @@ package Modelo.Empresa;
 
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
+import Modelo.Excepciones.Empresas.NoEsLaMismaEmpresaException;
 import Modelo.Excepciones.Empresas.NoExisteElPeriodoException;
 import Modelo.Excepciones.Empresas.YaExisteElPeriodoException;
 
 import org.uqbar.commons.utils.Observable;
 
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.Excepciones.DeCarga.NoEsLaMismaEmpresaException;
 import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 import javax.persistence.*;

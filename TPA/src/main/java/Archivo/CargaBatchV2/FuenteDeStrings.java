@@ -1,16 +1,7 @@
 package Archivo.CargaBatchV2;
 
+import java.util.List;
+
 public interface FuenteDeStrings {
-	String darProximoString();
-
-	boolean quedanStrings();
-	
-	void abrirse();
-
-	void limpiarse();
-	
-	void restaurarse();
-
-	void cerrarse();
-	
+	List<String> darLineas();
 }

@@ -1,6 +1,6 @@
 package Archivo.CargaBatchV2.Excepciones;
 
-public abstract class ScannerException extends RuntimeException {
+public abstract class ScannerException extends ExcepcionBatch {
 	private String lineaFallada;
 	
 	public ScannerException(String lineaFallada) {
@@ -15,6 +15,10 @@ public abstract class ScannerException extends RuntimeException {
 		this.lineaFallada = lineaFallada;
 	}
 	
-	public abstract String explicacionDelFallo();
+	public String explicacionDelFallo() {
+		return "La línea " + this.lineaFallada + " falla porque " + this.causaDelFallo() + ".";
+	};
+	
+	public abstract String causaDelFallo();
 
 }

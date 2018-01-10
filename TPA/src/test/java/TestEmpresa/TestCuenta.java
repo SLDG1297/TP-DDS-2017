@@ -3,10 +3,9 @@ package TestEmpresa;
 import Modelo.Empresa.Cuenta;
 import Modelo.Excepciones.Empresas.CuentaConValorNegativoException;
 import Modelo.Excepciones.Empresas.CuentaSinNombreException;
+
 import org.junit.Assert;
 import org.junit.Test;
-
-import Archivo.CargaBatchV2.Excepciones.DeCarga.MismoValorException;
 
 import static Factories.FactoryCuenta.*;
 
@@ -33,10 +32,5 @@ public class TestCuenta {
 		prueba1.actualizar(200);
 		
 		Assert.assertEquals(new Integer(200), prueba1.getValor());
-	}
-	
-	@Test(expected = MismoValorException.class)
-	public void noSePuedeActualizarElMismoValor() {
-		prueba1.actualizar(0);
 	}
 }

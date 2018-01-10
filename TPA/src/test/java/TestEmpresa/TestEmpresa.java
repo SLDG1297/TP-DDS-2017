@@ -7,9 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.Excepciones.DeCarga.NoEsLaMismaEmpresaException;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
+import Modelo.Excepciones.Empresas.NoEsLaMismaEmpresaException;
 import Modelo.Excepciones.Empresas.NoExisteElPeriodoException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;

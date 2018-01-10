@@ -2,7 +2,7 @@ package Main;
 
 import java.io.IOException;
 
-import Archivo.CargaBatchV2.OrquestadorDeCargaBatch;
+import Archivo.CargaBatchV2.ConfiguracionCargaBatch;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
@@ -16,7 +16,7 @@ public class Main {
 		/** Test de Orquestador Batch **/
 		/** Cada 1 minuto carga lo que haya en cuentas/cuentitasDeHector.csv **/
 		BootstrapV2.iniciarModelo();
-		OrquestadorDeCargaBatch.iniciar();
+		ConfiguracionCargaBatch.iniciar();
 	}
 
 }

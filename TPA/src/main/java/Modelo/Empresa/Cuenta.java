@@ -2,9 +2,8 @@ package Modelo.Empresa;
 
 import Modelo.Excepciones.Empresas.CuentaConValorNegativoException;
 import Modelo.Excepciones.Empresas.CuentaSinNombreException;
-import org.uqbar.commons.utils.Observable;
 
-import Archivo.CargaBatchV2.Excepciones.DeCarga.MismoValorException;
+import org.uqbar.commons.utils.Observable;
 
 import javax.persistence.*;
 
@@ -33,16 +32,16 @@ public class Cuenta {
 	}
 
 	public Cuenta(String nuevoNombre) {
-		this.setNombre(nombre);
+		this.setNombre(nuevoNombre);
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		if(nombre == "") throw new CuentaSinNombreException();
-		this.nombre = nombre;
+	public void setNombre(String nuevoNombre) {
+		if(nuevoNombre.equals("")) throw new CuentaSinNombreException();
+		this.nombre = nuevoNombre;
 	}
 
 	public Integer getValor() {
@@ -55,8 +54,6 @@ public class Cuenta {
 	}
 
 	public void actualizar(Integer valorNuevo) {
-		if(this.valor == valorNuevo) throw new MismoValorException();
-		
 		this.setValor(valorNuevo);
 	}
 

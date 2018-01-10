@@ -1,12 +1,11 @@
 package Modelo.Empresa;
 
+import Modelo.Excepciones.Empresas.NoEsElMismoPeriodoException;
 import Modelo.Excepciones.Empresas.PeriodoSinCuentasException;
 import Modelo.Excepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;
 
 import javax.persistence.*;
-
-import Archivo.CargaBatchV2.Excepciones.DeCarga.NoEsElMismoPeriodoException;
 
 import java.util.ArrayList;
 import java.util.List;

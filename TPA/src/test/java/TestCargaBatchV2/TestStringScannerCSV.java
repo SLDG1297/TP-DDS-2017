@@ -5,12 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.Excepciones.DeScaneo.CantidadCamposIncorrectosException;
-import Archivo.CargaBatchV2.Excepciones.DeScaneo.RenglonVacioException;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
 public class TestStringScannerCSV {
 	CSV scanner = new CSV(",");
+	
+	private void tieneQueSerFalso(String renglon) {
+		assertFalse(scanner.esLineaValida(renglon));
+	}
 	
 	@Test
 	public void CSVPuedeEscanearConComa()
@@ -32,45 +34,45 @@ public class TestStringScannerCSV {
 		assertEquals(esperado, scannerTurbio.escanear(renglon));
 	}
 	
-	@Test(expected = RenglonVacioException.class)
+	@Test
 	public void CSVRompeCuandoPongoAlgoVacio()
 	{
-		scanner.escanear("");
+		tieneQueSerFalso("");
 	}
 	
-	@Test(expected = CantidadCamposIncorrectosException.class)
+	@Test
 	public void CSVRompeCuandoNoHayDelimitadores()
 	{
-		scanner.escanear("Rolito");
+		tieneQueSerFalso("Rolito");
 	}
 	
-	@Test(expected = CantidadCamposIncorrectosException.class)
+	@Test
 	public void CSVRompeCuandoFaltan3Campos()
 	{
-		scanner.escanear("Rolito,");
+		tieneQueSerFalso("Rolito,");
 	}
 	
-	@Test(expected = CantidadCamposIncorrectosException.class)
+	@Test
 	public void CSVRompeCuandoFaltan2Campos()
 	{
-		scanner.escanear("Rolito,EDITBA");
+		tieneQueSerFalso("Rolito,EDITBA");
 	}
 	
-	@Test(expected = CantidadCamposIncorrectosException.class)
+	@Test
 	public void CSVRompeCuandoFalta1Campo()
 	{
-		scanner.escanear("Rolito,EDITBA,2000");
+		tieneQueSerFalso("Rolito,EDITBA,2000");
 	}
 	
-	@Test(expected = CantidadCamposIncorrectosException.class)
+	@Test
 	public void CSVRompeCuandoHayCamposDeMas()
 	{
-		scanner.escanear("Rolito,EDITBA,2000,8000,Khe");
+		tieneQueSerFalso("Rolito,EDITBA,2000,8000,Khe");
 	}
 	
-	@Test(expected = CantidadCamposIncorrectosException.class)
+	@Test
 	public void CSVRompeCuandoElDelimitadorEsCualquiera()
 	{
-		scanner.escanear("Rolito/EDITBA/2000/8000");
+		tieneQueSerFalso("Rolito/EDITBA/2000/8000");
 	}
 }

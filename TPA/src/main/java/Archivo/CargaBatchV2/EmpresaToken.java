@@ -82,7 +82,9 @@ public class EmpresaToken {
 	}
 	
 	public Cuenta getCuenta() {
-		return new Cuenta(this.nombreCuenta, this.valor);
+		Cuenta cuenta = new Cuenta(this.nombreCuenta, this.valor);
+		
+		return cuenta;
 	}
 	
 	public Periodo getPeriodo() {

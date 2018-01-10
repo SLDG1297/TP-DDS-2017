@@ -32,6 +32,17 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 		return this.getProveedor().darObjeto(unNombre, this.getTabla());
 	}
 	
+	public boolean existeObjeto(String unNombre) {
+		try
+		{
+			return this.buscarObjeto(unNombre) != null;
+		}
+		catch (NoExisteObjetoConEseNombreException excepcion)
+		{
+			return false;
+		}
+	}
+	
 	public List<T> buscarListaDeObjetos() throws NoExistenObjetosException {
 		return this.getProveedor().darLista(this.getTabla());
 	}

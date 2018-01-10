@@ -1,4 +1,4 @@
-package Archivo.CargaBatchV2.Excepciones.DeCarga;
+package Modelo.Excepciones.Empresas;
 
 public class NoEsLaMismaEmpresaException extends RuntimeException {
 

@@ -1,10 +1,9 @@
 package Archivo.CargaBatchV2.Scanners;
 
-import Archivo.CargaBatchV2.StringScanner;
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.Excepciones.FormatoException;
+import Archivo.CargaBatchV2.StringScanner;
+import Archivo.CargaBatchV2.Excepciones.ExcepcionBatch;
 import Archivo.CargaBatchV2.Excepciones.DeScaneo.CantidadCamposIncorrectosException;
-import Archivo.CargaBatchV2.Excepciones.DeScaneo.RenglonErroneoException;
 import Archivo.CargaBatchV2.Excepciones.DeScaneo.RenglonVacioException;
 
 public class CSV implements StringScanner {
@@ -24,6 +23,13 @@ public class CSV implements StringScanner {
 
 	@Override
 	public EmpresaToken escanear(String renglon) {
+		String[] vector = renglon.split(this.delimitador);
+		
+		return new EmpresaToken(vector[0], vector[1], vector[2], vector[3]);
+	}
+
+	@Override
+	public boolean esLineaValida(String renglon) {
 		try
 		{
 			if(renglon.isEmpty()) throw new RenglonVacioException("");
@@ -32,11 +38,13 @@ public class CSV implements StringScanner {
 			
 			if(vector.length != 4) throw new CantidadCamposIncorrectosException(renglon, vector.length);
 			
-			return new EmpresaToken(vector[0], vector[1], vector[2], vector[3]);
+			new EmpresaToken(vector[0], vector[1], vector[2], vector[3]);
+			
+			return true;
 		}
-		catch (FormatoException excepcion)
+		catch (ExcepcionBatch excepcion)
 		{
-			throw new RenglonErroneoException(renglon, excepcion);
+			return false;
 		}
 	}
 	

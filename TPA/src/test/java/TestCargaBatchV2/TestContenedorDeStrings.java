@@ -4,20 +4,18 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
 import Archivo.CargaBatchV2.Contenedores.ContenedorDeStrings;
-import Archivo.CargaBatchV2.Excepciones.DeScaneo.NoFueEscaneadoException;
 import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
 public class TestContenedorDeStrings {
 	ContenedorDeStrings contenedor, contenedorMedioFallado, contenedorFallado, contenedorVacio;
 	
-	private ContenedorDeStrings inicioDeContenedor(String texto) {
+	private ContenedorDeStrings inicioDeContenedor(String... texto) {
 		MockArchivo fuente  = new MockArchivo(texto);
 		CSV scanner = new CSV(",");
 		
@@ -26,23 +24,10 @@ public class TestContenedorDeStrings {
 	
 	@Before
 	public void iniciarContenedores() {
-		contenedor = inicioDeContenedor("Rolito,EDITBA,2000,8000\nAxel's Consortium Bags,FCF,2017,6969");
+		contenedor = inicioDeContenedor("Rolito,EDITBA,2000,8000", "Axel's Consortium Bags,FCF,2017,6969");
 		contenedorVacio = inicioDeContenedor("");
-		contenedorMedioFallado = inicioDeContenedor("EDITBA,2000,8000\nAxel's Consortium Bags,FCF,2017,6969");
-		contenedorFallado = inicioDeContenedor(",EDITBA,Lepra,8000\nAxel's Consortium Bags,FCF,2017,6969,Khe");
-		
-		contenedor.abrirse();
-		contenedorVacio.abrirse();
-		contenedorMedioFallado.abrirse();
-		contenedorFallado.abrirse();
-	}
-	
-	@After
-	public void cerrarContenedores() {
-		contenedor.cerrarse();
-		contenedorVacio.cerrarse();
-		contenedorMedioFallado.cerrarse();
-		contenedorFallado.cerrarse();	
+		contenedorMedioFallado = inicioDeContenedor("EDITBA,2000,8000", "Axel's Consortium Bags,FCF,2017,6969");
+		contenedorFallado = inicioDeContenedor(",EDITBA,Lepra,8000", "Axel's Consortium Bags,FCF,2017,6969,Khe");
 	}
 	
 	@Test
@@ -58,30 +43,14 @@ public class TestContenedorDeStrings {
 		assertArrayEquals(esperado, actual);
 	}
 	
-	@Test(expected = NoFueEscaneadoException.class)
-	public void noPuedoDeterminarSiHayFallosEnUnContenedorSiNoLoEscaneo() {
-		contenedor.tieneFallos();
+	@Test
+	public void HayDosLineasEnUnContenedorCorrecto() {	
+		assertEquals(2, contenedor.serEscaneado().size());
 	}
 	
 	@Test
-	public void noHayFallosEnUnContenedorCorrecto() {
-		contenedor.serEscaneado();
-		
-		assertFalse(contenedor.tieneFallos());
-	}
-	
-	@Test
-	public void noHayFallosSiNoHayNadaEnElContenedor() {
-		contenedorVacio.serEscaneado();
-		
-		assertFalse(contenedorVacio.tieneFallos());
-	}
-	
-	@Test
-	public void hayFallosSiHayErroresEnElContenedor() {
-		contenedorMedioFallado.serEscaneado();
-		
-		assertTrue(contenedorMedioFallado.tieneFallos());
+	public void hayUnaLineaSiHayUnErrorEnElContenedor() {
+		assertEquals(1, contenedorMedioFallado.serEscaneado().size());
 	}
 	
 	@Test

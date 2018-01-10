@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import Archivo.CargaBatchV2.Excepciones.DeCarga.NoEsElMismoPeriodoException;
+import Modelo.Excepciones.Empresas.NoEsElMismoPeriodoException;
 import Modelo.Excepciones.Empresas.PeriodoSinCuentasException;
 import Modelo.Excepciones.Empresas.YaExisteLaCuentaException;
 import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;

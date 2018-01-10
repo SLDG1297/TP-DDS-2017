@@ -2,7 +2,7 @@ package Main;
 
 import java.io.FileNotFoundException;
 
-import Archivo.CargaBatchV2.OrquestadorDeCargaBatch;
+import Archivo.CargaBatchV2.ConfiguracionCargaBatch;
 import DB.Proveedores.ProveedorBD;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
@@ -23,6 +23,6 @@ public class BootstrapV2 {
 
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
 		
-		OrquestadorDeCargaBatch.iniciar();
+		ConfiguracionCargaBatch.iniciar();
 	}
 }

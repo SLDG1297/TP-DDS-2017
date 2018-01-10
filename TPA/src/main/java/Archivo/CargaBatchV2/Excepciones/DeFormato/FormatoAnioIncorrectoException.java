@@ -10,7 +10,7 @@ public class FormatoAnioIncorrectoException extends FormatoException {
 	}
 
 	@Override
-	public String explicarFalla() {
+	public String explicacionDelFallo() {
 		return "El campo " + anioErroneo + " no sigue un formato numérico para un año.";
 	}
 }

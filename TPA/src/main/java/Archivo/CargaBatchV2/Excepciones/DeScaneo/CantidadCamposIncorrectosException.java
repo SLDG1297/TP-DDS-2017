@@ -11,8 +11,8 @@ public class CantidadCamposIncorrectosException extends ScannerException {
 	}
 	
 	@Override
-	public String explicacionDelFallo() {
-		return "La linea tiene " + camposDeMasOMenos() + "de " + masOMenos() + ".";
+	public String causaDelFallo() {
+		return "tiene " + camposDeMasOMenos() + "de " + masOMenos() + ".";
 	}
 	
 	private int camposDeMasOMenos() {

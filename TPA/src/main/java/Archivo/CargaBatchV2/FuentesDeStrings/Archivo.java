@@ -14,7 +14,6 @@ import Archivo.CargaBatchV2.FuenteDeStrings;
 
 public class Archivo implements FuenteDeStrings {
 	private String ruta;
-	private String rutaRestauradora;
 	private FileReader reader;
 	private BufferedReader buffer;
 	
@@ -22,49 +21,52 @@ public class Archivo implements FuenteDeStrings {
 		this.ruta = ruta;
 	}
 	
-	public Archivo(String ruta, String rutaRestauradora) {
+	public String getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(String ruta) {
 		this.ruta = ruta;
-		this.rutaRestauradora = rutaRestauradora;
 	}
 
 	@Override
-	public String darProximoString() {
-		String linea = "";
+	public List<String> darLineas() {
+		abrirse();
 		
-		try
-		{
-			return buffer.readLine();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+		List<String> lineas = obtenerLineas();
 		
-		return linea;
-	}
-
-	@Override
-	public boolean quedanStrings() {
-		boolean valorDeVerdad = false;
+		cerrarse();
 		
-		try
-		{
-			buffer.mark(1);
-			
-			valorDeVerdad = buffer.read() != -1;
-			
-			buffer.reset();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+		limpiarse();
 		
-		return valorDeVerdad;
+		return lineas;
 	}
 	
-	@Override
-	public void abrirse() {
+	private List<String> obtenerLineas() {
+		String lineaActual = "";
+		
+		List<String> lineas = new LinkedList<String>();
+		
+		do
+		{
+			if(!lineaActual.isEmpty()) lineas.add(lineaActual);
+			
+			try
+			{
+				lineaActual = buffer.readLine();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		while (lineaActual != null);
+		
+		
+		return lineas;
+	}
+
+	private void abrirse() {
 		try
 		{
 			this.reader = new FileReader(ruta);
@@ -76,8 +78,19 @@ public class Archivo implements FuenteDeStrings {
 		}
 	}
 
-	@Override
-	public void limpiarse() {
+	private void cerrarse() {
+		try
+		{
+			this.buffer.close();
+			this.reader.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	private void limpiarse() {
 		try
 		{
 			File archivoDeLimpieza = new File(ruta);
@@ -87,48 +100,6 @@ public class Archivo implements FuenteDeStrings {
 			bufferDeLimpieza.write("");
 
 			bufferDeLimpieza.close();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-	
-	@Override
-	public void restaurarse() {
-		try
-		{
-			BufferedReader bufferRestauracion = new BufferedReader(new FileReader(this.rutaRestauradora));
-			BufferedWriter writerRestauracion = new BufferedWriter(new FileWriter(new File(this.ruta))); 
-			
-			String lineaActual;
-		    List<String> lineas = new LinkedList<String>();
-		    
-		    while ((lineaActual = bufferRestauracion.readLine()) != null) lineas.add(lineaActual);
-		    
-		    for(int i = 0; i < lineas.size(); i++)
-		    {
-		    	writerRestauracion.write(lineas.get(i));
-		    	if(i != lineas.size() - 1) writerRestauracion.newLine();
-		    }
-		    
-		    writerRestauracion.flush();
-		    writerRestauracion.close();
-		    
-		    bufferRestauracion.close();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}
-	
-	@Override
-	public void cerrarse() {
-		try
-		{
-			this.buffer.close();
-			this.reader.close();
 		}
 		catch (IOException e)
 		{
