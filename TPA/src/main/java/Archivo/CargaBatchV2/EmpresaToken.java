@@ -3,8 +3,8 @@ package Archivo.CargaBatchV2;
 import java.util.Arrays;
 import java.util.List;
 
-import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoAnioIncorrectoException;
-import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoValorIncorrectoException;
+import Archivo.CargaBatchV2.Excepciones.FormatoAnioIncorrectoException;
+import Archivo.CargaBatchV2.Excepciones.FormatoValorIncorrectoException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;

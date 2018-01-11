@@ -1,8 +1,6 @@
-package Archivo.CargaBatchV2.Excepciones.DeFormato;
+package Archivo.CargaBatchV2.Excepciones;
 
-import Archivo.CargaBatchV2.Excepciones.FormatoException;
-
-public class FormatoAnioIncorrectoException extends FormatoException {
+public class FormatoAnioIncorrectoException extends ScannerException {
 	String anioErroneo;
 
 	public FormatoAnioIncorrectoException(String anioErroneo) {

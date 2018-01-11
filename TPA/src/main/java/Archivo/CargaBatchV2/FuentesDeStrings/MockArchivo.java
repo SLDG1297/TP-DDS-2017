@@ -9,11 +9,16 @@ public class MockArchivo implements FuenteDeStrings {
 	private List<String> lineas;
 	
 	public MockArchivo(String... texto) {
-		this.lineas = Arrays.asList(texto);
+		lineas = Arrays.asList(texto);
 	}
 
 	@Override
 	public List<String> darLineas() {
-		return this.lineas;
+		return lineas;
+	}
+
+	@Override
+	public boolean noTieneLineas() {
+		return lineas.isEmpty();
 	}
 }

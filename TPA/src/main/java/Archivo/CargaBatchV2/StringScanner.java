@@ -1,7 +1,22 @@
 package Archivo.CargaBatchV2;
 
-public interface StringScanner {
-	EmpresaToken escanear(String renglon);
+import Archivo.CargaBatchV2.Excepciones.ScannerException;
+import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoNegativo;
+import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoPositivo;
 
-	boolean esLineaValida(String renglon);
+public abstract class StringScanner {
+	public ResultadoDeScan escanear(String renglon) {
+		try
+		{
+			EmpresaToken token = this.intentarEscanear(renglon);
+			
+			return new ResultadoPositivo(token);
+		}
+		catch (ScannerException excepcion)
+		{
+			return new ResultadoNegativo(renglon, excepcion);
+		}
+	}
+
+	public abstract EmpresaToken intentarEscanear(String renglon);
 }

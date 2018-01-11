@@ -42,6 +42,26 @@ public class Archivo implements FuenteDeStrings {
 		return lineas;
 	}
 	
+	@Override
+	public boolean noTieneLineas() {
+		boolean valorDeVerdad = false;
+		
+		abrirse();
+		
+		try
+		{
+			valorDeVerdad = buffer.read() == -1;
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		cerrarse();
+		
+		return valorDeVerdad;
+	}
+	
 	private List<String> obtenerLineas() {
 		String lineaActual = "";
 		
@@ -69,8 +89,8 @@ public class Archivo implements FuenteDeStrings {
 	private void abrirse() {
 		try
 		{
-			this.reader = new FileReader(ruta);
-			this.buffer = new BufferedReader(reader);
+			reader = new FileReader(ruta);
+			buffer = new BufferedReader(reader);
 		}
 		catch (FileNotFoundException e)
 		{
@@ -81,8 +101,8 @@ public class Archivo implements FuenteDeStrings {
 	private void cerrarse() {
 		try
 		{
-			this.buffer.close();
-			this.reader.close();
+			buffer.close();
+			reader.close();
 		}
 		catch (IOException e)
 		{

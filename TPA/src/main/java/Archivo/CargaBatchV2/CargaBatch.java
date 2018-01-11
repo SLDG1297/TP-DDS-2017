@@ -3,6 +3,8 @@ package Archivo.CargaBatchV2;
 import java.util.List;
 import java.util.TimerTask;
 
+import Archivo.CargaBatchV2.Excepciones.NoHayNadaException;
+
 public class CargaBatch extends TimerTask {
 	private Contenedor contenedor;
 	private Cargador cargador;
@@ -30,8 +32,15 @@ public class CargaBatch extends TimerTask {
 
 	@Override
 	public void run() {
-		List<EmpresaToken> tokens = contenedor.serEscaneado();
-		
-		tokens.forEach(token -> cargador.cargar(token));
+		try
+		{
+			List<ResultadoDeScan> resultados = contenedor.serEscaneado();
+			
+			resultados.forEach(resultado -> cargador.cargar(resultado));
+		}
+		catch (NoHayNadaException excepcion)
+		{
+			
+		}
 	}
 }

@@ -5,14 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
+import Archivo.CargaBatchV2.Excepciones.CantidadCamposIncorrectosException;
+import Archivo.CargaBatchV2.Excepciones.RenglonVacioException;
 import Archivo.CargaBatchV2.Scanners.CSV;
 
 public class TestStringScannerCSV {
 	CSV scanner = new CSV(",");
-	
-	private void tieneQueSerFalso(String renglon) {
-		assertFalse(scanner.esLineaValida(renglon));
-	}
 	
 	@Test
 	public void CSVPuedeEscanearConComa()
@@ -20,7 +18,7 @@ public class TestStringScannerCSV {
 		String renglon = "Rolito,EDITBA,2000,8000";
 		EmpresaToken esperado = new EmpresaToken("Rolito", "EDITBA", 2000, 8000);
 		
-		assertEquals(esperado, scanner.escanear(renglon));
+		assertEquals(esperado, scanner.intentarEscanear(renglon));
 	}
 	
 	@Test
@@ -31,48 +29,49 @@ public class TestStringScannerCSV {
 
 		EmpresaToken esperado = new EmpresaToken("Rolito", "EDITBA", 2000, 8000);
 		
-		assertEquals(esperado, scannerTurbio.escanear(renglon));
+		assertEquals(esperado, scannerTurbio.intentarEscanear(renglon));
 	}
 	
-	@Test
+	@Test(expected = RenglonVacioException.class)
 	public void CSVRompeCuandoPongoAlgoVacio()
 	{
-		tieneQueSerFalso("");
+		scanner.intentarEscanear("");
 	}
 	
-	@Test
+	@Test(expected = CantidadCamposIncorrectosException.class)
 	public void CSVRompeCuandoNoHayDelimitadores()
 	{
-		tieneQueSerFalso("Rolito");
+		scanner.intentarEscanear("Rolito");
 	}
 	
-	@Test
+	@Test(expected = CantidadCamposIncorrectosException.class)
 	public void CSVRompeCuandoFaltan3Campos()
 	{
-		tieneQueSerFalso("Rolito,");
+		scanner.intentarEscanear("Rolito,");
 	}
 	
-	@Test
+	@Test(expected = CantidadCamposIncorrectosException.class)
 	public void CSVRompeCuandoFaltan2Campos()
 	{
-		tieneQueSerFalso("Rolito,EDITBA");
+		scanner.intentarEscanear("Rolito,EDITBA");
 	}
 	
-	@Test
+	@Test(expected = CantidadCamposIncorrectosException.class)
 	public void CSVRompeCuandoFalta1Campo()
 	{
-		tieneQueSerFalso("Rolito,EDITBA,2000");
+		scanner.intentarEscanear("Rolito,EDITBA,2000");
 	}
 	
-	@Test
+	@Test(expected = CantidadCamposIncorrectosException.class)
 	public void CSVRompeCuandoHayCamposDeMas()
 	{
-		tieneQueSerFalso("Rolito,EDITBA,2000,8000,Khe");
+		scanner.intentarEscanear("Rolito,EDITBA,2000,8000,Khe");
 	}
 	
-	@Test
+	@Test(expected = CantidadCamposIncorrectosException.class)
 	public void CSVRompeCuandoElDelimitadorEsCualquiera()
 	{
-		tieneQueSerFalso("Rolito/EDITBA/2000/8000");
+		scanner.intentarEscanear("Rolito/EDITBA/2000/8000");
 	}
+	
 }

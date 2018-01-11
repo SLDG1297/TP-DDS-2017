@@ -20,6 +20,6 @@ public class ConfiguracionCargaBatch {
 		
 		Cronometro cron = new Cronometro();
 
-		cron.ejecutaPeriodicamente(tarea, TimeUnit.MINUTES.toMillis(1));
+		cron.ejecutaPeriodicamente(tarea, TimeUnit.SECONDS.toMillis(15));
 	}
 }

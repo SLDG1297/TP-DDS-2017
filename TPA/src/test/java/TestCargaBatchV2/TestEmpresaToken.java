@@ -3,8 +3,8 @@ package TestCargaBatchV2;
 import org.junit.Test;
 
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoAnioIncorrectoException;
-import Archivo.CargaBatchV2.Excepciones.DeFormato.FormatoValorIncorrectoException;
+import Archivo.CargaBatchV2.Excepciones.FormatoAnioIncorrectoException;
+import Archivo.CargaBatchV2.Excepciones.FormatoValorIncorrectoException;
 import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 

@@ -37,6 +37,17 @@ public class TestFuentesDeStrings {
 	}
 	
 	@Test
+	public void unMockConAlgoNoEstaVacio()
+	{
+		assertFalse(mock.noTieneLineas());
+	}
+
+	public void unMockVacioMeTiraQueNoHayNadaQueEscanear()
+	{
+		assertTrue(new MockArchivo().noTieneLineas());
+	}
+	
+	@Test
 	public void sePuedeEscanearUnArchivo()
 	{
 		assertEquals(71, archivo.darLineas().size());
@@ -47,6 +58,6 @@ public class TestFuentesDeStrings {
 	{
 		archivo.darLineas();
 		
-		assertEquals(0, archivo.darLineas().size());
+		assertTrue(archivo.noTieneLineas());
 	}
 }

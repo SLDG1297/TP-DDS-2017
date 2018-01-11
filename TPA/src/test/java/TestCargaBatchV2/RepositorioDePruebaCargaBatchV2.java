@@ -12,7 +12,7 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 
-public abstract class RepositorioDePrueba {
+public abstract class RepositorioDePruebaCargaBatchV2 {
 	public Cuenta cuenta1, cuenta2, cuenta3, cuenta4;
 	public Periodo periodo1, periodo2, periodo3;
 	public Empresa empresa1, empresa2;
