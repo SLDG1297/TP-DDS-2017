@@ -6,9 +6,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
-import Archivo.CargaBatchV2.RestauradorDeArchivo;
 import Archivo.CargaBatchV2.FuentesDeStrings.Archivo;
 import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
+import Archivo.CargaBatchV2.FuentesDeStrings.GestoresDeArchivo.RestauradorDeArchivo;
 
 public class TestFuentesDeStrings {
 	private MockArchivo mock;

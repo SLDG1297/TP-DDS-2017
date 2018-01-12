@@ -1,6 +1,8 @@
-package Archivo.CargaBatchV2;
+package Archivo.CargaBatchV2.Scanners;
 
+import Archivo.CargaBatchV2.EmpresaToken;
 import Archivo.CargaBatchV2.Excepciones.ScannerException;
+import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoDeScan;
 import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoNegativo;
 import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoPositivo;
 

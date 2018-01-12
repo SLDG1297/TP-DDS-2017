@@ -1,14 +1,12 @@
 package Archivo.CargaBatchV2.Contenedores;
 
-import Archivo.CargaBatchV2.StringScanner;
 import Archivo.CargaBatchV2.Excepciones.NoHayNadaException;
+import Archivo.CargaBatchV2.FuentesDeStrings.FuenteDeStrings;
+import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoDeScan;
+import Archivo.CargaBatchV2.Scanners.StringScanner;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import Archivo.CargaBatchV2.Contenedor;
-import Archivo.CargaBatchV2.FuenteDeStrings;
-import Archivo.CargaBatchV2.ResultadoDeScan;
 
 public class ContenedorDeStrings implements Contenedor {
 	private FuenteDeStrings fuente;

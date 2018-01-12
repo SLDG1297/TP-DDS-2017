@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Archivo.CargaBatchV2.Contenedor;
 import Archivo.CargaBatchV2.EmpresaToken;
-import Archivo.CargaBatchV2.ResultadoDeScan;
 import Archivo.CargaBatchV2.Cargadores.CargadorDeRepositorio;
+import Archivo.CargaBatchV2.Contenedores.Contenedor;
 import Archivo.CargaBatchV2.Excepciones.CantidadCamposIncorrectosException;
+import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoDeScan;
 import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoNegativo;
 import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoPositivo;
 

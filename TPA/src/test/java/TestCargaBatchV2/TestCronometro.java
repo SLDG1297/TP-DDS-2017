@@ -8,11 +8,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Archivo.CargaBatchV2.Cargador;
 import Archivo.CargaBatchV2.CargaBatch;
-import Archivo.CargaBatchV2.Contenedor;
 import Archivo.CargaBatchV2.Cronometro;
+import Archivo.CargaBatchV2.Cargadores.Cargador;
 import Archivo.CargaBatchV2.Cargadores.CargadorDeRepositorio;
+import Archivo.CargaBatchV2.Contenedores.Contenedor;
 import Archivo.CargaBatchV2.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
 import Archivo.CargaBatchV2.Scanners.CSV;

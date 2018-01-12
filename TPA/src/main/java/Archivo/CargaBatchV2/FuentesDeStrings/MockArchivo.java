@@ -3,8 +3,6 @@ package Archivo.CargaBatchV2.FuentesDeStrings;
 import java.util.Arrays;
 import java.util.List;
 
-import Archivo.CargaBatchV2.FuenteDeStrings;
-
 public class MockArchivo implements FuenteDeStrings {
 	private List<String> lineas;
 	

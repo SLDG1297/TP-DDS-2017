@@ -1,6 +1,5 @@
 package Archivo.CargaBatchV2.Cargadores;
 
-import Archivo.CargaBatchV2.Cargador;
 import Archivo.CargaBatchV2.EmpresaToken;
 import DB.Repositorios.RepositorioEmpresas;
 

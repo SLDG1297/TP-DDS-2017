@@ -1,6 +1,8 @@
-package Archivo.CargaBatchV2;
+package Archivo.CargaBatchV2.Cargadores;
 
+import Archivo.CargaBatchV2.EmpresaToken;
 import Archivo.CargaBatchV2.Excepciones.TieneErroresDeScanException;
+import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoDeScan;
 
 public abstract class Cargador {
 	public void cargar(ResultadoDeScan resultado) {

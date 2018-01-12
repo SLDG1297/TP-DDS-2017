@@ -1,4 +1,4 @@
-package Archivo.CargaBatchV2;
+package Archivo.CargaBatchV2.FuentesDeStrings.GestoresDeArchivo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,14 +11,14 @@ import java.util.List;
 
 import Archivo.CargaBatchV2.FuentesDeStrings.Archivo;
 
-public class RestauradorDeArchivo {
+public class RestauradorDeArchivo implements GestorDeArchivo {
 	private String rutaRestauradora;
 
 	public RestauradorDeArchivo(String rutaRestauradora) {
 		this.rutaRestauradora = rutaRestauradora;
 	}
 	
-	public void restaurar(Archivo archivo) {
+	public void atender(Archivo archivo)  {
 		try
 		{
 			BufferedReader bufferRestauracion = new BufferedReader(new FileReader(this.rutaRestauradora));
