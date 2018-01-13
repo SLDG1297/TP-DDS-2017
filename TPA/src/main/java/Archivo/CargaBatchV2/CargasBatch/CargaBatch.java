@@ -1,4 +1,4 @@
-package Archivo.CargaBatchV2;
+package Archivo.CargaBatchV2.CargasBatch;
 
 import java.util.List;
 import java.util.TimerTask;
@@ -37,8 +37,6 @@ public class CargaBatch extends TimerTask {
 		List<ResultadoDeScan> resultados = contenedor.serEscaneado();
 		
 		resultados.forEach(resultado -> cargador.cargar(resultado));
-		
-		contenedor.limpiarse();
 	}
 
 	@Override

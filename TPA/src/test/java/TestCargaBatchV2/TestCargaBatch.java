@@ -5,10 +5,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-
-import Archivo.CargaBatchV2.CargaBatch;
 import Archivo.CargaBatchV2.Cargadores.Cargador;
 import Archivo.CargaBatchV2.Cargadores.CargadorDeRepositorio;
+import Archivo.CargaBatchV2.CargasBatch.CargaBatch;
+import Archivo.CargaBatchV2.CargasBatch.CargaBatchKelly;
 import Archivo.CargaBatchV2.Contenedores.Contenedor;
 import Archivo.CargaBatchV2.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatchV2.Excepciones.NoHayNadaException;
@@ -19,36 +19,39 @@ public class TestCargaBatch extends RepositorioDePruebaCargaBatchV2 {
 	private Contenedor mock(String... texto) {
 		return new ContenedorDeStrings(new MockArchivo(texto), new CSV(","));
 	}
-	
-	private void ejecutarCarga(Contenedor contenedor) {
-		Cargador cargador = new CargadorDeRepositorio();
-
-		CargaBatch carga = new CargaBatch(contenedor, cargador);
-		
-		carga.cargar();
-	}
 
 	@Test
 	public void puedoAgregarUnaEmpresa() {
-		ejecutarCarga(mock("XD,A,2006,105020", "Khe,Khe,200,20"));
+		CargaBatch carga = new CargaBatch(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
+		
+		carga.cargar();
 		
 		assertEquals(3, repositorio.buscarListaDeObjetos().size());
 	}
 	
+	@Test
+	public void elContenedorNoSeVaciaLuegoDeLaCargaComun() {
+		CargaBatch carga = new CargaBatch(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
+		
+		carga.cargar();
+		
+		carga.cargar();
+	}
+	
 	@Test(expected = NoHayNadaException.class)
-	public void elContenedorSeVaciaLuegoDeLaCarga() {
-		Contenedor contenedor = mock("Khe,Khe,200,20");
+	public void elContenedorSeVaciaLuegoDeUnaCargaKelly(){
+		CargaBatchKelly carga = new CargaBatchKelly(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
 		
-		ejecutarCarga(contenedor);
+		carga.cargar();
 		
-		ejecutarCarga(contenedor);
+		carga.cargar();
 	}
 	
 	@Test
 	public void elContenedorVacioNoDeberiaHacerNadaCuandoRompeParaLaCargaAsincronica() {
 		Cargador cargador = new CargadorDeRepositorio();
 
-		CargaBatch carga = new CargaBatch(mock(), cargador);
+		CargaBatchKelly carga = new CargaBatchKelly(mock(), cargador);
 		
 		carga.run();
 	}

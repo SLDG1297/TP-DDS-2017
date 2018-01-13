@@ -8,10 +8,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Archivo.CargaBatchV2.CargaBatch;
 import Archivo.CargaBatchV2.Cronometro;
 import Archivo.CargaBatchV2.Cargadores.Cargador;
 import Archivo.CargaBatchV2.Cargadores.CargadorDeRepositorio;
+import Archivo.CargaBatchV2.CargasBatch.CargaBatch;
+import Archivo.CargaBatchV2.CargasBatch.CargaBatchKelly;
 import Archivo.CargaBatchV2.Contenedores.Contenedor;
 import Archivo.CargaBatchV2.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatchV2.FuentesDeStrings.MockArchivo;
@@ -27,7 +28,7 @@ public class TestCronometro extends RepositorioDePruebaCargaBatchV2 {
 
 		Cargador cargador = new CargadorDeRepositorio();
 
-		cargaBatch = new CargaBatch(contenedor, cargador);
+		cargaBatch = new CargaBatchKelly(contenedor, cargador);
 		
 		cron = new Cronometro();
 		
