@@ -1,5 +1,4 @@
 package Observers;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +20,11 @@ public class NotificadorModificacionEmpresa {
 		return instance;
 	}
 	
-	public void agregarObservador() 
-	{
-		
+	public void notificarObservadores(String nombreEmpresa) {
+
+		observadores.forEach(observer -> observer.update(nombreEmpresa));
+
 	}
-	
+
 	
 }
-	
