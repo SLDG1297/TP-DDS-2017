@@ -18,8 +18,7 @@ import static Factories.FactoryMetodologia.crearMetodologiaDeUsuario;
 import java.io.IOException;
 import java.util.Arrays;
 
-import Archivo.FileCleaner;
-import Archivo.CargaBatch.CompiladorCSV;
+import Archivo.CargaBatchV2.DespliegueCargaBatch;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Proveedores.ProveedorBD;
 import DB.Proveedores.ProveedorMock;
@@ -45,9 +44,12 @@ public class Bootstrap {
 		RepositorioIndicadores.getInstancia().setProveedor(new ProveedorBD<Indicador>());
 
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
-
+		
+		/*
+		TODO: Exlicá las conexiones, Yisus, por favor.
 		RepositorioPrecalculados repo = RepositorioPrecalculados.getInstancia();
 		RepositorioPrecalculados.getInstancia().setProveedor(new ProveedorMongoDB<>(repo));
+		*/
 	}
 	
 	public static void iniciarRepositoriosDePrueba() {
@@ -80,10 +82,7 @@ public class Bootstrap {
 	public static void chequearEmpresas() throws IOException {
 		try
 		{
-			String ruta = "cuentitasDeHector.csv";
-			
-			CompiladorCSV.instanciar().presentarEmpresas(ruta);
-			new FileCleaner().limpiar(ruta);
+			DespliegueCargaBatch.iniciar();
 			
 			RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		}
