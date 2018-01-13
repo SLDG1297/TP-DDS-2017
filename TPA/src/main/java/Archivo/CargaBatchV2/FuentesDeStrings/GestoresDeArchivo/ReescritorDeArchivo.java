@@ -7,10 +7,10 @@ import java.io.IOException;
 
 import Archivo.CargaBatchV2.FuentesDeStrings.Archivo;
 
-public class EscritorDeArchivo implements GestorDeArchivo {
+public class ReescritorDeArchivo implements GestorDeArchivo {
 	private String[] texto;
 	
-	public EscritorDeArchivo(String... texto) {
+	public ReescritorDeArchivo(String... texto) {
 		this.texto = texto;
 	}
 

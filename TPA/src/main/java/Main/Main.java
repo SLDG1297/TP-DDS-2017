@@ -14,7 +14,7 @@ public class Main {
 		WebMain.iniciarSitio();
 		*/
 		/** Test de Orquestador Batch **/
-		/** Cada 1 minuto carga lo que haya en cuentas/cuentitasDeHector.csv **/
+		/** Cada 15 segundos carga lo que haya en cuentas/cuentitasDeHector.csv **/
 		BootstrapV2.iniciarModelo();
 		ConfiguracionCargaBatch.iniciar();
 	}

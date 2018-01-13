@@ -26,7 +26,7 @@ public class Empresa implements TipoDeRepositorio {
 	@Column(name = "empresa_id")
 	private long id;
 	
-	@Column(name = "empresa_nombre")
+	@Column(name = "empresa_nombre", columnDefinition = "VARCHAR(255) BINARY")
 	private String nombre;
 	
 	@OneToMany(cascade = {CascadeType.ALL})

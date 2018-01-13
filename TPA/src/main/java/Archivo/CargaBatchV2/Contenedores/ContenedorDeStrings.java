@@ -29,4 +29,9 @@ public class ContenedorDeStrings implements Contenedor {
 		return resultados;
 	}
 
+	@Override
+	public void limpiarse() {
+		fuente.limpiarse();
+	}
+
 }

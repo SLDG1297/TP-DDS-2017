@@ -32,18 +32,19 @@ public class CargaBatch extends TimerTask {
 	public void setCargador(Cargador cargador) {
 		this.cargador = cargador;
 	}
+	
+	public void cargar() {
+		List<ResultadoDeScan> resultados = contenedor.serEscaneado();
+		
+		resultados.forEach(resultado -> cargador.cargar(resultado));
+		
+		contenedor.limpiarse();
+	}
 
 	@Override
 	public void run() {
-		try
-		{
-			List<ResultadoDeScan> resultados = contenedor.serEscaneado();
-			
-			resultados.forEach(resultado -> cargador.cargar(resultado));
-		}
-		catch (NoHayNadaException excepcion)
-		{
-			
-		}
+		try { this.cargar(); }
+		
+		catch (NoHayNadaException excepcion) { }
 	}
 }

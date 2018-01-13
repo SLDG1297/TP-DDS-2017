@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import Archivo.CargaBatchV2.FuentesDeStrings.GestoresDeArchivo.LimpiadorDeArchivo;
+
 public class Archivo implements FuenteDeStrings {
 	private String ruta;
 	private FileReader reader;
@@ -101,5 +103,10 @@ public class Archivo implements FuenteDeStrings {
 		{
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void limpiarse() {
+		new LimpiadorDeArchivo().atender(this);
 	}
 }

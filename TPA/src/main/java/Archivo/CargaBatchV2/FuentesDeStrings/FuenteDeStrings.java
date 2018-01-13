@@ -6,4 +6,6 @@ public interface FuenteDeStrings {
 	List<String> darLineas();
 
 	boolean noTieneLineas();
+
+	void limpiarse();
 }

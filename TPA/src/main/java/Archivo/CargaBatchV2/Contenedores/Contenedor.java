@@ -6,4 +6,6 @@ import Archivo.CargaBatchV2.ResultadosDeScan.ResultadoDeScan;
 
 public interface Contenedor {
 	List<ResultadoDeScan> serEscaneado();
+	
+	void limpiarse();
 }

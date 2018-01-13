@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class EscritorDeAchivos {
+public class EscritorDeAchivo {
 	
 	public void escribir(String ruta, String texto){
 		

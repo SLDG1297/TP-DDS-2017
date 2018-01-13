@@ -21,7 +21,7 @@ public class ConfiguracionCargaBatch {
 		Cargador cargador = new CargadorDeRepositorio();
 		
 		CargaBatch tarea = new CargaBatch(contenedor, cargador);
-		
+
 		Cronometro cron = new Cronometro();
 
 		cron.ejecutaPeriodicamente(tarea, TimeUnit.SECONDS.toMillis(15));
