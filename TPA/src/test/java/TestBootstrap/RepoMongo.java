@@ -32,7 +32,7 @@ import static org.junit.Assert.assertTrue;
 @Deprecated
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class RepoMongo extends MongoDBManager {
-
+/*
     @Before
     public void iniciarRepos(){
         RepositorioUsuarios.getInstancia().setProveedor(new ProveedorBD<Usuario>());
@@ -85,5 +85,5 @@ public class RepoMongo extends MongoDBManager {
         double b = 50;
         eliminarPorQuery("Precalculado", Filters.and(Filters.eq("idUsuario", a), Filters.eq("valor", b)));
     }
-
+*/
 }

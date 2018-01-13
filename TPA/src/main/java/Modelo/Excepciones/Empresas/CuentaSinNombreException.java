@@ -1,6 +1,6 @@
 package Modelo.Excepciones.Empresas;
 
-import Archivo.CargaBatchV2.Excepciones.ScannerException;
+import Archivo.CargaBatch.Excepciones.ScannerException;
 
 public class CuentaSinNombreException extends ScannerException {
 	@Override

@@ -18,7 +18,7 @@ import static Factories.FactoryMetodologia.crearMetodologiaDeUsuario;
 import java.io.IOException;
 import java.util.Arrays;
 
-import Archivo.CargaBatchV2.DespliegueCargaBatch;
+import Archivo.CargaBatch.DespliegueCargaBatch;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Proveedores.ProveedorBD;
 import DB.Proveedores.ProveedorMock;
@@ -45,6 +45,7 @@ public class Bootstrap {
 
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
 		
+		System.err.println("Exlicá las conexiones para Mongo, Yisus, por favor.");
 		/*
 		TODO: Exlicá las conexiones, Yisus, por favor.
 		RepositorioPrecalculados repo = RepositorioPrecalculados.getInstancia();

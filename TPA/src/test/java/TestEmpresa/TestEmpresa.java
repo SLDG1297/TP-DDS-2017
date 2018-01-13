@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import Archivo.CargaBatchV2.EmpresaToken;
+import Archivo.CargaBatch.EmpresaToken;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
 import Modelo.Excepciones.Empresas.NoEsLaMismaEmpresaException;

@@ -8,7 +8,7 @@ import Modelo.Excepciones.Empresas.YaExisteElPeriodoException;
 
 import org.uqbar.commons.utils.Observable;
 
-import Archivo.CargaBatchV2.EmpresaToken;
+import Archivo.CargaBatch.EmpresaToken;
 import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 import javax.persistence.*;

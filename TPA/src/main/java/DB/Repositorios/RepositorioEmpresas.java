@@ -2,7 +2,7 @@ package DB.Repositorios;
 
 import static DB.TiposDeRepositorios.NombreRepositorio.EMPRESA;
 
-import Archivo.CargaBatchV2.EmpresaToken;
+import Archivo.CargaBatch.EmpresaToken;
 import DB.TiposDeRepositorios.NombreRepositorio;
 import Modelo.Empresa.Empresa;
 
