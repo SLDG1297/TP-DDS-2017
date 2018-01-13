@@ -34,7 +34,7 @@ public class ReceptorDeEmpresas {
 		renglon.actualizar(empresaVieja);
 		
 		RepositorioEmpresas.getInstancia().modificarObjeto(empresaVieja);
-
+//observerEmpresas.notificarObservadores();
 		try {
 			GestorDeCache.getInstance().eliminarEmpresa(renglon.getEmpresa().getNombre());
 		}

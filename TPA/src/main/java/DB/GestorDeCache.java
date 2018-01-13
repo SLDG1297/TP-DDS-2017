@@ -1,9 +1,10 @@
 package DB;
 
 import DB.Repositorios.RepositorioPrecalculados;
+import Observers.*;
 import com.mongodb.client.model.Filters;
 
-public class GestorDeCache {
+public class GestorDeCache implements ObserverModificacionEmpresa{
 
     private static GestorDeCache ourInstance = new GestorDeCache();
 
@@ -22,9 +23,17 @@ public class GestorDeCache {
 
     }
 
+    /*
     public void obtenerIndicadorEvaluado (String nombreIndicador) {
 
 
 
-    }
+    }*/
+
+	@Override
+	public void update(String nombreEmpresa) {
+	
+		this.eliminarEmpresa(nombreEmpresa);
+		
+	}
 }
