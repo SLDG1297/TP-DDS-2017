@@ -5,6 +5,8 @@ import java.util.List;
 public class NotificadorModificacionEmpresa {
 
 	public static NotificadorModificacionEmpresa instance;
+
+	private TipoDeNotificador tipoDeNotificador = new TipoPosta();
 	
 	private List<ObserverModificacionEmpresa> observadores = new ArrayList<>();
 	
@@ -22,7 +24,7 @@ public class NotificadorModificacionEmpresa {
 	
 	public void notificarObservadores(String nombreEmpresa) {
 
-		observadores.forEach(observer -> observer.update(nombreEmpresa));
+		tipoDeNotificador.notificarObservadores(nombreEmpresa,observadores);
 
 	}
 
