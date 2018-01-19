@@ -45,12 +45,8 @@ public class Bootstrap {
 
 		RepositorioMetodologias.getInstancia().setProveedor(new ProveedorBD<Metodologia>());
 		
-		System.err.println("Exlicá las conexiones para Mongo, Yisus, por favor.");
-		/*
-		TODO: Exlicá las conexiones, Yisus, por favor.
 		RepositorioPrecalculados repo = RepositorioPrecalculados.getInstancia();
 		RepositorioPrecalculados.getInstancia().setProveedor(new ProveedorMongoDB<>(repo));
-		*/
 	}
 	
 	public static void iniciarRepositoriosDePrueba() {

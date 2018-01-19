@@ -1,10 +1,19 @@
 package Main;
 
-import static spark.Spark.*;
+
+import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
+import static spark.SparkBase.staticFileLocation;
+import static spark.SparkBase.stop;
+
 import Controllers.EmpresasController;
-import Controllers.*;
+import Controllers.HomeController;
+import Controllers.IndicadoresCreacionController;
+import Controllers.IndicadoresDestruccionController;
+import Controllers.IndicadoresEvaluacionController;
+import Controllers.LoginControllerController;
+import Controllers.MetodologiasController;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 public class WebMain {
@@ -12,12 +21,16 @@ public class WebMain {
 
     public static void iniciarSitio() {
 
-        port(80);
+        port(8080);
 
         staticFileLocation("/public");
 
         iniciarInterfazWeb();
 
+    }
+    
+    public static void cerrarSitio() {
+    	stop();
     }
 
     private static void iniciarInterfazWeb() {
