@@ -6,7 +6,9 @@ import java.util.concurrent.TimeUnit;
 import Archivo.CargaBatch.Cargadores.Cargador;
 import Archivo.CargaBatch.Cargadores.CargadorDeRespositorioNotificador;
 import Archivo.CargaBatch.CargasBatch.CargaBatch;
-import Archivo.CargaBatch.CargasBatch.CargaBatchKelly;
+import Archivo.CargaBatch.CargasBatch.CargaBatchBase;
+import Archivo.CargaBatch.CargasBatch.Kelly;
+import Archivo.CargaBatch.CargasBatch.RefrescadorEmpresas;
 import Archivo.CargaBatch.Contenedores.Contenedor;
 import Archivo.CargaBatch.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatch.FuentesDeStrings.Archivo;
@@ -22,7 +24,7 @@ public class DespliegueCargaBatch {
 		Contenedor contenedor = new ContenedorDeStrings(fuente, scanner);
 		Cargador cargador = new CargadorDeRespositorioNotificador();
 		
-		CargaBatch tarea = new CargaBatchKelly(contenedor, cargador);
+		CargaBatch tarea = new RefrescadorEmpresas(new Kelly(new CargaBatchBase(contenedor, cargador)));
 
 		Cronometro cron = new Cronometro();
 

@@ -20,7 +20,9 @@ public class RepositorioEmpresas extends Repositorio<Empresa> {
 	}
 	
 	public void modificarEmpresa(EmpresaToken token) {
-		this.buscarObjeto(token.getNombreEmpresa()).actualizar(token);;
+		Empresa empresa = this.buscarObjeto(token.getNombreEmpresa());
+		
+		empresa.actualizar(token);
 	}
 	
 }

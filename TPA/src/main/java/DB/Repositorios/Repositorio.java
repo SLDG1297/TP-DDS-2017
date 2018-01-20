@@ -66,6 +66,10 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 	public void eliminarObjeto(T unObjeto) {
 		this.getProveedor().eliminar(unObjeto);
 	}
+	
+	public void refrescar() {
+		this.getProveedor().refrescar();
+	}
 
 	public T buscarObjetoPorQuery(Object query) {return this.getProveedor().ejecutarQuery(query);}
 

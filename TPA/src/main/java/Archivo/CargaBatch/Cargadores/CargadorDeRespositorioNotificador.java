@@ -1,7 +1,6 @@
 package Archivo.CargaBatch.Cargadores;
 
 import Archivo.CargaBatch.EmpresaToken;
-import DB.GestorDeCache;
 import Observers.NotificadorModificacionEmpresa;
 
 public class CargadorDeRespositorioNotificador extends CargadorDeRepositorio {

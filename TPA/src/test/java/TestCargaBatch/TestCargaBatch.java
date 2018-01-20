@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import Archivo.CargaBatch.Cargadores.Cargador;
 import Archivo.CargaBatch.Cargadores.CargadorDeRepositorio;
-import Archivo.CargaBatch.CargasBatch.CargaBatch;
-import Archivo.CargaBatch.CargasBatch.CargaBatchKelly;
+import Archivo.CargaBatch.CargasBatch.CargaBatchBase;
+import Archivo.CargaBatch.CargasBatch.Kelly;
 import Archivo.CargaBatch.Contenedores.Contenedor;
 import Archivo.CargaBatch.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatch.Excepciones.NoHayNadaException;
@@ -22,7 +22,7 @@ public class TestCargaBatch extends RepositorioDePruebaCargaBatch {
 
 	@Test
 	public void puedoAgregarUnaEmpresa() {
-		CargaBatch carga = new CargaBatch(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
+		CargaBatchBase carga = new CargaBatchBase(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
 		
 		carga.cargar();
 		
@@ -31,7 +31,7 @@ public class TestCargaBatch extends RepositorioDePruebaCargaBatch {
 	
 	@Test
 	public void elContenedorNoSeVaciaLuegoDeLaCargaComun() {
-		CargaBatch carga = new CargaBatch(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
+		CargaBatchBase carga = new CargaBatchBase(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
 		
 		carga.cargar();
 		
@@ -40,7 +40,7 @@ public class TestCargaBatch extends RepositorioDePruebaCargaBatch {
 	
 	@Test(expected = NoHayNadaException.class)
 	public void elContenedorSeVaciaLuegoDeUnaCargaKelly(){
-		CargaBatchKelly carga = new CargaBatchKelly(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio());
+		Kelly carga = new Kelly(new CargaBatchBase(mock("XD,A,2006,105020", "Khe,Khe,200,20"), new CargadorDeRepositorio()));
 		
 		carga.cargar();
 		
@@ -51,7 +51,7 @@ public class TestCargaBatch extends RepositorioDePruebaCargaBatch {
 	public void elContenedorVacioNoDeberiaHacerNadaCuandoRompeParaLaCargaAsincronica() {
 		Cargador cargador = new CargadorDeRepositorio();
 
-		CargaBatchKelly carga = new CargaBatchKelly(mock(), cargador);
+		Kelly carga = new Kelly(new CargaBatchBase(mock(), cargador));
 		
 		carga.run();
 	}

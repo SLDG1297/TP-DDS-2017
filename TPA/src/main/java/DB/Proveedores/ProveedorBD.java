@@ -68,7 +68,7 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 	public void modificar(T unObjeto) {
 		beginTransaction();
 		
-		update(unObjeto);
+		flush();
 		
 		commit();
 	}
@@ -78,6 +78,15 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 		beginTransaction();
 		
 		remove(unObjeto);
+		
+		commit();
+	}
+	
+	@Override
+	public void refrescar() {
+		beginTransaction();
+		
+		flush();
 		
 		commit();
 	}
@@ -99,6 +108,4 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 		String consulta = (String) query;
 		createQuery(consulta).executeUpdate();
 	}
-
-
 }

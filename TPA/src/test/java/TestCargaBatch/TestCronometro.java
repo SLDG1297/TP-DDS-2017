@@ -12,7 +12,8 @@ import Archivo.CargaBatch.Cronometro;
 import Archivo.CargaBatch.Cargadores.Cargador;
 import Archivo.CargaBatch.Cargadores.CargadorDeRepositorio;
 import Archivo.CargaBatch.CargasBatch.CargaBatch;
-import Archivo.CargaBatch.CargasBatch.CargaBatchKelly;
+import Archivo.CargaBatch.CargasBatch.CargaBatchBase;
+import Archivo.CargaBatch.CargasBatch.Kelly;
 import Archivo.CargaBatch.Contenedores.Contenedor;
 import Archivo.CargaBatch.Contenedores.ContenedorDeStrings;
 import Archivo.CargaBatch.FuentesDeStrings.MockArchivo;
@@ -28,7 +29,7 @@ public class TestCronometro extends RepositorioDePruebaCargaBatch {
 
 		Cargador cargador = new CargadorDeRepositorio();
 
-		cargaBatch = new CargaBatchKelly(contenedor, cargador);
+		cargaBatch = new Kelly(new CargaBatchBase(contenedor, cargador));
 		
 		cron = new Cronometro();
 		

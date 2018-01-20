@@ -87,6 +87,11 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 	public void eliminar(T unObjeto) {
 		this.lista.remove(unObjeto);
 	}
+	
+	@Override
+	public void refrescar() {
+		
+	}
 
 	@Deprecated
 	@Override

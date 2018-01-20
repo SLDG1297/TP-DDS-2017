@@ -92,4 +92,10 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
     @Deprecated
     @Override
     public void modificar(T unObjeto) {}
+
+	@Override
+	public void refrescar() {
+		// TODO Auto-generated method stub
+		
+	}
 }

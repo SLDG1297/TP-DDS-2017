@@ -1,21 +1,14 @@
 package Archivo.CargaBatch.CargasBatch;
 
-import java.util.List;
 import java.util.TimerTask;
 
 import Archivo.CargaBatch.Cargadores.Cargador;
 import Archivo.CargaBatch.Contenedores.Contenedor;
 import Archivo.CargaBatch.Excepciones.NoHayNadaException;
-import Archivo.CargaBatch.ResultadosDeScan.ResultadoDeScan;
 
-public class CargaBatch extends TimerTask {
+public abstract class CargaBatch extends TimerTask {
 	private Contenedor contenedor;
 	private Cargador cargador;
-
-	public CargaBatch(Contenedor contenedor, Cargador cargador) {
-		this.contenedor = contenedor;
-		this.cargador = cargador;
-	}
 
 	public Contenedor getContenedor() {
 		return contenedor;
@@ -33,11 +26,7 @@ public class CargaBatch extends TimerTask {
 		this.cargador = cargador;
 	}
 	
-	public void cargar() {
-		List<ResultadoDeScan> resultados = contenedor.serEscaneado();
-		
-		resultados.forEach(resultado -> cargador.cargar(resultado));
-	}
+	public abstract void cargar();
 
 	@Override
 	public void run() {
