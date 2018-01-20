@@ -16,7 +16,7 @@ import Archivo.CargaBatch.FuentesDeStrings.FuenteDeStrings;
 import Archivo.CargaBatch.Scanners.CSV;
 import Archivo.CargaBatch.Scanners.StringScanner;
 
-public class DespliegueCargaBatch {
+public class GestorCargaBatch {
 	public static void iniciar() throws FileNotFoundException {
 		FuenteDeStrings fuente = new Archivo("cuentas/cuentitasDeHector.csv");
 		StringScanner scanner = new CSV(",");

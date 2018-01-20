@@ -18,7 +18,7 @@ import static Factories.FactoryMetodologia.crearMetodologiaDeUsuario;
 import java.io.IOException;
 import java.util.Arrays;
 
-import Archivo.CargaBatch.DespliegueCargaBatch;
+import Archivo.CargaBatch.GestorCargaBatch;
 import DB.GestorDeCache;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Proveedores.ProveedorBD;
@@ -87,7 +87,7 @@ public class Bootstrap {
 	public static void chequearEmpresas() throws IOException {
 		try
 		{
-			DespliegueCargaBatch.iniciar();
+			GestorCargaBatch.iniciar();
 			
 			RepositorioEmpresas.getInstancia().buscarListaDeObjetos();
 		}
