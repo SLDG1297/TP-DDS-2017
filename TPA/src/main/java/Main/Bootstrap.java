@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import Archivo.CargaBatch.DespliegueCargaBatch;
+import DB.GestorDeCache;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.Proveedores.ProveedorBD;
 import DB.Proveedores.ProveedorMock;
@@ -28,12 +29,19 @@ import Modelo.Empresa.Empresa;
 import Modelo.Indicadores.Indicador;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Usuarios.Usuario;
+import Observers.NotificadorModificacionEmpresa;
 
 public class Bootstrap {
 	public static void iniciarModelo() throws IOException {
+		iniciarOtros();
+		
 		iniciarRepositorios();
 		
 		iniciarObjetos();
+	}
+	
+	public static void iniciarOtros() {
+		NotificadorModificacionEmpresa.getInstance().agregarObservador(GestorDeCache.getInstance());
 	}
 	
 	public static void iniciarRepositorios() {

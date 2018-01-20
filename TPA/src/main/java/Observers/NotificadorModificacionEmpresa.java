@@ -1,5 +1,5 @@
 package Observers;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class NotificadorModificacionEmpresa {
@@ -8,25 +8,21 @@ public class NotificadorModificacionEmpresa {
 
 	private TipoDeNotificador tipoDeNotificador = new TipoPosta();
 	
-	private List<ObserverModificacionEmpresa> observadores = new ArrayList<>();
-	
+	private List<ObserverModificacionEmpresa> observadores = new LinkedList<>();
+
 	public static NotificadorModificacionEmpresa getInstance() {
 
-		if (instance == null) {
-
-			instance = new NotificadorModificacionEmpresa();
-			
-
-		}
+		if (instance == null) instance = new NotificadorModificacionEmpresa();
 
 		return instance;
 	}
 	
-	public void notificarObservadores(String nombreEmpresa) {
-
-		tipoDeNotificador.notificarObservadores(nombreEmpresa,observadores);
-
+	public void agregarObservador(ObserverModificacionEmpresa observer) {
+		observadores.add(observer);
 	}
-
+	
+	public void notificarObservadores(String nombreEmpresa) {
+		tipoDeNotificador.notificarObservadores(nombreEmpresa,observadores);
+	}
 	
 }
