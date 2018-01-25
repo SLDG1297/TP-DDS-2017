@@ -8,8 +8,6 @@ import java.util.stream.Collectors;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.TiposDeRepositorios.TipoDeRepositorio;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
 
 public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> {
 	private List<T> lista = new ArrayList<T>();
@@ -91,6 +89,11 @@ public class ProveedorMock<T extends TipoDeRepositorio> implements Proveedor<T> 
 	@Override
 	public void refrescar() {
 		
+	}
+	
+	@Override
+	public void sincronizar(T unObjeto) {
+
 	}
 
 	@Deprecated

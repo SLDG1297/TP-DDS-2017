@@ -2,7 +2,6 @@ package DB.Repositorios;
 
 import static DB.TiposDeRepositorios.NombreRepositorio.EMPRESA;
 
-import Archivo.CargaBatch.EmpresaToken;
 import DB.TiposDeRepositorios.NombreRepositorio;
 import Modelo.Empresa.Empresa;
 
@@ -18,13 +17,4 @@ public class RepositorioEmpresas extends Repositorio<Empresa> {
 		
 		return instancia;
 	}
-	
-	public void modificarEmpresa(EmpresaToken token) {
-		Empresa empresa = this.buscarObjeto(token.getNombreEmpresa());
-		
-		token.obtenerIdentidad(empresa);
-		
-		empresa.actualizar(token);
-	}
-	
 }

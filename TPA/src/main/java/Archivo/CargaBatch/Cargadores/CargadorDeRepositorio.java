@@ -2,6 +2,7 @@ package Archivo.CargaBatch.Cargadores;
 
 import Archivo.CargaBatch.EmpresaToken;
 import DB.Repositorios.RepositorioEmpresas;
+import Modelo.Empresa.Empresa;
 
 public class CargadorDeRepositorio extends Cargador {
 	@Override
@@ -16,7 +17,11 @@ public class CargadorDeRepositorio extends Cargador {
 
 	@Override
 	public void realizarModificacion(EmpresaToken token) {
-		RepositorioEmpresas.getInstancia().modificarEmpresa(token);
+		Empresa empresa = RepositorioEmpresas.getInstancia().buscarObjeto(token.getNombreEmpresa());
+		
+		empresa.actualizar(token);
+		
+		token.obtenerIdentidad(empresa);
 	}
 
 }

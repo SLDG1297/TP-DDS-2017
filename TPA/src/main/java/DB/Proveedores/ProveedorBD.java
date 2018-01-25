@@ -8,8 +8,6 @@ import DB.DBManager;
 import DB.Excepciones.NoExisteObjetoConEseNombreException;
 import DB.Excepciones.NoExistenObjetosException;
 import DB.TiposDeRepositorios.TipoDeRepositorio;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
 
 public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implements Proveedor<T> {
 
@@ -90,13 +88,25 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 		
 		commit();
 	}
+	
+	@Override
+	public void sincronizar(T unObjeto) {
+		beginTransaction();
+		
+		flush();
+		getEntityManager().refresh(unObjeto);
+		
+		commit();
+	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T ejecutarQuery(Object query) {
 		String consulta = (String) query;
 		return (T) createQuery(consulta).getSingleResult();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> EjecutarQueryReturnList(Object query) {
 		String consulta = (String) query;

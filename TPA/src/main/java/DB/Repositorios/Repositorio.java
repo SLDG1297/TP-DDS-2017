@@ -70,6 +70,10 @@ public abstract class Repositorio<T extends TipoDeRepositorio> {
 	public void refrescar() {
 		this.getProveedor().refrescar();
 	}
+	
+	public void sincronizar(T unObjeto) {
+		this.getProveedor().sincronizar(unObjeto);
+	}
 
 	public T buscarObjetoPorQuery(Object query) {return this.getProveedor().ejecutarQuery(query);}
 

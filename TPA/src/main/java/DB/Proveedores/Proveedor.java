@@ -3,8 +3,6 @@ package DB.Proveedores;
 import java.util.List;
 
 import DB.TiposDeRepositorios.TipoDeRepositorio;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
 
 public interface Proveedor<T extends TipoDeRepositorio> {
 
@@ -29,4 +27,6 @@ public interface Proveedor<T extends TipoDeRepositorio> {
 	void eliminarConQuery(Object query);
 
 	void refrescar();
+
+	void sincronizar(T unObjeto);
 }

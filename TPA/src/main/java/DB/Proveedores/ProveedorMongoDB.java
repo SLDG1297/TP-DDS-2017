@@ -98,4 +98,10 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void sincronizar(T unObjeto) {
+		// TODO Auto-generated method stub
+		
+	}
 }
