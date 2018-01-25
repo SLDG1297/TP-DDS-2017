@@ -1,10 +1,8 @@
 package DB;
 
 import com.google.gson.GsonBuilder;
-import com.mongodb.Block;
 import com.mongodb.MongoClient;
 
-import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;

@@ -1,22 +1,14 @@
 package DB.Repositorios;
 
-import DB.Excepciones.NoExistenObjetosException;
+import static DB.TiposDeRepositorios.NombreRepositorio.PRECALCULADO;
+
+import java.math.BigDecimal;
+
+import org.bson.Document;
+
 import DB.TiposDeRepositorios.NombreRepositorio;
 import DB.TiposDeRepositorios.RepoDocumental;
 import Modelo.Indicadores.Precalculado;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.model.Filters;
-import org.bson.Document;
-import org.bson.conversions.Bson;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
-import static DB.TiposDeRepositorios.NombreRepositorio.PRECALCULADO;
 
 public class RepositorioPrecalculados extends Repositorio<Precalculado> implements RepoDocumental {
 

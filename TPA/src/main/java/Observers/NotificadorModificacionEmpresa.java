@@ -1,6 +1,5 @@
 package Observers;
 import Archivo.CargaBatch.EmpresaToken;
-import DB.GestorDeCache;
 
 import java.util.LinkedList;
 import java.util.List;

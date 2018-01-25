@@ -1,10 +1,6 @@
 package Modelo.Indicadores;
 
 import DB.TiposDeRepositorios.TipoDeRepositorio;
-import Modelo.Empresa.Empresa;
-import Modelo.Empresa.Periodo;
-import Modelo.Usuarios.Usuario;
-
 import java.math.BigDecimal;
 
 public class Precalculado implements TipoDeRepositorio {

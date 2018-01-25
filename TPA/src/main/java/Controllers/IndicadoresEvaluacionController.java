@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import DB.Excepciones.NoEstaEnCacheException;
 import DB.Repositorios.RepositorioEmpresas;
 import DB.Repositorios.RepositorioIndicadores;
 import DB.Repositorios.RepositorioPrecalculados;
@@ -168,6 +167,7 @@ public class IndicadoresEvaluacionController {
 
 		try {
 
+			@SuppressWarnings("unused")
 			String emailUsuario = (String)mapa.get("email");
 
 			long idPeriodo = empresaElegida.getPeriodos().stream().filter(p -> p.getAnio() == periodo).collect(Collectors.toList()).get(0).getId();

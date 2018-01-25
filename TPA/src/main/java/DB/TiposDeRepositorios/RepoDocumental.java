@@ -1,6 +1,5 @@
 package DB.TiposDeRepositorios;
 
-import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
 public interface RepoDocumental {

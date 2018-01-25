@@ -1,20 +1,14 @@
 package DB.Proveedores;
 
-import DB.MongoDBManager;
-import DB.Repositorios.Repositorio;
-import DB.TiposDeRepositorios.RepoDocumental;
-import DB.TiposDeRepositorios.TipoDeRepositorio;
-import Modelo.Indicadores.Precalculado;
-import com.google.gson.Gson;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
-import org.bson.Document;
-
-import com.mongodb.client.MongoCursor;
-import org.bson.conversions.Bson;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import org.bson.Document;
+import org.bson.conversions.Bson;
+
+import DB.MongoDBManager;
+import DB.TiposDeRepositorios.RepoDocumental;
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManager implements Proveedor<T> {
 
@@ -24,14 +18,16 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
         this.repoMongo = repoMongo;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public T ejecutarQuery(Object query) {
         Document json = ejecutarQueryMongo(repoMongo.getTabla(), (Bson) query);
         T objeto = (T) repoMongo.jsonToObjeto(json);
         return objeto;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<T> EjecutarQueryReturnList(Object query){
         List<Document> list = ejecutarQueryMongoReturnList(repoMongo.getTabla(), (Bson) query);
         List<T> lista = new ArrayList<T>();
@@ -47,7 +43,8 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
         eliminarPorQuery(repoMongo.getTabla(), (Bson) query);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public List<T> darLista(String unTipo) {
         List<T> lista = new ArrayList<>();
         List<Document> list = getElementsColecction(unTipo);
@@ -72,6 +69,18 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
         addListMongo(repoMongo.getTabla(),documents);
     }
 
+	@Override
+	public void refrescar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sincronizar(T unObjeto) {
+		// TODO Auto-generated method stub
+		
+	}
+
     @Deprecated
     @Override
     public void eliminar(T unObjeto) {
@@ -92,16 +101,4 @@ public class ProveedorMongoDB<T extends TipoDeRepositorio> extends MongoDBManage
     @Deprecated
     @Override
     public void modificar(T unObjeto) {}
-
-	@Override
-	public void refrescar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void sincronizar(T unObjeto) {
-		// TODO Auto-generated method stub
-		
-	}
 }

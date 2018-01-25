@@ -2,7 +2,6 @@ package DB;
 
 import Archivo.CargaBatch.EmpresaToken;
 import DB.Repositorios.RepositorioEmpresas;
-import DB.Repositorios.RepositorioIndicadores;
 import DB.Repositorios.RepositorioPrecalculados;
 import Observers.*;
 import com.mongodb.client.model.Filters;

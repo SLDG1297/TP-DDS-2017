@@ -1,36 +1,33 @@
 package TestMongo;
+/*
+import static org.junit.Assert.assertEquals;
 
-import DB.Proveedores.ProveedorBD;
+import java.math.BigDecimal;
+
+import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+import com.mongodb.client.model.Filters;
+*/
+import DB.MongoDBManager;
+/*import DB.Proveedores.ProveedorBD;
 import DB.Proveedores.ProveedorMongoDB;
-import DB.Repositorios.*;
+import DB.Repositorios.RepositorioEmpresas;
+import DB.Repositorios.RepositorioIndicadores;
+import DB.Repositorios.RepositorioMetodologias;
+import DB.Repositorios.RepositorioPrecalculados;
+import DB.Repositorios.RepositorioUsuarios;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Precalculado;
 import Modelo.Metodologias.Metodologia;
 import Modelo.Usuarios.Usuario;
-import com.mongodb.*;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.result.DeleteResult;
-import org.bson.Document;
-import org.junit.Before;
-import org.junit.Test;
-import DB.MongoDBManager;
-import org.junit.runners.MethodSorters;
-import org.junit.FixMethodOrder;
-import com.mongodb.MongoClient;
 
-
-import java.math.BigDecimal;
-import java.net.UnknownHostException;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)*/
 @Deprecated
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestMongo extends MongoDBManager {
 /*
     @Before
