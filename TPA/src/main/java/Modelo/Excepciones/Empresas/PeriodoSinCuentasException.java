@@ -1,5 +1,5 @@
 package Modelo.Excepciones.Empresas;
 
-public class PeriodoSinCuentasException extends RuntimeException{
+public class PeriodoSinCuentasException extends EmpresaException {
 
 }

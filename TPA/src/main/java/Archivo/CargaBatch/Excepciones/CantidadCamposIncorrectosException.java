@@ -17,6 +17,6 @@ public class CantidadCamposIncorrectosException extends ScannerException {
 	}
 	
 	private String masOMenos() {
-		return (4 < cantidadActualCampos) ? "menos" : "más";
+		return (4 < cantidadActualCampos) ? "menos" : "ms";
 	}
 }

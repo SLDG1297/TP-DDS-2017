@@ -9,6 +9,7 @@ import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Excepciones.Empresas.CuentaSinNombreException;
+import Modelo.Excepciones.Empresas.EmpresaException;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 
 public class EmpresaToken {
@@ -115,9 +116,16 @@ public class EmpresaToken {
 	}
 	
 	public void obtenerIdentidad(Empresa empresa) {
-		this.idEmpresa = empresa.getId();
-		this.idPeriodo = empresa.getIdDePeriodo(anioPeriodo);
-		this.idCuenta = empresa.getIdDeCuentaEnPeriodo(anioPeriodo, nombreCuenta);
+		try
+		{
+			this.idEmpresa = empresa.getId();
+			this.idPeriodo = empresa.getIdDePeriodo(anioPeriodo);
+			this.idCuenta = empresa.getIdDeCuentaEnPeriodo(anioPeriodo, nombreCuenta);
+		}
+		catch (EmpresaException excepcion)
+		{
+			
+		}
 	}
 	
 	@Override

@@ -1,4 +1,7 @@
 package Observers;
+import Archivo.CargaBatch.EmpresaToken;
+import DB.GestorDeCache;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,17 +15,31 @@ public class NotificadorModificacionEmpresa {
 
 	public static NotificadorModificacionEmpresa getInstance() {
 
-		if (instance == null) instance = new NotificadorModificacionEmpresa();
+		if (instance == null){
 
-		return instance;
+			instance = new NotificadorModificacionEmpresa();
+
+
+
+			return instance;
+
+		}
+
+		else {
+
+			return  instance;
+		}
 	}
-	
+
+
+	public void notificarObservadores(EmpresaToken token) {
+		tipoDeNotificador.notificarObservadores(token,observadores);
+	}
+
 	public void agregarObservador(ObserverModificacionEmpresa observer) {
+
 		observadores.add(observer);
-	}
-	
-	public void notificarObservadores(String nombreEmpresa) {
-		tipoDeNotificador.notificarObservadores(nombreEmpresa,observadores);
+
 	}
 	
 }

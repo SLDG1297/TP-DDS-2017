@@ -1,5 +1,6 @@
 package Modelo.Empresa;
 
+import Modelo.Excepciones.Empresas.EmpresaSinIdentidadException;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinPeriodoException;
 import Modelo.Excepciones.Empresas.NoEsLaMismaEmpresaException;
@@ -34,6 +35,8 @@ public class Empresa implements TipoDeRepositorio {
 	private List<Periodo> periodos = new ArrayList<Periodo>();
 
 	public long getId() {
+		if(id == 0) throw new EmpresaSinIdentidadException();
+		
 		return id;
 	}
 

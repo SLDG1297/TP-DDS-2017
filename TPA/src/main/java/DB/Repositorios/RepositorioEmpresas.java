@@ -22,6 +22,8 @@ public class RepositorioEmpresas extends Repositorio<Empresa> {
 	public void modificarEmpresa(EmpresaToken token) {
 		Empresa empresa = this.buscarObjeto(token.getNombreEmpresa());
 		
+		token.obtenerIdentidad(empresa);
+		
 		empresa.actualizar(token);
 	}
 	

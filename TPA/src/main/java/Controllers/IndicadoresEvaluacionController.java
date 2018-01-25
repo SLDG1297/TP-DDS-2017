@@ -170,9 +170,13 @@ public class IndicadoresEvaluacionController {
 
 			String emailUsuario = (String)mapa.get("email");
 
-			//Estoy seleccionando el id del periodo o que? Tambien esta query es gigante, es horrible, lo debo meter en el gestor de cache aunque no haga nada mas que pedirle cosas al repo?
+			long idPeriodo = empresaElegida.getPeriodos().stream().filter(p -> p.getAnio() == periodo).collect(Collectors.toList()).get(0).getId();
+			long idEmpresa = empresaElegida.getId();
+			long idIndicador = indicadorElegido.getId();
+			long idUsuario = usuario.getId();
 
-			resultado = new BigDecimal(RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("nombreIndicador",nombreIndicador),Filters.eq("nombreEmpresa",nombreEmpresa),Filters.eq("idPeriodo",periodo),Filters.eq("nombreUsuario",emailUsuario))).getValor());
+
+			resultado = new BigDecimal(RepositorioPrecalculados.getInstancia().buscarObjetoPorQuery(Filters.and(Filters.eq("idIndicador",idIndicador),Filters.eq("idEmpresa",idEmpresa),Filters.eq("idPeriodo",idPeriodo),Filters.eq("idUsuario",idUsuario))).getValor());
 			mapa.put("resultado",resultado);
 			System.out.println("Lo saque de cache");
 			return new ModelAndView(mapa,"indicadoresEvaluacion.hbs");
@@ -249,7 +253,3 @@ public class IndicadoresEvaluacionController {
 
 
 	}
-
-
-
-

@@ -9,6 +9,6 @@ public class FormatoAnioIncorrectoException extends ScannerException {
 
 	@Override
 	public String explicacionDelFallo() {
-		return "El campo " + anioErroneo + " no sigue un formato numérico para un año.";
+		return "El campo " + anioErroneo + " no sigue un formato numrico para un ao.";
 	}
 }

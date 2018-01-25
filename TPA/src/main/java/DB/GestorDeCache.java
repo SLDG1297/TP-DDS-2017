@@ -1,5 +1,8 @@
 package DB;
 
+import Archivo.CargaBatch.EmpresaToken;
+import DB.Repositorios.RepositorioEmpresas;
+import DB.Repositorios.RepositorioIndicadores;
 import DB.Repositorios.RepositorioPrecalculados;
 import Observers.*;
 import com.mongodb.client.model.Filters;
@@ -16,24 +19,26 @@ public class GestorDeCache implements ObserverModificacionEmpresa{
 
     }
 
-    public void eliminarEmpresa(String nombreEmpresa) {
+   /* public void eliminarEmpresa(String nombreEmpresa) {
 
-        //smellCode, no hace nada, llama a otra clase. Se hizo asi porque el codigo queda màs ordenado
-        RepositorioPrecalculados.getInstancia().deteleByQuery(Filters.eq("nombreEmpresa",nombreEmpresa));
+        long idEmpresa = RepositorioEmpresas.getInstancia().buscarObjeto(nombreEmpresa).getId();
 
-    }
-
-    /*
-    public void obtenerIndicadorEvaluado (String nombreIndicador) {
-
-
+        RepositorioPrecalculados.getInstancia().deteleByQuery(Filters.eq("idEmpresa",idEmpresa));
 
     }*/
 
+
 	@Override
-	public void update(String nombreEmpresa) {
-	
-		this.eliminarEmpresa(nombreEmpresa);
+	public void update(EmpresaToken token) {
+
+        long idEmpresa = RepositorioEmpresas.getInstancia().buscarObjeto(token.getNombreEmpresa()).getId();
+        long idPeriodo = token.getPeriodo().getId();
+
+        RepositorioPrecalculados.getInstancia().deteleByQuery(Filters.and(Filters.eq("idEmpresa",idEmpresa),Filters.eq("idPeriodo",idPeriodo)));
+
+        System.out.println(idEmpresa);
+        System.out.println(idPeriodo);
+
 		
 	}
 }

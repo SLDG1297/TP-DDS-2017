@@ -72,8 +72,8 @@ public class TestCargadores extends RepositorioDePruebaCargaBatch {
 	
 	@Test
 	public void puedoAniadirUnaEmpresaQueNoExistaPrimeroDandolaDeAltaYLuegoModificandola() {
-		cargador.cargar(resultadoPositivoFactory(new EmpresaToken("Ah sí sí", "A", 2006, 105020)));
-		cargador.cargar(resultadoPositivoFactory(new EmpresaToken("Ah sí sí", "B", 2007, 11101)));
+		cargador.cargar(resultadoPositivoFactory(new EmpresaToken("Ah s s", "A", 2006, 105020)));
+		cargador.cargar(resultadoPositivoFactory(new EmpresaToken("Ah s s", "B", 2007, 11101)));
 		
 		assertEquals(3, repositorio.buscarListaDeObjetos().size());
 	}
