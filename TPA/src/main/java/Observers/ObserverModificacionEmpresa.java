@@ -1,7 +1,9 @@
 package Observers;
 
+import Archivo.CargaBatch.EmpresaToken;
+
 public interface ObserverModificacionEmpresa {
 
-	public void update(String nombre);
+	public void update(EmpresaToken token);
 	
 }

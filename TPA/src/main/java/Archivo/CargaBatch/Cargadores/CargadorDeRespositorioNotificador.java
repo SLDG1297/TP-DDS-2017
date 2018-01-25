@@ -7,9 +7,10 @@ public class CargadorDeRespositorioNotificador extends CargadorDeRepositorio {
 	
 	@Override
 	public void realizarModificacion(EmpresaToken token) {
+
 		super.realizarModificacion(token);
 
-		NotificadorModificacionEmpresa.getInstance().notificarObservadores(token.getNombreEmpresa());
+		NotificadorModificacionEmpresa.getInstance().notificarObservadores(token);
 
 	}
 }

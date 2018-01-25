@@ -9,6 +9,6 @@ public class FormatoValorIncorrectoException extends ScannerException {
 
 	@Override
 	public String explicacionDelFallo() {
-		return "El campo " + valorErroneo + " no sigue un formato numérico para un valor de cuenta.";
+		return "El campo " + valorErroneo + " no sigue un formato numrico para un valor de cuenta.";
 	}
 }
