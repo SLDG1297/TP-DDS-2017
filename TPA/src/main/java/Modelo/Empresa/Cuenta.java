@@ -34,6 +34,10 @@ public class Cuenta {
 	public Cuenta(String nuevoNombre) {
 		this.setNombre(nuevoNombre);
 	}
+	
+	public long getId() {
+		return Id;
+	}
 
 	public String getNombre() {
 		return nombre;

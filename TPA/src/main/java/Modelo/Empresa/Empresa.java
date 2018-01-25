@@ -108,5 +108,13 @@ public class Empresa implements TipoDeRepositorio {
 			this.agregarPeriodo(empresaToken.getPeriodo());
 	}
 
+	public long getIdDePeriodo(int anioPeriodo) {
+		return this.buscarPeriodo(anioPeriodo).getId();
+	}
+
+	public long getIdDeCuentaEnPeriodo(int anioPeriodo, String nombreCuenta) {
+		return this.buscarPeriodo(anioPeriodo).buscarCuenta(nombreCuenta).getId();
+	}
+
 }
 

@@ -12,6 +12,9 @@ import Modelo.Excepciones.Empresas.CuentaSinNombreException;
 import Modelo.Excepciones.Empresas.EmpresaSinNombreException;
 
 public class EmpresaToken {
+	private long idEmpresa = -1;
+	private long idPeriodo = -1;
+	private long idCuenta = -1;
 	private String nombreEmpresa;
 	private String nombreCuenta;
 	private int anioPeriodo;
@@ -43,6 +46,18 @@ public class EmpresaToken {
 		{
 			throw new FormatoValorIncorrectoException(stringValor);
 		}
+	}
+
+	public long getIdEmpresa() {
+		return idEmpresa;
+	}
+
+	public long getIdPeriodo() {
+		return idPeriodo;
+	}
+
+	public long getIdCuenta() {
+		return idCuenta;
 	}
 
 	public String getNombreEmpresa() {
@@ -97,6 +112,12 @@ public class EmpresaToken {
 		List<Periodo> periodo = Arrays.asList(this.getPeriodo());
 		
 		return new Empresa(nombreEmpresa, periodo);
+	}
+	
+	public void obtenerIdentidad(Empresa empresa) {
+		this.idEmpresa = empresa.getId();
+		this.idPeriodo = empresa.getIdDePeriodo(anioPeriodo);
+		this.idCuenta = empresa.getIdDeCuentaEnPeriodo(anioPeriodo, nombreCuenta);
 	}
 	
 	@Override
