@@ -30,8 +30,9 @@ public class GestorDeCache implements ObserverModificacionEmpresa{
 	@Override
 	public void update(EmpresaToken token) {
 
-        long idEmpresa = RepositorioEmpresas.getInstancia().buscarObjeto(token.getNombreEmpresa()).getId();
-        long idPeriodo = token.getPeriodo().getId();
+        long idEmpresa = token.getIdEmpresa();
+        long idPeriodo = token.getIdPeriodo();
+
 
         RepositorioPrecalculados.getInstancia().deteleByQuery(Filters.and(Filters.eq("idEmpresa",idEmpresa),Filters.eq("idPeriodo",idPeriodo)));
 
