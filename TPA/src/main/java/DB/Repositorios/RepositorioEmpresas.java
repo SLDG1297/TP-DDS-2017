@@ -1,9 +1,8 @@
 package DB.Repositorios;
 
-import static DB.NombreRepositorio.*;
+import static DB.TiposDeRepositorios.NombreRepositorio.EMPRESA;
 
-import DB.NombreRepositorio;
-import DB.Repositorio;
+import DB.TiposDeRepositorios.NombreRepositorio;
 import Modelo.Empresa.Empresa;
 
 public class RepositorioEmpresas extends Repositorio<Empresa> {
@@ -18,5 +17,4 @@ public class RepositorioEmpresas extends Repositorio<Empresa> {
 		
 		return instancia;
 	}
-	
 }

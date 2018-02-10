@@ -2,9 +2,12 @@ package DB.Proveedores;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import DB.DBManager;
-import DB.Proveedor;
-import DB.TipoDeRepositorio;
+import DB.Excepciones.NoExisteObjetoConEseNombreException;
+import DB.Excepciones.NoExistenObjetosException;
+import DB.TiposDeRepositorios.TipoDeRepositorio;
 
 public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implements Proveedor<T> {
 
@@ -14,14 +17,25 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public T darObjeto(String unNombre, String unTipo) {
-		return (T) createQuery("from " + unTipo + " objeto where objeto.nombre = :nombre").setParameter("nombre", unNombre).getSingleResult();
+	public T darObjeto(String unNombre, String unTipo) throws NoExisteObjetoConEseNombreException {
+		try
+		{
+			return (T) createQuery("from " + unTipo + " objeto where objeto.nombre = :nombre").setParameter("nombre", unNombre).getSingleResult();
+		}
+		catch(NoResultException excepcion)
+		{
+			throw new NoExisteObjetoConEseNombreException();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> darLista(String unTipo) {
-		return (List<T>) createQuery("from " + unTipo).getResultList();
+		List<T> lista = (List<T>) createQuery("from " + unTipo).getResultList();
+
+		if(lista.isEmpty()) throw new NoExistenObjetosException();
+		
+		return lista;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -47,6 +61,15 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
     	
     	commit();
 	}
+	
+	@Override
+	public void modificar(T unObjeto) {
+		beginTransaction();
+		
+		flush();
+		
+		commit();
+	}
 
 	@Override
 	public void eliminar(T unObjeto) {
@@ -56,5 +79,43 @@ public class ProveedorBD<T extends TipoDeRepositorio> extends DBManager implemen
 		
 		commit();
 	}
+	
+	@Override
+	public void refrescar() {
+		beginTransaction();
+		
+		flush();
+		
+		commit();
+	}
+	
+	@Override
+	public void sincronizar(T unObjeto) {
+		beginTransaction();
+		
+		flush();
+		getEntityManager().refresh(unObjeto);
+		
+		commit();
+	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public T ejecutarQuery(Object query) {
+		String consulta = (String) query;
+		return (T) createQuery(consulta).getSingleResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> EjecutarQueryReturnList(Object query) {
+		String consulta = (String) query;
+		return (List<T>) createQuery(consulta).getResultList();
+	}
+
+	@Override
+	public void eliminarConQuery(Object query) {
+		String consulta = (String) query;
+		createQuery(consulta).executeUpdate();
+	}
 }

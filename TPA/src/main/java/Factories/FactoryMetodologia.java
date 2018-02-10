@@ -6,6 +6,7 @@ import java.util.List;
 
 import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Condiciones.Condiciones;
+import Modelo.Usuarios.Usuario;
 
 public class FactoryMetodologia {
 	public static Metodologia crearMetodologia(String nombre, Condiciones... condiciones) {
@@ -13,5 +14,13 @@ public class FactoryMetodologia {
 		listaCondiciones.addAll(Arrays.asList(condiciones));
 		
 		return new Metodologia(nombre, listaCondiciones);
+	}
+	
+	public static Metodologia crearMetodologiaDeUsuario(Usuario usuario, String nombre, Condiciones...condiciones) {
+		Metodologia metodologia = crearMetodologia(nombre, condiciones);
+		
+		metodologia.setUsuario(usuario);
+		
+		return metodologia;
 	}
 }

@@ -75,6 +75,10 @@ public abstract class DBManager {
        entityManager().persist(o);
     }
     
+    public static void flush(){
+    	entityManager().flush();
+    }
+    
     public static void remove(Object o){
         entityManager().remove(o);
      }

@@ -32,7 +32,7 @@ public class TestCalcularCompuestas extends TemplateTestIndicadores {
 	}
 
 	@Theory
-	public void seCumpleLaPropiedadDistributivaDeLaMultiplicacion(Expresiones a, Expresiones b) {
+	public void seCumpleLaPropiedadDistributivaDeLaMultiplicacion(Expresion a, Expresion b) {
 		Suma sinDistribuir = sumar(multiplicar(a, b), multiplicar(a, b));
 
 		Multiplicacion conDistribucion = multiplicar(a, parentesis(sumar(b, b)));

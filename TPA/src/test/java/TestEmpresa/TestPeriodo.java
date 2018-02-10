@@ -6,9 +6,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import Excepciones.Empresas.PeriodoSinCuentasException;
-import Excepciones.Empresas.YaExisteLaCuentaException;
-import Excepciones.Indicadores.NoTieneLaCuentaException;
+import Modelo.Excepciones.Empresas.NoEsElMismoPeriodoException;
+import Modelo.Excepciones.Empresas.PeriodoSinCuentasException;
+import Modelo.Excepciones.Empresas.YaExisteLaCuentaException;
+import Modelo.Excepciones.Indicadores.NoTieneLaCuentaException;
 import Modelo.Empresa.Cuenta;
 import Modelo.Empresa.Periodo;
 
@@ -70,7 +71,42 @@ public class TestPeriodo {
 		periodo.agregarCuenta(cuenta1);
 	}
 
-	// No entiendo el método 'Está Entre', de hecho, no trabaja con el estado
-	// interno de un Período, así que
-	// no está bien que es responsabilidad esté ahí.
+	// No entiendo el mï¿½todo 'Estï¿½ Entre', de hecho, no trabaja con el estado
+	// interno de un Perï¿½odo, asï¿½ que
+	// no estï¿½ bien que es responsabilidad estï¿½ ahï¿½.
+	
+	@Test
+	public void puedoTenerUnaCuentaQueTengo() {
+		Assert.assertTrue(periodo.tieneCuenta(cuenta1));
+	}
+	
+	@Test
+	public void noPuedoTenerUnaCuentaQueNoTengo() {
+		Assert.assertFalse(periodo.tieneCuenta(cuenta3));
+	}
+	
+	@Test
+	public void sePuedeActualizarUnaCuentaDeUnPeriodo() {
+		Periodo periodoActualizado = crearPeriodo(2000, crearCuentaConValor("Rolito", 600));
+		
+		periodo.actualizar(periodoActualizado);
+		
+		Assert.assertEquals(new Integer(600), periodo.buscarCuenta("Rolito").getValor());
+	}
+	
+	@Test
+	public void sePuedeAgregarCuentaNuevaAUnPeriodo() {
+		Periodo periodoNuevo = crearPeriodo(2000, crearCuentaConValor("Ecks Dee", 1200));
+		
+		periodo.actualizar(periodoNuevo);
+		
+		Assert.assertTrue(periodo.tieneCuenta(crearCuentaConValor("Ecks Dee", 1200)));
+	}
+	
+	@Test(expected = NoEsElMismoPeriodoException.class)
+	public void noSePuedeActualizarUnPeriodoSiNoCoincidenLosAnios() {
+		Periodo periodoNuevo = crearPeriodo(2001, crearCuentaConValor("Rolito", 1500));
+		
+		periodo.actualizar(periodoNuevo);
+	}
 }

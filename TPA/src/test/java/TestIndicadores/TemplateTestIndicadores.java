@@ -1,16 +1,21 @@
 package TestIndicadores;
 
-import static Factories.FactoryCuenta.*;
+import static Factories.FactoryCuenta.crearCuenta;
+import static Factories.FactoryCuenta.crearCuentaConValor;
 import static Factories.FactoryEmpresa.crearEmpresa;
 import static Factories.FactoryIndicador.crearIndicador;
 import static Factories.FactoryNumero.crearNumero;
-import static Factories.FactoryOperaciones.*;
+import static Factories.FactoryOperaciones.dividir;
+import static Factories.FactoryOperaciones.multiplicar;
+import static Factories.FactoryOperaciones.restar;
+import static Factories.FactoryOperaciones.sumar;
 import static Factories.FactoryPeriodo.crearPeriodo;
 import static Factories.FactoryQueryIndicador.consultar;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 
+import org.junit.Test;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
@@ -20,11 +25,9 @@ import Modelo.Empresa.Empresa;
 import Modelo.Empresa.Periodo;
 import Modelo.Indicadores.Cuenta_Indicadores;
 import Modelo.Indicadores.Expresion;
-import Modelo.Indicadores.Expresiones;
 import Modelo.Indicadores.Indicador;
 import Modelo.Indicadores.Numero;
 import Modelo.Indicadores.Query;
-import org.junit.Test;
 
 @RunWith(Theories.class)
 public class TemplateTestIndicadores {
@@ -56,7 +59,7 @@ public class TemplateTestIndicadores {
 	public static Query consulta = consultar(empresa, periodo2001);
 
 	@DataPoints
-	public static Expresiones[] numerosReales = { natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa };
+	public static Expresion[] numerosReales = { natural, uno, cero, entero, realNegativo, realPositivo, ebitda, xd, roe, roa };
 
 	public static BigDecimal evaluar(Expresion unaExpresion) {
 		return unaExpresion.calcular(consulta);

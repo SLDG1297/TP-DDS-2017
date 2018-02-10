@@ -6,7 +6,7 @@ import org.junit.Test;
 import static Factories.FactoryNumero.crearNumero;
 import static Factories.FactoryOperaciones.dividir;
 
-import Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
+import Modelo.Excepciones.Indicadores.NoSePuedeDividirPorCeroException;
 import Modelo.Indicadores.Division;
 import Modelo.Indicadores.Numero;
 

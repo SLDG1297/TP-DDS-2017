@@ -4,15 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import DB.TipoDeRepositorio;
-import Modelo.Metodologias.Condiciones.Condiciones;
-import Modelo.Empresa.Empresa;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-import javax.persistence.*;
+import DB.TiposDeRepositorios.ElementoPrivado;
+import Modelo.Empresa.Empresa;
+import Modelo.Metodologias.Condiciones.Condiciones;
+import Modelo.Usuarios.Usuario;
 
 @Entity
 @Table(name = "metodologia")
-public class Metodologia implements TipoDeRepositorio {
+public class Metodologia implements ElementoPrivado {
 
 	@Id
 	@GeneratedValue
@@ -26,19 +35,55 @@ public class Metodologia implements TipoDeRepositorio {
 	@JoinColumn(name = "metodologia_fk_id",  referencedColumnName = "metolodogia_id")
 	private List<Condiciones> listaCondiciones = new ArrayList<Condiciones>();
 	
-	//Para crearse debe tener al menos una condicion, no se como afectara esto en la vista
-	//Supongo que haran un builder, seria lo mas logico asi no cambian el modelo
-	public Metodologia(String nombre, Condiciones condicion) {
-		this.nombre = nombre;
-		this.addCondicion(condicion);
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario_fk_id")
+	private Usuario usuario;
+	
+	public Metodologia(String nombre, Usuario usuario, List<Condiciones> condiciones){
+		this.setUsuario(usuario);
+		this.setNombre(nombre);
+		this.setListaCondiciones(condiciones);
 	}
 	
 	public Metodologia(String nombre, List<Condiciones> condiciones){
-		this.nombre = nombre;
-		this.listaCondiciones = condiciones;
+		this.setNombre(nombre);
+		this.setListaCondiciones(condiciones);
+	}
+	
+	public Metodologia(String nombre, Condiciones condicion) {
+		this.setNombre(nombre);
+		this.addCondicion(condicion);
 	}
 
-	public Metodologia() {
+	@SuppressWarnings("unused")
+	private Metodologia() {}
+	
+	public long getId_metodologia() {
+		return id_metodologia;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public List<Condiciones> getListaCondiciones() {
+		return listaCondiciones;
+	}
+	
+	public void setListaCondiciones(List<Condiciones> listaCondiciones) {
+		this.listaCondiciones = listaCondiciones;
 	}
 
 	public void addCondicion(Condiciones condicion){
@@ -49,16 +94,8 @@ public class Metodologia implements TipoDeRepositorio {
 		return listaCondiciones.stream().allMatch(condicion -> condicion.cumple(empresa));
 	}
 	
-	public String mostrarCadena() {
+	public String getCadena() {
 		return String.join(" && ", listaCondiciones.stream().map(c -> c.mostrarCadena()).collect(Collectors.toList()));
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public List<Condiciones> getListaCondiciones() {
-		return listaCondiciones;
 	}
 
 }

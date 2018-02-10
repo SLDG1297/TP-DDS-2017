@@ -3,6 +3,7 @@ package Archivo.Empresa;
 import java.util.List;
 import Archivo.FileCleaner;
 import Archivo.LectorDeArchivos;
+import Archivo.Empresa.Excepciones.CSVSinEmpresasException;
 import DB.Repositorios.RepositorioEmpresas;
 import Modelo.Empresa.Empresa;
 
@@ -13,8 +14,12 @@ import java.util.ArrayList;
 public class Instanciador_Bolsa_Empresas {
 	
 	public void instanciar() throws IOException {
-	    RepositorioEmpresas.getInstancia().agregarListaDeObjetos(this.obtenerEmpresas());
-	    this.vaciarCsv();
+		try
+		{
+			RepositorioEmpresas.getInstancia().agregarListaDeObjetos(this.obtenerEmpresas());
+	    	this.vaciarCsv();
+		}
+		catch(CSVSinEmpresasException e){}
 	}
 
 	private List<Empresa> obtenerEmpresas() throws IOException {
@@ -27,6 +32,8 @@ public class Instanciador_Bolsa_Empresas {
 		CSVParser miParser = new CSVParser(",");
 		List<Empresa> misEmpresas = new ArrayList<Empresa>();
 		misEmpresas = miParser.parse(stream);
+		
+		if(misEmpresas.isEmpty()) throw new CSVSinEmpresasException();
 		
 		return misEmpresas;
 	}

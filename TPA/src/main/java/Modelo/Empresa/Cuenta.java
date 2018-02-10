@@ -1,13 +1,11 @@
 package Modelo.Empresa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import Modelo.Excepciones.Empresas.CuentaConValorNegativoException;
+import Modelo.Excepciones.Empresas.CuentaSinNombreException;
+
 import org.uqbar.commons.utils.Observable;
-import Excepciones.Empresas.CuentaConValorNegativoException;
-import Excepciones.Empresas.CuentaSinNombreException;
-import javax.persistence.Table;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 @Observable
@@ -34,16 +32,20 @@ public class Cuenta {
 	}
 
 	public Cuenta(String nuevoNombre) {
-		this.setNombre(nombre);
+		this.setNombre(nuevoNombre);
+	}
+	
+	public long getId() {
+		return Id;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
-		if(nombre == "") throw new CuentaSinNombreException();
-		this.nombre = nombre;
+	public void setNombre(String nuevoNombre) {
+		if(nuevoNombre.equals("")) throw new CuentaSinNombreException();
+		this.nombre = nuevoNombre;
 	}
 
 	public Integer getValor() {
@@ -53,6 +55,10 @@ public class Cuenta {
 	public void setValor(Integer valor) {
 		if(valor < 0) throw new CuentaConValorNegativoException();
 		this.valor = valor;
+	}
+
+	public void actualizar(Integer valorNuevo) {
+		this.setValor(valorNuevo);
 	}
 
 

@@ -6,6 +6,7 @@ import static Factories.FactoryIndicador.crearIndicador;
 import static Factories.FactoryNumero.crearNumero;
 import static Factories.FactoryOperaciones.*;
 import static Factories.FactoryPeriodo.crearPeriodo;
+
 import static Factories.FactoryCondiciones.*;
 import static Factories.FactoryMetodologia.*;
 
@@ -22,23 +23,23 @@ import Modelo.Metodologias.Metodologia;
 import Modelo.Metodologias.Condiciones.Condiciones;
 
 public class TemplateTestComparadores {
-	static Cuenta_Indicadores xd, dx, ja;
+	public static Cuenta_Indicadores xd, dx, ja;
 	
-	static Cuenta xd2006a, xd2007a, xd2008a, dx2007a, dx2008a, ja2008a;
-	static Cuenta xd2007b, xd2008b, dx2008b, ja2008b;
-	static Cuenta ja2008c;
+	public static Cuenta xd2006a, xd2007a, xd2008a, dx2007a, dx2008a, ja2008a;
+	public static Cuenta xd2007b, xd2008b, dx2008b, ja2008b;
+	public static Cuenta ja2008c;
 	
-	static Periodo periodo2006a, periodo2007a, periodo2008a;
-	static Periodo periodo2006b, periodo2007b, periodo2008b;
-	static Periodo periodo2008c;
+	public static Periodo periodo2006a, periodo2007a, periodo2008a;
+	public static Periodo periodo2006b, periodo2007b, periodo2008b;
+	public static Periodo periodo2008c;
 	
-	static Empresa a, b, c;
+	public static Empresa a, b, c;
 	
-	static Indicador xxxd, dxxx, jajaja, estaSiOSi;
+	public static Indicador xxxd, dxxx, jajaja, estaSiOSi;
 	
-	static Condiciones mayor, promedio, sumatoria, estaNoLaCumpleNadie, estaLaCumplenTodos, unaSeguraParaTodos, unaImposibleParaTodos, unaTriste;
+	public static Condiciones mayor, promedio, sumatoria, estaNoLaCumpleNadie, estaLaCumplenTodos, unaSeguraParaTodos, unaImposibleParaTodos, unaTriste;
 	
-	static Metodologia autosuperacion, imposible, seguro, seguroParaTodos, imposibleParaTodos, muyTriste;
+	public static Metodologia autosuperacion, imposible, seguro, seguroParaTodos, imposibleParaTodos, muyTriste;
 	
 	@Before
 	public void iniciarTodo() {

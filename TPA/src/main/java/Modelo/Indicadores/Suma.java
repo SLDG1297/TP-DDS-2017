@@ -1,18 +1,14 @@
 package Modelo.Indicadores;
 
 import java.math.BigDecimal;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "suma")
 public class Suma extends Operacion {
 
-	public Suma(Expresiones valorA) {
+	public Suma(Expresion valorA) {
 		super(valorA);
 	}
 	
-	public Suma(Expresiones valorA, Expresiones valorB) {
+	public Suma(Expresion valorA, Expresion valorB) {
 		super(valorA, valorB);
 	}
 	

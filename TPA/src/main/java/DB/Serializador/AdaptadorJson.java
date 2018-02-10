@@ -1,14 +1,15 @@
 package DB.Serializador;
 
-import Modelo.Indicadores.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import Modelo.Indicadores.*;
+
 public class AdaptadorJson {
 
-    private RuntimeTypeAdapterFactory<Expresiones> adapter(){
-        RuntimeTypeAdapterFactory<Expresiones> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
-                .of(Expresiones.class, "type")
+    private RuntimeTypeAdapterFactory<Expresion> adapter(){
+        RuntimeTypeAdapterFactory<Expresion> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
+                .of(Expresion.class, "type")
                 .registerSubtype(Numero.class, "Numero")
                 .registerSubtype(Cuenta_Indicadores.class, "Cuenta")
                 .registerSubtype(Operacion.class, "Operacion")
